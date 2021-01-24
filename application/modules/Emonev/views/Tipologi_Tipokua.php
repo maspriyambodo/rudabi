@@ -4,14 +4,14 @@ $tipo = json_decode($data);
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tipologi KUA: <?= $param[0]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tipologi KUA: <?php echo $param[0]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Emonev/Tipologi/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Emonev/Tipologi/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -38,22 +38,22 @@ $tipo = json_decode($data);
                                 ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->kodekua; ?>
+                                <?php echo $value->kodekua; ?>
                             </td>
                             <td>
-                                <?= $value->kabupaten; ?>
+                                <?php echo $value->kabupaten; ?>
                             </td>
                             <td>
-                                <?= $value->kua; ?>
+                                <?php echo $value->kua; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->tipokua; ?>
+                                <?php echo $value->tipokua; ?>
                             </td>
                             <td class="text-center">
-                                <?= date("d F Y", strtotime($value->tgl)); ?>
+                                <?php echo date("d F Y", strtotime($value->tgl)); ?>
                             </td>
                             <td>
-                                <?= $value->alamat; ?>
+                                <?php echo $value->alamat; ?>
                             </td>
                         </tr>
                     <?php } ?>

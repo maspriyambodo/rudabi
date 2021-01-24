@@ -135,51 +135,51 @@ $s = 0; // nikah_nonterlaksana
                                 ?>
                             </td>
                             <td style="text-align:left;">
-                                <?= '<a href="' . base_url('Users/BKKS/Peristiwa/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->city_province . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?>
+                                <?php echo '<a href="' . base_url('Users/BKKS/Peristiwa/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->city_province . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?>
                             </td>
-                            <td><?= number_format($b->dt_nikah); ?></td>
-                            <td><?= $b->rt_usia_pria; ?></td>
-                            <td><?= $b->rt_usia_wanita; ?></td>
-                            <td><?= $b->pddk_sd_pria; ?></td>
-                            <td><?= $b->pddk_smp_pria; ?></td>
-                            <td><?= $b->pddk_sma_pria; ?></td>
-                            <td><?= $b->pddk_s1_pria; ?></td>
-                            <td><?= $b->pddk_s2_pria; ?></td>
-                            <td><?= $b->pddk_s3_pria; ?></td>
-                            <td><?= $b->pddk_sd_wanita; ?></td>
-                            <td><?= $b->pddk_smp_wanita; ?></td>
-                            <td><?= $b->pddk_sma_wanita; ?></td>
-                            <td><?= $b->pddk_s1_wanita; ?></td>
-                            <td><?= $b->pddk_s2_wanita; ?></td>
-                            <td><?= $b->pddk_s3_wanita; ?></td>
-                            <td><?= $b->nikah_kantor; ?></td>
-                            <td><?= $b->nikah_nonkantor; ?></td>
-                            <td><?= $b->nikah_terlaksana; ?></td>
-                            <td><?= $b->nikah_nonterlaksana; ?></td>
+                            <td><?php echo number_format($b->dt_nikah); ?></td>
+                            <td><?php echo $b->rt_usia_pria; ?></td>
+                            <td><?php echo $b->rt_usia_wanita; ?></td>
+                            <td><?php echo $b->pddk_sd_pria; ?></td>
+                            <td><?php echo $b->pddk_smp_pria; ?></td>
+                            <td><?php echo $b->pddk_sma_pria; ?></td>
+                            <td><?php echo $b->pddk_s1_pria; ?></td>
+                            <td><?php echo $b->pddk_s2_pria; ?></td>
+                            <td><?php echo $b->pddk_s3_pria; ?></td>
+                            <td><?php echo $b->pddk_sd_wanita; ?></td>
+                            <td><?php echo $b->pddk_smp_wanita; ?></td>
+                            <td><?php echo $b->pddk_sma_wanita; ?></td>
+                            <td><?php echo $b->pddk_s1_wanita; ?></td>
+                            <td><?php echo $b->pddk_s2_wanita; ?></td>
+                            <td><?php echo $b->pddk_s3_wanita; ?></td>
+                            <td><?php echo $b->nikah_kantor; ?></td>
+                            <td><?php echo $b->nikah_nonkantor; ?></td>
+                            <td><?php echo $b->nikah_terlaksana; ?></td>
+                            <td><?php echo $b->nikah_nonterlaksana; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th colspan="2">Total</th>
-                        <th><?= number_format($c); ?></th>
+                        <th><?php echo number_format($c); ?></th>
                         <th colspan="2">rata-rata usia</th>
-                        <th><?= number_format($d); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
-                        <th><?= number_format($l); ?></th>
-                        <th><?= number_format($m); ?></th>
-                        <th><?= number_format($n); ?></th>
-                        <th><?= number_format($o); ?></th>
-                        <th><?= number_format($p); ?></th>
-                        <th><?= number_format($q); ?></th>
-                        <th><?= number_format($r); ?></th>
-                        <th><?= number_format($s); ?></th>
+                        <th><?php echo number_format($d); ?></th>
+                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($f); ?></th>
+                        <th><?php echo number_format($g); ?></th>
+                        <th><?php echo number_format($h); ?></th>
+                        <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
+                        <th><?php echo number_format($l); ?></th>
+                        <th><?php echo number_format($m); ?></th>
+                        <th><?php echo number_format($n); ?></th>
+                        <th><?php echo number_format($o); ?></th>
+                        <th><?php echo number_format($p); ?></th>
+                        <th><?php echo number_format($q); ?></th>
+                        <th><?php echo number_format($r); ?></th>
+                        <th><?php echo number_format($s); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -229,7 +229,7 @@ $s = 0; // nikah_nonterlaksana
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

@@ -60,8 +60,8 @@
             $msgs = "hidden";
         }
         ?>
-        <p <?= $msgs; ?>>{msg}</p>
-        <div class="table-responsive" <?= $hide; ?>>
+        <p <?php echo $msgs; ?>>{msg}</p>
+        <div class="table-responsive" <?php echo $hide; ?>>
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
@@ -169,15 +169,15 @@
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th><?= number_format($totjum_kabkot); ?></th>
-                        <th><?= number_format($totjum_kua); ?></th>
-                        <th><?= number_format($totluas_tanah); ?></th>
-                        <th><?= number_format($totpenghapusan_gedung); ?></th>
-                        <th><?= number_format($tottanah_kosong); ?></th>
-                        <th><?= number_format($totperluasan_bangunan); ?></th>
-                        <th><?= number_format($totnilai_dipa); ?></th>
-                        <th><?= number_format($totstatus_pending); ?></th>
-                        <th><?= number_format($totstatus_req_approve); ?></th>
+                        <th><?php echo number_format($totjum_kabkot); ?></th>
+                        <th><?php echo number_format($totjum_kua); ?></th>
+                        <th><?php echo number_format($totluas_tanah); ?></th>
+                        <th><?php echo number_format($totpenghapusan_gedung); ?></th>
+                        <th><?php echo number_format($tottanah_kosong); ?></th>
+                        <th><?php echo number_format($totperluasan_bangunan); ?></th>
+                        <th><?php echo number_format($totnilai_dipa); ?></th>
+                        <th><?php echo number_format($totstatus_pending); ?></th>
+                        <th><?php echo number_format($totstatus_req_approve); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -219,7 +219,7 @@
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
@@ -276,11 +276,11 @@
             chart.data = [
                 {
                     country: "Status Pending",
-                    litres: <?= $totstatus_pending; ?>
+                    litres: <?php echo $totstatus_pending; ?>
                 },
                 {
                     country: "Status Approved",
-                    litres: <?= $totstatus_req_approve; ?>
+                    litres: <?php echo $totstatus_req_approve; ?>
                 }
             ];
 

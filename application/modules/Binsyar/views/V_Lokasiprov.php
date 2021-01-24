@@ -10,7 +10,7 @@
     <div class="card-header">
         <div class="card-title">
             <div class="text-uppercase">
-                <a href="<?= base_url('Binsyar/Lokasi/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+                <a href="<?php echo base_url('Binsyar/Lokasi/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
             </div>
         </div>
     </div>

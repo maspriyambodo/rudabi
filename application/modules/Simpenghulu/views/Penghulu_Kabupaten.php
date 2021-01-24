@@ -33,7 +33,7 @@ $x = 0; //dt_s3
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Simpenghulu/Penghulu/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Simpenghulu/Penghulu/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -152,56 +152,56 @@ $x = 0; //dt_s3
                                 echo '<a href="' . base_url('Simpenghulu/Penghulu/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))) . '" title="Detail Data ' . $b->city_title . '">' . $b->city_title . '</a>';
                                 ?>
                             </td>
-                            <td><?= $b->dt_penghulu; ?></td>
-                            <td><?= $b->dt_1a; ?></td>
-                            <td><?= $b->dt_1b; ?></td>
-                            <td><?= $b->dt_1c; ?></td>
-                            <td><?= $b->dt_1d; ?></td>
-                            <td><?= $b->dt_2a; ?></td>
-                            <td><?= $b->dt_2b; ?></td>
-                            <td><?= $b->dt_2c; ?></td>
-                            <td><?= $b->dt_2d; ?></td>
-                            <td><?= $b->dt_3a; ?></td>
-                            <td><?= $b->dt_3b; ?></td>
-                            <td><?= $b->dt_3c; ?></td>
-                            <td><?= $b->dt_3d; ?></td>
-                            <td><?= $b->dt_4a; ?></td>
-                            <td><?= $b->dt_4b; ?></td>
-                            <td><?= $b->dt_4c; ?></td>
-                            <td><?= $b->dt_4d; ?></td>
-                            <td><?= $b->dt_4e; ?></td>
-                            <td><?= $b->dt_sma; ?></td>
-                            <td><?= $b->dt_s1; ?></td>
-                            <td><?= $b->dt_s2; ?></td>
-                            <td><?= $b->dt_s3; ?></td>
+                            <td><?php echo $b->dt_penghulu; ?></td>
+                            <td><?php echo $b->dt_1a; ?></td>
+                            <td><?php echo $b->dt_1b; ?></td>
+                            <td><?php echo $b->dt_1c; ?></td>
+                            <td><?php echo $b->dt_1d; ?></td>
+                            <td><?php echo $b->dt_2a; ?></td>
+                            <td><?php echo $b->dt_2b; ?></td>
+                            <td><?php echo $b->dt_2c; ?></td>
+                            <td><?php echo $b->dt_2d; ?></td>
+                            <td><?php echo $b->dt_3a; ?></td>
+                            <td><?php echo $b->dt_3b; ?></td>
+                            <td><?php echo $b->dt_3c; ?></td>
+                            <td><?php echo $b->dt_3d; ?></td>
+                            <td><?php echo $b->dt_4a; ?></td>
+                            <td><?php echo $b->dt_4b; ?></td>
+                            <td><?php echo $b->dt_4c; ?></td>
+                            <td><?php echo $b->dt_4d; ?></td>
+                            <td><?php echo $b->dt_4e; ?></td>
+                            <td><?php echo $b->dt_sma; ?></td>
+                            <td><?php echo $b->dt_s1; ?></td>
+                            <td><?php echo $b->dt_s2; ?></td>
+                            <td><?php echo $b->dt_s3; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th colspan="2">jumlah</th>
-                        <th><?= number_format($c); ?></th>
-                        <th><?= number_format($d); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
-                        <th><?= number_format($l); ?></th>
-                        <th><?= number_format($m); ?></th>
-                        <th><?= number_format($n); ?></th>
-                        <th><?= number_format($o); ?></th>
-                        <th><?= number_format($p); ?></th>
-                        <th><?= number_format($q); ?></th>
-                        <th><?= number_format($r); ?></th>
-                        <th><?= number_format($s); ?></th>
-                        <th><?= number_format($t); ?></th>
-                        <th><?= number_format($u); ?></th>
-                        <th><?= number_format($v); ?></th>
-                        <th><?= number_format($w); ?></th>
-                        <th><?= number_format($x); ?></th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($d); ?></th>
+                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($f); ?></th>
+                        <th><?php echo number_format($g); ?></th>
+                        <th><?php echo number_format($h); ?></th>
+                        <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
+                        <th><?php echo number_format($l); ?></th>
+                        <th><?php echo number_format($m); ?></th>
+                        <th><?php echo number_format($n); ?></th>
+                        <th><?php echo number_format($o); ?></th>
+                        <th><?php echo number_format($p); ?></th>
+                        <th><?php echo number_format($q); ?></th>
+                        <th><?php echo number_format($r); ?></th>
+                        <th><?php echo number_format($s); ?></th>
+                        <th><?php echo number_format($t); ?></th>
+                        <th><?php echo number_format($u); ?></th>
+                        <th><?php echo number_format($v); ?></th>
+                        <th><?php echo number_format($w); ?></th>
+                        <th><?php echo number_format($x); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -214,11 +214,11 @@ $z = $h + $i + $j + $k; //total golongan II
 $aa = $l + $m + $n + $o; //total golongan III
 $ab = $p + $q + $r + $s + $t; //total golongan IV
 ?>
-<input type="hidden" name="dt_penghulu" readonly="" value="<?= number_format($c); ?>"/>
-<input type="hidden" name="y" readonly="" value="<?= number_format($y); ?>"/>
-<input type="hidden" name="z" readonly="" value="<?= number_format($z); ?>"/>
-<input type="hidden" name="aa" readonly="" value="<?= number_format($aa); ?>"/>
-<input type="hidden" name="ab" readonly="" value="<?= number_format($ab); ?>"/>
+<input type="hidden" name="dt_penghulu" readonly="" value="<?php echo number_format($c); ?>"/>
+<input type="hidden" name="y" readonly="" value="<?php echo number_format($y); ?>"/>
+<input type="hidden" name="z" readonly="" value="<?php echo number_format($z); ?>"/>
+<input type="hidden" name="aa" readonly="" value="<?php echo number_format($aa); ?>"/>
+<input type="hidden" name="ab" readonly="" value="<?php echo number_format($ab); ?>"/>
 <script>
     window.onload = function () {
         document.getElementById('title_chartdiv').innerText = "Total Data Penghulu: " + $('input[name="dt_penghulu"]').val();
@@ -226,7 +226,7 @@ $ab = $p + $q + $r + $s + $t; //total golongan IV
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

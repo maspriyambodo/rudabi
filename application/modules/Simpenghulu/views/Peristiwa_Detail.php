@@ -2,14 +2,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Peristiwa Nikah <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Peristiwa Nikah <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Simpenghulu/Peristiwa/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Simpenghulu/Peristiwa/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -44,19 +44,19 @@
                 <tbody>
                     <?php foreach ($a as $b) { ?>
                         <tr>
-                            <td><?= $b->nikah_nama_pria; ?></td>
-                            <td class="text-center"><?= $b->nikah_pddk_pria; ?></td>
-                            <td class="text-center"><?= $b->nikah_usia_pria; ?></td>
-                            <td><?= $b->nikah_nama_wanita; ?></td>
-                            <td class="text-center"><?= $b->nikah_pddk_wanita; ?></td>
-                            <td class="text-center"><?= $b->nikah_usia_wanita; ?></td>
-                            <td class="text-center"><?= $b->nikah_tanggal; ?></td>
-                            <td><?= $b->kua_title; ?></td>
-                            <td class="text-center"><?= $b->nikah_tempat; ?></td>
-                            <td><?= $b->nikah_wali_nasab; ?></td>
-                            <td><?= $b->nikah_wali_hakim; ?></td>
-                            <td><?= $b->nikah_no_akte; ?></td>
-                            <td><?= $b->status; ?></td>
+                            <td><?php echo $b->nikah_nama_pria; ?></td>
+                            <td class="text-center"><?php echo $b->nikah_pddk_pria; ?></td>
+                            <td class="text-center"><?php echo $b->nikah_usia_pria; ?></td>
+                            <td><?php echo $b->nikah_nama_wanita; ?></td>
+                            <td class="text-center"><?php echo $b->nikah_pddk_wanita; ?></td>
+                            <td class="text-center"><?php echo $b->nikah_usia_wanita; ?></td>
+                            <td class="text-center"><?php echo $b->nikah_tanggal; ?></td>
+                            <td><?php echo $b->kua_title; ?></td>
+                            <td class="text-center"><?php echo $b->nikah_tempat; ?></td>
+                            <td><?php echo $b->nikah_wali_nasab; ?></td>
+                            <td><?php echo $b->nikah_wali_hakim; ?></td>
+                            <td><?php echo $b->nikah_no_akte; ?></td>
+                            <td><?php echo $b->status; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

@@ -79,7 +79,7 @@ $jml = 0;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $value->kategori; ?></td>
+                            <td><?php echo $value->kategori; ?></td>
                             <td>
                                 <?php
                                 $jml += $value->jml;
@@ -87,21 +87,21 @@ $jml = 0;
                                 ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('Emonev/Simkah/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->simkah . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Kategori <?= $value->kategori ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Simkah/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->simkah . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Kategori <?php echo $value->kategori ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="4">total data penggunaan simkah: <?= number_format($jml) ?></th>
+                        <th colspan="4">total data penggunaan simkah: <?php echo number_format($jml) ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="jml" value="<?= number_format($jml); ?>" readonly=""/>
+<input type="hidden" name="jml" value="<?php echo number_format($jml); ?>" readonly=""/>
 <script>
     window.onload = function () {
         var a = $('input[name=jml]').val();
@@ -111,7 +111,7 @@ $jml = 0;
             var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
             chart.hiddenState.properties.opacity = 0;
             chart.legend = new am4charts.Legend();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.innerRadius = 100;
             var series = chart.series.push(new am4charts.PieSeries3D());
             series.dataFields.value = "jml";
@@ -121,7 +121,7 @@ $jml = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

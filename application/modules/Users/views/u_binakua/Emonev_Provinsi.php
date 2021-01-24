@@ -2,14 +2,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data KUA Provinsi <?= $param[1] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data KUA Provinsi <?php echo $param[1] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/BKKS/Emonev/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/BKKS/Emonev/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -28,12 +28,12 @@
                 <tbody>
                     <?php foreach ($kua as $kua) { ?>
                         <tr>
-                            <td><?= $kua->propinsi; ?></td>
-                            <td><?= $kua->kabupaten; ?></td>
-                            <td><?= $kua->kepala; ?></td>
-                            <td><?= $kua->kua; ?></td>
-                            <td><?= $kua->alamat; ?></td>
-                            <td><?= $kua->tlp; ?></td>
+                            <td><?php echo $kua->propinsi; ?></td>
+                            <td><?php echo $kua->kabupaten; ?></td>
+                            <td><?php echo $kua->kepala; ?></td>
+                            <td><?php echo $kua->kua; ?></td>
+                            <td><?php echo $kua->alamat; ?></td>
+                            <td><?php echo $kua->tlp; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

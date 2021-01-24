@@ -2,14 +2,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Masjid Kecamatan <?= $param[5] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Masjid Kecamatan <?php echo $param[5] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -41,20 +41,20 @@
                 <tbody>
                     <?php foreach ($a as $b) { ?>
                         <tr>
-                            <td><?= $b->masjid_name; ?></td>
-                            <td class="text-center"><?= $b->tahun; ?></td>
-                            <td><?= $b->masjid_address; ?></td>
-                            <td class="text-center"><?= $b->masjid_phone; ?></td>
-                            <td class="text-center"><?= $b->masjid_email; ?></td>
-                            <td class="text-center"><?= $b->masjid_tanah; ?></td>
-                            <td class="text-center"><?= $b->masjid_bangunan; ?></td>
-                            <td class="text-center"><?= $b->jamaah; ?></td>
-                            <td class="text-center"><?= $b->imam; ?></td>
-                            <td class="text-center"><?= $b->khatib; ?></td>
-                            <td class="text-center"><?= $b->muazin; ?></td>
-                            <td class="text-center"><?= $b->remaja; ?></td>
-                            <td class="text-center"><?= $b->masjid_lat; ?></td>
-                            <td class="text-center"><?= $b->masjid_long; ?></td>
+                            <td><?php echo $b->masjid_name; ?></td>
+                            <td class="text-center"><?php echo $b->tahun; ?></td>
+                            <td><?php echo $b->masjid_address; ?></td>
+                            <td class="text-center"><?php echo $b->masjid_phone; ?></td>
+                            <td class="text-center"><?php echo $b->masjid_email; ?></td>
+                            <td class="text-center"><?php echo $b->masjid_tanah; ?></td>
+                            <td class="text-center"><?php echo $b->masjid_bangunan; ?></td>
+                            <td class="text-center"><?php echo $b->jamaah; ?></td>
+                            <td class="text-center"><?php echo $b->imam; ?></td>
+                            <td class="text-center"><?php echo $b->khatib; ?></td>
+                            <td class="text-center"><?php echo $b->muazin; ?></td>
+                            <td class="text-center"><?php echo $b->remaja; ?></td>
+                            <td class="text-center"><?php echo $b->masjid_lat; ?></td>
+                            <td class="text-center"><?php echo $b->masjid_long; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

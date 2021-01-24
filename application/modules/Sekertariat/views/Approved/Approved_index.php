@@ -14,7 +14,7 @@ if ($msg == false) {
         </div>
     </div>
 </div>
-<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
+<div class="card card-custom" data-card="true" id="kt_card_1" <?php echo $msgs; ?>>
     <div class="card-header">
         <div class="card-title">
             Data Approved per Provinsi
@@ -32,8 +32,8 @@ if ($msg == false) {
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;" <?= $msgs; ?>></div>
-<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
+<div class="clear" style="margin:5% 0px;" <?php echo $msgs; ?>></div>
+<div class="card card-custom" data-card="true" id="kt_card_1" <?php echo $msgs; ?>>
     <div class="card-header">
         <div class="card-title">
             Data Status Bangunan
@@ -48,7 +48,7 @@ if ($msg == false) {
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
 </div>
-<div class="clear" style="margin:5% 0px;" <?= $msgs; ?>></div>
+<div class="clear" style="margin:5% 0px;" <?php echo $msgs; ?>></div>
 <div class="card card-custom">
     <div class="card-body">
         <div class="form-group row">
@@ -71,7 +71,7 @@ if ($msg == false) {
         </div>
         <hr>
         <p>{msg}</p>
-        <div class="table-responsive" <?= $msgs; ?>>
+        <div class="table-responsive" <?php echo $msgs; ?>>
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
@@ -151,12 +151,12 @@ if ($msg == false) {
                         <th>
                             jumlah
                         </th>
-                        <th><?= number_format($totjum_kabkot); ?></th>
-                        <th><?= number_format($totluas_tanah); ?></th>
-                        <th><?= number_format($totpenghapusan_gedung); ?></th>
-                        <th><?= number_format($tottanah_kosong); ?></th>
-                        <th><?= number_format($totperluasan_bangunan); ?></th>
-                        <th><?= number_format($totnilai_dipa); ?></th>
+                        <th><?php echo number_format($totjum_kabkot); ?></th>
+                        <th><?php echo number_format($totluas_tanah); ?></th>
+                        <th><?php echo number_format($totpenghapusan_gedung); ?></th>
+                        <th><?php echo number_format($tottanah_kosong); ?></th>
+                        <th><?php echo number_format($totperluasan_bangunan); ?></th>
+                        <th><?php echo number_format($totnilai_dipa); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -169,7 +169,7 @@ if ($msg == false) {
         return window.location.href = "Sekertariat/Approved/index?key=" + a;
     }
     window.onload = function () {
-        document.getElementById('title_chartdiv').innerText = "Total Data Approved " + <?= $totjum_kabkot; ?>;
+        document.getElementById('title_chartdiv').innerText = "Total Data Approved " + <?php echo $totjum_kabkot; ?>;
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
@@ -196,7 +196,7 @@ if ($msg == false) {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
@@ -242,15 +242,15 @@ if ($msg == false) {
             chart.data = [
                 {
                     "country": "Penghapusan Gedung",
-                    "litres": <?= $totpenghapusan_gedung; ?>
+                    "litres": <?php echo $totpenghapusan_gedung; ?>
                 },
                 {
                     "country": "Tanah Kosong",
-                    "litres": <?= $tottanah_kosong; ?>
+                    "litres": <?php echo $tottanah_kosong; ?>
                 },
                 {
                     "country": "Perluasan Bangunan",
-                    "litres": <?= $totperluasan_bangunan; ?>
+                    "litres": <?php echo $totperluasan_bangunan; ?>
                 }
             ];
 

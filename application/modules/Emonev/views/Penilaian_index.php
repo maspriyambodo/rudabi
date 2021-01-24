@@ -5,7 +5,7 @@ foreach ($tahun as $value) {
     $tot += $value->jum;
 }
 ?>
-<input type="hidden" name="tot" value="<?= number_format($tot); ?>"/>
+<input type="hidden" name="tot" value="<?php echo number_format($tot); ?>"/>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -63,17 +63,17 @@ foreach ($tahun as $value) {
                                 echo $id++;
                                 ?>
                             </td>
-                            <td>Tahun <?= $dt_tahun->tahun; ?></td>
-                            <td><?= number_format($dt_tahun->jum); ?></td>
+                            <td>Tahun <?php echo $dt_tahun->tahun; ?></td>
+                            <td><?php echo number_format($dt_tahun->jum); ?></td>
                             <td>
-                                <a href="<?= base_url('Emonev/Penilaian/Tahun?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tahun->tahun))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Penilaian Tahun <?= $dt_tahun->tahun; ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Penilaian/Tahun?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tahun->tahun))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Penilaian Tahun <?php echo $dt_tahun->tahun; ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3" style="border-bottom:1px solid #ecf0f3;">total data penilaian kua: <?= number_format($tot); ?></th>
+                        <th colspan="3" style="border-bottom:1px solid #ecf0f3;">total data penilaian kua: <?php echo number_format($tot); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -109,7 +109,7 @@ foreach ($tahun as $value) {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.paddingRight = 20;
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
             dateAxis.title.fontWeight = 800;

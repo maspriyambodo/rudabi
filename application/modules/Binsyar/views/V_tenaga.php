@@ -5,7 +5,7 @@ $c = 0;
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tenaga Ahli tahun <?= date('Y'); ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Tenaga Ahli tahun <?php echo date('Y'); ?></h5>
         </div>
     </div>
 </div>
@@ -64,8 +64,8 @@ $c = 0;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $b->province_title; ?></td>
-                            <td class="text-center"><?= $b->jum_ahli; ?></td>
+                            <td><?php echo $b->province_title; ?></td>
+                            <td class="text-center"><?php echo $b->jum_ahli; ?></td>
                             <td class="text-center">
                                 <?php
                                 if (!isset($b->province_title)) {
@@ -80,7 +80,7 @@ $c = 0;
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">Total Tenaga Ahli <?= number_format($c); ?></th>
+                        <th colspan="3">Total Tenaga Ahli <?php echo number_format($c); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -118,7 +118,7 @@ $c = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';

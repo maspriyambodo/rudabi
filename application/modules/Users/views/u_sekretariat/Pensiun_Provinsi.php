@@ -23,14 +23,14 @@ $tanpa_golongan = 0;
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Mutasi Provinsi: <?= $param[1] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Mutasi Provinsi: <?php echo $param[1] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Sekretariat/Pensiun/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Sekretariat/Pensiun/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -283,24 +283,24 @@ $tanpa_golongan = 0;
                 <tfoot class = "text-center text-uppercase">
                     <tr>
                         <td>jumlah</td>
-                        <td><?= $ia ?></td>
-                        <td><?= $ib ?></td>
-                        <td><?= $ic ?></td>
-                        <td><?= $id ?></td>
-                        <td><?= $iia ?></td>
-                        <td><?= $iib ?></td>
-                        <td><?= $iic ?></td>
-                        <td><?= $iid ?></td>
-                        <td><?= $iiia ?></td>
-                        <td><?= $iiib ?></td>
-                        <td><?= $iiic ?></td>
-                        <td><?= $iiid ?></td>
-                        <td><?= $iva ?></td>
-                        <td><?= $ivb ?></td>
-                        <td><?= $ivc ?></td>
-                        <td><?= $ivd ?></td>
-                        <td><?= $ive ?></td>
-                        <td><?= $tanpa_golongan ?></td>
+                        <td><?php echo $ia ?></td>
+                        <td><?php echo $ib ?></td>
+                        <td><?php echo $ic ?></td>
+                        <td><?php echo $id ?></td>
+                        <td><?php echo $iia ?></td>
+                        <td><?php echo $iib ?></td>
+                        <td><?php echo $iic ?></td>
+                        <td><?php echo $iid ?></td>
+                        <td><?php echo $iiia ?></td>
+                        <td><?php echo $iiib ?></td>
+                        <td><?php echo $iiic ?></td>
+                        <td><?php echo $iiid ?></td>
+                        <td><?php echo $iva ?></td>
+                        <td><?php echo $ivb ?></td>
+                        <td><?php echo $ivc ?></td>
+                        <td><?php echo $ivd ?></td>
+                        <td><?php echo $ive ?></td>
+                        <td><?php echo $tanpa_golongan ?></td>
                     </tr>
                 </tfoot>
             </table>

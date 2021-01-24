@@ -1,6 +1,6 @@
 <div class="card card-custom">
     <div class="card-body">
-        <form action="<?= base_url('Auth/Management_save'); ?>" method="post">
+        <form action="<?php echo base_url('Auth/Management_save'); ?>" method="post">
             <div class="table-responsive">
                 <table class="table table-bordered table-hover table-striped">
                     <thead class="text-center text-uppercase">
@@ -31,17 +31,17 @@
                                 new
                             </td>
                             <td class="text-center">
-                                <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
+                                <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
                                 <button type="submit" class="btn btn-icon btn-success btn-xs"><i class="fas fa-save"></i></button>
                             </td>
                         </tr>
                         <?php foreach ($user as $user_data) { ?>
                             <tr>
                                 <td>
-                                    <?= $user_data->uname; ?>
+                                    <?php echo $user_data->uname; ?>
                                 </td>
                                 <td>
-                                    <?= $user_data->nama; ?>
+                                    <?php echo $user_data->nama; ?>
                                 </td>
                                 <td class="text-center">
                                     <?php
@@ -55,8 +55,8 @@
                                 <td class="text-center">
                                     <div class="btn-group">
                                         <?php $id_user = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($user_data->id)); ?>
-                                        <button type="button" class="btn btn-icon btn-default btn-xs" title="Reset password to default" data-toggle="modal" data-target="#rstpwdmodal" onclick="Resetpwd('<?= $id_user ?>')"><i class="fas fa-key"></i></button>
-                                        <button type="button" class="btn btn-icon btn-warning btn-xs" title="Edit data" data-toggle="modal" data-target="#Editmodal" onclick="Edit('<?= $id_user ?>')"><i class="fas fa-pencil-alt"></i></button>
+                                        <button type="button" class="btn btn-icon btn-default btn-xs" title="Reset password to default" data-toggle="modal" data-target="#rstpwdmodal" onclick="Resetpwd('<?php echo $id_user ?>')"><i class="fas fa-key"></i></button>
+                                        <button type="button" class="btn btn-icon btn-warning btn-xs" title="Edit data" data-toggle="modal" data-target="#Editmodal" onclick="Edit('<?php echo $id_user ?>')"><i class="fas fa-pencil-alt"></i></button>
                                         <?php
                                         if ($user_data->stat == 1) {
                                             echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus(&apos;'. $id_user .'&apos;)"><i class="fas fa-trash"></i></button>';
@@ -80,11 +80,11 @@
             <div class="modal-header">
                 <h4 class="modal-title text-center text-uppercase">Reset Password</h4>
             </div>
-            <form method="POST" action="<?= base_url('Auth/Reset/'); ?>">
+            <form method="POST" action="<?php echo base_url('Auth/Reset/'); ?>">
                 <div class="modal-body">
                     <p class="text-warning" id="r_warning"></p>
                     <input type="hidden" name="r_id" readonly=""/>
-                    <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
+                    <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
                 </div>
                 <div class="modal-footer">
                     <div class="btn-group">
@@ -102,7 +102,7 @@
             <div class="modal-header">
                 <h4 class="modal-title text-center text-uppercase">edit data user</h4>
             </div>
-            <form method="post" action="<?= base_url('Auth/Management_Update/'); ?>">
+            <form method="post" action="<?php echo base_url('Auth/Management_Update/'); ?>">
                 <div class="modal-body">
                     <div class="form-group">
                         <label class="text-uppercase">Username</label>
@@ -123,7 +123,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="text-center">
-                        <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
+                        <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
                         <div class="btn-group">
                             <button type="button" class="btn btn-danger text-uppercase" data-dismiss="modal">cancel</button>
                             <button type="submit" class="btn btn-success text-uppercase">update</button>
@@ -140,7 +140,7 @@
             <div class="modal-header">
                 <h4 class="modal-title text-center text-uppercase">hapus data user</h4>
             </div>
-            <form method="post" action="<?= base_url('Auth/Management_Delete/'); ?>">
+            <form method="post" action="<?php echo base_url('Auth/Management_Delete/'); ?>">
                 <div class="modal-body">
                     <input type="hidden" name="h_id" readonly="readonly"/>
                     <p class="text-warning">
@@ -150,7 +150,7 @@
                 </div>
                 <div class="modal-footer">
                     <div class="text-center">
-                        <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
+                        <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
                         <div class="btn-group">
                             <button type="button" class="btn btn-danger text-uppercase" data-dismiss="modal">cancel</button>
                             <button type="submit" class="btn btn-success text-uppercase">Delete</button>
@@ -164,8 +164,8 @@
 <script>
     window.onload = function () {
         $('table').dataTable();
-        var a = '<?= $this->session->flashdata('message') ?>';
-        var b = '<?= $this->session->flashdata('error') ?>';
+        var a = '<?php echo $this->session->flashdata('message') ?>';
+        var b = '<?php echo $this->session->flashdata('error') ?>';
         if (a !== '') {
             toastr.success(a);
         } else if (b !== '') {
@@ -176,7 +176,7 @@
     };
     function Edit(obj) {
         $.ajax({
-            url: "<?= base_url('Auth/Get/'); ?>" + obj,
+            url: "<?php echo base_url('Auth/Get/'); ?>" + obj,
             dataType: 'JSON',
             success: function (data) {
                 $('input[name=e_id]').val(obj);
@@ -191,7 +191,7 @@
     }
     function Hapus(obj) {
         $.ajax({
-            url: "<?= base_url('Auth/Get/'); ?>" + obj,
+            url: "<?php echo base_url('Auth/Get/'); ?>" + obj,
             dataType: 'JSON',
             success: function () {
                 $('input[name=h_id]').val(obj);
@@ -204,7 +204,7 @@
     }
     function Resetpwd(obj) {
         $.ajax({
-            url: "<?= base_url('Auth/Get/'); ?>" + obj,
+            url: "<?php echo base_url('Auth/Get/'); ?>" + obj,
             dataType: 'JSON',
             success: function (data) {
                 $('input[name=r_id]').val(obj);

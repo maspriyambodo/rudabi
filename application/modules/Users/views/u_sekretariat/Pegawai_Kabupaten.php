@@ -4,14 +4,14 @@ $pegawai = json_decode($data);
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai <?= $param[0]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai <?php echo $param[0]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Sekretariat/Pegawai/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Sekretariat/Pegawai/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -29,16 +29,16 @@ $pegawai = json_decode($data);
                     <?php foreach ($pegawai as $pegawai) { ?>
                         <tr>
                             <td>
-                                <?= $pegawai->nama; ?>
+                                <?php echo $pegawai->nama; ?>
                             </td>
                             <td class="text-center">
-                                <?= $pegawai->kelamin; ?>
+                                <?php echo $pegawai->kelamin; ?>
                             </td>
                             <td class="text-center">
-                                <?= $pegawai->agama; ?>
+                                <?php echo $pegawai->agama; ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Users/Sekretariat/Pegawai/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $pegawai->peg_id . '&b=' . $pegawai->nama . '&c=' . $param[0] . '&d=' . $param[1] . '&e=' . $param[2] . '&f=' . $param[3]))); ?>" class="btn btn-icon btn-xs btn-default" title="<?= 'Detail data ' . $pegawai->nama ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Users/Sekretariat/Pegawai/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $pegawai->peg_id . '&b=' . $pegawai->nama . '&c=' . $param[0] . '&d=' . $param[1] . '&e=' . $param[2] . '&f=' . $param[3]))); ?>" class="btn btn-icon btn-xs btn-default" title="<?php echo 'Detail data ' . $pegawai->nama ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>

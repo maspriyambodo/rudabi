@@ -8,7 +8,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Sekretariat/Input/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[1] . '&b=' . $param[2] . '&c=' . $param[4]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Sekretariat/Input/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[1] . '&b=' . $param[2] . '&c=' . $param[4]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -41,16 +41,16 @@
                         ?>
                         <tr>
                             <td>
-                                <?= $input->usul_nama_kua; ?>
+                                <?php echo $input->usul_nama_kua; ?>
                             </td>
                             <td>
-                                <?= $input->usul_alamat_kua; ?>
+                                <?php echo $input->usul_alamat_kua; ?>
                             </td>
                             <td>
-                                <?= $input->usul_status_tanah; ?>
+                                <?php echo $input->usul_status_tanah; ?>
                             </td>
                             <td>
-                                <?= $input->STATUS; ?>
+                                <?php echo $input->STATUS; ?>
                             </td>
                             <td>
                                 <?php
@@ -65,7 +65,7 @@
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>total dipa</th>
-                        <th colspan="4">Rp. <?= number_format($totdipa); ?></th>
+                        <th colspan="4">Rp. <?php echo number_format($totdipa); ?></th>
                     </tr>
                 </tfoot>
             </table>

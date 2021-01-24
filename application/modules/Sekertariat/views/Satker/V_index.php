@@ -1,7 +1,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Satker Tahun <?= date("Y"); ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Satker Tahun <?php echo date("Y"); ?></h5>
         </div>
     </div>
 </div>
@@ -80,7 +80,7 @@
                         ?>
                         <tr>
                             <td>
-                                <a href="<?php echo base_url('Sekertariat/Satker/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->kab_propinsi_id . '&b=' . $value->propinsi_nama)) . ''); ?>"><?= $value->propinsi_nama ?></a>
+                                <a href="<?php echo base_url('Sekertariat/Satker/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->kab_propinsi_id . '&b=' . $value->propinsi_nama)) . ''); ?>"><?php echo $value->propinsi_nama ?></a>
                             </td>
                             <td class="text-center">
                                 <?php
@@ -123,22 +123,22 @@
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th><?= number_format($totjum_kab); ?></th>
-                        <th><?= number_format($totada_nama_satker); ?></th>
-                        <th><?= number_format($totnon_nama_satker); ?></th>
-                        <th><?= number_format($totada_kd_satker); ?></th>
-                        <th><?= number_format($totnon_kd_satker); ?></th>
+                        <th><?php echo number_format($totjum_kab); ?></th>
+                        <th><?php echo number_format($totada_nama_satker); ?></th>
+                        <th><?php echo number_format($totnon_nama_satker); ?></th>
+                        <th><?php echo number_format($totada_kd_satker); ?></th>
+                        <th><?php echo number_format($totnon_kd_satker); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input name="jum_kab" type="hidden" readonly="" value="<?= $totjum_kab; ?>"/>
-<input name="ada_nama_satker" type="hidden" readonly="" value="<?= $totada_nama_satker; ?>"/>
-<input name="non_nama_satker" type="hidden" readonly="" value="<?= $totnon_nama_satker; ?>"/>
-<input name="ada_kd_satker" type="hidden" readonly="" value="<?= $totada_kd_satker; ?>"/>
-<input name="non_kd_satker" type="hidden" readonly="" value="<?= $totnon_kd_satker; ?>"/>
+<input name="jum_kab" type="hidden" readonly="" value="<?php echo $totjum_kab; ?>"/>
+<input name="ada_nama_satker" type="hidden" readonly="" value="<?php echo $totada_nama_satker; ?>"/>
+<input name="non_nama_satker" type="hidden" readonly="" value="<?php echo $totnon_nama_satker; ?>"/>
+<input name="ada_kd_satker" type="hidden" readonly="" value="<?php echo $totada_kd_satker; ?>"/>
+<input name="non_kd_satker" type="hidden" readonly="" value="<?php echo $totnon_kd_satker; ?>"/>
 <script>
     window.onload = function () {
         var a;
@@ -405,7 +405,7 @@
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

@@ -60,7 +60,7 @@ $jumlah = 0;
                                 ?>
                             </td>
                             <td>
-                                <?= $value->kategori ?>
+                                <?php echo $value->kategori ?>
                             </td>
                             <td class="text-center">
                                 <?php
@@ -69,21 +69,21 @@ $jumlah = 0;
                                 ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Emonev/Bangunan/Statusbangunan?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->stat . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail status bangunan KUA"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Bangunan/Statusbangunan?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->stat . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail status bangunan KUA"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">total status bangunan kua: <?= number_format($jumlah); ?></th>
+                        <th colspan="3">total status bangunan kua: <?php echo number_format($jumlah); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="jml" value="<?= $jumlah; ?>" readonly=""/>
+<input type="hidden" name="jml" value="<?php echo $jumlah; ?>" readonly=""/>
 <script>
     window.onload = function () {
         document.getElementById('title_chartdiv').innerText = "Total Status Bangunan KUA: " + $('input[name=jml]').val();
@@ -91,7 +91,7 @@ $jumlah = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $bangunan; ?>;
+            chart.data = <?php echo $bangunan; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

@@ -79,47 +79,47 @@ $k = 0; //dt_remaja
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
-                                <?= '<a href="' . base_url('Users/Binsyar/Mushalla/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>' ?>
+                                <?php echo '<a href="' . base_url('Users/Binsyar/Mushalla/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>' ?>
                             </td>
-                            <td><?= number_format($b->dt_mushalla); ?></td>
-                            <td><?= $b->dt_tanah; ?></td>
-                            <td><?= $b->dt_bangunan; ?></td>
-                            <td><?= number_format($b->dt_jamaah); ?></td>
-                            <td><?= number_format($b->dt_pengurus); ?></td>
-                            <td><?= number_format($b->dt_imam); ?></td>
-                            <td><?= number_format($b->dt_khatib); ?></td>
-                            <td><?= number_format($b->dt_muazin); ?></td>
-                            <td><?= number_format($b->dt_remaja); ?></td>
+                            <td><?php echo number_format($b->dt_mushalla); ?></td>
+                            <td><?php echo $b->dt_tanah; ?></td>
+                            <td><?php echo $b->dt_bangunan; ?></td>
+                            <td><?php echo number_format($b->dt_jamaah); ?></td>
+                            <td><?php echo number_format($b->dt_pengurus); ?></td>
+                            <td><?php echo number_format($b->dt_imam); ?></td>
+                            <td><?php echo number_format($b->dt_khatib); ?></td>
+                            <td><?php echo number_format($b->dt_muazin); ?></td>
+                            <td><?php echo number_format($b->dt_remaja); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>total</th>
-                        <th><?= number_format($c); ?></th>
-                        <th><?= number_format($d); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($d); ?></th>
+                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($f); ?></th>
+                        <th><?php echo number_format($g); ?></th>
+                        <th><?php echo number_format($h); ?></th>
+                        <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="dt_mushalla" readonly="" value="<?= number_format($c); ?>"/>
-<input type="hidden" name="dt_tanah" readonly="" value="<?= number_format($d); ?>"/>
-<input type="hidden" name="dt_bangunan" readonly="" value="<?= number_format($e); ?>"/>
-<input type="hidden" name="dt_jamaah" readonly="" value="<?= number_format($f); ?>"/>
-<input type="hidden" name="dt_pengurus" readonly="" value="<?= number_format($g); ?>"/>
-<input type="hidden" name="dt_imam" readonly="" value="<?= number_format($h); ?>"/>
-<input type="hidden" name="dt_khatib" readonly="" value="<?= number_format($i); ?>"/>
-<input type="hidden" name="dt_muazin" readonly="" value="<?= number_format($j); ?>"/>
-<input type="hidden" name="dt_remaja" readonly="" value="<?= number_format($k); ?>"/>
+<input type="hidden" name="dt_mushalla" readonly="" value="<?php echo number_format($c); ?>"/>
+<input type="hidden" name="dt_tanah" readonly="" value="<?php echo number_format($d); ?>"/>
+<input type="hidden" name="dt_bangunan" readonly="" value="<?php echo number_format($e); ?>"/>
+<input type="hidden" name="dt_jamaah" readonly="" value="<?php echo number_format($f); ?>"/>
+<input type="hidden" name="dt_pengurus" readonly="" value="<?php echo number_format($g); ?>"/>
+<input type="hidden" name="dt_imam" readonly="" value="<?php echo number_format($h); ?>"/>
+<input type="hidden" name="dt_khatib" readonly="" value="<?php echo number_format($i); ?>"/>
+<input type="hidden" name="dt_muazin" readonly="" value="<?php echo number_format($j); ?>"/>
+<input type="hidden" name="dt_remaja" readonly="" value="<?php echo number_format($k); ?>"/>
 <script>
     window.onload = function () {
         var a, b, c, d, e, f, g, h, i, j, k, l, m;
@@ -137,7 +137,7 @@ $k = 0; //dt_remaja
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

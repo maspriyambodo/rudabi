@@ -111,37 +111,37 @@ $n = 0; //pengguna_sosial
                         $n += str_replace(',', '', $b->pengguna_sosial); //pengguna_sosial
                         ?>
                         <tr>
-                            <td style="text-align:left !important;"><?= '<a href="' . base_url('Users/Siwak/Wakaf/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->Lokasi_Prop . '&b=' . $b->lokasi_nama))) . '" title="Detail Provinsi ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
-                            <td><?= $b->dt_wakaf; ?></td>
+                            <td style="text-align:left !important;"><?php echo '<a href="' . base_url('Users/Siwak/Wakaf/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->Lokasi_Prop . '&b=' . $b->lokasi_nama))) . '" title="Detail Provinsi ' . $b->lokasi_nama . '">' . $b->lokasi_nama . '</a>' ?></td>
+                            <td><?php echo $b->dt_wakaf; ?></td>
                             <td><?php echo number_format($b->dt_luas / 10000, 2, ',', '.'); ?></td>
-                            <td><?= str_replace(',', '.', number_format($b->dt_sertifikat)); ?></td>
+                            <td><?php echo str_replace(',', '.', number_format($b->dt_sertifikat)); ?></td>
                             <td><?php echo number_format($b->dt_luas_sertifikat / 10000, 2, ',', '.'); ?></td>
-                            <td><?= $b->dt_nonsertifikat; ?></td>
-                            <td><?= number_format($b->dt_luas_nonsertifikat / 10000, 2, ',', '.'); ?></td>
-                            <td><?= $b->pengguna_masjid; ?></td>
-                            <td><?= $b->pengguna_musholla; ?></td>
-                            <td><?= $b->pengguna_sekolah; ?></td>
-                            <td><?= $b->pengguna_pesantren; ?></td>
-                            <td><?= $b->pengguna_makam; ?></td>
-                            <td><?= $b->pengguna_sosial; ?></td>
+                            <td><?php echo $b->dt_nonsertifikat; ?></td>
+                            <td><?php echo number_format($b->dt_luas_nonsertifikat / 10000, 2, ',', '.'); ?></td>
+                            <td><?php echo $b->pengguna_masjid; ?></td>
+                            <td><?php echo $b->pengguna_musholla; ?></td>
+                            <td><?php echo $b->pengguna_sekolah; ?></td>
+                            <td><?php echo $b->pengguna_pesantren; ?></td>
+                            <td><?php echo $b->pengguna_makam; ?></td>
+                            <td><?php echo $b->pengguna_sosial; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>total</th>
-                        <th><?= number_format($c); ?></th>
-                        <th><?= number_format($d / 10000, 2, ',', '.'); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f / 10000, 2, ',', '.'); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h / 10000, 2, ',', '.'); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
-                        <th><?= number_format($l); ?></th>
-                        <th><?= number_format($m); ?></th>
-                        <th><?= number_format($n); ?></th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($d / 10000, 2, ',', '.'); ?></th>
+                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($f / 10000, 2, ',', '.'); ?></th>
+                        <th><?php echo number_format($g); ?></th>
+                        <th><?php echo number_format($h / 10000, 2, ',', '.'); ?></th>
+                        <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
+                        <th><?php echo number_format($l); ?></th>
+                        <th><?php echo number_format($m); ?></th>
+                        <th><?php echo number_format($n); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -149,7 +149,7 @@ $n = 0; //pengguna_sosial
     </div>
 </div>
 <input type="hidden" name="dt_wakaf" readonly="" value="<?php echo number_format($c); ?>"/>
-<input type="hidden" name="dt_luas" readonly="" value="<?= number_format($d / 10000, 2, ',', '.'); ?>"/>
+<input type="hidden" name="dt_luas" readonly="" value="<?php echo number_format($d / 10000, 2, ',', '.'); ?>"/>
 <input type="hidden" name="dt_sertifikat" readonly="" value="<?php echo number_format($e); ?>"/>
 <input type="hidden" name="dt_luas_sertifikat" readonly="" value="<?php echo number_format($f); ?>"/>
 <input type="hidden" name="dt_nonsertifikat" readonly="" value="<?php echo number_format($g); ?>"/>
@@ -183,7 +183,7 @@ $n = 0; //pengguna_sosial
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

@@ -4,14 +4,14 @@ $pensiun = json_decode($data);
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai: <?= $param[1] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai: <?php echo $param[1] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Sekretariat/Pensiun/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Sekretariat/Pensiun/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -40,15 +40,15 @@ $pensiun = json_decode($data);
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $value->user_nip; ?></td>
-                            <td><?= $value->user_fullname; ?></td>
-                            <td class="text-center"><?= $value->kelamin; ?></td>
-                            <td class="text-center"><?= $value->item_name; ?></td>
-                            <td class="text-center"><?= $value->peg_tgl_lahir; ?></td>
-                            <td class="text-center"><?= $value->usia; ?></td>
-                            <td><?= $value->peg_alamat; ?></td>
-                            <td class="text-center"><?= $value->waktu_tersisa; ?></td>
-                            <td class="text-center"><?= date("Y", strtotime($value->waktu_tersisa . "year")); ?></td>
+                            <td><?php echo $value->user_nip; ?></td>
+                            <td><?php echo $value->user_fullname; ?></td>
+                            <td class="text-center"><?php echo $value->kelamin; ?></td>
+                            <td class="text-center"><?php echo $value->item_name; ?></td>
+                            <td class="text-center"><?php echo $value->peg_tgl_lahir; ?></td>
+                            <td class="text-center"><?php echo $value->usia; ?></td>
+                            <td><?php echo $value->peg_alamat; ?></td>
+                            <td class="text-center"><?php echo $value->waktu_tersisa; ?></td>
+                            <td class="text-center"><?php echo date("Y", strtotime($value->waktu_tersisa . "year")); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

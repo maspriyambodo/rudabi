@@ -19,14 +19,14 @@ $y = 0; //dt_hibah
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Masjid Provinsi <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Masjid Provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Binsyar/Simas/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Binsyar/Simas/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -91,39 +91,39 @@ $y = 0; //dt_hibah
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
-                                <?= '<a href="' . base_url('Users/Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>'; ?>
+                                <?php echo '<a href="' . base_url('Users/Binsyar/Simas/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $b->kabupaten_id . '&d=' . $b->kabupaten_name))) . '" title="Detail ' . $b->kabupaten_name . '">' . $b->kabupaten_name . '</a>'; ?>
                             </td>
-                            <td><?= number_format($b->dt_masjid); ?></td>
-                            <td><?= number_format($b->dt_tanah); ?></td>
-                            <td><?= number_format($b->dt_bangunan); ?></td>
-                            <td><?= number_format($b->dt_jamaah); ?></td>
-                            <td><?= number_format($b->dt_pengurus); ?></td>
-                            <td><?= number_format($b->dt_imam); ?></td>
-                            <td><?= number_format($b->dt_khatib); ?></td>
-                            <td><?= number_format($b->dt_muazin); ?></td>
-                            <td><?= number_format($b->dt_remaja); ?></td>
+                            <td><?php echo number_format($b->dt_masjid); ?></td>
+                            <td><?php echo number_format($b->dt_tanah); ?></td>
+                            <td><?php echo number_format($b->dt_bangunan); ?></td>
+                            <td><?php echo number_format($b->dt_jamaah); ?></td>
+                            <td><?php echo number_format($b->dt_pengurus); ?></td>
+                            <td><?php echo number_format($b->dt_imam); ?></td>
+                            <td><?php echo number_format($b->dt_khatib); ?></td>
+                            <td><?php echo number_format($b->dt_muazin); ?></td>
+                            <td><?php echo number_format($b->dt_remaja); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>Total</th>
-                        <th><?= number_format($c); ?></th>
-                        <th><?= number_format($d); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($d); ?></th>
+                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($f); ?></th>
+                        <th><?php echo number_format($g); ?></th>
+                        <th><?php echo number_format($h); ?></th>
+                        <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="dt_masjid" readonly="" value="<?= number_format($c); ?>"/>
+<input type="hidden" name="dt_masjid" readonly="" value="<?php echo number_format($c); ?>"/>
 <script>
     window.onload = function () {
         var dt_masjid = $('input[name="dt_masjid"]').val();
@@ -132,7 +132,7 @@ $y = 0; //dt_hibah
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

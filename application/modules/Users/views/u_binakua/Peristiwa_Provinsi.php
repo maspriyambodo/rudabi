@@ -17,14 +17,14 @@ $o = 0; // pddk_s3_wanita
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Peristiwa Nikah Provinsi <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Peristiwa Nikah Provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/BKKS/Peristiwa/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/BKKS/Peristiwa/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -127,27 +127,27 @@ $o = 0; // pddk_s3_wanita
                                 ?>
                             </td>
                             <td style="text-align:left;">
-                                <?= '<a href="' . base_url('Users/BKKS/Peristiwa/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->nikah_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))) . '" title="Detail Peristiwa ' . $b->city_title . '">' . $b->city_title . '</a>'; ?>
+                                <?php echo '<a href="' . base_url('Users/BKKS/Peristiwa/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->nikah_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))) . '" title="Detail Peristiwa ' . $b->city_title . '">' . $b->city_title . '</a>'; ?>
                             </td>
-                            <td><?= number_format($b->dt_nikah); ?></td>
-                            <td><?= $b->rt_usia_pria; ?></td>
-                            <td><?= $b->rt_usia_wanita; ?></td>
-                            <td><?= $b->pddk_sd_pria; ?></td>
-                            <td><?= $b->pddk_smp_pria; ?></td>
-                            <td><?= $b->pddk_sma_pria; ?></td>
-                            <td><?= $b->pddk_s1_pria; ?></td>
-                            <td><?= $b->pddk_s2_pria; ?></td>
-                            <td><?= $b->pddk_s3_pria; ?></td>
-                            <td><?= $b->pddk_sd_wanita; ?></td>
-                            <td><?= $b->pddk_smp_wanita; ?></td>
-                            <td><?= $b->pddk_sma_wanita; ?></td>
-                            <td><?= $b->pddk_s1_wanita; ?></td>
-                            <td><?= $b->pddk_s2_wanita; ?></td>
-                            <td><?= $b->pddk_s3_wanita; ?></td>
-                            <td><?= $b->nikah_kantor; ?></td>
-                            <td><?= $b->nikah_nonkantor; ?></td>
-                            <td><?= $b->nikah_terlaksana; ?></td>
-                            <td><?= $b->nikah_nonterlaksana; ?></td>
+                            <td><?php echo number_format($b->dt_nikah); ?></td>
+                            <td><?php echo $b->rt_usia_pria; ?></td>
+                            <td><?php echo $b->rt_usia_wanita; ?></td>
+                            <td><?php echo $b->pddk_sd_pria; ?></td>
+                            <td><?php echo $b->pddk_smp_pria; ?></td>
+                            <td><?php echo $b->pddk_sma_pria; ?></td>
+                            <td><?php echo $b->pddk_s1_pria; ?></td>
+                            <td><?php echo $b->pddk_s2_pria; ?></td>
+                            <td><?php echo $b->pddk_s3_pria; ?></td>
+                            <td><?php echo $b->pddk_sd_wanita; ?></td>
+                            <td><?php echo $b->pddk_smp_wanita; ?></td>
+                            <td><?php echo $b->pddk_sma_wanita; ?></td>
+                            <td><?php echo $b->pddk_s1_wanita; ?></td>
+                            <td><?php echo $b->pddk_s2_wanita; ?></td>
+                            <td><?php echo $b->pddk_s3_wanita; ?></td>
+                            <td><?php echo $b->nikah_kantor; ?></td>
+                            <td><?php echo $b->nikah_nonkantor; ?></td>
+                            <td><?php echo $b->nikah_terlaksana; ?></td>
+                            <td><?php echo $b->nikah_nonterlaksana; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
@@ -190,7 +190,7 @@ $o = 0; // pddk_s3_wanita
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

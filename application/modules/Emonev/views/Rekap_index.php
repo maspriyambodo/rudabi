@@ -22,7 +22,7 @@ $tot = $rekap[0]->jumlah + $rekap[1]->jumlah;
     </div>
     <div class="card-body">
         <div class="text-center">
-            <b><u id="title_chartdiv">Total Data KUA: <?= number_format($tot); ?></u></b>
+            <b><u id="title_chartdiv">Total Data KUA: <?php echo number_format($tot); ?></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
@@ -53,14 +53,14 @@ $tot = $rekap[0]->jumlah + $rekap[1]->jumlah;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $value->kategori; ?></td>
-                            <td><?= number_format($value->jumlah); ?></td>
+                            <td><?php echo $value->kategori; ?></td>
+                            <td><?php echo number_format($value->jumlah); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3" style="border-bottom: solid 1px #ecf0f3;">Total Data KUA: <?= number_format($tot); ?></th>
+                        <th colspan="3" style="border-bottom: solid 1px #ecf0f3;">Total Data KUA: <?php echo number_format($tot); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -72,7 +72,7 @@ $tot = $rekap[0]->jumlah + $rekap[1]->jumlah;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.PieChart);
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.innerRadius = am4core.percent(50);
             chart.exporting.menu = new am4core.ExportMenu();
             var pieSeries = chart.series.push(new am4charts.PieSeries());

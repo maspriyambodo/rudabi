@@ -2,14 +2,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Penilaian KUA: <?= $param[4] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Penilaian KUA: <?php echo $param[4] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Emonev/Penilaian/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Emonev/Penilaian/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -56,49 +56,49 @@
                                 ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->kodekua; ?>
+                                <?php echo $value->kodekua; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->kua; ?>
+                                <?php echo $value->kua; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->kepala; ?>
+                                <?php echo $value->kepala; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->tgl; ?>
+                                <?php echo $value->tgl; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_penghulu; ?>
+                                <?php echo $value->dt_penghulu; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_pegawai; ?>
+                                <?php echo $value->dt_pegawai; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_penduduk; ?>
+                                <?php echo $value->dt_penduduk; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_muslim; ?>
+                                <?php echo $value->dt_muslim; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_nikah; ?>
+                                <?php echo $value->dt_nikah; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_luastanah; ?>
+                                <?php echo $value->dt_luastanah; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_performa1; ?>
+                                <?php echo $value->dt_performa1; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_performa2; ?>
+                                <?php echo $value->dt_performa2; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_performa3; ?>
+                                <?php echo $value->dt_performa3; ?>
                             </td>
                             <td class="text-center">
-                                <?= $value->dt_performa4; ?>
+                                <?php echo $value->dt_performa4; ?>
                             </td>
-                            <td class="text-center <?= $stat; ?>">
-                                <?= $value->status; ?>
+                            <td class="text-center <?php echo $stat; ?>">
+                                <?php echo $value->status; ?>
                             </td>
                         </tr>
                     <?php } ?>

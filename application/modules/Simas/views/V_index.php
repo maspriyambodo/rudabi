@@ -18,7 +18,7 @@
                                 </span>
                             </div>
                             <div class="d-flex flex-column">
-                                <a href="<?= base_url('Simas/Masjid/index/'); ?>" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3"> Data Masjid </a>
+                                <a href="<?php echo base_url('Simas/Masjid/index/'); ?>" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3"> Data Masjid </a>
                             </div>
                         </div>
                     </div>
@@ -34,7 +34,7 @@
                                 </span>
                             </div>
                             <div class="d-flex flex-column">
-                                <a href="<?= base_url('Simas/Mushalla/'); ?>" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3"> Data Mushalla </a>
+                                <a href="<?php echo base_url('Simas/Mushalla/'); ?>" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3"> Data Mushalla </a>
                             </div>
                         </div>
                     </div>

@@ -50,7 +50,7 @@ $d = 0;
                     <tr>
                         <td></td>
                         <td>Belum Input Data</td>
-                        <td><?= number_format($b); ?></td>
+                        <td><?php echo number_format($b); ?></td>
                     </tr>
                     <?php foreach ($c as $value) { ?>
                         <tr>
@@ -61,7 +61,7 @@ $d = 0;
                                 ?>
                             </td>
                             <td>
-                                Tahun <?= $value->tahun; ?>
+                                Tahun <?php echo $value->tahun; ?>
                             </td>
                             <td>
                                 <?php
@@ -74,14 +74,14 @@ $d = 0;
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">Total Data KUA: <?= number_format($d + $b); ?></th>
+                        <th colspan="3">Total Data KUA: <?php echo number_format($d + $b); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="title_chartdiv" value="<?= number_format($d + $b); ?>"/>
+<input type="hidden" name="title_chartdiv" value="<?php echo number_format($d + $b); ?>"/>
 <script>
     window.onload = function () {
         document.getElementById('title_chartdiv').innerText = "Total Rekap Isian Data KUA: " + $('input[name=title_chartdiv]').val();
@@ -111,7 +111,7 @@ $d = 0;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
-            chart.data = <?= $rekap; ?>;
+            chart.data = <?php echo $rekap; ?>;
             var dateAxis = chart.xAxes.push(new am4charts.DateAxis());
             dateAxis.renderer.grid.template.location = 0;
             dateAxis.renderer.minGridDistance = 50;
@@ -149,13 +149,13 @@ $d = 0;
             chart.cursor.lineX.fillOpacity = 0.1;
             chart.scrollbarX = new am4core.Scrollbar();
             let range = valueAxis.axisRanges.create();
-            range.value = <?= $b; ?>;
+            range.value = <?php echo $b; ?>;
             range.grid.stroke = am4core.color("#396478");
             range.grid.strokeWidth = 1;
             range.grid.strokeOpacity = 1;
             range.grid.strokeDasharray = "3,3";
             range.label.inside = true;
-            range.label.text = "Belum Input: [bold]<?= $b; ?> data[/]";
+            range.label.text = "Belum Input: [bold]<?php echo $b; ?> data[/]";
             range.label.fill = range.grid.stroke;
             range.label.verticalCenter = "bottom";
         });

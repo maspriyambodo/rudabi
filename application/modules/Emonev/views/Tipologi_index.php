@@ -6,7 +6,7 @@ foreach ($tipo as $value) {
     $totjml += $value->jml;
 }
 ?>
-<input type="hidden" name="totjml" value="<?= number_format($totjml); ?>"/>
+<input type="hidden" name="totjml" value="<?php echo number_format($totjml); ?>"/>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -65,13 +65,13 @@ foreach ($tipo as $value) {
                                 ?>
                             </td>
                             <td>
-                                <?= $value->tipokua ?>
+                                <?php echo $value->tipokua ?>
                             </td>
                             <td>
-                                <?= $value->jml ?>
+                                <?php echo $value->jml ?>
                             </td>
                             <td>
-                                <a href="<?= base_url('Emonev/Tipologi/Tipokua?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->tipokua))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Tipologi KUA"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Tipologi/Tipokua?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->tipokua))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail Tipologi KUA"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -87,7 +87,7 @@ foreach ($tipo as $value) {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

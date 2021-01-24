@@ -50,7 +50,7 @@
                         b = data.jumlah_penyuluh;
                         c = data.kabkota_nama;
                         d = c.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/Epai/Penyuluh/'); ?>' + a + "/" + d + '">' + b + '</a>';
+                        return '<a href="<?php echo base_url('PAI/Epai/Penyuluh/'); ?>' + a + "/" + d + '">' + b + '</a>';
                     }
                 },
                 {
@@ -61,7 +61,7 @@
                         b = data.jumlah_penyuluh_online;
                         c = data.kabkota_nama;
                         d = c.replace(' ', '_');
-                        return '<a href="<?= base_url('PAI/Epai/Penyuluh_Online/'); ?>' + a + "/" + d + '">' + b + '</a>';
+                        return '<a href="<?php echo base_url('PAI/Epai/Penyuluh_Online/'); ?>' + a + "/" + d + '">' + b + '</a>';
                     }
                 }
             ]

@@ -18,7 +18,7 @@
                                 </span>
                             </div>
                             <div class="d-flex flex-column">
-                                <a href="<?= base_url('Simpenghulu/KUA/index/'); ?>" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3"> Data KUA </a>
+                                <a href="<?php echo base_url('Simpenghulu/KUA/index/'); ?>" class="text-dark text-hover-primary font-weight-bold font-size-h4 mb-3"> Data KUA </a>
                             </div>
                         </div>
                     </div>

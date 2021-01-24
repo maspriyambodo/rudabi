@@ -78,7 +78,7 @@ $totregkua = 0;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $value->kategori; ?></td>
+                            <td><?php echo $value->kategori; ?></td>
                             <td class="text-center">
                                 <?php
                                 $jum += $value->jum;
@@ -86,14 +86,14 @@ $totregkua = 0;
                                 ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Emonev/Registrasi/Status?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->status . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail <?= $value->kategori ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Registrasi/Status?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $value->status . '&b=' . $value->kategori))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail <?php echo $value->kategori ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="4">Total Registrasi Kantor Kemenag: <?= $jum; ?></th>
+                        <th colspan="4">Total Registrasi Kantor Kemenag: <?php echo $jum; ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -167,7 +167,7 @@ $totregkua = 0;
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $dt_regkua->keterangan; ?></td>
+                            <td><?php echo $dt_regkua->keterangan; ?></td>
                             <td class="text-center">
                                 <?php
                                 $jml += $dt_regkua->jml;
@@ -175,22 +175,22 @@ $totregkua = 0;
                                 ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Emonev/Registrasi/Statuskua?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_regkua->status . '&b=' . $dt_regkua->keterangan))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail <?= $dt_regkua->keterangan; ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Registrasi/Statuskua?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_regkua->status . '&b=' . $dt_regkua->keterangan))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail <?php echo $dt_regkua->keterangan; ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="4">total registrasi KUA: <?= number_format($jml); ?></th>
+                        <th colspan="4">total registrasi KUA: <?php echo number_format($jml); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="jum" readonly="" value="<?= $jum; ?>"/>
-<input type="hidden" name="jumkua" readonly="" value="<?= number_format($jml); ?>"/>
+<input type="hidden" name="jum" readonly="" value="<?php echo $jum; ?>"/>
+<input type="hidden" name="jumkua" readonly="" value="<?php echo number_format($jml); ?>"/>
 <script>
     window.onload = function () {
         var a, b;
@@ -224,7 +224,7 @@ $totregkua = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.exporting.menu = new am4core.ExportMenu();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.dataFields.category = "kategori";
             categoryAxis.renderer.grid.template.location = 0;
@@ -271,7 +271,7 @@ $totregkua = 0;
 
             chart.legend = new am4charts.Legend();
 
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
 
             chart.innerRadius = 100;
 
@@ -288,7 +288,7 @@ $totregkua = 0;
 
             chart.legend = new am4charts.Legend();
 
-            chart.data = <?= $regkua; ?>;
+            chart.data = <?php echo $regkua; ?>;
 
             chart.innerRadius = 100;
 
@@ -301,7 +301,7 @@ $totregkua = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv_b", am4charts.XYChart);
             chart.exporting.menu = new am4core.ExportMenu();
-            chart.data = <?= $regkua; ?>;
+            chart.data = <?php echo $regkua; ?>;
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.dataFields.category = "keterangan";
             categoryAxis.renderer.grid.template.location = 0;

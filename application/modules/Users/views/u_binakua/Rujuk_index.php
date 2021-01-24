@@ -129,57 +129,57 @@ $p = 0; // dt_pddk_s1_wanita
                                 echo '<a href="' . base_url('Users/BKKS/Nikah_Rujuk/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($q))) . '" title="Detail Provinsi ' . $c->province_title . '">' . $c->province_title . '</a>';
                                 ?>
                             </td>
-                            <td><?= number_format($c->dt_nikah); ?></td>
-                            <td><?= number_format($c->dt_rujuk); ?></td>
-                            <td><?= number_format($c->dt_bawahumur_pria); ?></td>
-                            <td><?= number_format($c->dt_bawahumur_wanita); ?></td>
-                            <td><?= number_format($c->dt_nikahkantor); ?></td>
-                            <td><?= number_format($c->dt_nonkantor); ?></td>
-                            <td><?= number_format($c->dt_pddk_sd_pria); ?></td>
-                            <td><?= number_format($c->dt_pddk_smp_pria); ?></td>
-                            <td><?= number_format($c->dt_pddk_sma_pria); ?></td>
-                            <td><?= number_format($c->dt_pddk_s1_pria); ?></td>
-                            <td><?= number_format($c->dt_pddk_smp_wanita); ?></td>
-                            <td><?= number_format($c->dt_pddk_sma_wanita); ?></td>
-                            <td><?= number_format($c->dt_pddk_s1_wanita); ?></td>
+                            <td><?php echo number_format($c->dt_nikah); ?></td>
+                            <td><?php echo number_format($c->dt_rujuk); ?></td>
+                            <td><?php echo number_format($c->dt_bawahumur_pria); ?></td>
+                            <td><?php echo number_format($c->dt_bawahumur_wanita); ?></td>
+                            <td><?php echo number_format($c->dt_nikahkantor); ?></td>
+                            <td><?php echo number_format($c->dt_nonkantor); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_sd_pria); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_smp_pria); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_sma_pria); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_s1_pria); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_smp_wanita); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_sma_wanita); ?></td>
+                            <td><?php echo number_format($c->dt_pddk_s1_wanita); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <td>total</td>
-                        <td><?= number_format($d); ?></td>
-                        <td><?= number_format($e); ?></td>
-                        <td><?= number_format($f); ?></td>
-                        <td><?= number_format($g); ?></td>
-                        <td><?= number_format($h); ?></td>
-                        <td><?= number_format($i); ?></td>
-                        <td><?= number_format($j); ?></td>
-                        <td><?= number_format($k); ?></td>
-                        <td><?= number_format($l); ?></td>
-                        <td><?= number_format($m); ?></td>
-                        <td><?= number_format($n); ?></td>
-                        <td><?= number_format($o); ?></td>
-                        <td><?= number_format($p); ?></td>
+                        <td><?php echo number_format($d); ?></td>
+                        <td><?php echo number_format($e); ?></td>
+                        <td><?php echo number_format($f); ?></td>
+                        <td><?php echo number_format($g); ?></td>
+                        <td><?php echo number_format($h); ?></td>
+                        <td><?php echo number_format($i); ?></td>
+                        <td><?php echo number_format($j); ?></td>
+                        <td><?php echo number_format($k); ?></td>
+                        <td><?php echo number_format($l); ?></td>
+                        <td><?php echo number_format($m); ?></td>
+                        <td><?php echo number_format($n); ?></td>
+                        <td><?php echo number_format($o); ?></td>
+                        <td><?php echo number_format($p); ?></td>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="dt_nikah" value="<?= number_format($d); ?>" readonly=""/>
-<input type="hidden" name="dt_rujuk" value="<?= $e; ?>" readonly=""/>
-<input type="hidden" name="dt_bawahumur_pria" value="<?= $f; ?>" readonly=""/>
-<input type="hidden" name="dt_bawahumur_wanita" value="<?= $g; ?>" readonly=""/>
-<input type="hidden" name="dt_nikahkantor" value="<?= $h; ?>" readonly=""/>
-<input type="hidden" name="dt_nonkantor" value="<?= $i; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_sd_pria" value="<?= $j; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_smp_pria" value="<?= $k; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_sma_pria" value="<?= $l; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_s1_pria" value="<?= $m; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_smp_wanita" value="<?= $n; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_sma_wanita" value="<?= $o; ?>" readonly=""/>
-<input type="hidden" name="dt_pddk_s1_wanita" value="<?= $p; ?>" readonly=""/>
+<input type="hidden" name="dt_nikah" value="<?php echo number_format($d); ?>" readonly=""/>
+<input type="hidden" name="dt_rujuk" value="<?php echo $e; ?>" readonly=""/>
+<input type="hidden" name="dt_bawahumur_pria" value="<?php echo $f; ?>" readonly=""/>
+<input type="hidden" name="dt_bawahumur_wanita" value="<?php echo $g; ?>" readonly=""/>
+<input type="hidden" name="dt_nikahkantor" value="<?php echo $h; ?>" readonly=""/>
+<input type="hidden" name="dt_nonkantor" value="<?php echo $i; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_sd_pria" value="<?php echo $j; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_smp_pria" value="<?php echo $k; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_sma_pria" value="<?php echo $l; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_s1_pria" value="<?php echo $m; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_smp_wanita" value="<?php echo $n; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_sma_wanita" value="<?php echo $o; ?>" readonly=""/>
+<input type="hidden" name="dt_pddk_s1_wanita" value="<?php echo $p; ?>" readonly=""/>
 <script>
     function Tahun() {
         var a = $('select[name=tahun]').val();
@@ -191,7 +191,7 @@ $p = 0; // dt_pddk_s1_wanita
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.dataFields.category = "province_title";

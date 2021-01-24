@@ -5,14 +5,14 @@ $approved = json_decode($data);
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data <?= $param[3] ?> Tahun <?= $param[0]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data <?php echo $param[3] ?> Tahun <?php echo $param[0]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Sekretariat/Approved/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved[0]->propinsi_nama . '&b=' . $param[0] . '&c=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Sekretariat/Approved/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $approved[0]->propinsi_nama . '&b=' . $param[0] . '&c=' . $param[1]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -30,12 +30,12 @@ $approved = json_decode($data);
                     <?php foreach ($approved as $value) { ?>
                         <tr>
                             <td>
-                                <?= $value->usul_nama_kua; ?>
+                                <?php echo $value->usul_nama_kua; ?>
                             </td>
                             <td class="text-center text-wrap">
-                                <?= $value->usul_alamat_kua; ?>
+                                <?php echo $value->usul_alamat_kua; ?>
                             </td>
-                            <td class="text-center"><?= $value->usul_status_tanah; ?></td>
+                            <td class="text-center"><?php echo $value->usul_status_tanah; ?></td>
                             <td class="text-center">
                                 <?php
                                 $nilai_dipa = str_replace(',', '', $value->nilai_dipa);
@@ -48,7 +48,7 @@ $approved = json_decode($data);
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="4">Total Nilai Dipa Rp. <?= number_format($totnilai_dipa); ?></th>
+                        <th colspan="4">Total Nilai Dipa Rp. <?php echo number_format($totnilai_dipa); ?></th>
                     </tr>
                 </tfoot>
             </table>

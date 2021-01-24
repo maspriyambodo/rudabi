@@ -2,14 +2,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Penghulu Wilayah <?= $param[1] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Penghulu Wilayah <?php echo $param[1] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/BKKS/Penghulu/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/BKKS/Penghulu/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -44,10 +44,10 @@
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $b->pegawai_nip; ?></td>
-                            <td><?= $b->pegawai_fullname; ?></td>
-                            <td class="text-center"><?= $b->pegawai_tempatlahir; ?></td>
-                            <td class="text-center"><?= $b->pegawai_tanggallahir; ?></td>
+                            <td><?php echo $b->pegawai_nip; ?></td>
+                            <td><?php echo $b->pegawai_fullname; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_tempatlahir; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_tanggallahir; ?></td>
                             <td class="text-center">
                                 <?php
                                 $date = new DateTime($b->pegawai_tanggallahir);
@@ -56,12 +56,12 @@
                                 echo $interval->y;
                                 ?>
                             </td>
-                            <td class="text-center"><?= $b->pegawai_agama; ?></td>
-                            <td class="text-center"><?= $b->pegawai_pangkat; ?></td>
-                            <td class="text-center"><?= $b->pegawai_pendidikan_terakhir; ?></td>
-                            <td class="text-center"><?= $b->pegawai_sk_penghulu_terakhir; ?></td>
-                            <td class="text-center"><?= $b->pegawai_tgl_sk_penghulu; ?></td>
-                            <td><?= $b->pegawai_alamat; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_agama; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_pangkat; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_pendidikan_terakhir; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_sk_penghulu_terakhir; ?></td>
+                            <td class="text-center"><?php echo $b->pegawai_tgl_sk_penghulu; ?></td>
+                            <td><?php echo $b->pegawai_alamat; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

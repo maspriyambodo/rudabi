@@ -9,14 +9,14 @@ $pegawai = json_decode($data);
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Sicakep/Pegawai/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3] . '&c=' . $param[4] . '&d=' . $param[5]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Sekertariat/Sicakep/Pegawai/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[2] . '&b=' . $param[3] . '&c=' . $param[4] . '&d=' . $param[5]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -26,57 +26,57 @@ $pegawai = json_decode($data);
             <div id="peg_detail" class="col-md-2">
                 <strong>NIP</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->nip; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->nip; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Provinsi</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->propinsi; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->propinsi; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Nama</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->nama; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->nama; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Kabupaten</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->kabupaten; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->kabupaten; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Jenis Kelamin</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->kelamin; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->kelamin; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Kecamatan</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->kecamatan; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->kecamatan; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Tempat, Tanggal Lahir</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->peg_tempat_lahir . ', ' . $pegawai->biodata[0]->peg_tgl_lahir; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->peg_tempat_lahir . ', ' . $pegawai->biodata[0]->peg_tgl_lahir; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Kelurahan</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->kelurahan; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->kelurahan; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Agama</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->agama; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->agama; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Kodepos</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->kodpos; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->kodpos; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Hobi</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->hobi; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->hobi; ?></div>
         </div>
         <hr>
         <b class="text-info"><u>Ciri - Ciri</u></b>
@@ -85,37 +85,37 @@ $pegawai = json_decode($data);
             <div id="peg_detail" class="col-md-2">
                 <strong>Tinggi Badan</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->tinggi; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->tinggi; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Berat Badan</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->berat; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->berat; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Rambut</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->rambut; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->rambut; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Muka</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->muka; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->muka; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Kulit</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->kulit; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->kulit; ?></div>
             <div id="peg_detail" class="col-md-2">
                 <strong>Tanda Khusus</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->ciri2; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->ciri2; ?></div>
         </div>
         <div class="row">
             <div id="peg_detail" class="col-md-2">
                 <strong>Cacat</strong>
             </div>
-            <div class="col-md-4">: <?= $pegawai->biodata[0]->cacat; ?></div>
+            <div class="col-md-4">: <?php echo $pegawai->biodata[0]->cacat; ?></div>
         </div>
     </div>
 </div>
@@ -133,31 +133,31 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tingkat</strong>
                 </div>
-                <div class="col-md-4">: <?= $pdd->pdd_tingkat; ?></div>
+                <div class="col-md-4">: <?php echo $pdd->pdd_tingkat; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $pdd->pdd_nama; ?></div>
+                <div class="col-md-4">: <?php echo $pdd->pdd_nama; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Fakultas</strong>
                 </div>
-                <div class="col-md-4">: <?= $pdd->pdd_fakultas; ?></div>
+                <div class="col-md-4">: <?php echo $pdd->pdd_fakultas; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jurusan</strong>
                 </div>
-                <div class="col-md-4">: <?= $pdd->pdd_jurusan; ?></div>
+                <div class="col-md-4">: <?php echo $pdd->pdd_jurusan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat</strong>
                 </div>
-                <div class="col-md-4">: <?= $pdd->pdd_tempat; ?></div>
+                <div class="col-md-4">: <?php echo $pdd->pdd_tempat; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun Lulus</strong>
                 </div>
-                <div class="col-md-4">: <?= $pdd->pdd_tahun_lulus; ?></div>
+                <div class="col-md-4">: <?php echo $pdd->pdd_tahun_lulus; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -168,41 +168,41 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_nama; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Periode</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_periode; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_periode; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jam</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_jam; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_jam; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Hari</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_hari; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_hari; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Bulan</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_bulan; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_bulan; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_tahun; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_tempat; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_tempat; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Penyelenggara</strong>
                 </div>
-                <div class="col-md-4">: <?= $kursus->kur_penyelenggara; ?></div>
+                <div class="col-md-4">: <?php echo $kursus->kur_penyelenggara; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -221,37 +221,37 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jenis SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_jenis_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_jenis_sk; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pangkat</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_pangkat; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_pangkat; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Golongan</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_gol; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_gol; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>No SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_no_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_no_sk; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Akte</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_akte; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_akte; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tgl SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_tgl_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_tgl_sk; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>TMT SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kepangkatan->pkt_tmt_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kepangkatan->pkt_tmt_sk; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -270,27 +270,27 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama Jabatan</strong>
                 </div>
-                <div class="col-md-4">: <?= $jabatan->jbt_jabatan; ?></div>
+                <div class="col-md-4">: <?php echo $jabatan->jbt_jabatan; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>TMT Jabatan</strong>
                 </div>
-                <div class="col-md-4">: <?= $jabatan->jbt_tmt; ?></div>
+                <div class="col-md-4">: <?php echo $jabatan->jbt_tmt; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Golongan</strong>
                 </div>
-                <div class="col-md-4">: <?= $jabatan->jbt_gol; ?></div>
+                <div class="col-md-4">: <?php echo $jabatan->jbt_gol; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tunjangan</strong>
                 </div>
-                <div class="col-md-4">: <?= $jabatan->jbt_tunjangan; ?></div>
+                <div class="col-md-4">: <?php echo $jabatan->jbt_tunjangan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>SKEP</strong>
                 </div>
-                <div class="col-md-4">: <?= $jabatan->jbt_surat_kep; ?></div>
+                <div class="col-md-4">: <?php echo $jabatan->jbt_surat_kep; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -309,21 +309,21 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $tanda_jasa->tnj_nama; ?></div>
+                <div class="col-md-4">: <?php echo $tanda_jasa->tnj_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Penerbit</strong>
                 </div>
-                <div class="col-md-4">: <?= $tanda_jasa->tnj_pemberi; ?></div>
+                <div class="col-md-4">: <?php echo $tanda_jasa->tnj_pemberi; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $tanda_jasa->tnj_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $tanda_jasa->tnj_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Catatan</strong>
                 </div>
-                <div class="col-md-4">: <?= $tanda_jasa->tnj_note; ?></div>
+                <div class="col-md-4">: <?php echo $tanda_jasa->tnj_note; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -342,21 +342,21 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Negara</strong>
                 </div>
-                <div class="col-md-4">: <?= $kunjungan->ln_negara; ?></div>
+                <div class="col-md-4">: <?php echo $kunjungan->ln_negara; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $kunjungan->ln_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $kunjungan->ln_tahun; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Lama</strong>
                 </div>
-                <div class="col-md-4">: <?= $kunjungan->ln_lama; ?></div>
+                <div class="col-md-4">: <?php echo $kunjungan->ln_lama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Biaya</strong>
                 </div>
-                <div class="col-md-4">: <?= $kunjungan->ln_pembiaya; ?></div>
+                <div class="col-md-4">: <?php echo $kunjungan->ln_pembiaya; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -375,21 +375,21 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Mata Kuliah</strong>
                 </div>
-                <div class="col-md-4">: <?= $mengajar->ngjr_matkul; ?></div>
+                <div class="col-md-4">: <?php echo $mengajar->ngjr_matkul; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jenjang</strong>
                 </div>
-                <div class="col-md-4">: <?= $mengajar->ngjr_jenjang; ?></div>
+                <div class="col-md-4">: <?php echo $mengajar->ngjr_jenjang; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jurusan</strong>
                 </div>
-                <div class="col-md-4">: <?= $mengajar->ngjr_jurusan; ?></div>
+                <div class="col-md-4">: <?php echo $mengajar->ngjr_jurusan; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Periode</strong>
                 </div>
-                <div class="col-md-4">: <?= $mengajar->ngjr_periode; ?></div>
+                <div class="col-md-4">: <?php echo $mengajar->ngjr_periode; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -408,17 +408,17 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $seminar->smnr_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $seminar->smnr_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Judul</strong>
                 </div>
-                <div class="col-md-4">: <?= $seminar->smnr_judul; ?></div>
+                <div class="col-md-4">: <?php echo $seminar->smnr_judul; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Penyelenggara</strong>
                 </div>
-                <div class="col-md-4">: <?= $seminar->smnr_penyelenggara; ?></div>
+                <div class="col-md-4">: <?php echo $seminar->smnr_penyelenggara; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -437,11 +437,11 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $abmas->abmas_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $abmas->abmas_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Kegiatan</strong>
                 </div>
-                <div class="col-md-4">: <?= $abmas->abmas_kegiatan; ?></div>
+                <div class="col-md-4">: <?php echo $abmas->abmas_kegiatan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -460,11 +460,11 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $bimas->bimas_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $bimas->bimas_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Kegiatan</strong>
                 </div>
-                <div class="col-md-4">: <?= $bimas->bimas_pembimbingan; ?></div>
+                <div class="col-md-4">: <?php echo $bimas->bimas_pembimbingan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -483,27 +483,27 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $pasangan->psg_nama; ?></div>
+                <div class="col-md-4">: <?php echo $pasangan->psg_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat, Tanggal Lahir</strong>
                 </div>
-                <div class="col-md-4">: <?= $pasangan->psg_tmpt_lahir . ', ' . $pasangan->psg_tgl_lahir; ?></div>
+                <div class="col-md-4">: <?php echo $pasangan->psg_tmpt_lahir . ', ' . $pasangan->psg_tgl_lahir; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tanggal Nikah</strong>
                 </div>
-                <div class="col-md-4">: <?= $pasangan->psg_tgl_nikah; ?></div>
+                <div class="col-md-4">: <?php echo $pasangan->psg_tgl_nikah; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pekerjaan</strong>
                 </div>
-                <div class="col-md-4">: <?= $pasangan->psg_pekerjaan; ?></div>
+                <div class="col-md-4">: <?php echo $pasangan->psg_pekerjaan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Keterangan</strong>
                 </div>
-                <div class="col-md-4">: <?= $pasangan->psg_keterangan; ?></div>
+                <div class="col-md-4">: <?php echo $pasangan->psg_keterangan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -522,31 +522,31 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $anak->anak_nama; ?></div>
+                <div class="col-md-4">: <?php echo $anak->anak_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jenis Kelamin</strong>
                 </div>
-                <div class="col-md-4">: <?= $anak->anak_jenkel; ?></div>
+                <div class="col-md-4">: <?php echo $anak->anak_jenkel; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat Lahir</strong>
                 </div>
-                <div class="col-md-4">: <?= $anak->anak_tmpt_lahir; ?></div>
+                <div class="col-md-4">: <?php echo $anak->anak_tmpt_lahir; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Status Anak</strong>
                 </div>
-                <div class="col-md-4">: <?= $anak->anak_status; ?></div>
+                <div class="col-md-4">: <?php echo $anak->anak_status; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pekerjaan</strong>
                 </div>
-                <div class="col-md-4">: <?= $anak->anak_pekerjaan; ?></div>
+                <div class="col-md-4">: <?php echo $anak->anak_pekerjaan; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Keterangan</strong>
                 </div>
-                <div class="col-md-4">: <?= $anak->anak_keterangan; ?></div>
+                <div class="col-md-4">: <?php echo $anak->anak_keterangan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -565,17 +565,17 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $orang_tua->ortu_nama; ?></div>
+                <div class="col-md-4">: <?php echo $orang_tua->ortu_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tanggal Lahir</strong>
                 </div>
-                <div class="col-md-4">: <?= $orang_tua->ortu_tgl_lahir; ?></div>
+                <div class="col-md-4">: <?php echo $orang_tua->ortu_tgl_lahir; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pekerjaan</strong>
                 </div>
-                <div class="col-md-4">: <?= $orang_tua->ortu_pekerjaan; ?></div>
+                <div class="col-md-4">: <?php echo $orang_tua->ortu_pekerjaan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -594,21 +594,21 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $mertua->mert_nama; ?></div>
+                <div class="col-md-4">: <?php echo $mertua->mert_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tanggal Lahir</strong>
                 </div>
-                <div class="col-md-4">: <?= $mertua->mert_tgl_lahir; ?></div>
+                <div class="col-md-4">: <?php echo $mertua->mert_tgl_lahir; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pekerjaan</strong>
                 </div>
-                <div class="col-md-4">: <?= $mertua->mert_pekerjaan; ?></div>
+                <div class="col-md-4">: <?php echo $mertua->mert_pekerjaan; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Keterangan</strong>
                 </div>
-                <div class="col-md-4">: <?= $mertua->mert_keterangan; ?></div>
+                <div class="col-md-4">: <?php echo $mertua->mert_keterangan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -627,27 +627,27 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $saudara_kandung->sdr_nama; ?></div>
+                <div class="col-md-4">: <?php echo $saudara_kandung->sdr_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jenis Kelamin</strong>
                 </div>
-                <div class="col-md-4">: <?= $saudara_kandung->sdr_jenkel; ?></div>
+                <div class="col-md-4">: <?php echo $saudara_kandung->sdr_jenkel; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tanggal Lahir</strong>
                 </div>
-                <div class="col-md-4">: <?= $saudara_kandung->sdr_tgl_lahir; ?></div>
+                <div class="col-md-4">: <?php echo $saudara_kandung->sdr_tgl_lahir; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pekerjaan</strong>
                 </div>
-                <div class="col-md-4">: <?= $saudara_kandung->sdr_pekerjaan; ?></div>
+                <div class="col-md-4">: <?php echo $saudara_kandung->sdr_pekerjaan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Keterangan</strong>
                 </div>
-                <div class="col-md-4">: <?= $saudara_kandung->sdr_keterangan; ?></div>
+                <div class="col-md-4">: <?php echo $saudara_kandung->sdr_keterangan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -666,27 +666,27 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama</strong>
                 </div>
-                <div class="col-md-4">: <?= $slta->slta_nama; ?></div>
+                <div class="col-md-4">: <?php echo $slta->slta_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Kedudukan</strong>
                 </div>
-                <div class="col-md-4">: <?= $slta->slta_kedudukan; ?></div>
+                <div class="col-md-4">: <?php echo $slta->slta_kedudukan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Periode</strong>
                 </div>
-                <div class="col-md-4">: <?= $slta->slta_periode; ?></div>
+                <div class="col-md-4">: <?php echo $slta->slta_periode; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat</strong>
                 </div>
-                <div class="col-md-4">: <?= $slta->slta_tempat; ?></div>
+                <div class="col-md-4">: <?php echo $slta->slta_tempat; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Kepala Sekolah</strong>
                 </div>
-                <div class="col-md-4">: <?= $slta->slta_nama_pimpinan; ?></div>
+                <div class="col-md-4">: <?php echo $slta->slta_nama_pimpinan; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -705,27 +705,27 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nama Kampus</strong>
                 </div>
-                <div class="col-md-4">: <?= $kampus->kmps_nama; ?></div>
+                <div class="col-md-4">: <?php echo $kampus->kmps_nama; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat</strong>
                 </div>
-                <div class="col-md-4">: <?= $kampus->kmps_kedudukan; ?></div>
+                <div class="col-md-4">: <?php echo $kampus->kmps_kedudukan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Periode</strong>
                 </div>
-                <div class="col-md-4">: <?= $kampus->kmps_periode; ?></div>
+                <div class="col-md-4">: <?php echo $kampus->kmps_periode; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tempat</strong>
                 </div>
-                <div class="col-md-4">: <?= $kampus->kmps_tempat; ?></div>
+                <div class="col-md-4">: <?php echo $kampus->kmps_tempat; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Pimpinan</strong>
                 </div>
-                <div class="col-md-4">: <?= $kampus->kmps_nama_pimpinan; ?></div>
+                <div class="col-md-4">: <?php echo $kampus->kmps_nama_pimpinan; ?></div>
             </div>
         <?php } ?>
     </div>
@@ -744,21 +744,21 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun Penelitian</strong>
                 </div>
-                <div class="col-md-4">: <?= $penelitian->pen_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $penelitian->pen_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Judul Penelitian</strong>
                 </div>
-                <div class="col-md-4">: <?= $penelitian->pen_judul; ?></div>
+                <div class="col-md-4">: <?php echo $penelitian->pen_judul; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Jabatan Penelitian</strong>
                 </div>
-                <div class="col-md-4">: <?= $penelitian->pen_jabatan; ?></div>
+                <div class="col-md-4">: <?php echo $penelitian->pen_jabatan; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Sumber Dana</strong>
                 </div>
-                <div class="col-md-4">: <?= $penelitian->pen_sumber_dana; ?></div>
+                <div class="col-md-4">: <?php echo $penelitian->pen_sumber_dana; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -768,17 +768,17 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun Terbit</strong>
                 </div>
-                <div class="col-md-4">: <?= $buku->buku_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $buku->buku_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Judul Penelitian</strong>
                 </div>
-                <div class="col-md-4">: <?= $buku->buku_judul; ?></div>
+                <div class="col-md-4">: <?php echo $buku->buku_judul; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Penerbit</strong>
                 </div>
-                <div class="col-md-4">: <?= $buku->buku_penyelenggara; ?></div>
+                <div class="col-md-4">: <?php echo $buku->buku_penyelenggara; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -788,17 +788,17 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $makalah->mkl_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $makalah->mkl_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Judul Penelitian</strong>
                 </div>
-                <div class="col-md-4">: <?= $makalah->mkl_judul; ?></div>
+                <div class="col-md-4">: <?php echo $makalah->mkl_judul; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Penyelenggara</strong>
                 </div>
-                <div class="col-md-4">: <?= $makalah->mkl_penyelenggara; ?></div>
+                <div class="col-md-4">: <?php echo $makalah->mkl_penyelenggara; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -808,17 +808,17 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $resensi->res_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $resensi->res_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Judul Resensi</strong>
                 </div>
-                <div class="col-md-4">: <?= $resensi->res_judul; ?></div>
+                <div class="col-md-4">: <?php echo $resensi->res_judul; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Penyelenggara</strong>
                 </div>
-                <div class="col-md-4">: <?= $resensi->res_penyelenggara; ?></div>
+                <div class="col-md-4">: <?php echo $resensi->res_penyelenggara; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -837,37 +837,37 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Golongan</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_gol; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_gol; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>No SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_no_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_no_sk; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Tanggal SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_tgl_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_tgl_sk; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>TMT SK</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_tmt_sk; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_tmt_sk; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>MK Tahun</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_mk_tahun; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_mk_tahun; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>MK Bulan</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_mk_bulan; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_mk_bulan; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Keterangan</strong>
                 </div>
-                <div class="col-md-4">: <?= $kgb->kgb_ket; ?></div>
+                <div class="col-md-4">: <?php echo $kgb->kgb_ket; ?></div>
             </div>
             <hr>
         <?php } ?>
@@ -886,47 +886,47 @@ $pegawai = json_decode($data);
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nomor Karpeg</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_karpeg; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_karpeg; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nomor Karis</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_karis; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_karis; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nomor KPE</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_kpe; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_kpe; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nomor Taspen</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_taspen; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_taspen; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>Nomor Askes</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_askes; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_askes; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>NUPTK</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_nuptk; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_nuptk; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>NIDN</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_nidn; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_nidn; ?></div>
                 <div id="peg_detail" class="col-md-2">
                     <strong>KTP</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_ktp; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_ktp; ?></div>
             </div>
             <div class="row">
                 <div id="peg_detail" class="col-md-2">
                     <strong>NPWP</strong>
                 </div>
-                <div class="col-md-4">: <?= $nomor->nmr_npwp; ?></div>
+                <div class="col-md-4">: <?php echo $nomor->nmr_npwp; ?></div>
             </div>
         <?php } ?>
     </div>

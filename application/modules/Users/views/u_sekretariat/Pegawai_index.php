@@ -128,12 +128,12 @@ $tottanpa_agama = 0;
                         <th>
                             jumlah
                         </th>
-                        <th><?= number_format($totj_pegawai); ?></th>
-                        <th><?= number_format($totlaki_laki); ?></th>
-                        <th><?= number_format($totperempuan); ?></th>
-                        <th><?= number_format($totlaki_perempuan); ?></th>
-                        <th><?= number_format($totagama_islam); ?></th>
-                        <th><?= number_format($tottanpa_agama); ?></th>
+                        <th><?php echo number_format($totj_pegawai); ?></th>
+                        <th><?php echo number_format($totlaki_laki); ?></th>
+                        <th><?php echo number_format($totperempuan); ?></th>
+                        <th><?php echo number_format($totlaki_perempuan); ?></th>
+                        <th><?php echo number_format($totagama_islam); ?></th>
+                        <th><?php echo number_format($tottanpa_agama); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -142,12 +142,12 @@ $tottanpa_agama = 0;
 </div>
 <script>
     window.onload = function () {
-        document.getElementById('title_chartdiv').innerText = "Total Data Pegawai " + <?= $totj_pegawai; ?>;
+        document.getElementById('title_chartdiv').innerText = "Total Data Pegawai " + <?php echo $totj_pegawai; ?>;
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
@@ -210,26 +210,26 @@ $tottanpa_agama = 0;
             var data = [{
                     "country": "Dummy",
                     "disabled": true,
-                    "litres": <?= $totj_pegawai; ?>,
+                    "litres": <?php echo $totj_pegawai; ?>,
                     "color": am4core.color("#dadada"),
                     "opacity": 0.3,
                     "strokeDasharray": "4,4"
                 },
                 {
                     "country": "laki-laki",
-                    "litres": <?= $totlaki_laki; ?>
+                    "litres": <?php echo $totlaki_laki; ?>
                 },
                 {
                     "country": "Perempuan",
-                    "litres": <?= $totperempuan; ?>
+                    "litres": <?php echo $totperempuan; ?>
                 },
                 {
                     "country": "Agama Valid",
-                    "litres": <?= $totagama_islam; ?>
+                    "litres": <?php echo $totagama_islam; ?>
                 },
                 {
                     "country": "Agama Invalid",
-                    "litres": <?= $tottanpa_agama; ?>
+                    "litres": <?php echo $tottanpa_agama; ?>
                 }
             ];
             var container = am4core.create("chartdiv_a", am4core.Container);

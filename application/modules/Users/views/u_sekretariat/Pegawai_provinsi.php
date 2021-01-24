@@ -10,14 +10,14 @@ $tottanpa_agama = 0;
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai Provinsi <?= $param[0]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Pegawai Provinsi <?php echo $param[0]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Sekretariat/Pegawai/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Sekretariat/Pegawai/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -128,24 +128,24 @@ $tottanpa_agama = 0;
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th><?= number_format($totj_pegawai); ?></th>
-                        <th><?= number_format($totlaki_laki); ?></th>
-                        <th><?= number_format($totperempuan); ?></th>
-                        <th><?= number_format($totlaki_perempuan); ?></th>
-                        <th><?= number_format($totagama_islam); ?></th>
-                        <th><?= number_format($tottanpa_agama); ?></th>
+                        <th><?php echo number_format($totj_pegawai); ?></th>
+                        <th><?php echo number_format($totlaki_laki); ?></th>
+                        <th><?php echo number_format($totperempuan); ?></th>
+                        <th><?php echo number_format($totlaki_perempuan); ?></th>
+                        <th><?php echo number_format($totagama_islam); ?></th>
+                        <th><?php echo number_format($tottanpa_agama); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="j_pegawai" value="<?= $totj_pegawai; ?>"/>
-<input type="hidden" name="laki_laki" value="<?= $totlaki_laki; ?>"/>
-<input type="hidden" name="perempuan" value="<?= $totperempuan; ?>"/>
-<input type="hidden" name="laki_perempuan" value="<?= $totlaki_perempuan; ?>"/>
-<input type="hidden" name="agama_islam" value="<?= $totagama_islam; ?>"/>
-<input type="hidden" name="tanpa_agama" value="<?= $tottanpa_agama; ?>"/>
+<input type="hidden" name="j_pegawai" value="<?php echo $totj_pegawai; ?>"/>
+<input type="hidden" name="laki_laki" value="<?php echo $totlaki_laki; ?>"/>
+<input type="hidden" name="perempuan" value="<?php echo $totperempuan; ?>"/>
+<input type="hidden" name="laki_perempuan" value="<?php echo $totlaki_perempuan; ?>"/>
+<input type="hidden" name="agama_islam" value="<?php echo $totagama_islam; ?>"/>
+<input type="hidden" name="tanpa_agama" value="<?php echo $tottanpa_agama; ?>"/>
 <script>
     window.onload = function () {
         var a, b, c, d, e, f;
@@ -160,7 +160,7 @@ $tottanpa_agama = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

@@ -9,7 +9,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -66,7 +66,7 @@
                         ?>
                         <tr>
                             <td>
-                                <?= '<a href="' . base_url('Sekertariat/Approved/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun . '&b=' . $id_provinsi . '&c=' . $approved->usul_kabupaten . '&d=' . $approved->kab_nama . ''))) . '">' . $approved->kab_nama . '</a>'; ?>
+                                <?php echo '<a href="' . base_url('Sekertariat/Approved/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun . '&b=' . $id_provinsi . '&c=' . $approved->usul_kabupaten . '&d=' . $approved->kab_nama . ''))) . '">' . $approved->kab_nama . '</a>'; ?>
                             </td>
                             <td class="text-center">
                                 <?php
@@ -115,12 +115,12 @@
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>total</th>
-                        <th><?= number_format($totjum_kabkot); ?></th>
-                        <th><?= number_format($totluas_tanah); ?></th>
-                        <th><?= number_format($totpenghapusan_gedung); ?></th>
-                        <th><?= number_format($tottanah_kosong); ?></th>
-                        <th><?= number_format($totperluasan_bangunan); ?></th>
-                        <th><?= number_format($totnilai_dipa); ?></th>
+                        <th><?php echo number_format($totjum_kabkot); ?></th>
+                        <th><?php echo number_format($totluas_tanah); ?></th>
+                        <th><?php echo number_format($totpenghapusan_gedung); ?></th>
+                        <th><?php echo number_format($tottanah_kosong); ?></th>
+                        <th><?php echo number_format($totperluasan_bangunan); ?></th>
+                        <th><?php echo number_format($totnilai_dipa); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -168,7 +168,7 @@
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

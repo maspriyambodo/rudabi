@@ -8,7 +8,7 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Input/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($param[0]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Sekertariat/Input/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($param[0]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -47,7 +47,7 @@
         </div>
     </div>
     <div class="card-body">
-        <p <?= $hide; ?>>{msg}</p>
+        <p <?php echo $hide; ?>>{msg}</p>
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-uppercase text-center">
@@ -83,7 +83,7 @@
                         ?>
                         <tr>
                             <td>
-                                <a href="<?= base_url('Sekertariat/Input/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $input_provinsi->kab_nama . '&b=' . $param[0] . '&c=' . $param[1] . '&d=' . $input_provinsi->usul_kabupaten . '&e=' . $param[2] . '')) . ''); ?>"><?php echo $input_provinsi->kab_nama; ?></a>
+                                <a href="<?php echo base_url('Sekertariat/Input/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $input_provinsi->kab_nama . '&b=' . $param[0] . '&c=' . $param[1] . '&d=' . $input_provinsi->usul_kabupaten . '&e=' . $param[2] . '')) . ''); ?>"><?php echo $input_provinsi->kab_nama; ?></a>
                             </td>
                             <td class="text-center">
                                 <?php
@@ -154,30 +154,30 @@
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th><?= number_format($totdata_kabkot); ?></th>
-                        <th><?= number_format($totdata_kua); ?></th>
-                        <th><?= number_format($totluas_tanah); ?></th>
-                        <th><?= number_format($totpenghapusan_gedung); ?></th>
-                        <th><?= number_format($tottanah_kosong); ?></th>
-                        <th><?= number_format($totperluasan_bangunan); ?></th>
-                        <th><?= number_format($totnilai_dipa); ?></th>
-                        <th><?= number_format($totstatus_pending); ?></th>
-                        <th><?= number_format($totstatus_req_approve); ?></th>
+                        <th><?php echo number_format($totdata_kabkot); ?></th>
+                        <th><?php echo number_format($totdata_kua); ?></th>
+                        <th><?php echo number_format($totluas_tanah); ?></th>
+                        <th><?php echo number_format($totpenghapusan_gedung); ?></th>
+                        <th><?php echo number_format($tottanah_kosong); ?></th>
+                        <th><?php echo number_format($totperluasan_bangunan); ?></th>
+                        <th><?php echo number_format($totnilai_dipa); ?></th>
+                        <th><?php echo number_format($totstatus_pending); ?></th>
+                        <th><?php echo number_format($totstatus_req_approve); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="totdata_kabkot" value="<?= $totdata_kabkot; ?>" readonly=""/>
-<input type="hidden" name="totdata_kua" value="<?= $totdata_kua; ?>" readonly=""/>
-<input type="hidden" name="totluas_tanah" value="<?= $totluas_tanah; ?>" readonly=""/>
-<input type="hidden" name="totpenghapusan_gedung" value="<?= $totpenghapusan_gedung; ?>" readonly=""/>
-<input type="hidden" name="tottanah_kosong" value="<?= $tottanah_kosong; ?>" readonly=""/>
-<input type="hidden" name="totperluasan_bangunan" value="<?= $totperluasan_bangunan; ?>" readonly=""/>
-<input type="hidden" name="totnilai_dipa" value="<?= $totnilai_dipa; ?>" readonly=""/>
-<input type="hidden" name="totstatus_pending" value="<?= $totstatus_pending; ?>" readonly=""/>
-<input type="hidden" name="totstatus_req_approve" value="<?= $totstatus_req_approve; ?>" readonly=""/>
+<input type="hidden" name="totdata_kabkot" value="<?php echo $totdata_kabkot; ?>" readonly=""/>
+<input type="hidden" name="totdata_kua" value="<?php echo $totdata_kua; ?>" readonly=""/>
+<input type="hidden" name="totluas_tanah" value="<?php echo $totluas_tanah; ?>" readonly=""/>
+<input type="hidden" name="totpenghapusan_gedung" value="<?php echo $totpenghapusan_gedung; ?>" readonly=""/>
+<input type="hidden" name="tottanah_kosong" value="<?php echo $tottanah_kosong; ?>" readonly=""/>
+<input type="hidden" name="totperluasan_bangunan" value="<?php echo $totperluasan_bangunan; ?>" readonly=""/>
+<input type="hidden" name="totnilai_dipa" value="<?php echo $totnilai_dipa; ?>" readonly=""/>
+<input type="hidden" name="totstatus_pending" value="<?php echo $totstatus_pending; ?>" readonly=""/>
+<input type="hidden" name="totstatus_req_approve" value="<?php echo $totstatus_req_approve; ?>" readonly=""/>
 <script>
     window.onload = function () {
         var a, b, c, d, e, f, g, h, i;
@@ -217,7 +217,7 @@
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
@@ -272,11 +272,11 @@
             chart.data = [
                 {
                     country: "Status Pending",
-                    litres: <?= $totstatus_pending; ?>
+                    litres: <?php echo $totstatus_pending; ?>
                 },
                 {
                     country: "Status Approved",
-                    litres: <?= $totstatus_req_approve; ?>
+                    litres: <?php echo $totstatus_req_approve; ?>
                 }
             ];
             chart.innerRadius = 100;

@@ -2,14 +2,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Registrasi Kankemenag: <?= $param[1] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Registrasi Kankemenag: <?php echo $param[1] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/BKKS/Registrasi/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/BKKS/Registrasi/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -34,11 +34,11 @@
                                 echo $id++;
                                 ?>
                             </td>
-                            <td class="text-center"><?= $value->kodekab; ?></td>
-                            <td><?= $value->kabupaten; ?></td>
-                            <td class="text-center"><?= $value->email; ?></td>
-                            <td class="text-center"><?= $value->tlp; ?></td>
-                            <td><?= $value->alamat; ?></td>
+                            <td class="text-center"><?php echo $value->kodekab; ?></td>
+                            <td><?php echo $value->kabupaten; ?></td>
+                            <td class="text-center"><?php echo $value->email; ?></td>
+                            <td class="text-center"><?php echo $value->tlp; ?></td>
+                            <td><?php echo $value->alamat; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

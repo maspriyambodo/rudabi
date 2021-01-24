@@ -91,39 +91,39 @@ $y = 0; //dt_hibah
                         ?>
                         <tr>
                             <td style="text-align:left !important;">
-                                <?= '<a href="' . base_url('Users/Binsyar/Simas/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>'; ?>
+                                <?php echo '<a href="' . base_url('Users/Binsyar/Simas/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->provinsi_id . '&b=' . $b->provinsi_name))) . '" title="Detail Provinsi ' . $b->provinsi_name . '">' . $b->provinsi_name . '</a>'; ?>
                             </td>
-                            <td><?= number_format($b->dt_masjid); ?></td>
-                            <td><?= number_format($b->dt_tanah); ?></td>
-                            <td><?= number_format($b->dt_bangunan); ?></td>
-                            <td><?= number_format($b->dt_jamaah); ?></td>
-                            <td><?= number_format($b->dt_pengurus); ?></td>
-                            <td><?= number_format($b->dt_imam); ?></td>
-                            <td><?= number_format($b->dt_khatib); ?></td>
-                            <td><?= number_format($b->dt_muazin); ?></td>
-                            <td><?= number_format($b->dt_remaja); ?></td>
+                            <td><?php echo number_format($b->dt_masjid); ?></td>
+                            <td><?php echo number_format($b->dt_tanah); ?></td>
+                            <td><?php echo number_format($b->dt_bangunan); ?></td>
+                            <td><?php echo number_format($b->dt_jamaah); ?></td>
+                            <td><?php echo number_format($b->dt_pengurus); ?></td>
+                            <td><?php echo number_format($b->dt_imam); ?></td>
+                            <td><?php echo number_format($b->dt_khatib); ?></td>
+                            <td><?php echo number_format($b->dt_muazin); ?></td>
+                            <td><?php echo number_format($b->dt_remaja); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>Total</th>
-                        <th><?= number_format($c); ?></th>
-                        <th><?= number_format($d); ?></th>
-                        <th><?= number_format($e); ?></th>
-                        <th><?= number_format($f); ?></th>
-                        <th><?= number_format($g); ?></th>
-                        <th><?= number_format($h); ?></th>
-                        <th><?= number_format($i); ?></th>
-                        <th><?= number_format($j); ?></th>
-                        <th><?= number_format($k); ?></th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($d); ?></th>
+                        <th><?php echo number_format($e); ?></th>
+                        <th><?php echo number_format($f); ?></th>
+                        <th><?php echo number_format($g); ?></th>
+                        <th><?php echo number_format($h); ?></th>
+                        <th><?php echo number_format($i); ?></th>
+                        <th><?php echo number_format($j); ?></th>
+                        <th><?php echo number_format($k); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="dt_masjid" readonly="" value="<?= number_format($c); ?>"/>
+<input type="hidden" name="dt_masjid" readonly="" value="<?php echo number_format($c); ?>"/>
 <script>
     window.onload = function () {
         var dt_masjid = $('input[name="dt_masjid"]').val();
@@ -132,7 +132,7 @@ $y = 0; //dt_hibah
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

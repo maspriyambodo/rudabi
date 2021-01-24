@@ -17,14 +17,14 @@ $m = 0;
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Penilaian KUA: Tahun <?= $param[0] ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Rekapitulasi Penilaian KUA: Tahun <?php echo $param[0] ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Emonev/Penilaian/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Emonev/Penilaian/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -43,7 +43,7 @@ $m = 0;
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            Detail Data Penilaian Tahun <?= $param[0] ?>
+            Detail Data Penilaian Tahun <?php echo $param[0] ?>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -98,49 +98,49 @@ $m = 0;
                             ?>
                         </td>
                         <td>
-                            <?= '<a href="' . base_url('Emonev/Penilaian/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $value->kodekua . '&c=' . $value->propinsi))) . '">' . $value->propinsi . '</a>' ?>
+                            <?php echo '<a href="' . base_url('Emonev/Penilaian/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $value->kodekua . '&c=' . $value->propinsi))) . '">' . $value->propinsi . '</a>' ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->kodekua; ?>
+                            <?php echo $value->kodekua; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_penilai; ?>
+                            <?php echo $value->dt_penilai; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_validasi; ?>
+                            <?php echo $value->dt_validasi; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_nonvalidasi; ?>
+                            <?php echo $value->dt_nonvalidasi; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_penghulu; ?>
+                            <?php echo $value->dt_penghulu; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_pegawai; ?>
+                            <?php echo $value->dt_pegawai; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_penduduk; ?>
+                            <?php echo $value->dt_penduduk; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_muslim; ?>
+                            <?php echo $value->dt_muslim; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_nikah; ?>
+                            <?php echo $value->dt_nikah; ?>
                         </td>
                         <td class="text-center">
-                            <?= $value->dt_luastanah; ?>
+                            <?php echo $value->dt_luastanah; ?>
                         </td>
                         <td class="text-center">
-                            <?= number_format($value->dt_performa1); ?>
+                            <?php echo number_format($value->dt_performa1); ?>
                         </td>
                         <td class="text-center">
-                            <?= number_format($value->dt_performa2); ?>
+                            <?php echo number_format($value->dt_performa2); ?>
                         </td>
                         <td class="text-center">
-                            <?= number_format($value->dt_performa3); ?>
+                            <?php echo number_format($value->dt_performa3); ?>
                         </td>
                         <td class="text-center">
-                            <?= number_format($value->dt_performa4); ?>
+                            <?php echo number_format($value->dt_performa4); ?>
                         </td>
                     </tr>
                 <?php } ?>
@@ -148,28 +148,28 @@ $m = 0;
             <tfoot class="text-center text-uppercase">
                 <tr>
                     <th colspan="3">jumlah</th>
-                    <th><?= $a; ?></th>
-                    <th><?= $b; ?></th>
-                    <th><?= $c; ?></th>
-                    <th><?= $d; ?></th>
-                    <th><?= $e; ?></th>
-                    <th><?= $f; ?></th>
-                    <th><?= $g; ?></th>
-                    <th><?= $h; ?></th>
-                    <th><?= $i; ?></th>
-                    <th><?= number_format($j); ?></th>
-                    <th><?= number_format($k); ?></th>
-                    <th><?= number_format($l); ?></th>
-                    <th><?= number_format($m); ?></th>
+                    <th><?php echo $a; ?></th>
+                    <th><?php echo $b; ?></th>
+                    <th><?php echo $c; ?></th>
+                    <th><?php echo $d; ?></th>
+                    <th><?php echo $e; ?></th>
+                    <th><?php echo $f; ?></th>
+                    <th><?php echo $g; ?></th>
+                    <th><?php echo $h; ?></th>
+                    <th><?php echo $i; ?></th>
+                    <th><?php echo number_format($j); ?></th>
+                    <th><?php echo number_format($k); ?></th>
+                    <th><?php echo number_format($l); ?></th>
+                    <th><?php echo number_format($m); ?></th>
                 </tr>
             </tfoot>
         </table>
     </div>
 </div>
-<input type="hidden" name="dt_penilai" readonly="" value="<?= number_format($a); ?>"/>
+<input type="hidden" name="dt_penilai" readonly="" value="<?php echo number_format($a); ?>"/>
 <script>
     window.onload = function () {
-        document.getElementById('title_chartdiv').innerText = "Total Data Tahun <?= $param[0]; ?>: " + $('input[name="dt_penilai"]').val();
+        document.getElementById('title_chartdiv').innerText = "Total Data Tahun <?php echo $param[0]; ?>: " + $('input[name="dt_penilai"]').val();
         am4core.ready(function () {
             am4core.useTheme(am4themes_frozen);
             am4core.useTheme(am4themes_animated);
@@ -181,11 +181,11 @@ $m = 0;
             chart.data = [
                 {
                     country: "Data Validasi",
-                    litres: <?= $b; ?>
+                    litres: <?php echo $b; ?>
                 },
                 {
                     country: "Data Non-Validasi",
-                    litres: <?= $c; ?>
+                    litres: <?php echo $c; ?>
                 }
             ];
 

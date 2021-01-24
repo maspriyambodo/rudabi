@@ -18,7 +18,7 @@
                     <div class="form-group">
                         <label>Username</label>
                         <input type="hidden" name="userid" value="<?php echo $param[0]->id; ?>"/>
-                        <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
+                        <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
                         <input type="text" name="uname" class="form-control" autocomplete="off" value="<?php echo $param[0]->uname; ?>" required=""/>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                 $(".showpwd").addClass("fa fa-eye");
         }
     }
-    var a = "<?= $this->session->flashdata('gagal'); ?>";
+    var a = "<?php echo $this->session->flashdata('gagal'); ?>";
     if (a === "") {
     } else {
         toastr.options = {

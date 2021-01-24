@@ -256,29 +256,29 @@ $j = 0;
                 <tfoot class = "text-center text-uppercase">
                     <tr>
                         <td>jumlah</td>
-                        <td><?= $ia ?></td>
-                        <td><?= $ib ?></td>
-                        <td><?= $ic ?></td>
-                        <td><?= $id ?></td>
-                        <td><?= '<b>' . $b . '</b>' ?></td>
-                        <td><?= $iia ?></td>
-                        <td><?= $iib ?></td>
-                        <td><?= $iic ?></td>
-                        <td><?= $iid ?></td>
-                        <td><?= '<b>' . $d . '</b>' ?></td>
-                        <td><?= $iiia ?></td>
-                        <td><?= $iiib ?></td>
-                        <td><?= $iiic ?></td>
-                        <td><?= $iiid ?></td>
-                        <td><?= '<b>' . $f . '</b>' ?></td>
-                        <td><?= $iva ?></td>
-                        <td><?= $ivb ?></td>
-                        <td><?= $ivc ?></td>
-                        <td><?= $ivd ?></td>
-                        <td><?= $ive ?></td>
-                        <td><?= '<b>' . $h . '</b>' ?></td>
-                        <td><?= $tanpa_golongan ?></td>
-                        <td><?= '<b>' . $j . '</b>' ?></td>
+                        <td><?php echo $ia ?></td>
+                        <td><?php echo $ib ?></td>
+                        <td><?php echo $ic ?></td>
+                        <td><?php echo $id ?></td>
+                        <td><?php echo '<b>' . $b . '</b>' ?></td>
+                        <td><?php echo $iia ?></td>
+                        <td><?php echo $iib ?></td>
+                        <td><?php echo $iic ?></td>
+                        <td><?php echo $iid ?></td>
+                        <td><?php echo '<b>' . $d . '</b>' ?></td>
+                        <td><?php echo $iiia ?></td>
+                        <td><?php echo $iiib ?></td>
+                        <td><?php echo $iiic ?></td>
+                        <td><?php echo $iiid ?></td>
+                        <td><?php echo '<b>' . $f . '</b>' ?></td>
+                        <td><?php echo $iva ?></td>
+                        <td><?php echo $ivb ?></td>
+                        <td><?php echo $ivc ?></td>
+                        <td><?php echo $ivd ?></td>
+                        <td><?php echo $ive ?></td>
+                        <td><?php echo '<b>' . $h . '</b>' ?></td>
+                        <td><?php echo $tanpa_golongan ?></td>
+                        <td><?php echo '<b>' . $j . '</b>' ?></td>
                     </tr>
                 </tfoot>
             </table>

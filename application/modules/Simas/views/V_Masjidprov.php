@@ -76,7 +76,7 @@
                         var a, b;
                         a = data.kabupaten_name;
                         b = a.replace('KAB. ', '');
-                        return '<a href="<?= base_url('Simas/Masjid/Kabupaten/'); ?>' + data.kabupaten_id + '/Provinsi/{provinsi}">' + b + '</a>';
+                        return '<a href="<?php echo base_url('Simas/Masjid/Kabupaten/'); ?>' + data.kabupaten_id + '/Provinsi/{provinsi}">' + b + '</a>';
                     }
                 },
                 {data: "jumlah_masjid", className: "sum_sum text-center"},

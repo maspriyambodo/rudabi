@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <base href="<?= base_url(); ?>">
+        <base href="<?php echo base_url(); ?>">
         <meta charset="utf-8" />
         <title>Login System</title>
         <meta name="description" content="Login System" />
@@ -31,7 +31,7 @@
                         <div class="login-form login-signin">
                             <a href="#" class="text-center nav-brand"> <img src="https://simas.kemenag.go.id/assets/img/rudabilogo.png" style="width:70%;" alt="Rudabi Logo" /> </a>
                             <h3 class="login-title">Sign in to system</h3>
-                            <form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?= base_url('Auth/Login/'); ?>" method="post">
+                            <form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?php echo base_url('Auth/Login/'); ?>" method="post">
                                 <div class="form-group">
                                     <label class="font-size-h6 font-weight-bolder text-dark">Username</label>
                                     <input class="form-control form-control-solid h-auto rounded-md" type="text" name="username" autocomplete="off" required=""/>
@@ -43,12 +43,12 @@
                                     <input class="form-control form-control-solid h-auto rounded-md" type="password" name="password" autocomplete="off" required="" />
                                 </div>
                                 <div class="pb-lg-0 pb-10">
-                                    <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
-                                    <?= $this->session->flashdata('error'); ?>
+                                    <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
+                                    <?php echo $this->session->flashdata('error'); ?>
                                     <button type="submit" class="btn btn-primary font-weight-bolder font-size-h6 px-8 py-4 my-3 mr-3">Sign In</button>
                                 </div>
                             </form>
-                            <div class="login-footer"><?= $this->bodo->Since(); ?> &copy; RUDABI | Ditjen Bimas Islam</div>
+                            <div class="login-footer"><?php echo $this->bodo->Since(); ?> &copy; RUDABI | Ditjen Bimas Islam</div>
                         </div>
                     </div>
                 </div>
@@ -56,7 +56,7 @@
         </div>
         <script src="<?php echo base_url('assets/plugins/global/plugins.bundle.js'); ?>"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
-        <script>var a = "<?= $this->session->flashdata('gagal'); ?>"; if (a === ""){} else{toastr.options = {closeButton:true, debug:false, newestOnTop:false, progressBar:false, positionClass:"toast-top-full-width", preventDuplicates:false, onclick:null, showDuration:"300", hideDuration:"1000", timeOut:"5000", extendedTimeOut:"1000", showEasing:"swing", hideEasing:"linear", showMethod:"fadeIn", hideMethod:"fadeOut"}; toastr.error(a)}var KTAppSettings = {breakpoints:{sm:576, md:768, lg:992, xl:1200, xxl:1200}, colors:{theme:{base:{white:"#ffffff", primary:"#6993FF", secondary:"#E5EAEE", success:"#1BC5BD", info:"#8950FC", warning:"#FFA800", danger:"#F64E60", light:"#F3F6F9", dark:"#212121"}, light:{white:"#ffffff", primary:"#E1E9FF", secondary:"#ECF0F3", success:"#C9F7F5", info:"#EEE5FF", warning:"#FFF4DE", danger:"#FFE2E5", light:"#F3F6F9", dark:"#D6D6E0"}, inverse:{white:"#ffffff", primary:"#ffffff", secondary:"#212121", success:"#ffffff", info:"#ffffff", warning:"#ffffff", danger:"#ffffff", light:"#464E5F", dark:"#ffffff"}}, gray:{"gray-100":"#F3F6F9", "gray-200":"#ECF0F3", "gray-300":"#E5EAEE", "gray-400":"#D6D6E0", "gray-500":"#B5B5C3", "gray-600":"#80808F", "gray-700":"#464E5F", "gray-800":"#1B283F", "gray-900":"#212121"}}, "font-family":"Poppins"};</script>
+        <script>var a = "<?php echo $this->session->flashdata('gagal'); ?>"; if (a === ""){} else{toastr.options = {closeButton:true, debug:false, newestOnTop:false, progressBar:false, positionClass:"toast-top-full-width", preventDuplicates:false, onclick:null, showDuration:"300", hideDuration:"1000", timeOut:"5000", extendedTimeOut:"1000", showEasing:"swing", hideEasing:"linear", showMethod:"fadeIn", hideMethod:"fadeOut"}; toastr.error(a)}var KTAppSettings = {breakpoints:{sm:576, md:768, lg:992, xl:1200, xxl:1200}, colors:{theme:{base:{white:"#ffffff", primary:"#6993FF", secondary:"#E5EAEE", success:"#1BC5BD", info:"#8950FC", warning:"#FFA800", danger:"#F64E60", light:"#F3F6F9", dark:"#212121"}, light:{white:"#ffffff", primary:"#E1E9FF", secondary:"#ECF0F3", success:"#C9F7F5", info:"#EEE5FF", warning:"#FFF4DE", danger:"#FFE2E5", light:"#F3F6F9", dark:"#D6D6E0"}, inverse:{white:"#ffffff", primary:"#ffffff", secondary:"#212121", success:"#ffffff", info:"#ffffff", warning:"#ffffff", danger:"#ffffff", light:"#464E5F", dark:"#ffffff"}}, gray:{"gray-100":"#F3F6F9", "gray-200":"#ECF0F3", "gray-300":"#E5EAEE", "gray-400":"#D6D6E0", "gray-500":"#B5B5C3", "gray-600":"#80808F", "gray-700":"#464E5F", "gray-800":"#1B283F", "gray-900":"#212121"}}, "font-family":"Poppins"};</script>
         <script src="<?php echo base_url('assets/plugins/custom/prismjs/prismjs.bundle.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/scripts.bundle.js'); ?>"></script>
         <script src="<?php echo base_url('assets/js/pages/custom/login/login.js'); ?>"></script>

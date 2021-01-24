@@ -1,5 +1,5 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
-<div class="card card-custom" data-card="true" id="kt_card_1" <?= $msgs; ?>>
+<div class="card card-custom" data-card="true" id="kt_card_1" <?php echo $msgs; ?>>
     <div class="card-header">
         <div class="card-title">
             Change Password
@@ -47,7 +47,7 @@
                         </div>
                         <div class="modal-footer">
                             <div class="text-center">
-                                <input type="hidden" name="<?= $csrf['name'] ?>" value="<?= $csrf['hash'] ?>"/>
+                                <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
                                 <div class="btn-group">
                                     <button type="button" class="btn btn-danger text-uppercase" data-dismiss="modal">cancel</button>
                                     <button type="submit" class="btn btn-success text-uppercase">Save Changes</button>

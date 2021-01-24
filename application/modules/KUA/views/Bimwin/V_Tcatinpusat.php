@@ -129,10 +129,10 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th>jumlah</th>
-                        <th><?= number_format($target_wilayah); ?></th>
-                        <th><?= number_format($realisasi_wilayah); ?></th>
-                        <th><?= number_format($sum_anggaran); ?></th>
-                        <th><?= number_format($sum_realisasi); ?></th>
+                        <th><?php echo number_format($target_wilayah); ?></th>
+                        <th><?php echo number_format($realisasi_wilayah); ?></th>
+                        <th><?php echo number_format($sum_anggaran); ?></th>
+                        <th><?php echo number_format($sum_realisasi); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -178,7 +178,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
                         a = data.id_prop;
                         b = data.nama_lokasi;
                         c = b.replace(' ', '_');
-                        return '<a href="<?= base_url('KUA/Bimwin/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
+                        return '<a href="<?php echo base_url('KUA/Bimwin/Provinsi/'); ?>' + a + "/" + c + '">' + b + '</a>';
                     }
                 },
                 {
@@ -257,10 +257,10 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 
             pieSeries.data = [{
                     "category": "Target Wilayah",
-                    "value": <?= $target_wilayah; ?>
+                    "value": <?php echo $target_wilayah; ?>
                 }, {
                     "category": "Realisasi Wilayah",
-                    "value": <?= $realisasi_wilayah; ?>
+                    "value": <?php echo $realisasi_wilayah; ?>
                 }];
             pieSeries.slices.template.states.getKey("hover").properties.shiftRadius = 0;
             pieSeries.slices.template.states.getKey("hover").properties.scale = 1;
@@ -272,12 +272,12 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
             pieSeries2.slices.template.propertyFields.fill = "fill";
             pieSeries2.data = [{
                     "category": "Target Anggaran",
-                    "value": <?= $sum_anggaran_format; ?>
+                    "value": <?php echo $sum_anggaran_format; ?>
                 }, {
                     "category": "Realisasi Anggaran",
-                    "value": <?= $sum_realisasi_format; ?>
+                    "value": <?php echo $sum_realisasi_format; ?>
                 }];
-            pieSeries2.slices.template.tooltipText = "{category}: {value} <?= $suffix; ?>";
+            pieSeries2.slices.template.tooltipText = "{category}: {value} <?php echo $suffix; ?>";
 
             pieSeries.adapter.add("innerRadius", function (innerRadius, target) {
                 return am4core.percent(40);

@@ -8,11 +8,11 @@
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Sekertariat/Usulan/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Sekertariat/Usulan/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $tahun))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
-        <p <?= $hide; ?>>{msg}</p>
+        <p <?php echo $hide; ?>>{msg}</p>
         <div class="table-responsive">
             <table class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-uppercase text-center">
@@ -123,16 +123,16 @@
                     <tr>
                         <th>jumlah</th>
                         <th>
-                            <?= number_format($totjum_data); ?>
+                            <?php echo number_format($totjum_data); ?>
                         </th>
-                        <th><?= number_format($totsert_kemanag); ?></th>
-                        <th><?= number_format($totsert_baliknama); ?></th>
-                        <th><?= number_format($totjum_kua); ?></th>
-                        <th><?= number_format($totluas_tanah); ?></th>
-                        <th><?= number_format($totpenghapusan_gedung); ?></th>
-                        <th><?= number_format($tottanah_kosong); ?></th>
-                        <th><?= number_format($totperluasan_bangunan); ?></th>
-                        <th><?= number_format($totnilai_dipa); ?></th>
+                        <th><?php echo number_format($totsert_kemanag); ?></th>
+                        <th><?php echo number_format($totsert_baliknama); ?></th>
+                        <th><?php echo number_format($totjum_kua); ?></th>
+                        <th><?php echo number_format($totluas_tanah); ?></th>
+                        <th><?php echo number_format($totpenghapusan_gedung); ?></th>
+                        <th><?php echo number_format($tottanah_kosong); ?></th>
+                        <th><?php echo number_format($totperluasan_bangunan); ?></th>
+                        <th><?php echo number_format($totnilai_dipa); ?></th>
                     </tr>
                 </tfoot>
             </table>

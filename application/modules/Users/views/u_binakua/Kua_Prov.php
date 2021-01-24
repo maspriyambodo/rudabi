@@ -5,14 +5,14 @@ $c = 0;
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> Data KUA Provinsi <?= $param[1]; ?> </h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> Data KUA Provinsi <?php echo $param[1]; ?> </h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/BKKS/KUA/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/BKKS/KUA/index'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -63,13 +63,13 @@ $c = 0;
                                 ?>
                             </td>
                             <td>
-                                <?= $b->city_title; ?>
+                                <?php echo $b->city_title; ?>
                             </td>
                             <td class="text-center">
-                                <?= $b->dt_kua; ?>
+                                <?php echo $b->dt_kua; ?>
                             </td>
                             <td class="text-center">
-                                <a href="<?= base_url('Users/BKKS/KUA/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->kua_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail <?= $b->city_title; ?>"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Users/BKKS/KUA/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->kua_city_id . '&b=' . $b->city_title . '&c=' . $param[0] . '&d=' . $param[1]))); ?>" class="btn btn-icon btn-default btn-xs" title="Detail <?php echo $b->city_title; ?>"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
@@ -77,7 +77,7 @@ $c = 0;
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th colspan="4">
-                            total data kua: <?= number_format($c); ?>
+                            total data kua: <?php echo number_format($c); ?>
                         </th>
                     </tr>
                 </tfoot>
@@ -85,7 +85,7 @@ $c = 0;
         </div>
     </div>
 </div>
-<input type="hidden" name="tot" readonly="" value="<?= number_format($c); ?>"/>
+<input type="hidden" name="tot" readonly="" value="<?php echo number_format($c); ?>"/>
 <script>
     window.onload = function () {
         document.getElementById('title_chartdiv').innerText = "Total Data KUA: " + $('input[name="tot"]').val();
@@ -103,7 +103,7 @@ $c = 0;
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("dt_kua", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data =<?= $data; ?>;
+            chart.data =<?php echo $data; ?>;
 
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.text = 'Daerah Tingkat Kota/Kabupaten';

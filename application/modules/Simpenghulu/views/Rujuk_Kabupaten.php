@@ -25,7 +25,7 @@ $v = 0; //rekap_pdd_wanita_diatas_s1
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
             <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">
-                Detail <?= $param[4] ?>
+                Detail <?php echo $param[4] ?>
             </h5>
         </div>
     </div>
@@ -33,7 +33,7 @@ $v = 0; //rekap_pdd_wanita_diatas_s1
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Simpenghulu/Nikah_Rujuk/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Simpenghulu/Nikah_Rujuk/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -95,54 +95,54 @@ $v = 0; //rekap_pdd_wanita_diatas_s1
                         $v += $b->rekap_pdd_wanita_diatas_s1; //rekap_pdd_wanita_diatas_s1
                         ?>
                         <tr>
-                            <td style="text-align:left;"><?= $b->city_title; ?></td>
-                            <td style="text-align:left;"><?= $b->kua_title; ?></td>
-                            <td><?= number_format($b->rekap_wali_nasab); ?></td>
-                            <td><?= number_format($b->rekap_wali_hakim); ?></td>
-                            <td><?= number_format($b->rekap_wali_adhal); ?></td>
-                            <td><?= number_format($b->rekap_wali_chairul_adhal); ?></td>
-                            <td><?= number_format($b->rekap_wali_campuran); ?></td>
-                            <td><?= number_format($b->rekap_poligami_2); ?></td>
-                            <td><?= number_format($b->rekap_poligami_3); ?></td>
-                            <td><?= number_format($b->rekap_poligami_4); ?></td>
-                            <td><?= number_format($b->rekap_bu_pria); ?></td>
-                            <td><?= number_format($b->rekap_bu_wanita); ?></td>
-                            <td><?= number_format($b->rekap_nikah_dikantor); ?></td>
-                            <td><?= number_format($b->rekap_nikah_luar_kantor); ?></td>
-                            <td><?= number_format($b->rekap_nikah_bnpb); ?></td>
-                            <td><?= number_format($b->rekap_pdd_pria_sd); ?></td>
-                            <td><?= number_format($b->rekap_pdd_pria_dibawah_smp); ?></td>
-                            <td><?= number_format($b->rekap_pdd_pria_sma); ?></td>
-                            <td><?= number_format($b->rekap_pdd_pria_diatas_s1); ?></td>
-                            <td><?= number_format($b->rekap_pdd_wanita_sma); ?></td>
-                            <td><?= number_format($b->rekap_pdd_wanita_dibawah_smp); ?></td>
-                            <td><?= number_format($b->rekap_pdd_wanita_diatas_s1); ?></td>
+                            <td style="text-align:left;"><?php echo $b->city_title; ?></td>
+                            <td style="text-align:left;"><?php echo $b->kua_title; ?></td>
+                            <td><?php echo number_format($b->rekap_wali_nasab); ?></td>
+                            <td><?php echo number_format($b->rekap_wali_hakim); ?></td>
+                            <td><?php echo number_format($b->rekap_wali_adhal); ?></td>
+                            <td><?php echo number_format($b->rekap_wali_chairul_adhal); ?></td>
+                            <td><?php echo number_format($b->rekap_wali_campuran); ?></td>
+                            <td><?php echo number_format($b->rekap_poligami_2); ?></td>
+                            <td><?php echo number_format($b->rekap_poligami_3); ?></td>
+                            <td><?php echo number_format($b->rekap_poligami_4); ?></td>
+                            <td><?php echo number_format($b->rekap_bu_pria); ?></td>
+                            <td><?php echo number_format($b->rekap_bu_wanita); ?></td>
+                            <td><?php echo number_format($b->rekap_nikah_dikantor); ?></td>
+                            <td><?php echo number_format($b->rekap_nikah_luar_kantor); ?></td>
+                            <td><?php echo number_format($b->rekap_nikah_bnpb); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_pria_sd); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_pria_dibawah_smp); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_pria_sma); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_pria_diatas_s1); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_wanita_sma); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_wanita_dibawah_smp); ?></td>
+                            <td><?php echo number_format($b->rekap_pdd_wanita_diatas_s1); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <td colspan="2">total</td>
-                        <td><?= number_format($c); ?></td>
-                        <td><?= number_format($d); ?></td>
-                        <td><?= number_format($e); ?></td>
-                        <td><?= number_format($f); ?></td>
-                        <td><?= number_format($g); ?></td>
-                        <td><?= number_format($h); ?></td>
-                        <td><?= number_format($i); ?></td>
-                        <td><?= number_format($j); ?></td>
-                        <td><?= number_format($k); ?></td>
-                        <td><?= number_format($l); ?></td>
-                        <td><?= number_format($m); ?></td>
-                        <td><?= number_format($n); ?></td>
-                        <td><?= number_format($o); ?></td>
-                        <td><?= number_format($p); ?></td>
-                        <td><?= number_format($q); ?></td>
-                        <td><?= number_format($r); ?></td>
-                        <td><?= number_format($s); ?></td>
-                        <td><?= number_format($t); ?></td>
-                        <td><?= number_format($u); ?></td>
-                        <td><?= number_format($v); ?></td>
+                        <td><?php echo number_format($c); ?></td>
+                        <td><?php echo number_format($d); ?></td>
+                        <td><?php echo number_format($e); ?></td>
+                        <td><?php echo number_format($f); ?></td>
+                        <td><?php echo number_format($g); ?></td>
+                        <td><?php echo number_format($h); ?></td>
+                        <td><?php echo number_format($i); ?></td>
+                        <td><?php echo number_format($j); ?></td>
+                        <td><?php echo number_format($k); ?></td>
+                        <td><?php echo number_format($l); ?></td>
+                        <td><?php echo number_format($m); ?></td>
+                        <td><?php echo number_format($n); ?></td>
+                        <td><?php echo number_format($o); ?></td>
+                        <td><?php echo number_format($p); ?></td>
+                        <td><?php echo number_format($q); ?></td>
+                        <td><?php echo number_format($r); ?></td>
+                        <td><?php echo number_format($s); ?></td>
+                        <td><?php echo number_format($t); ?></td>
+                        <td><?php echo number_format($u); ?></td>
+                        <td><?php echo number_format($v); ?></td>
                     </tr>
                 </tfoot>
             </table>

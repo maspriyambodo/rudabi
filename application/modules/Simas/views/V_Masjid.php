@@ -1,7 +1,7 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> Data Masjid Tahun <?= date('Y'); ?> </h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5"> Data Masjid Tahun <?php echo date('Y'); ?> </h5>
         </div>
     </div>
 </div>
@@ -82,7 +82,7 @@
                         var prov, provinsi;
                         prov = data.provinsi_name;
                         provinsi = prov.replace(' ', '_');
-                        return '<a href="<?= base_url('Simas/Masjid/Provinsi/'); ?>' + id + '/' + provinsi + '">' + data.provinsi_name + '</a>';
+                        return '<a href="<?php echo base_url('Simas/Masjid/Provinsi/'); ?>' + id + '/' + provinsi + '">' + data.provinsi_name + '</a>';
                     }
                 },
                 {data: "jumlah_masjid", className: "sum_sum text-center"},

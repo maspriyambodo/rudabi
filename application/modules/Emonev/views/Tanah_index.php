@@ -5,8 +5,8 @@ foreach ($tanah as $value) {
     $totjml += $value->jml;
 }
 ?>
-<input type="hidden" name="totjml" value="<?= $totjml; ?>"/>
-<input type="hidden" name="invalid" value="<?= $tanah[0]->jml; ?>"/>
+<input type="hidden" name="totjml" value="<?php echo $totjml; ?>"/>
+<input type="hidden" name="invalid" value="<?php echo $tanah[0]->jml; ?>"/>
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
@@ -80,17 +80,17 @@ foreach ($tanah as $value) {
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $dt_tanah->keterangan; ?></td>
-                            <td class="text-center"><?= number_format($dt_tanah->jml); ?></td>
+                            <td><?php echo $dt_tanah->keterangan; ?></td>
+                            <td class="text-center"><?php echo number_format($dt_tanah->jml); ?></td>
                             <td class="text-center">
-                                <a href="<?= base_url('Emonev/Tanah/Statustanah?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tanah->statustanah . '&b=' . $dt_tanah->keterangan))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail status bangunan KUA"><i class="fas fa-eye"></i></a>
+                                <a href="<?php echo base_url('Emonev/Tanah/Statustanah?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $dt_tanah->statustanah . '&b=' . $dt_tanah->keterangan))); ?>" class="btn btn-icon btn-success btn-xs" title="Detail status bangunan KUA"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
-                        <th colspan="3">total Status Tanah KUA: <?= number_format($totjml); ?></th>
+                        <th colspan="3">total Status Tanah KUA: <?php echo number_format($totjml); ?></th>
                     </tr>
                 </tfoot>
             </table>
@@ -162,7 +162,7 @@ foreach ($tanah as $value) {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

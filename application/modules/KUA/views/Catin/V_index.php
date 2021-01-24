@@ -7,7 +7,7 @@ $nonhadir_istri = str_replace(',', '', $catin[0]->nonhadir_istri);
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data CATIN Tahun <?= $datedex; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data CATIN Tahun <?php echo $datedex; ?></h5>
         </div>
     </div>
 </div>
@@ -38,7 +38,7 @@ $nonhadir_istri = str_replace(',', '', $catin[0]->nonhadir_istri);
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('KUA/Catin/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('KUA/Catin/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -73,22 +73,22 @@ $nonhadir_istri = str_replace(',', '', $catin[0]->nonhadir_istri);
             {
                 "country": "Dummy",
                 "disabled": true,
-                "litres": <?= $target_pusat; ?>,
+                "litres": <?php echo $target_pusat; ?>,
                 "color": am4core.color("#dadada"),
                 "opacity": 0.3,
                 "strokeDasharray": "4,4"
             },
             {
                 "country": "Jumlah Catin",
-                "litres": <?= $jumlah_catin; ?>
+                "litres": <?php echo $jumlah_catin; ?>
             },
             {
                 "country": "Hadir Suami",
-                "litres": <?= $hadir_suami; ?>
+                "litres": <?php echo $hadir_suami; ?>
             },
             {
                 "country": "Nonhadir Istri",
-                "litres": <?= $nonhadir_istri; ?>
+                "litres": <?php echo $nonhadir_istri; ?>
             }
         ];
 

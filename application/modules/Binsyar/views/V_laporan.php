@@ -19,7 +19,7 @@ $q = 0; //bln_zulhijjah
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Hisab Laporan tahun <?= date('Y'); ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Hisab Laporan tahun <?php echo date('Y'); ?></h5>
         </div>
     </div>
 </div>
@@ -234,7 +234,7 @@ $q = 0; //bln_zulhijjah
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;

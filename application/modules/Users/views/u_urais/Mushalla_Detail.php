@@ -9,14 +9,14 @@ $g = 0; //mushalla_num_remaja
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Mushalla Kecamatan <?= $param[5]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Data Mushalla Kecamatan <?php echo $param[5]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Binsyar/Mushalla/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Binsyar/Mushalla/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&b=' . $param[1] . '&c=' . $param[2] . '&d=' . $param[3]))); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="card-toolbar">
             <a href="#" class="btn btn-icon btn-sm btn-hover-light-primary mr-1" data-card-tool="toggle" data-toggle="tooltip" data-placement="top" title="Minimalkan">
@@ -55,20 +55,20 @@ $g = 0; //mushalla_num_remaja
                         $g += $b->mushalla_num_remaja; //mushalla_num_remaja
                         ?>
                         <tr>
-                            <td style="text-align:left !important;"><?= $b->mushalla_name; ?></td>
-                            <td><?= $b->tahun; ?></td>
-                            <td style="text-align:left !important;"><?= $b->mushalla_address; ?></td>
-                            <td><?= $b->mushalla_phone; ?></td>
-                            <td><?= $b->mushalla_email; ?></td>
-                            <td><?= $b->mushalla_tanah; ?></td>
-                            <td><?= $b->mushalla_bangunan; ?></td>
-                            <td><?= $b->mushalla_num_jamaah; ?></td>
-                            <td><?= $b->mushalla_num_imam; ?></td>
-                            <td><?= $b->mushalla_num_khatib; ?></td>
-                            <td><?= $b->mushalla_num_muazin; ?></td>
-                            <td><?= $b->mushalla_num_remaja; ?></td>
-                            <td><?= $b->mushalla_long; ?></td>
-                            <td><?= $b->mushalla_lat; ?></td>
+                            <td style="text-align:left !important;"><?php echo $b->mushalla_name; ?></td>
+                            <td><?php echo $b->tahun; ?></td>
+                            <td style="text-align:left !important;"><?php echo $b->mushalla_address; ?></td>
+                            <td><?php echo $b->mushalla_phone; ?></td>
+                            <td><?php echo $b->mushalla_email; ?></td>
+                            <td><?php echo $b->mushalla_tanah; ?></td>
+                            <td><?php echo $b->mushalla_bangunan; ?></td>
+                            <td><?php echo $b->mushalla_num_jamaah; ?></td>
+                            <td><?php echo $b->mushalla_num_imam; ?></td>
+                            <td><?php echo $b->mushalla_num_khatib; ?></td>
+                            <td><?php echo $b->mushalla_num_muazin; ?></td>
+                            <td><?php echo $b->mushalla_num_remaja; ?></td>
+                            <td><?php echo $b->mushalla_long; ?></td>
+                            <td><?php echo $b->mushalla_lat; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>

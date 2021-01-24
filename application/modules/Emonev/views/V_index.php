@@ -55,8 +55,8 @@ $totjumlah_kua = 0;
                 <tbody>
                     <?php foreach ($kua as $key => $kua) { ?>
                         <tr>
-                            <td class="text-center"><?= $kua->kodekua; ?></td>
-                            <td><?= $kua->propinsi; ?></td>
+                            <td class="text-center"><?php echo $kua->kodekua; ?></td>
+                            <td><?php echo $kua->propinsi; ?></td>
                             <td class="text-center">
                                 <?php
                                 $totkanmenag += $kanmenag[$key]->jumlah_kabupaten;
@@ -75,16 +75,16 @@ $totjumlah_kua = 0;
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th colspan="2">total</th>
-                        <th><?= number_format($totkanmenag); ?></th>
-                        <th><?= number_format($totjumlah_kua); ?></th>
+                        <th><?php echo number_format($totkanmenag); ?></th>
+                        <th><?php echo number_format($totjumlah_kua); ?></th>
                     </tr>
                 </tfoot>
             </table>
         </div>
     </div>
 </div>
-<input type="hidden" name="totjumlah_kua" value="<?= $totjumlah_kua; ?>"/>
-<input type="hidden" name="totkanmenag" value="<?= $totkanmenag; ?>"/>
+<input type="hidden" name="totjumlah_kua" value="<?php echo $totjumlah_kua; ?>"/>
+<input type="hidden" name="totkanmenag" value="<?php echo $totkanmenag; ?>"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
@@ -118,7 +118,7 @@ $totjumlah_kua = 0;
         am4core.useTheme(am4themes_animated);
         var chart = am4core.create("chartdiv", am4charts.XYChart);
         chart.exporting.menu = new am4core.ExportMenu();
-        chart.data = <?= $data; ?>;
+        chart.data = <?php echo $data; ?>;
         var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
         categoryAxis.dataFields.category = "propinsi";
         categoryAxis.renderer.grid.template.location = 0;

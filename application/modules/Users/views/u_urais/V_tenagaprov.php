@@ -3,14 +3,14 @@
 <div class="subheader py-2 py-lg-4 subheader-solid" id="kt_subheader">
     <div class="container-fluid d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
         <div class="d-flex align-items-center flex-wrap mr-2">
-            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-capitalize">data tenaga ahli provinsi <?= $param[1]; ?></h5>
+            <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5 text-capitalize">data tenaga ahli provinsi <?php echo $param[1]; ?></h5>
         </div>
     </div>
 </div>
 <div class="card card-custom">
     <div class="card-header">
         <div class="card-title">
-            <a href="<?= base_url('Users/Binsyar/Ahli/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
+            <a href="<?php echo base_url('Users/Binsyar/Ahli/index/'); ?>" class="btn btn-light btn-shadow-hover"><i class="fas fa-arrow-left"></i> Kembali</a>
         </div>
     </div>
     <div class="card-body">
@@ -39,11 +39,11 @@
                                 echo $id++;
                                 ?>
                             </td>
-                            <td><?= $b->tenaga_nama; ?></td>
+                            <td><?php echo $b->tenaga_nama; ?></td>
                             <td class="text-center">
-                                <?= $b->tenaga_tempat_lahir; ?>
+                                <?php echo $b->tenaga_tempat_lahir; ?>
                             </td>
-                            <td class="text-center"><?= $b->tenaga_tanggal_lahir; ?></td>
+                            <td class="text-center"><?php echo $b->tenaga_tanggal_lahir; ?></td>
                             <td class="text-center">
                                 <?php
                                 $date = new DateTime($b->tenaga_tanggal_lahir);
@@ -52,9 +52,9 @@
                                 echo $interval->y;
                                 ?>
                             </td>
-                            <td class="text-center"><?= $b->tenaga_telp; ?></td>
+                            <td class="text-center"><?php echo $b->tenaga_telp; ?></td>
                             <td class="text-center">
-                                <?= $b->tenaga_alamat; ?>
+                                <?php echo $b->tenaga_alamat; ?>
                             </td>
                         </tr>
                     <?php } ?>

@@ -110,25 +110,25 @@ $a3 = 0; //dt_muda
                                 echo '<a href="' . base_url('Simpenghulu/Penghulu/Kabupaten?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->city_province . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>';
                                 ?>
                             </td>
-                            <td><?= number_format($b->dt_penghulu); ?></td>
-                            <td><?= number_format($b->dt_pertama); ?></td>
-                            <td><?= number_format($b->dt_madya); ?></td>
-                            <td><?= number_format($b->dt_muda); ?></td>
-                            <td><?= number_format($b->dt_sma); ?></td>
-                            <td><?= number_format($b->dt_s1); ?></td>
-                            <td><?= number_format($b->dt_s2); ?></td>
-                            <td><?= number_format($b->dt_s3); ?></td>
+                            <td><?php echo number_format($b->dt_penghulu); ?></td>
+                            <td><?php echo number_format($b->dt_pertama); ?></td>
+                            <td><?php echo number_format($b->dt_madya); ?></td>
+                            <td><?php echo number_format($b->dt_muda); ?></td>
+                            <td><?php echo number_format($b->dt_sma); ?></td>
+                            <td><?php echo number_format($b->dt_s1); ?></td>
+                            <td><?php echo number_format($b->dt_s2); ?></td>
+                            <td><?php echo number_format($b->dt_s3); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
                 <tfoot class="text-center text-uppercase">
                     <tr>
                         <th colspan="2">jumlah</th>
-                        <th><?= number_format($c); ?></th>
-                        <th><?= number_format($u); ?></th>
-                        <th><?= number_format($v); ?></th>
-                        <th><?= number_format($w); ?></th>
-                        <th><?= number_format($x); ?></th>
+                        <th><?php echo number_format($c); ?></th>
+                        <th><?php echo number_format($u); ?></th>
+                        <th><?php echo number_format($v); ?></th>
+                        <th><?php echo number_format($w); ?></th>
+                        <th><?php echo number_format($x); ?></th>
                         <th><?php echo number_format($a1); ?></th>
                         <th><?php echo number_format($a2); ?></th>
                         <th><?php echo number_format($a3); ?></th>
@@ -144,14 +144,14 @@ $z = $h + $i + $j + $k; //total golongan II
 $aa = $l + $m + $n + $o; //total golongan III
 $ab = $p + $q + $r + $s + $t; //total golongan IV
 ?>
-<input type="hidden" name="dt_penghulu" readonly="" value="<?= number_format($c); ?>"/>
-<input type="hidden" name="y" readonly="" value="<?= number_format($y); ?>"/>
-<input type="hidden" name="z" readonly="" value="<?= number_format($z); ?>"/>
-<input type="hidden" name="aa" readonly="" value="<?= number_format($aa); ?>"/>
-<input type="hidden" name="ab" readonly="" value="<?= number_format($ab); ?>"/>
-<input type="hidden" name="dt_pertama" readonly="" value="<?= $a1; ?>"/>
-<input type="hidden" name="dt_madya" readonly="" value="<?= $a2; ?>"/>
-<input type="hidden" name="dt_muda" readonly="" value="<?= $a3; ?>"/>
+<input type="hidden" name="dt_penghulu" readonly="" value="<?php echo number_format($c); ?>"/>
+<input type="hidden" name="y" readonly="" value="<?php echo number_format($y); ?>"/>
+<input type="hidden" name="z" readonly="" value="<?php echo number_format($z); ?>"/>
+<input type="hidden" name="aa" readonly="" value="<?php echo number_format($aa); ?>"/>
+<input type="hidden" name="ab" readonly="" value="<?php echo number_format($ab); ?>"/>
+<input type="hidden" name="dt_pertama" readonly="" value="<?php echo $a1; ?>"/>
+<input type="hidden" name="dt_madya" readonly="" value="<?php echo $a2; ?>"/>
+<input type="hidden" name="dt_muda" readonly="" value="<?php echo $a3; ?>"/>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
@@ -166,7 +166,7 @@ $ab = $p + $q + $r + $s + $t; //total golongan IV
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = <?= $data; ?>;
+            chart.data = <?php echo $data; ?>;
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
