@@ -14,7 +14,7 @@
     <div class="card-body">
         <form action="<?php echo base_url('Users/Manage/Save/'); ?>" method="post">
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <div class="form-group">
                         <label>Username</label>
                         <input type="hidden" name="userid" value="<?php echo $param[0]->id; ?>"/>
@@ -22,7 +22,7 @@
                         <input type="text" name="uname" class="form-control" autocomplete="off" value="<?php echo $param[0]->uname; ?>" required=""/>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <div class="form-group">
                         <label>Password</label>
                         <div class="input-group mb-3">

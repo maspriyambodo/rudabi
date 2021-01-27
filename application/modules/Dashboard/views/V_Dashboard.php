@@ -3,11 +3,11 @@
     <div class="card-body position-relative">
         <div style="font-size:40px;" class="7 text-white text-center my-10">
             <b>DIREKTORAT JENDERAL</b><br>Bimbingan Masyarakat Islam<br>
-            <small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo $inpo;?></small>
+            <small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo $inpo; ?></small>
         </div>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Sekertariat/Satker/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -22,7 +22,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Sekertariat/Usulan/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y")))); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -37,7 +37,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y")))); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -52,7 +52,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Sekertariat/Sicakep/Pegawai/index'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -67,7 +67,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Sekertariat/Sicakep/Pensiun/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -85,7 +85,7 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Binsyar/Sihat/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -100,7 +100,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Binsyar/Ahli/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -115,7 +115,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Binsyar/Pengukuran/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -130,7 +130,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Binsyar/Simas/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -145,7 +145,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Binsyar/Mushalla/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -163,7 +163,7 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('KUA/Bimwin/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -178,7 +178,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('BKKS/Catin/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -193,7 +193,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Emonev/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -208,7 +208,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Simpenghulu/Penghulu/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -223,7 +223,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Simpenghulu/Peristiwa/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -241,7 +241,7 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo site_url('PAI/Epai/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -256,8 +256,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                <div class="col-md">
+                    <a href="<?php echo base_url('PAI/Ormas/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="far fa-flag" style="font-size: 48px;color: white;"></i>
@@ -271,8 +271,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                <div class="col-md">
+                    <a href="<?php echo base_url('PAI/LPTQ/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-quran" style="font-size: 48px;color: white;"></i>
@@ -286,7 +286,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -301,8 +301,8 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
-                    <a href="" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
+                <div class="col-md">
+                    <a href="<?php echo base_url('Siwak/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <i class="fas fa-hand-holding-heart" style="font-size: 48px;color: white;"></i>
@@ -351,7 +351,7 @@
             <i class=" far fa-lightbulb "></i>
         </a>
     </li>
-    
+
     <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard Wakaf">
         <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/Siwak/Dashboard/index/'); ?>" target="_blank">
             <i class="fas fa-hand-holding-heart"></i>

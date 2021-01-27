@@ -13,13 +13,13 @@
     <div class="card-body">
         <form action="<?php echo base_url('Auth/Security/Save/'); ?>" method="post">
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <div class="form-group">
                         <label>Old Password</label>
                         <input type="password" id="old_pwd" name="old_pwd" class="form-control" required="" autocomplete="off"/>
                     </div>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <div class="form-group">
                         <label>New Password</label>
                         <input type="password" id="new_pwd" name="new_pwd" class="form-control" required="" autocomplete="off"/>

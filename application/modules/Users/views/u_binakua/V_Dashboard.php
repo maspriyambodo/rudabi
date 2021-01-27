@@ -3,11 +3,11 @@
     <div class="card-body position-relative">
         <div style="font-size:40px;" class="7 text-white text-center my-10">
             <b>DIREKTORAT</b><br>Bina KUA &amp; Keluarga Sakinah<br>
-                <small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo $inpo;?></small>
+            <small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo $inpo; ?></small>
         </div>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Bimwin/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -17,7 +17,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Catin/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -27,7 +27,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Fasilitator/index/' . date("Y")); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -37,7 +37,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Emonev/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -46,12 +46,11 @@
                             <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 15px;">Rekap Data KUA</div>
                         </div>
                     </a>
-                </div>
-                
+                </div>   
             </div>
-            
+
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Simkah/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -61,7 +60,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Penilaian/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -71,7 +70,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/KUA/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -81,7 +80,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Penghulu/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -91,11 +90,10 @@
                         </div>
                     </a>
                 </div>
-                
             </div>
-            
+
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Tipologi/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -105,7 +103,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Tanah/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -115,7 +113,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Bangunan/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -125,7 +123,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/BKKS/Registrasi/index/'); ?>" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -135,7 +133,6 @@
                         </div>
                     </a>
                 </div>
-                
             </div>
         </div>
     </div>

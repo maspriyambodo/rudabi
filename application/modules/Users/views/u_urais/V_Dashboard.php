@@ -7,7 +7,7 @@
         </div>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/Binsyar/Simas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -17,7 +17,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -27,7 +27,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -37,7 +37,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -47,7 +47,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -60,7 +60,7 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -70,7 +70,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -80,7 +80,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -90,7 +90,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -100,7 +100,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -113,7 +113,7 @@
             </div>
 
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="<?php echo base_url('Users/Binsyar/Sihat/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -123,7 +123,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -133,7 +133,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -143,7 +143,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -153,7 +153,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -166,7 +166,7 @@
             </div>
             
             <div class="row">
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b">
                         <div class="card-body">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -178,7 +178,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -192,7 +192,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -206,7 +206,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -220,7 +220,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col">
+                <div class="col-md">
                     <a href="javascript:void(0)" class="card card-custom bg-warning bg-hover-state-warning card-stretch gutter-b">
                         <div class="card-body text-center">
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
