@@ -29,7 +29,8 @@ class Dashboard extends CI_Controller {
         $data = [
             'title' => 'Dashboard Sekretariat | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'data' => $this->Total()
+            'data' => $this->Total(),
+            'inpo' => date('d-m-Y')
         ];
         $data['content'] = $this->parser->parse('Users/u_sekretariat/V_Dashboard', $data, true);
         return $this->parser->parse('Users/u_sekretariat/Template', $data);

@@ -29,7 +29,8 @@ class Dashboard extends CI_Controller {
         $data = [
             'title' => 'Dashboard Rudabi',
             'username' => $this->session->userdata('username'),
-            'total' => $this->Total()
+            'total' => $this->Total(),
+            'inpo' => date('d-m-Y')
         ];
         $data['content'] = $this->parser->parse('V_Dashboard', $data, true);
         return $this->parser->parse('Template', $data);

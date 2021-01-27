@@ -2,7 +2,8 @@
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
         <div style="font-size:40px;" class="7 text-white text-center my-10">
-            <b>DIREKTORAT</b><br>Penerangan Agama Islam
+            <b>DIREKTORAT</b><br>Penerangan Agama Islam<br>
+                <small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo $inpo;?></small>
         </div>
         <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
             <div class="row">

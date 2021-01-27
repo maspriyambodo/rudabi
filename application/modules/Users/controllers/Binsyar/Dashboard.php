@@ -29,7 +29,8 @@ class Dashboard extends CI_Controller {
         $data = [
             'title' => 'Dashboard Urusan Agama Islam & Binsyar | RUDABI SYSTEM OF KEMENAG RI',
             'username' => $this->session->userdata('username'),
-            'total' => $this->Total()
+            'total' => $this->Total(),
+            'inpo' => date('d-m-Y')
         ];
         $data['content'] = $this->parser->parse('Users/u_urais/V_Dashboard', $data, true);
         return $this->parser->parse('Users/u_urais/Template', $data);
