@@ -141,6 +141,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
         var url = "<?php echo base_url('KUA/Bimwin/Targetcatin/' . $url . '') ?>";
@@ -174,8 +175,20 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
             },
             columns: [
                 {data: "nama_lokasi"},
-                {data: "target_kabkot", className: "text-center"},
-                {data: "realisasi_kabupaten", className: "text-center"},
+                {
+                    data: null, className: "text-center",
+                    render: function (data) {
+                        var target_kabkot = numeral(data.target_kabkot).format('0,0');
+                        return target_kabkot;
+                    }
+                },
+                {
+                    data: null, className: "text-center",
+                    render: function (data) {
+                        var realisasi_kabupaten = numeral(data.realisasi_kabupaten).format('0,0');
+                        return realisasi_kabupaten;
+                    }
+                },
                 {data: "total_anggaran", className: "text-center"},
                 {data: "total_realisasi", className: "text-center"}
             ]
