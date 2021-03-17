@@ -1,5 +1,5 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css" rel="stylesheet">
-<div class="card card-custom" data-card="true" id="kt_card_1" <?php echo $msgs; ?>>
+<div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
             Change Password

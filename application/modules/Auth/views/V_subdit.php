@@ -7,6 +7,7 @@
                 <table class="table table-bordered table-hover table-striped">
                     <thead class="text-center text-uppercase">
                         <tr>
+                            <th>no</th>
                             <th>Direktorat</th>
                             <th>keterangan</th>
                             <th>action</th>
@@ -14,7 +15,9 @@
                     </thead>
                     <tbody>
                         <tr>
+                            <td class="text-center">#</td>
                             <td>
+                                <div class="clear" style="margin-top:15px;"></div>
                                 <input type="text" name="nama" class="form-control" required="" autocomplete="off"/>
                             </td>
                             <td>
@@ -27,6 +30,12 @@
                         </tr>
                         <?php foreach ($subdit as $subdit_data) { ?>
                             <tr>
+                                <td class="text-center">
+                                <?php
+                                static $id = 1;
+                                echo $id++;
+                                ?>
+                            </td>
                                 <td>
                                     <?php echo $subdit_data->nama; ?>
                                 </td>
@@ -34,6 +43,7 @@
                                     <?php echo $subdit_data->keterangan; ?>
                                 </td>
                                 <td class="text-center">
+                                    <div class="clear" style="margin-top:15px;"></div>
                                     <div class="btn-group">
                                         <?php $id_subdit = str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($subdit_data->id)); ?>
                                         <button type="button" class="btn btn-icon btn-warning btn-xs" title="Edit data" data-toggle="modal" data-target="#Editmodal" onclick="Edit('<?php echo $id_subdit ?>')"><i class="fas fa-pencil-alt"></i></button>
@@ -104,11 +114,17 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="succ_msg" value="<?php echo $this->session->flashdata('message') ?>"/>
+<input type="hidden" name="err_msg" value="<?php echo $this->session->flashdata('error') ?>"/>
+<?php
+unset($_SESSION['error']);
+unset($_SESSION['message']);
+?>
 <script>
     window.onload = function () {
         $('table').dataTable();
-        var a = '<?php echo $this->session->flashdata('message') ?>';
-        var b = '<?php echo $this->session->flashdata('error') ?>';
+        var a = $('input[name="succ_msg"]').val();
+        var b = $('input[name="err_msg"]').val();
         if (a !== '') {
             toastr.success(a);
         } else if (b !== '') {

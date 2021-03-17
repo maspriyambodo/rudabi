@@ -59,7 +59,7 @@
                                         <button type="button" class="btn btn-icon btn-warning btn-xs" title="Edit data" data-toggle="modal" data-target="#Editmodal" onclick="Edit('<?php echo $id_user ?>')"><i class="fas fa-pencil-alt"></i></button>
                                         <?php
                                         if ($user_data->stat == 1) {
-                                            echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus(&apos;'. $id_user .'&apos;)"><i class="fas fa-trash"></i></button>';
+                                            echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus(&apos;' . $id_user . '&apos;)"><i class="fas fa-trash"></i></button>';
                                         } else {
                                             echo '<button type="button" class="btn btn-icon btn-danger btn-xs" disabled><i class="fas fa-trash"></i></button>';
                                         }
@@ -161,11 +161,17 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="succ_msg" value="<?php echo $this->session->flashdata('message') ?>"/>
+<input type="hidden" name="err_msg" value="<?php echo $this->session->flashdata('error') ?>"/>
+<?php
+unset($_SESSION['error']);
+unset($_SESSION['message']);
+?>
 <script>
     window.onload = function () {
         $('table').dataTable();
-        var a = '<?php echo $this->session->flashdata('message') ?>';
-        var b = '<?php echo $this->session->flashdata('error') ?>';
+        var a = $('input[name="succ_msg"]').val();
+        var b = $('input[name="err_msg"]').val();
         if (a !== '') {
             toastr.success(a);
         } else if (b !== '') {

@@ -91,12 +91,12 @@ $h = 0; //hadir_bimwin_istri
                             <td style="text-align:left !important;">
                                 <?php echo '<a href="' . base_url('BKKS/Catin/Detail?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $param[0] . '&c=' . $param[1] . '&d=' . $param[2] . '&e=' . $b->kabkot . '&f=' . $b->nama_lokasi))) . '" title="Detail ' . $b->nama_lokasi . '">' . $b->nama_lokasi . '</a>'; ?>
                             </td>
-                            <td><?php echo $b->target_kabkot; ?></td>
-                            <td><?php echo $b->jum_catin; ?></td>
-                            <td><?php echo $b->hadir_pasutri; ?></td>
-                            <td><?php echo $b->nonhadir_pasutri; ?></td>
-                            <td><?php echo $b->hadir_suami; ?></td>
-                            <td><?php echo $b->hadir_istri; ?></td>
+                            <td><?php echo number_format($b->target_kabkot); ?></td>
+                            <td><?php echo number_format($b->jum_catin); ?></td>
+                            <td><?php echo number_format($b->hadir_pasutri); ?></td>
+                            <td><?php echo number_format($b->nonhadir_pasutri); ?></td>
+                            <td><?php echo number_format($b->hadir_suami); ?></td>
+                            <td><?php echo number_format($b->hadir_istri); ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
