@@ -22,6 +22,7 @@
                         <th rowspan="2">nama</th>
                         <th colspan="3">lahir</th>
                         <th rowspan="2">agama</th>
+                        <th rowspan="2">KUA</th>
                         <th rowspan="2">golongan</th>
                         <th rowspan="2">pendidikan</th>
                         <th colspan="2">s k</th>
@@ -38,7 +39,7 @@
                 <tbody>
                     <?php foreach ($a as $b) { ?>
                         <tr>
-                            <td>
+                            <td class="text-center">
                                 <?php
                                 static $id = 1;
                                 echo $id++;
@@ -57,6 +58,7 @@
                                 ?>
                             </td>
                             <td class="text-center"><?php echo $b->pegawai_agama; ?></td>
+                            <td class="text-center"><?php echo $b->kua_title; ?></td>
                             <td class="text-center"><?php echo $b->pegawai_pangkat; ?></td>
                             <td class="text-center"><?php echo $b->pegawai_pendidikan_terakhir; ?></td>
                             <td class="text-center"><?php echo $b->pegawai_sk_penghulu_terakhir; ?></td>
