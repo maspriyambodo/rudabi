@@ -1274,7 +1274,7 @@
                             </div>
                             <div class="navi-text">
                                 <div class="font-weight-bold">
-                                    Direktorat Management
+                                    Role User
                                 </div>
                             </div>
                         </div>

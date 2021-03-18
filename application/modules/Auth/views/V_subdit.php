@@ -8,7 +8,7 @@
                     <thead class="text-center text-uppercase">
                         <tr>
                             <th>no</th>
-                            <th>Direktorat</th>
+                            <th>nama</th>
                             <th>keterangan</th>
                             <th>action</th>
                         </tr>
