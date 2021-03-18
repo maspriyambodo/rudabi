@@ -59,7 +59,7 @@
                                         <button type="button" class="btn btn-icon btn-warning btn-xs" title="Edit data" data-toggle="modal" data-target="#Editmodal" onclick="Edit('<?php echo $id_user ?>')"><i class="fas fa-pencil-alt"></i></button>
                                         <?php
                                         if ($user_data->stat == 1) {
-                                            echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus(&apos;'. $id_user .'&apos;)"><i class="fas fa-trash"></i></button>';
+                                            echo '<button type="button" class="btn btn-icon btn-danger btn-xs" title="Hapus data" data-toggle="modal" data-target="#Hapusmodal" onclick="Hapus(&apos;' . $id_user . '&apos;)"><i class="fas fa-trash"></i></button>';
                                         } else {
                                             echo '<button type="button" class="btn btn-icon btn-danger btn-xs" disabled><i class="fas fa-trash"></i></button>';
                                         }
@@ -161,11 +161,38 @@
         </div>
     </div>
 </div>
+<input type="hidden" name="succ_msg" value="<?php echo $this->session->flashdata('message') ?>"/>
+<input type="hidden" name="err_msg" value="<?php echo $this->session->flashdata('error') ?>"/>
+<?php
+unset($_SESSION['error']);
+unset($_SESSION['message']);
+?>
 <script>
     window.onload = function () {
-        $('table').dataTable();
-        var a = '<?php echo $this->session->flashdata('message') ?>';
-        var b = '<?php echo $this->session->flashdata('error') ?>';
+        $('table').dataTable({
+            "ServerSide": true,
+            "order": [[0, "asc"]],
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "processing": true,
+            "deferRender": true,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
+            ]
+        });
+        var a = $('input[name="succ_msg"]').val();
+        var b = $('input[name="err_msg"]').val();
         if (a !== '') {
             toastr.success(a);
         } else if (b !== '') {

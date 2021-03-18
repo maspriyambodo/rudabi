@@ -41,15 +41,15 @@ class Auth extends CI_Controller {
         switch ($this->session->userdata('lvl')) {
             case 1://super admin
                 return redirect(base_url('Dashboard/index/'), 'refresh');
-            case 2://Sub Direktorat Sekretariat
+            case 10://Sub Direktorat Sekretariat
                 return redirect(base_url('Users/Sekretariat/Dashboard/index/'), 'refresh');
-            case 3://DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH
+            case 11://DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH
                 return redirect(base_url('Users/Binsyar/Dashboard/index/'), 'refresh');
-            case 4://DIREKTORAT BINA KUA DAN KELUARGA SAKINAH
+            case 12://DIREKTORAT BINA KUA DAN KELUARGA SAKINAH
                 return redirect(base_url('Users/BKKS/Dashboard/index/'), 'refresh');
-            case 5://DIREKTORAT PENERANGAN AGAMA ISLAM
+            case 13://DIREKTORAT PENERANGAN AGAMA ISLAM
                 return redirect(base_url('Users/PAI/Dashboard/index/'), 'refresh');
-            case 6://DIREKTORAT PEMBERDAYAAN ZAKAT DAN WAKAF
+            case 14://DIREKTORAT PEMBERDAYAAN ZAKAT DAN WAKAF
                 return redirect(base_url('Users/Siwak/Dashboard/index/'), 'refresh');
             default ://Login
                 $this->session->sess_destroy();

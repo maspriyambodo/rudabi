@@ -138,17 +138,7 @@ $a3 = 0; //dt_muda
         </div>
     </div>
 </div>
-<?php
-$y = $d + $e + $f + $g; //total golongan I
-$z = $h + $i + $j + $k; //total golongan II
-$aa = $l + $m + $n + $o; //total golongan III
-$ab = $p + $q + $r + $s + $t; //total golongan IV
-?>
 <input type="hidden" name="dt_penghulu" readonly="" value="<?php echo number_format($c); ?>"/>
-<input type="hidden" name="y" readonly="" value="<?php echo number_format($y); ?>"/>
-<input type="hidden" name="z" readonly="" value="<?php echo number_format($z); ?>"/>
-<input type="hidden" name="aa" readonly="" value="<?php echo number_format($aa); ?>"/>
-<input type="hidden" name="ab" readonly="" value="<?php echo number_format($ab); ?>"/>
 <input type="hidden" name="dt_pertama" readonly="" value="<?php echo $a1; ?>"/>
 <input type="hidden" name="dt_madya" readonly="" value="<?php echo $a2; ?>"/>
 <input type="hidden" name="dt_muda" readonly="" value="<?php echo $a3; ?>"/>

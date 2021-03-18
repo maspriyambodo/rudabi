@@ -139,6 +139,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
         </div>
     </div>
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
         var url = "<?php echo $this->bodo->Url_API(); ?>" + 'embimwin/targetcatin2020?KEY=boba';
@@ -182,10 +183,18 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
                     }
                 },
                 {
-                    data: "target_wilayah", className: "text-center sum_wil"
+                    data: null, className: "text-center sum_wil",
+                    render: function (data) {
+                        var target_wilayah = numeral(data.target_wilayah).format('0,0');
+                        return target_wilayah;
+                    }
                 },
                 {
-                    data: "realisasi_wilayah", className: "text-center realisasi_wilayah"
+                    data: null, className: "text-center realisasi_wilayah",
+                    render: function (data) {
+                        var realisasi_wilayah = numeral(data.realisasi_wilayah).format('0,0');
+                        return realisasi_wilayah;
+                    }
                 },
                 {
                     data: "total_anggaran", className: "text-center total_anggaran"

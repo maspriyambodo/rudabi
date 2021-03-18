@@ -23,8 +23,8 @@ class M_Simas extends CI_Model {
         $exec = $this->db->select('auth.uname, auth.hak_akses, auth.stat')
                 ->from('auth')
                 ->where(['auth.uname' => $this->session->userdata('username'), 'auth.hak_akses' => 1, 'auth.stat' => 1])
-                ->or_where(['auth.uname' => $this->session->userdata('username'),])
-                ->where(['auth.hak_akses' => 3, 'auth.stat' => 1])
+                ->or_where(['auth.uname' => $this->session->userdata('username')])
+                ->where(['auth.hak_akses' => 11, 'auth.stat' => 1])
                 ->get()
                 ->result();
         if (sizeof($exec) >= 1) {
