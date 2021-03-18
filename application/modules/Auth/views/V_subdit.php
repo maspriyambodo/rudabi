@@ -7,7 +7,6 @@
                 <table class="table table-bordered table-hover table-striped">
                     <thead class="text-center text-uppercase">
                         <tr>
-                            <th>no</th>
                             <th>nama</th>
                             <th>keterangan</th>
                             <th>action</th>
@@ -15,7 +14,6 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td class="text-center">#</td>
                             <td>
                                 <div class="clear" style="margin-top:15px;"></div>
                                 <input type="text" name="nama" class="form-control" required="" autocomplete="off"/>
@@ -30,12 +28,6 @@
                         </tr>
                         <?php foreach ($subdit as $subdit_data) { ?>
                             <tr>
-                                <td class="text-center">
-                                <?php
-                                static $id = 1;
-                                echo $id++;
-                                ?>
-                            </td>
                                 <td>
                                     <?php echo $subdit_data->nama; ?>
                                 </td>
@@ -122,7 +114,27 @@ unset($_SESSION['message']);
 ?>
 <script>
     window.onload = function () {
-        $('table').dataTable();
+        $('table').dataTable({
+            "ServerSide": true,
+            "paging": true,
+            "ordering": true,
+            "info": true,
+            "processing": true,
+            "deferRender": true,
+            "scrollCollapse": true,
+            "scrollX": true,
+            "scrollY": "400px",
+            dom: `<'row'<'col-sm-6 text-left'f><'col-sm-6 text-right'B>>
+                <'row'<'col-sm-12'tr>>
+                <'row'<'col-sm-12 col-md-5'i><'col-sm-12 col-md-7 dataTables_pager'lp>>`,
+            buttons: [
+                {extend: 'print', footer: true},
+                {extend: 'copyHtml5', footer: true},
+                {extend: 'excelHtml5', footer: true},
+                {extend: 'csvHtml5', footer: true},
+                {extend: 'pdfHtml5', footer: true}
+            ]
+        });
         var a = $('input[name="succ_msg"]').val();
         var b = $('input[name="err_msg"]').val();
         if (a !== '') {

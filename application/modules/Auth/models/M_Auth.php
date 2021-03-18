@@ -73,6 +73,7 @@ class M_Auth extends CI_Model {
                     '`subdit`.`stat`' => 1 + false,
                     '`subdit`.`id` <>' => 1 + false
                 ])
+                ->order_by('subdit.id ASC')
                 ->get()
                 ->result();
         return $exec;
@@ -91,14 +92,8 @@ class M_Auth extends CI_Model {
     }
 
     function Management() {
-        $exec = $this->db->select('auth.id,auth.uname,subdit.nama, auth.stat')
-                ->from('auth')
-                ->join('subdit', 'auth.hak_akses = subdit.id', 'LEFT')
-                ->where([
-                    '`auth`.`hak_akses` <>' => 1 + false
-                ])
-                ->get()
-                ->result();
+        $exec = $this->db->query('CALL sys_management();')->result();
+        mysqli_next_result($this->db->conn_id);
         return $exec;
     }
 
