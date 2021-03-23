@@ -1,1 +1,0 @@
-ERROR - 2021-03-23 20:32:03 --> Severity: Warning --> Array to string conversion /var/www/Rudabi_new/application/modules/Applications/controllers/PAI/Guru_ngaji.php 75
