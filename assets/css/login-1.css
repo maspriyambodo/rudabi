@@ -1,0 +1,102 @@
+.login.login-1 .login-aside {
+    background: #f2c98a;
+    position: relative;
+}
+
+.login.login-1 .login-aside h3 {
+	color: #986923;
+}
+
+.login.login-1 .login-signin,
+.login.login-1 .login-signup,
+.login.login-1 .login-forgot {
+	display: none
+}
+
+.login.login-1.login-signin-on .login-signup {
+	display: none
+}
+
+.login.login-1.login-signin-on .login-signin {
+	display: block
+}
+
+.login.login-1.login-signin-on .login-forgot {
+	display: none
+}
+
+.login.login-1.login-signup-on .login-signup {
+	display: block
+}
+
+.login.login-1.login-signup-on .login-signin {
+	display: none
+}
+
+.login.login-1.login-signup-on .login-forgot {
+	display: none
+}
+
+.login.login-1.login-forgot-on .login-signup {
+	display: none
+}
+
+.login.login-1.login-forgot-on .login-signin {
+	display: none
+}
+
+.login.login-1.login-forgot-on .login-forgot {
+	display: block
+}
+.form-control.form-control-solid {
+    border: 1px solid #cdcdcd; padding: 15px 25px; background: #f7f7f7;
+}
+.form-control.form-control-solid:active, .form-control.form-control-solid:focus {
+    background: #fff; border: 1px solid #769c20;
+}
+
+.login-footer { position: absolute; bottom: 20px; width: 100%; text-align: center; }
+.nav-brand { display: block; margin-bottom: 80px; }
+.nav-brand img { width: 80% !important; }
+.login-title { font-size: 1.7em; text-transform: uppercase; font-weight: 500; margin-bottom: 40px; }
+
+.login-img-bg { overflow: hidden; background: url("../img/login-bg.jpg") -250px top no-repeat; background-size: auto; }
+
+@media(min-width:992px) {
+	.login.login-1 .login-aside {
+		width: 100%;
+		max-width: 600px
+	}
+	.login.login-1 .login-content {
+		width: 100%;
+		max-width: 500px
+	}
+	.login.login-1 .login-content .login-form {
+		width: 100%;
+		max-width: 450px
+	}
+}
+
+@media(min-width:992px) and (max-width:1399.98px) {
+	.login.login-1 .login-aside {
+		width: 100%;
+		max-width: 450px
+	}
+}
+
+@media(max-width:991.98px) {
+	.login.login-1 .login-content .login-form {
+		width: 100%;
+		max-width: 400px
+	}
+}
+
+@media(max-width:575.98px) {
+	.login.login-1 .login-aside {
+		background-size: 400px
+	}
+	.login.login-1 .login-content .login-form {
+		width: 100%;
+		max-width: 100%
+	}
+}

@@ -1,0 +1,48 @@
+/*
+Product:        System of kementerian agama Republik Indonesia
+License Type:   Government
+Access Type:    Multi-User
+License:        https://maspriyambodo.com
+maspriyambodo@gmail.com
+
+Thank you,
+maspriyambodo
+*/
+/* 
+    Created on : Sep 10, 2020, 11:39:18 AM
+    Author     : centos
+*/
+
+.chartdivs{
+    width:100%;
+    height:650px;
+}
+.amcharts-amexport-menu-level-0.amcharts-amexport-top {
+    top: -20px;
+    bottom: auto;
+}
+.DTFC_ScrollWrapper{
+    height:auto !important;
+}
+th, td { white-space: nowrap; }
+.dataTables_wrapper .dataTable {
+    width: 100% !important;
+    border-collapse: initial !important;
+    border-spacing: 0 !important;
+    margin:0 !important;
+    border-radius: .42rem;
+}
+/*.DTFC_LeftFootWrapper{
+    top:15px !important;
+}*/
+.text-wraps{
+    white-space:normal !important;
+    width:400px;
+}
+.text-wrap{
+    white-space:normal !important;
+    width:600px;
+}
+.dt-buttons{
+    margin-bottom: 0px !important;
+}
