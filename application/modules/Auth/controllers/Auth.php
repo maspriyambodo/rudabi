@@ -37,13 +37,14 @@ class Auth extends CI_Controller {
             $hashed = $exec->pwd;
             if (password_verify($data['pwd'], $hashed)) {
                 $this->bodo->Set_session($exec);
-                redirect(base_url('Dashboard'), 'refresh');
+                $result = redirect(base_url('Dashboard'), 'refresh');
             } else {
-                redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'Sorry, your password was incorrect. Please double-check your password.'));
+                $result = redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'Sorry, your password was incorrect. Please double-check your password.'));
             }
         } else {
-            redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'username not registered!'));
+            $result = redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'username not registered!'));
         }
+        return $result;
     }
 
     public function Logout() {
