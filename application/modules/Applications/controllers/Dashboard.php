@@ -11,12 +11,10 @@ class Dashboard extends CI_Controller {
 
     public function index() {
         $data = [
-            'total' => $this->Total(),
             'csrf' => $this->bodo->Csrf(),
             'item_active' => 'Applications/Dashboard/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Dashboard/index/'),
             'siteTitle' => 'Dashboard Application | ' . $this->bodo->Sys('app_name'),
-            'pagetitle' => 'Dashboard',
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Dashboard',
@@ -25,7 +23,22 @@ class Dashboard extends CI_Controller {
                 ]
             ]
         ];
-        $data['content'] = $this->parser->parse('v_dashboard', $data, true);
+//        $data['content'] = $this->parser->parse('v_dashboard', $data, true);
+//        return $this->parser->parse('Template/layout', $data);
+        return $this->_view($data);
+    }
+
+    private function _view($data) {
+        $role_id = $this->bodo->Dec($this->session->userdata('role_id'));
+        if ($role_id == 1) {
+            $data['total'] = $this->Total();
+            $dashboard = "v_dashboard";
+            $data['pagetitle'] = 'Dashboard';
+        } elseif ($role_id == 6) {
+            $dashboard = "dashboard_kua";
+            $data['pagetitle'] = 'Dashboard Operator KUA';
+        }
+        $data['content'] = $this->parser->parse($dashboard, $data, true);
         return $this->parser->parse('Template/layout', $data);
     }
 
