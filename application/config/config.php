@@ -2,13 +2,13 @@
 
 defined('BASEPATH')OR exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
-ini_set('session.cookie_samesite', 'None');
-ini_set('session.cookie_secure', TRUE);
+ini_set('session.cookie_samesite', 'none');
+ini_set('session.cookie_secure', false);
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
 $config['modules_locations'] = [APPPATH . 'modules/'];
-$config['index_page'] = '';
+$config['index_page'] = null;
 $config['uri_protocol'] = 'REQUEST_URI';
 $config['url_suffix'] = '';
 $config['language'] = 'english';
@@ -50,7 +50,7 @@ $config['csrf_token_name'] = 'bodo_csrf_token';
 $config['csrf_cookie_name'] = 'bodo_csrf_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = true;
-$config['csrf_exclude_uris'] = [];
+$config['csrf_exclude_uris'] = ['Systems/Users/lists'];
 $config['compress_output'] = true;
 $config['time_reference'] = 'local';
 $config['rewrite_short_tags'] = false;
