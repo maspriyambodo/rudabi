@@ -12,7 +12,7 @@
         }
         ?>
         <div class="table-responsive">
-            <table class="table table-bordered table-hover table-striped" style="width:100%;">
+            <table id="table" class="table table-bordered table-hover table-striped" style="width:100%;">
                 <thead class="text-center text-uppercase">
                     <tr>
                         <th>no</th>
@@ -22,54 +22,7 @@
                         <th>action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    if (!$privilege['read']) {
-                        $data = [];
-                    }
-                    foreach ($data as $a) {
-                        $id_user = Enkrip($a->id_user);
-                        ?>
-                        <tr>
-                            <td class="text-center">
-                                <?php
-                                static $id = 1;
-                                echo $id++;
-                                ?>
-                            </td>
-                            <td><?php echo $a->uname; ?></td>
-                            <td class="text-center"><?php echo $a->role_name; ?></td>
-                            <td class="text-center">
-                                <?php
-                                if ($a->stat) {
-                                    echo '<span class="label label-success label-inline font-weight-lighter mr-2">active</span>';
-                                } else {
-                                    echo '<span class="label label-danger label-inline font-weight-lighter mr-2">nonactive</span>';
-                                }
-                                ?>
-                            </td>
-                            <td class="text-center">
-                                <div class="btn-group">
-                                    <?php
-                                    $editbtn = '<button id="edit_user" type="button" class="btn btn-icon btn-default btn-xs" title="Edit ' . $a->uname . '" value="' . $id_user . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
-                                    $delbtn = '<button id="del_user" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete ' . $a->uname . '" value="' . $id_user . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
-                                    $activebtn = '<button id="act_user" type="button" class="btn btn-icon btn-success btn-xs" title="Activate ' . $a->uname . '" value="' . $id_user . '" onclick="Active(this.value)"><i class="fas fa-unlock"></i></button>';
-                                    if ($privilege['update']) {
-                                        echo $editbtn;
-                                    } else {
-                                        null;
-                                    }
-                                    if ($privilege['delete'] and $a->stat) {
-                                        echo $delbtn;
-                                    } elseif ($privilege['delete'] and!$a->stat) {
-                                        echo $activebtn;
-                                    }
-                                    ?>
-                                </div>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </div>
@@ -86,8 +39,8 @@ unset($_SESSION['succ_msg']);
 ?>
 <script>
     window.onload = function () {
-        $('table').dataTable({
-            "ServerSide": true,
+        $('#table').dataTable({
+            "serverSide": true,
             "order": [[0, "asc"]],
             "paging": true,
             "ordering": true,
@@ -106,6 +59,26 @@ unset($_SESSION['succ_msg']);
                 {extend: 'excelHtml5', footer: true},
                 {extend: 'csvHtml5', footer: true},
                 {extend: 'pdfHtml5', footer: true}
+            ],
+            "ajax": {
+                "url": "<?php echo site_url('Systems/Users/lists') ?>",
+                "type": "POST"
+            },
+            columnDefs: [
+                {
+                    targets: 0,
+                    className: 'text-center'
+                },
+                {
+                    targets: 3,
+                    className: 'text-center',
+                    orderable: false
+                },
+                {
+                    targets: 4,
+                    className: 'text-center',
+                    orderable: false
+                }
             ]
         });
         toastr.options = {

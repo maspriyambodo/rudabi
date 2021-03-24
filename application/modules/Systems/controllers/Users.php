@@ -30,6 +30,48 @@ class Users extends CI_Controller {
         return $this->parser->parse('Template/layout', $data);
     }
 
+    public function lists() {
+        $list = $this->M_users->lists();
+        $data = [];
+        $no = Post_input("start");
+        $privilege = $this->bodo->Check_previlege('Systems/Users/index/');
+        foreach ($list as $users) {
+            $id_user = Enkrip($users->id);
+            if ($users->stat) {
+                $stat = '<span class="label label-success label-inline font-weight-lighter mr-2">active</span>';
+            } else {
+                $stat = '<span class="label label-danger label-inline font-weight-lighter mr-2">nonactive</span>';
+            }
+            if ($privilege['update']) {
+                $editbtn = '<button id="edit_user" type="button" class="btn btn-icon btn-default btn-xs" title="Edit ' . $users->uname . '" value="' . $id_user . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
+            } else {
+                $editbtn = null;
+            }
+            if ($privilege['delete'] and $users->stat) {
+                $activebtn = null;
+                $delbtn = '<button id="del_user" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete ' . $users->uname . '" value="' . $id_user . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
+            } elseif ($privilege['delete'] and!$users->stat) {
+                $delbtn = null;
+                $activebtn = '<button id="act_user" type="button" class="btn btn-icon btn-success btn-xs" title="Activate ' . $users->uname . '" value="' . $id_user . '" onclick="Active(this.value)"><i class="fas fa-unlock"></i></button>';
+            }
+            $no++;
+            $row = [];
+            $row[] = $no;
+            $row[] = $users->uname;
+            $row[] = $users->name;
+            $row[] = $stat;
+            $row[] = '<div class="btn-group">' . $editbtn . $delbtn . $activebtn . '</div>';
+            $data[] = $row;
+        }
+        $output = array(
+            "draw" => Post_input('draw'),
+            "recordsTotal" => $this->M_users->count_all(),
+            "recordsFiltered" => $this->M_users->count_filtered(),
+            "data" => $data,
+        );
+        ToJson($output);
+    }
+
     public function Add() {
         $data = [
             'role' => $this->M_users->Role(0),

@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="logo_company">Logo Company:</label>
                         <div class="clearfix"></div>
-                        <img id="logo_company" src="<?php echo base_url('assets/images/systems/' . $this->bodo->Sys('logo')); ?>" style="max-width:250px;"/>
+                            <img id="logo_company" src="<?php echo base_url('assets/images/systems/' . $this->bodo->Sys('logo')); ?>" style="max-width:150px;"/>
                         <div class="clearfix" style="margin:5px 0px;"></div>
                         <button type="button" id="edit_logo" class="btn btn-icon btn-default btn-xs" title="Change Logo Company" onclick="Edit_logo()"><i class="far fa-edit"></i></button>
                         <div id="e_logo"></div>
