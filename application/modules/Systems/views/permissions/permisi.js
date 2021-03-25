@@ -27,6 +27,7 @@ function Get_access(val) {
         processData: false,
         success: function (data) {
             if (data.status) {
+                document.getElementById('role_user').innerHTML = data.value[0].grup_nama;
                 $('#tbl_access').DataTable({
                     "retrieve": true,
                     "paging": false,
