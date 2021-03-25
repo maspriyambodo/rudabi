@@ -51,6 +51,6 @@ $config['csrf_cookie_name'] = 'bodo_csrf_name';
 $config['csrf_expire'] = 7200;
 $config['csrf_regenerate'] = true;
 $config['csrf_exclude_uris'] = ['Systems/Users/lists'];
-$config['compress_output'] = true;
+$config['compress_output'] = false;
 $config['time_reference'] = 'local';
 $config['rewrite_short_tags'] = false;
