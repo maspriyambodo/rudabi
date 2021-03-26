@@ -1,0 +1,47 @@
+.rounded-circle{
+	background:white;
+	border:3px solid #f64e60;
+	color:black;
+}
+
+.dataangka:hover{
+	background:#f64e60;
+	color:white;
+	visibility:visible;
+}
+
+.rounded-circleya{
+	background:white;
+	border:3px solid #8950fc;
+	color:black;
+}
+
+.dataangka2:hover{
+	background:#8950fc;
+	color:white;
+	visibility:visible;
+}
+
+.rounded-circlepaket{
+	background:white;
+	border:3px solid #1bc5bd;
+	color:black;
+}
+
+.dataangka3:hover{
+	background:#1bc5bd;
+	color:white;
+	visibility:visible;
+}
+
+.rounded-circlesiap{
+	background:white;
+	border:3px solid #037fff;
+	color:black;
+}
+
+.dataangka4:hover{
+	background:#037fff;
+	color:white;
+	visibility:visible;
+}
