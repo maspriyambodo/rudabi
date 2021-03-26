@@ -41,6 +41,8 @@ class Auth extends CI_Controller {
         switch ($this->session->userdata('lvl')) {
             case 1://super admin
                 return redirect(base_url('Dashboard/index/'), 'refresh');
+            case 6://Operator Kecamatan (KUA)
+                return redirect(base_url('Operator/Dashboard/index/'), 'refresh');
             case 10://Sub Direktorat Sekretariat
                 return redirect(base_url('Users/Sekretariat/Dashboard/index/'), 'refresh');
             case 11://DIREKTORAT URUSAN AGAMA ISLAM DAN PEMBINAAN SYARIAH

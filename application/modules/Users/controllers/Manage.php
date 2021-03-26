@@ -41,13 +41,13 @@ class Manage extends CI_Controller {
             'csrf' => $this->Csrf()
         ];
         $data['content'] = $this->parser->parse('Users/Manage_index', $data, true);
-        if ($this->Authentication[0]->hak_akses == 2) {// hak_akses 2 = Sekretariat
+        if ($this->Authentication[0]->hak_akses == 10) {// hak_akses 2 = Sekretariat
             $template = $this->parser->parse('Users/u_sekretariat/Template', $data);
-        } elseif ($this->Authentication[0]->hak_akses == 3) {// hak_akses 3 = urusan agama & binsyar 
+        } elseif ($this->Authentication[0]->hak_akses == 11) {// hak_akses 3 = urusan agama & binsyar 
             $template = $this->parser->parse('Users/u_urais/Template', $data);
-        } elseif ($this->Authentication[0]->hak_akses == 4) {// hak_akses 4 = BINA KUA DAN KELUARGA SAKINAH 
+        } elseif ($this->Authentication[0]->hak_akses == 12) {// hak_akses 4 = BINA KUA DAN KELUARGA SAKINAH 
             $template = $this->parser->parse('Users/u_binakua/Template', $data);
-        } elseif ($this->Authentication[0]->hak_akses == 5) {// hak_akses 5 = Penerangan Agama Islam 
+        } elseif ($this->Authentication[0]->hak_akses == 13) {// hak_akses 5 = Penerangan Agama Islam 
             $template = $this->parser->parse('Users/u_binakua/Template', $data);
         } else {// hak_akses 6 = Siwak 
             $template = $this->parser->parse('Users/u_siwak/Template', $data);
