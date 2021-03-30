@@ -2,8 +2,6 @@
 
 defined('BASEPATH')OR exit('No direct script access allowed');
 date_default_timezone_set("Asia/Jakarta");
-ini_set('session.cookie_samesite', 'none');
-ini_set('session.cookie_secure', false);
 $config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
 $config['base_url'] .= "://" . $_SERVER['HTTP_HOST'];
 $config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']), "", $_SERVER['SCRIPT_NAME']);
@@ -42,7 +40,7 @@ $config['cookie_prefix'] = '';
 $config['cookie_domain'] = '';
 $config['cookie_path'] = '/';
 $config['cookie_secure'] = false;
-$config['cookie_httponly'] = false;
+$config['cookie_httponly'] = true;
 $config['standardize_newlines'] = false;
 $config['global_xss_filtering'] = true;
 $config['csrf_protection'] = true;
