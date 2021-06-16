@@ -22,7 +22,6 @@ class M_default extends CI_Model {
     }
 
     public function Group_menu() {
-        $this->db->query("SET sql_mode=(SELECT REPLACE(@@sql_mode, 'ONLY_FULL_GROUP_BY', ''));");
         $exec = $this->db->query('CALL group_menu();')->result();
         foreach ($exec as $key => $value) {
             $item[$key] = $value->link;
