@@ -15,9 +15,25 @@ class M_users extends CI_Model {
         return $exec->result();
     }
 
+    private function _filter() {
+        $role_id = $this->bodo->Dec($this->session->userdata('role_id'));
+        $id_user = $this->bodo->Dec($this->session->userdata('id_user'));
+        if ($role_id == 1) {
+            $exec = $this->db->select('sys_users.id,sys_users.uname,sys_users.pwd,sys_users.role_id,sys_users.pict,sys_users.stat,sys_roles.name');
+            $this->db->from($this->table)
+                    ->join('sys_roles', '`sys_users`.`role_id` = `sys_roles`.`id`');
+        } else {
+            $exec = $this->db->select('sys_users.id,sys_users.uname,sys_users.pwd,sys_users.role_id,sys_users.pict,sys_users.stat,sys_roles.name');
+            $this->db->from($this->table)
+                    ->join('sys_roles', '`sys_users`.`role_id` = `sys_roles`.`id`')
+                    ->where('`sys_users`.`id`', $id_user, false)
+                    ->or_where('`sys_roles`.`parent_id`', $role_id, false);
+        }
+        return $exec;
+    }
+
     private function _get_datatables_query() {
-        $this->db->from($this->table)
-                ->join('sys_roles', '`sys_users`.`role_id` = `sys_roles`.`id`');
+        $this->_filter();
         $i = 0;
         foreach ($this->column_search as $item) { // loop column 
             if ($_POST['search']['value']) { // if datatable send POST for search
@@ -57,8 +73,7 @@ class M_users extends CI_Model {
     }
 
     public function count_all() {
-        $this->db->from($this->table)
-                ->join('sys_roles', '`sys_users`.`role_id` = `sys_roles`.`id`');
+        $this->_filter();
         return $this->db->count_all_results();
     }
 
@@ -69,16 +84,13 @@ class M_users extends CI_Model {
     }
 
     public function Save($data) {
-        $exec = $this->db->query('CALL sys_users_insert("' . $data['uname'] . '","' . $data['pwd'] . '",' . $data['role_id'] . ',"' . $data['pict']['file_name'] . '",' . $data['stat'] . ',' . $data['user_login'] . ');');
+        $exec = $this->db->query('CALL sys_users_insert("' . $data['uname'] . '","' . $data['pwd'] . '",' . $data['role_id'] . ',"' . $data['pict'] . '",' . $data['stat'] . ',' . $data['user_login'] . ');');
         if (empty($exec->conn_id->affected_rows) or $exec->conn_id->affected_rows == 0) {
             log_message('error', APPPATH . 'modules/Systems/models/M_users -> function Save ' . 'error ketika sys_users_insert');
-            $result = [
-                'status' => false,
-                'pesan' => 'error while saving new user!'
-            ];
+            $result = redirect(base_url('Systems/Users/Add/'), $this->session->set_flashdata('err_msg', 'failed, error while processing user data!'));
         } else {
             mysqli_next_result($this->db->conn_id);
-            $result['status'] = true;
+            $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('succ_msg', 'success, data user has been processing'));
         }
         return $result;
     }

@@ -12,7 +12,6 @@ class Users extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->M_users->index(['param' => 'asidjapod', 'id_user' => 0, 'panjang' => 0, 'mulai' => 0]),
             'csrf' => $this->bodo->Csrf(),
             'item_active' => 'Systems/Users/index/',
             'privilege' => $this->bodo->Check_previlege('Systems/Users/index/'),
@@ -53,6 +52,9 @@ class Users extends CI_Controller {
             } elseif ($privilege['delete'] and!$users->stat) {
                 $delbtn = null;
                 $activebtn = '<button id="act_user" type="button" class="btn btn-icon btn-success btn-xs" title="Activate ' . $users->uname . '" value="' . $id_user . '" onclick="Active(this.value)"><i class="fas fa-unlock"></i></button>';
+            } else {
+                $delbtn = null;
+                $activebtn = null;
             }
             $no++;
             $row = [];
@@ -63,12 +65,25 @@ class Users extends CI_Controller {
             $row[] = '<div class="btn-group">' . $editbtn . $delbtn . $activebtn . '</div>';
             $data[] = $row;
         }
-        $output = array(
-            "draw" => Post_input('draw'),
-            "recordsTotal" => $this->M_users->count_all(),
-            "recordsFiltered" => $this->M_users->count_filtered(),
-            "data" => $data,
-        );
+        return $this->_list($data, $privilege);
+    }
+
+    private function _list($data, $privilege) {
+        if ($privilege['read']) {
+            $output = [
+                "draw" => Post_input('draw'),
+                "recordsTotal" => $this->M_users->count_all(),
+                "recordsFiltered" => $this->M_users->count_filtered(),
+                "data" => $data
+            ];
+        } else {
+            $output = [
+                "draw" => Post_input('draw'),
+                "recordsTotal" => 0,
+                "recordsFiltered" => 0,
+                "data" => []
+            ];
+        }
         ToJson($output);
     }
 
@@ -105,27 +120,27 @@ class Users extends CI_Controller {
         ];
         $pict = _Upload($param);
         $role_user = $this->bodo->Dec(Post_input('role_user'));
-        if (!$pict) {
-            $pict['file_name'] = 'blank.png';
+        if (!$pict['status']) {
+            $file_name = 'blank.png';
         } else {
-            $data = [
-                'uname' => Post_input('uname'),
-                'pwd' => password_hash("a", PASSWORD_DEFAULT),
-                'role_id' => $role_user,
-                'pict' => $pict,
-                'stat' => 1,
-                'user_login' => $this->user
-            ];
+            $file_name = $pict['file_name'];
         }
+        $data = [
+            'uname' => Post_input('uname'),
+            'pwd' => password_hash("a", PASSWORD_DEFAULT),
+            'role_id' => $role_user,
+            'pict' => $file_name,
+            'stat' => 1,
+            'user_login' => $this->user
+        ];
         return $this->_Save($data);
     }
 
     private function _Save($data) {
-        $exec = $this->M_users->Save($data);
-        if (!$exec['status']) {
+        if ($data['role_id'] == 1 and $this->bodo->Dec($this->session->userdata('role_id')) != 1) {
             redirect(base_url('Systems/Users/Add/'), $this->session->set_flashdata('err_msg', 'failed, error while processing user data!'));
         } else {
-            redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('succ_msg', 'success, data user has been processing'));
+            $this->M_users->Save($data);
         }
     }
 
@@ -218,19 +233,19 @@ class Users extends CI_Controller {
         $role_user = $this->bodo->Dec(Post_input('role_user'));
         $old_ava = Post_input("old_ava");
         $id_user = $this->bodo->Dec(Post_input("id_user"));
-        if (!$pict) {
+        if (!$pict['status'] or empty($pict['status'])) {
             $pict['file_name'] = $old_ava;
         } else {
             unlink('assets/images/users/' . $old_ava);
-            $data = [
-                'uname' => Post_input('uname'),
-                'pwd' => 'update',
-                'role_id' => $role_user,
-                'pict' => $pict,
-                'stat' => $id_user, //jika fungsi update maka berubah jadi id user
-                'user_login' => $this->user
-            ];
         }
+        $data = [
+            'uname' => Post_input('uname'),
+            'pwd' => 'update',
+            'role_id' => $role_user,
+            'pict' => $pict['file_name'],
+            'stat' => $id_user, //jika fungsi update maka berubah jadi id user
+            'user_login' => $this->user
+        ];
         return $this->_Save($data);
     }
 

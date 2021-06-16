@@ -12,8 +12,12 @@ class M_default extends CI_Model {
     }
 
     public function Menu() {
-        $exec = $this->db->query('CALL sys_menu_select(' . $this->bodo->Dec($this->session->userdata('role_id')) . ');');
-        mysqli_next_result($this->db->conn_id);
+        if ($this->session->userdata('id_user')) {
+            $exec = $this->db->query('CALL sys_menu_select(' . $this->bodo->Dec($this->session->userdata('role_id')) . ');');
+            mysqli_next_result($this->db->conn_id);
+        } else {
+            redirect(base_url('Auth/index/'));
+        }
         return $exec;
     }
 
@@ -26,9 +30,33 @@ class M_default extends CI_Model {
         return $item;
     }
 
-    public function Roles($param) {
+    public function Roles2($param) {// ini function original
         $exec = $this->db->query('CALL sys_roles_select("' . $param . '");');
         mysqli_next_result($this->db->conn_id);
+        return $exec;
+    }
+
+    public function Roles($param) {// ini function modifan
+        $role_id = $this->bodo->Dec($this->session->userdata('role_id'));
+        if (!$role_id or empty($role_id)) {
+            $exec = redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'you need signin to access the system'));
+        } elseif ($param == 0 and $role_id == 1) {
+            $exec = $this->db->query('CALL sys_roles_select("' . $param . '");');
+            mysqli_next_result($this->db->conn_id);
+        } elseif ($param == 0 and $role_id != 1) {
+            $exec = $this->db->select()
+                    ->from('sys_roles_select')
+                    ->where([
+                        '`sys_roles_select`.`status_grup`' => 1 + false,
+                        '`sys_roles_select`.`parent_id`' => $role_id + false
+                    ])
+                    ->or_where('`sys_roles_select`.`status_grup`', 1, false)
+                    ->where('`sys_roles_select`.`id_grup`', $role_id, false)
+                    ->get();
+        } else {
+            $exec = $this->db->query('CALL sys_roles_select("' . $param . '");');
+            mysqli_next_result($this->db->conn_id);
+        }
         return $exec;
     }
 

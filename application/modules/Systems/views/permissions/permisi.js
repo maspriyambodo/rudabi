@@ -6,9 +6,12 @@ function Edit(id) {
         processData: false,
         success: function (data) {
             if (data.status) {
+                document.getElementById('modal_editLabel').innerHTML = 'Edit Group ' + data.value.nama_grup;
                 $('input[name="gr_name_edit"]').val(data.value.nama_grup);
                 $('input[name="id_grup_edit"]').val(id);
                 $('textarea[name="gr_desc_edit"]').val(data.value.des_grup);
+                $('#gr_parent_edit').val(data.value.parent_id);
+                $('#gr_parent_edit').select2().trigger('change');
                 $('#modal_edit').modal({show: true, backdrop: 'static', keyboard: false});
             } else {
                 Swal.fire("Error " + data.status, data.msg, "error");
@@ -26,8 +29,8 @@ function Get_access(val) {
         contentType: false,
         processData: false,
         success: function (data) {
+            document.getElementById('role_user').innerHTML = data.value[0].grup_nama;
             if (data.status) {
-                document.getElementById('role_user').innerHTML = data.value[0].grup_nama;
                 $('#tbl_access').DataTable({
                     "retrieve": true,
                     "paging": false,
@@ -203,4 +206,11 @@ function Save() {
     $(':checkbox').each(function () {
         this.checked = true;
     });
+}
+function Close_edit() {
+    document.getElementById('modal_editLabel').innerHTML = '';
+    $('input[name="gr_name_edit"]').val('');
+    $('input[name="id_grup_edit"]').val('');
+    $('textarea[name="gr_desc_edit"]').val('');
+    $('#gr_parent_edit').val(null).trigger('change');
 }

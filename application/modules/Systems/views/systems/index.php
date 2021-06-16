@@ -17,7 +17,7 @@
                     <div class="form-group">
                         <label for="logo_company">Logo Company:</label>
                         <div class="clearfix"></div>
-                            <img id="logo_company" src="<?php echo base_url('assets/images/systems/' . $this->bodo->Sys('logo')); ?>" style="max-width:150px;"/>
+                        <img id="logo_company" src="<?php echo base_url('assets/images/systems/' . $this->bodo->Sys('logo')); ?>" style="max-width:250px;"/>
                         <div class="clearfix" style="margin:5px 0px;"></div>
                         <button type="button" id="edit_logo" class="btn btn-icon btn-default btn-xs" title="Change Logo Company" onclick="Edit_logo()"><i class="far fa-edit"></i></button>
                         <div id="e_logo"></div>
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group">
                         <label for="app_year">App Year</label>
-                        <input id="app_year" type="text" name="app_year" class="form-control" autocomplete="off" value="<?php echo $this->bodo->Sys('app_year'); ?>"/>
+                        <input id="app_year" type="text" name="app_year" class="form-control" autocomplete="off" value="<?php echo $this->bodo->Sys('app_year'); ?>" onkeypress="return isNumber(event)"/>
                     </div>
                 </div>
                 <div class="col-md-3">
@@ -263,5 +263,12 @@ unset($_SESSION['succ_msg']);
             toastr.warning('please choose file!');
         }
     }
+    function isNumber(b) {
+        b = (b) ? b : window.event;
+        var a = (b.which) ? b.which : b.keyCode;
+        if (a > 31 && (a < 48 || a > 57)) {
+            return false;
+        }
+        return true;
+    }
 </script>
-<!--data.status = 403;-->

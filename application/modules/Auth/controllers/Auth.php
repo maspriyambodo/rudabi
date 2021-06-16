@@ -12,6 +12,8 @@ class Auth extends CI_Controller {
     private function Check_session() {
         if ($this->session->userdata('id_user') and $this->session->userdata('uname') and $this->session->userdata('stat_aktif') and $this->session->userdata('role_id')) {
             $result = redirect(base_url('Dashboard'), 'refresh');
+        } elseif ($this->session->tempdata('penalty')) {
+            $result = show_404();
         } else {
             $result = true;
         }
@@ -33,18 +35,46 @@ class Auth extends CI_Controller {
             'pwd' => Post_input("password")
         ];
         $exec = $this->M_auth->Signin($data);
-        if ($exec) {
+        if ($exec->limit_login == 0 or $exec->limit_login != 3) {
             $hashed = $exec->pwd;
             if (password_verify($data['pwd'], $hashed)) {
                 $this->bodo->Set_session($exec);
+                $this->M_auth->Remove_penalty($data);
                 $result = redirect(base_url('Dashboard'), 'refresh');
             } else {
+                $this->Attempt(1);
                 $result = redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'Sorry, your password was incorrect. Please double-check your password.'));
             }
+        } elseif ($exec->limit_login == 3) {
+            blocked_account();
         } else {
+            $this->Attempt(2);
             $result = redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'username not registered!'));
         }
         return $result;
+    }
+
+    private function Attempt($id) {
+        $attempt = $this->session->userdata('attempt');
+        $attempt++;
+        $this->session->set_userdata('attempt', $attempt);
+        $data = [
+            'uname' => Post_input("username"),
+            'attempt' => $attempt
+        ];
+        switch ($id) {
+            case 1:
+                $this->M_auth->Penalty($data);
+                if ($attempt == 3) {
+                    $this->session->set_tempdata('penalty', true, 300);
+                    blocked_account();
+                }
+            case 2:
+                if ($attempt == 5) {
+                    $this->session->set_tempdata('penalty', true, 360);
+                    show_404();
+                }
+        }
     }
 
     public function Logout() {

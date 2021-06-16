@@ -34,7 +34,7 @@
                 <div class="col-md">
                     <div class="form-group">
                         <label for="uname">Roles:</label>
-                        <select id="role_user" name="role_user" class="form-control" required="">
+                        <select id="role_user" name="role_user" class="form-control custom-select" required="">
                             <option value="">Choose role</option>
                             <?php
                             foreach ($role as $a) {
@@ -88,6 +88,7 @@ unset($_SESSION['succ_msg']);
 <script>
     window.onload = function () {
         var avatar4 = new KTImageInput('kt_image_4');
+        $('.custom-select').select2();
         toastr.options = {
             closeButton: true,
             debug: false,

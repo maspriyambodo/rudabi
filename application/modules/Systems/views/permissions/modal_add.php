@@ -13,6 +13,19 @@
                     <div class="row">
                         <div class="col-md">
                             <div class="form-group">
+                                <label for="gr_parent_add">Group Parent:</label>
+                                <div class="clearfix"></div>
+                                <select id="gr_parent_add" name="gr_parent_add" class="form-control custom-select" required="" style="width:100%;">
+                                    <option value="">Choose Parent</option>
+                                    <option value="0">Parent</option>
+                                    <?php
+                                    foreach ($data as $parent_group) {
+                                        echo '<option value="' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt($parent_group->id_grup)) . '">' . $parent_group->nama_grup . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <div class="form-group">
                                 <label for="gr_name_add">Group Name:</label>
                                 <input id="gr_name_add" type="text" name="gr_name_add" class="form-control" autocomplete="off" required=""/>
                             </div>
@@ -20,7 +33,7 @@
                         <div class="col-md">
                             <div class="form-group">
                                 <label for="gr_des_add">Group Description:</label>
-                                <textarea id="gr_des_add" name="gr_des_add" class="form-control" required=""></textarea>
+                                <textarea id="gr_des_add" name="gr_des_add" class="form-control" rows="5" required=""></textarea>
                             </div>
                         </div>
                     </div>

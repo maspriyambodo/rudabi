@@ -30,11 +30,12 @@ class Bodo {
     }
 
     public function Check_previlege($param) {
+        $role_id = $this->Dec($this->CI->session->userdata('role_id'));
         $exec = $this->CI->db->select()
                 ->from('sys_menu_select')
                 ->where([
                     'sys_menu_select.link' => $param,
-                    '`sys_menu_select`.`role_id`' => $this->Dec($this->CI->session->userdata('role_id')) + false,
+                    '`sys_menu_select`.`role_id`' => $role_id + false,
                     '`sys_menu_select`.`view`' => 1 + false
                 ])
                 ->get()
@@ -84,6 +85,7 @@ class Bodo {
         $data = [
             'id_user' => Enkrip($param->id_user),
             'uname' => $param->uname,
+            'fullname' => $param->fullname,
             'stat_aktif' => Enkrip($param->stat_aktif),
             'role_id' => Enkrip($param->role_id),
             'role_name' => $param->role_name,

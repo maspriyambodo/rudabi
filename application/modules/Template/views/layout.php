@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <?php
 $this->bodo->Check_login();
+$uname = $this->session->userdata('uname');
+$fullname = $this->session->userdata('fullname');
 ?>
 <html lang="en">
     <head>
@@ -95,7 +97,13 @@ $this->bodo->Check_login();
                                             Hi,
                                         </span>
                                         <span class="text-dark-50 font-weight-bolder font-size-base d-none d-md-inline mr-3">
-                                            <?php echo $this->session->userdata('uname'); ?>
+                                            <?php
+                                            if ($fullname and strlen($fullname) <= 10) {
+                                                echo $fullname;
+                                            } else {
+                                                echo $uname;
+                                            }
+                                            ?>
                                         </span>
                                         <span class="symbol symbol-35 symbol-light-success">
                                             <i class="fas fa-user"></i>
@@ -217,6 +225,23 @@ $this->bodo->Check_login();
                             <div class="navi-text">
                                 <div class="font-weight-bold">
                                     Change Password
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    
+                    <a href="<?php echo base_url('Setting%20Profile'); ?>" class="navi-item">
+                        <div class="navi-link">
+                            <div class="symbol symbol-40 bg-light mr-3">
+                                <div class="symbol-label">
+                                    <span class="svg-icon svg-icon-md svg-icon-success">
+                                        <i class="fas fa-user-cog"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="navi-text">
+                                <div class="font-weight-bold">
+                                    Profile Setting
                                 </div>
                             </div>
                         </div>

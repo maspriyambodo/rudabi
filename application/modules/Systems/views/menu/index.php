@@ -44,10 +44,10 @@
                             </td>
                             <td class="text-center">
                                 <?php
-                                if (empty($menu->id_parent)) {
+                                if ($menu->parent_name == null) {
                                     echo 'parent';
                                 } else {
-                                    
+                                    echo $menu->parent_name;
                                 }
                                 ?>
                             </td>

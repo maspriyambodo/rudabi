@@ -21,6 +21,7 @@
                     <tr>
                         <th>no</th>
                         <th>group id</th>
+                        <th>parent</th>
                         <th>name</th>
                         <th>description</th>
                         <th>action</th>
@@ -42,19 +43,29 @@
                                 ?>
                             </td>
                             <td class="text-center"><?php echo $a->id_grup; ?></td>
+                            <td>
+                                <?php
+                                if ($a->parent_name == null) {
+                                    echo 'parent';
+                                } else {
+                                    echo $a->parent_name;
+                                }
+                                ?>
+                            </td>
                             <td><?php echo $a->nama_grup; ?></td>
                             <td><?php echo $a->des_grup; ?></td>
                             <td class="text-center">
                                 <div class="btn-group">
                                     <?php
-                                    $editbtn = '<button id="editbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Edit" value="' . $id_grup . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
-                                    $editbtn2 = '<button id="permissionsbtn" type="button" class="btn btn-icon btn-primary btn-xs" title="Edit permissions" value="' . $id_grup . '" data-toggle="modal" data-target="#modal_access" onclick="Get_access(this.value)"><i class="fas fa-cog"></i></button>';
+                                    $editbtn = '<button id="editbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Edit Group ' . $a->nama_grup . '" value="' . $id_grup . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
+                                    $editbtn2 = '<button id="permissionsbtn" type="button" class="btn btn-icon btn-primary btn-xs" title="Edit Permissions ' . $a->nama_grup . '" value="' . $id_grup . '" data-toggle="modal" data-target="#modal_access" onclick="Get_access(this.value)"><i class="fas fa-cog"></i></button>';
+                                    $delbtn = '<button id="delbtn" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete ' . $a->nama_grup . '" value="' . $id_grup . '" data-toggle="modal" data-target="#modal_delete" onclick="Delete_group(this.value)"><i class="far fa-trash-alt"></i></button>';
                                     if ($privilege['update']) {
                                         echo $editbtn;
                                         echo $editbtn2;
                                     }
                                     if ($privilege['delete']) {
-                                        
+                                        echo $delbtn;
                                     }
                                     ?>
                                 </div>
@@ -72,6 +83,9 @@
 if ($privilege['update']) {
     require_once 'modal_access.php';
     require_once 'modal_edit.php';
+}
+if ($privilege['delete']) {
+    require_once 'modal_delete.php';
 }
 unset($_SESSION['err_msg']);
 unset($_SESSION['succ_msg']);
@@ -125,6 +139,7 @@ unset($_SESSION['succ_msg']);
                 {extend: 'pdfHtml5', footer: true}
             ]
         });
+        $('.custom-select').select2();
     };
 <?php require_once 'permisi.js'; ?>
 </script>

@@ -47,6 +47,7 @@ class Permissions extends CI_Controller {
         } else {
             $data = [
                 'id_grup' => $id,
+                'parent_id' => Post_input('gr_parent_edit'),
                 'nama_grup' => Post_input("gr_name_edit"),
                 'des_grup' => Post_input("gr_desc_edit"),
                 'user_login' => $this->user
@@ -90,16 +91,27 @@ class Permissions extends CI_Controller {
     }
 
     public function Save() {
+        if (Post_input('gr_parent_add') === '0') {
+            $parent_id = 0;
+        } elseif ($this->bodo->Dec(Post_input('gr_parent_add')) === 1) {
+            $parent_id = 1;
+        } else {
+            $parent_id = $this->bodo->Dec(Post_input('gr_parent_add'));
+        }
         $data = [
             'name' => Post_input("gr_name_add"),
             'description' => Post_input("gr_des_add"),
-            'user_login' => $this->user
+            'user_login' => $this->user,
+            'parent_id' => $parent_id
         ];
-        $exec = $this->M_permision->Save($data);
-        if ($exec['status'] == false) {
-            redirect(base_url('Systems/Permissions/index/'), $this->session->set_flashdata('err_msg', $exec['pesan']));
+        return $this->_Save($data);
+    }
+
+    private function _Save($data) {
+        if ($data['parent_id'] == 1) {
+            redirect(base_url('Systems/Permissions/index/'), $this->session->set_flashdata('err_msg', 'error while saving role!'));
         } else {
-            redirect(base_url('Systems/Permissions/index/'), $this->session->set_flashdata('succ_msg', 'Roles has been added'));
+            $this->M_permision->Save($data);
         }
     }
 
@@ -120,6 +132,19 @@ class Permissions extends CI_Controller {
             redirect(base_url('Systems/Permissions/index/'), $this->session->set_flashdata('succ_msg', $exec['pesan']));
         } else {
             redirect(base_url('Systems/Permissions/index/'), $this->session->set_flashdata('err_msg', $exec['pesan']));
+        }
+    }
+
+    public function Delete() {
+        $id = $this->bodo->Dec(Post_input('id_grup'));
+        if ($id == 1) {
+            redirect(base_url('Systems/Permissions/index/'), $this->session->set_flashdata('err_msg', 'you cannot proceed with this request'));
+        } else {
+            $data = [
+                'id' => $id,
+                'id_user' => $this->user
+            ];
+            $this->M_permision->Delete($data);
         }
     }
 
