@@ -194,6 +194,23 @@ if (!function_exists('show_404')) {
     }
 
 }
+if (!function_exists('blocked_account')) {
+
+    function blocked_account() {
+        $ci = get_instance();
+        $ci
+                ->output
+                ->set_status_header(200);
+        $ci
+                ->load
+                ->view('errors/cli/blocked_account');
+        echo $ci
+                ->output
+                ->get_output();
+        exit(4);
+    }
+
+}
 if (!function_exists('log_message')) {
 
     function log_message($level, $message) {
