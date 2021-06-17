@@ -153,7 +153,15 @@ class CI_DB_mysqli_driver extends CI_DB {
 					"STRICT_ALL_TABLES", ""),
 					"STRICT_TRANS_TABLES,", ""),
 					",STRICT_TRANS_TABLES", ""),
-					"STRICT_TRANS_TABLES", "")'
+					"STRICT_TRANS_TABLES", "");SET SESSION sql_mode = REPLACE (
+	REPLACE (
+		REPLACE ( REPLACE ( REPLACE ( REPLACE ( @@sql_mode, "ONLY_FULL_GROUP_BY,", "" ), ",ONLY_FULL_GROUP_BY", "" ), "ONLY_FULL_GROUP_BY", "" ), "ONLY_FULL_GROUP_BY,", "" ),
+		",ONLY_FULL_GROUP_BY",
+		"" 
+	),
+	"ONLY_FULL_GROUP_BY",
+"" 
+)'
 				);
 			}
 		}
