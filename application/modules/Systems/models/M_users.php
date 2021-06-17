@@ -110,4 +110,18 @@ class M_users extends CI_Model {
         return $exec;
     }
 
+    public function Reset($data, $id) {
+        $this->db->trans_begin();
+        $this->db->set($data)
+                ->where('`sys_users`.`id`', $id, false)
+                ->update('sys_users');
+        if ($this->db->trans_status() === false) {
+            $this->db->trans_rollback();
+            $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('err_msg', 'failed, error while processing user data'));
+        } else {
+            $this->db->trans_commit();
+            $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('succ_msg', 'success, user password has been reset'));
+        }
+    }
+
 }

@@ -33,6 +33,7 @@
 if ($privilege['delete']) {
     require_once 'modal_delete.php';
     require_once 'modal_active.php';
+    require_once 'modal_reset.php';
 }
 unset($_SESSION['err_msg']);
 unset($_SESSION['succ_msg']);

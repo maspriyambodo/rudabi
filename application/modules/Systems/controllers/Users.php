@@ -49,12 +49,15 @@ class Users extends CI_Controller {
             if ($privilege['delete'] and $users->stat) {
                 $activebtn = null;
                 $delbtn = '<button id="del_user" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete ' . $users->uname . '" value="' . $id_user . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
+                $reset_pwd = '<button id="reset_password" type="button" class="btn btn-icon btn-default btn-xs" title="Reset Password ' . $users->uname . '" value="' . $id_user . '" onclick="Reset_pwd(this.value)"><i class="fas fa-key"></i></button>';
             } elseif ($privilege['delete'] and!$users->stat) {
                 $delbtn = null;
+                $reset_pwd = '<button id="reset_password" type="button" class="btn btn-icon btn-default btn-xs" title="Reset Password ' . $users->uname . '" value="' . $id_user . '" onclick="Reset_pwd(this.value)"><i class="fas fa-key"></i></button>';
                 $activebtn = '<button id="act_user" type="button" class="btn btn-icon btn-success btn-xs" title="Activate ' . $users->uname . '" value="' . $id_user . '" onclick="Active(this.value)"><i class="fas fa-unlock"></i></button>';
             } else {
                 $delbtn = null;
                 $activebtn = null;
+                $reset_pwd = null;
             }
             $no++;
             $row = [];
@@ -62,7 +65,7 @@ class Users extends CI_Controller {
             $row[] = $users->uname;
             $row[] = $users->name;
             $row[] = $stat;
-            $row[] = '<div class="btn-group">' . $editbtn . $delbtn . $activebtn . '</div>';
+            $row[] = '<div class="btn-group">' . $editbtn . $reset_pwd . $delbtn . $activebtn . '</div>';
             $data[] = $row;
         }
         return $this->_list($data, $privilege);
@@ -247,6 +250,24 @@ class Users extends CI_Controller {
             'user_login' => $this->user
         ];
         return $this->_Save($data);
+    }
+
+    public function Reset() {
+        $id = $this->bodo->Dec(Post_input('reset_id'));
+        if ($id == 1) {
+            $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('err_msg', 'failed, error while processing user data'));
+        } elseif (empty($id) or!$id) {
+            $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('err_msg', 'failed, error while processing user data'));
+        } else {
+            $data = [
+                'sys_users.pwd' => password_hash("a", PASSWORD_DEFAULT),
+                '`sys_users`.`login_attempt`' => 0 + false,
+                '`sys_users`.`sysupdateuser`' => $this->user + false,
+                'sys_users.sysupdatedate' => date('Y-m-d H:i:s')
+            ];
+            $result = $this->M_users->Reset($data, $id);
+        }
+        return $result;
     }
 
 }
