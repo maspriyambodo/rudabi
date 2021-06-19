@@ -83,4 +83,69 @@ class M_kabupaten extends CI_Model {
         }
     }
 
+    public function Get_prov() {
+        if (Post_get('q')) {
+            $exec = $this->db->select('id_provinsi AS id, nama AS text')
+                    ->from('mt_wil_provinsi')
+                    ->like('mt_wil_provinsi.nama', Post_get('term'))
+                    ->get()
+                    ->result();
+        } else {
+            $exec = [];
+        }
+        return $exec;
+    }
+
+    public function Get_detail($id) {
+        $exec = $this->db->select('mt_wil_kabupaten.id_kabupaten, mt_wil_kabupaten.id_provinsi, mt_wil_kabupaten.nama, mt_wil_kabupaten.latitude, mt_wil_kabupaten.longitude,mt_wil_provinsi.nama AS provinsi')
+                ->from('mt_wil_kabupaten')
+                ->join('mt_wil_provinsi', 'mt_wil_kabupaten.id_provinsi = mt_wil_provinsi.id_provinsi', 'LEFT')
+                ->where('`mt_wil_kabupaten`.`id_kabupaten`', $id, false)
+                ->get()
+                ->row();
+        return $exec;
+    }
+
+    public function Update($data, $id_kab) {
+        $this->db->trans_begin();
+        $this->db->set($data)
+                ->where('`mt_wil_kabupaten`.`id_kabupaten`', $id_kab, false)
+                ->update('mt_wil_kabupaten');
+        if ($this->db->trans_status() === false) {
+            $this->db->trans_rollback();
+            redirect(base_url('Master/Wilayah/Kabupaten/index/'), $this->session->set_flashdata('err_msg', 'error while updating data kabupaten'));
+        } else {
+            $this->db->trans_commit();
+            redirect(base_url('Master/Wilayah/Kabupaten/index/'), $this->session->set_flashdata('succ_msg', 'data kabupaten has been updated'));
+        }
+    }
+    
+    public function Delete($data, $id_kab) {
+        $this->db->trans_begin();
+        $this->db->set($data)
+                ->where('`mt_wil_kabupaten`.`id_kabupaten`', $id_kab, false)
+                ->update('mt_wil_kabupaten');
+        if ($this->db->trans_status() === false) {
+            $this->db->trans_rollback();
+            redirect(base_url('Master/Wilayah/Kabupaten/index/'), $this->session->set_flashdata('err_msg', 'error while deleting data kabupaten'));
+        } else {
+            $this->db->trans_commit();
+            redirect(base_url('Master/Wilayah/Kabupaten/index/'), $this->session->set_flashdata('succ_msg', 'data kabupaten has been deleted'));
+        }
+    }
+    
+    public function Active($data, $id_kab) {
+        $this->db->trans_begin();
+        $this->db->set($data)
+                ->where('`mt_wil_kabupaten`.`id_kabupaten`', $id_kab, false)
+                ->update('mt_wil_kabupaten');
+        if ($this->db->trans_status() === false) {
+            $this->db->trans_rollback();
+            redirect(base_url('Master/Wilayah/Kabupaten/index/'), $this->session->set_flashdata('err_msg', 'error while activating data kabupaten'));
+        } else {
+            $this->db->trans_commit();
+            redirect(base_url('Master/Wilayah/Kabupaten/index/'), $this->session->set_flashdata('succ_msg', 'data kabupaten has been activated'));
+        }
+    }
+
 }

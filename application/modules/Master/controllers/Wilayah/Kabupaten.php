@@ -37,22 +37,22 @@ class Kabupaten extends CI_Controller {
         $privilege = $this->bodo->Check_previlege('Master/Wilayah/Kabupaten/index/');
         foreach ($list as $kabupaten) {
             $id_kabupaten = Enkrip($kabupaten->id_kabupaten);
-            if ($kabupaten->is_actived) {
+            if ($kabupaten->is_actived == 1) {
                 $stat = '<span class="label label-success label-inline font-weight-lighter mr-2">active</span>';
             } else {
                 $stat = '<span class="label label-danger label-inline font-weight-lighter mr-2">nonactive</span>';
             }
             if ($privilege['update']) {
-                $editbtn = '<button id="edit_user" type="button" class="btn btn-icon btn-default btn-xs" title="Edit ' . $kabupaten->nama . '" value="' . $id_kabupaten . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
+                $editbtn = '<button id="edit_user" type="button" class="btn btn-icon btn-default btn-xs" title="Edit ' . $kabupaten->nama . '" value="' . $id_kabupaten . '" data-toggle="modal" data-target="#modal_edit" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
             } else {
                 $editbtn = null;
             }
             if ($privilege['delete'] and $kabupaten->is_actived) {
                 $activebtn = null;
-                $delbtn = '<button id="del_user" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete ' . $kabupaten->nama . '" value="' . $id_kabupaten . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
+                $delbtn = '<button id="del_user" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete ' . $kabupaten->nama . '" value="' . $id_kabupaten . '" data-toggle="modal" data-target="#modal_delete" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
             } elseif ($privilege['delete'] and!$kabupaten->is_actived) {
                 $delbtn = null;
-                $activebtn = '<button id="act_user" type="button" class="btn btn-icon btn-success btn-xs" title="Activate ' . $kabupaten->nama . '" value="' . $id_kabupaten . '" onclick="Active(this.value)"><i class="fas fa-unlock"></i></button>';
+                $activebtn = '<button id="act_user" type="button" class="btn btn-icon btn-success btn-xs" title="Activate ' . $kabupaten->nama . '" value="' . $id_kabupaten . '" data-toggle="modal" data-target="#modal_active" onclick="Active(this.value)"><i class="fas fa-unlock"></i></button>';
             } else {
                 $delbtn = null;
                 $activebtn = null;
@@ -121,6 +121,60 @@ class Kabupaten extends CI_Controller {
             'syscreatedate' => date("Y-m-d H:i:s")
         ];
         $this->model->Add($data);
+    }
+
+    public function Get_prov() {
+        $exec = $this->model->Get_prov();
+        if ($exec) {
+            $response = [
+                'stat' => true,
+                'results' => $exec
+            ];
+        } else {
+            $response = [
+                'stat' => false
+            ];
+        }
+        ToJson($exec);
+    }
+
+    public function Get_detail() {
+        $id = $this->bodo->Dec(Post_get('id'));
+        $exec = $this->model->Get_detail($id);
+        ToJson($exec);
+    }
+
+    public function Update() {
+        $id_kab = $this->bodo->Dec(Post_input('e_id'));
+        $data = [
+            'id_provinsi' => Post_input('edit_prov'),
+            'nama' => Post_input('edit_namakab'),
+            'latitude' => Post_input('edit_lat'),
+            'longitude' => Post_input('edit_longt'),
+            'sysupdateuser' => $this->user + false,
+            'sysupdatedate' => date("Y-m-d H:i:s")
+        ];
+        $this->model->Update($data, $id_kab);
+    }
+
+    public function Delete() {
+        $id_kab = $this->bodo->Dec(Post_input('d_id'));
+        $data = [
+            '`mt_wil_kabupaten`.`is_actived`' => 0 + false,
+            '`mt_wil_kabupaten`.`sysdeleteuser`' => $this->user + false,
+            'mt_wil_kabupaten.sysdeletedate' => date("Y-m-d H:i:s")
+        ];
+        $this->model->Delete($data, $id_kab);
+    }
+
+    public function Active() {
+        $id_kab = $this->bodo->Dec(Post_input('act_id'));
+        $data = [
+            '`mt_wil_kabupaten`.`is_actived`' => 1 + false,
+            '`mt_wil_kabupaten`.`sysupdateuser`' => $this->user + false,
+            'mt_wil_kabupaten.sysupdatedate' => date("Y-m-d H:i:s")
+        ];
+        $this->model->Active($data, $id_kab);
     }
 
 }

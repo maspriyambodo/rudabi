@@ -17,7 +17,7 @@
                 <thead class="text-center text-uppercase">
                     <tr>
                         <th rowspan="2">no</th>
-                        <th rowspan="2">id</th>
+                        <th rowspan="2">id<br>kabupaten</th>
                         <th rowspan="2">nama</th>
                         <th rowspan="2">status</th>
                         <th colspan="3">geolocation</th>

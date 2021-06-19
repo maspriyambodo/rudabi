@@ -13,7 +13,8 @@
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="add_prov">Provinsi:</label>
-                                <select id="add_prov" name="add_prov" required="" class="form-control custom-select">
+                                <div class="clearfix"></div>
+                                <select id="add_prov" name="add_prov" required="" class="form-control custom-select" style="width:100%;">
                                     <option value="">Choose Provinsi</option>
                                     <?php
                                     foreach ($prov as $provinsi) {
@@ -64,6 +65,7 @@
     </div>
 </div>
 <script>
+    $('#add_prov').select2();
     function Close_add() {
         $('#check_id').empty();
         $('#code_msg').empty();
