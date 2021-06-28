@@ -29,15 +29,9 @@ class Dashboard extends CI_Controller {
     }
 
     private function _view($data) {
-        $role_id = $this->bodo->Dec($this->session->userdata('role_id'));
-        if ($role_id == 1) {
-            $data['total'] = $this->Total();
-            $dashboard = "v_dashboard";
-            $data['pagetitle'] = 'Dashboard';
-        } elseif ($role_id == 6) {
-            $dashboard = "dashboard_kua";
-            $data['pagetitle'] = 'Dashboard Operator KUA';
-        }
+        $data['total'] = $this->Total();
+        $dashboard = "v_dashboard";
+        $data['pagetitle'] = 'Dashboard';
         $data['content'] = $this->parser->parse($dashboard, $data, true);
         return $this->parser->parse('Template/layout', $data);
     }
