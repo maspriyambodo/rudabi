@@ -21,7 +21,7 @@ class Target extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => json_decode(file_get_contents($this->bodo->Url_API() . 'embimwin/targetcatin2020?KEY=BOBA')),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/targetcatin2020?KEY=BOBA'),
             'item_active' => 'Applications/Bimwin/Target/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Target/index/'),
             'siteTitle' => 'Data Target Catin | ' . $this->bodo->Sys('app_name'),
