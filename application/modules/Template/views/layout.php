@@ -42,6 +42,7 @@ $fullname = $this->session->userdata('fullname');
         <link rel="stylesheet" type="text/css" href="<?php echo base_url('assets/DataTables/datatables.min.css'); ?>"/>
         <link href="<?php echo base_url('assets/css/custom.kemenag.css'); ?>" rel="stylesheet" type="text/css" />
         <link href="<?php echo base_url('assets/css/style.css'); ?>" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     </head>
     <body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed aside-enabled aside-fixed aside-minimize-hoverable page-loading<?php echo $aside; ?>">
         <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
