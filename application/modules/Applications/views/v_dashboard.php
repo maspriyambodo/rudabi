@@ -1,4 +1,4 @@
-<div class="card" style="margin-top: -4%;">
+<div class="card">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
         <div style="font-size:40px;" class="7 text-white text-center my-10 animate__animated animate__fadeIn">
