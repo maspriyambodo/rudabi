@@ -13,6 +13,9 @@
                 <select name="tahun" class="form-control form-control-solid" onchange="Tahun()">
                     <?php
                     $usul_tahun = json_decode($pertahun);
+                    if (empty($usul_tahun)) {
+                        $usul_tahun = [];
+                    }
                     foreach ($usul_tahun as $usul_tahun) {
                         if ($usul_tahun->usul_tahun == $param[0]) {
                             $selected = 'selected=""';
@@ -74,6 +77,9 @@
                     $tottanah_kosong = 0;
                     $totperluasan_bangunan = 0;
                     $totnilai_dipa = 0;
+                    if (empty($usulan)) {
+                        $usulan = [];
+                    }
                     foreach ($usulan as $value) {
                         ?>
                         <tr>
