@@ -1,521 +1,337 @@
 <div class="card" style="margin-top: -4%;">
     <div class="position-absolute w-100 h-50 rounded-card-top bg-dark"></div>
     <div class="card-body position-relative">
-        <div style="font-size:40px;" class="7 text-white text-center my-10">
-            <b>DIREKTORAT JENDERAL</b><br>Bimbingan Masyarakat Islam<br>
-            <small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo date('d-m-Y'); ?></small>
+        <div style="font-size:40px;" class="7 text-white text-center my-10 animate__animated animate__fadeIn">
+            <b>DIREKTORAT JENDERAL</b>
+            <br>Bimbingan Masyarakat Islam
+            <br><small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo date('d-m-Y'); ?></small>
         </div>
-        <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
-            <div class="row">
-                <div class="col-md">
-                    <a href="<?php echo base_url('Sekertariat/Satker/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                        <div class="card-body rounded-circle dataangka">
-                            <center>
+    </div>
+    <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
+        <div class="row animate__animated animate__fadeIn">
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Binsyar/Sihat/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-tools" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-sitemap" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka">
-                                    <?php echo number_format($total['satker'][0]->satker); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="alat_sihat">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px;font-size: 20px;color:black;">
-                                <b style="color: black;">Data Satker</b>
-                            </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Sekertariat/Usulan/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y")))); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                        <div class="card-body rounded-circle dataangka">
-                            <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center>
-                                <i class="fas fa-chart-line" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka">
-                                    <?php echo number_format($total['satker'][1]->usulan_triwulan); ?>
-                                </b>
-                                <center>
-                            </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color:black;">
-                                <b style="color: black;">Usulan Triwulan</b>
-                            </div>
-                            <center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Sekertariat/Approved/index?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . date("Y")))); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                        <div class="card-body rounded-circle dataangka">
-                            <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center>
-                                <i class="far fa-thumbs-up" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka">
-                                    <?php echo number_format($total['satker'][3]->approved_usulan); ?>
-                                </b>
-                                </center>
-                            </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
-                                <b style="color: black;">Approved Usulan</b>
-                            </div>
-                            <center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Sekertariat/Sicakep/Pegawai/index'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                        <div class="card-body rounded-circle dataangka">
-                            <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center>
-                                <i class="fas fa-users" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka">
-                                    <?php echo number_format($total['sicakep'][0]->data_pegawai); ?>
-                                </b>
-                                </center>
-                            </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
-                                <b style="color: black;">Data Pegawai</b>
-                            </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Sekertariat/Sicakep/Pensiun/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                        <div class="card-body rounded-circle dataangka">
-                            <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center>
-                                <i class="fas fa-house-user" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka">
-                                    <?php echo number_format($total['sicakep'][1]->data_pensiun); ?>
-                                </b>
-                                </center>
-                            </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
-                                <b style="color: black;">Data Pensiun</b>
-                            </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-md">
-                    <a href="<?php echo base_url('Binsyar/Sihat/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b rounded-circle rounded-circleya">
-                        <div class="card-body rounded-circle rounded-circleya dataangka2">
-                            <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center>
-                                <i class="fas fa-tools" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka2">
-                                    <?php echo number_format($total['sihat'][0]->alat_hisab_rukyat); ?>
-                                </b>
-                                </center>
-                            </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Alat Hisab Rukyat</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Binsyar/Ahli/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b rounded-circle rounded-circleya">
-                        <div class="card-body rounded-circle rounded-circleya dataangka2">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Binsyar/Ahli/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-user-tie" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka2">
-                                    <?php echo number_format($total['sihat'][1]->tenaga_ahli); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="tenaga_ahli">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Tenaga Ahli</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Binsyar/Pengukuran/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b rounded-circle rounded-circleya">
-                        <div class="card-body rounded-circle rounded-circleya dataangka2">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Binsyar/Pengukuran/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-ruler-combined" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-ruler-combined" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka2">
-                                    <?php echo number_format($total['sihat'][2]->hisab_pengukuran); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="hisab_pengukuran">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Hisab Pengukuran</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Binsyar/Simas/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b rounded-circle rounded-circleya">
-                        <div class="card-body rounded-circle rounded-circleya dataangka2">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Binsyar/Simas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-mosque" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-mosque" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka2">
-                                    <?php echo number_format($total['simas'][0]->data_masjid); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_masjid">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Data Masjid</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Binsyar/Mushalla/index/'); ?>" class="card card-custom bg-info bg-hover-state-info card-stretch gutter-b rounded-circle rounded-circleya">
-                        <div class="card-body rounded-circle rounded-circleya dataangka2">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Binsyar/Mushalla/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-place-of-worship" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-place-of-worship" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka2">
-                                    <?php echo number_format($total['simas'][1]->data_mushalla); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_mushalla">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Data Mushalla</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
+                        </center>
+                    </div>
+                </a>
             </div>
-
-            <div class="row">
-                <div class="col-md">
-                    <a href="<?php echo base_url('KUA/Bimwin/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b rounded-circle rounded-circlepaket">
-                        <div class="card-body rounded-circle rounded-circlepaket dataangka3">
-                            <center>
+        </div>
+        <div class="row animate__animated animate__fadeIn">
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Bimwin/Target/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="far fa-list-alt" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="far fa-list-alt" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka3">
-                                    <?php echo number_format($total['bimwin'][1]->jumlah_peserta); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="jumlah_peserta">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
-                               <b style="color: black;">Target Catin</b>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Target Catin</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('BKKS/Catin/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b rounded-circle rounded-circlepaket">
-                        <div class="card-body rounded-circle rounded-circlepaket dataangka3">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Bimwin/Catin/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-home" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-home" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka3">
-                                    <?php echo number_format($total['bimwin'][0]->realisasi_wilayah); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="realisasi_wilayah">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
-                                <b style="color: black;">Data Realisasi Catin</b>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Realisasi Catin</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Emonev/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b rounded-circle rounded-circlepaket">
-                        <div class="card-body rounded-circle rounded-circlepaket dataangka3">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Simpenghulu/KUA/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="far fa-chart-bar" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka3">
-                                    <?php echo number_format($total['monev'][0]->rekap_data_kua); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_kua">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
-                                <b style="color: black;">Jumlah Data KUA</b>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Jumlah KUA</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Simpenghulu/Penghulu/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b rounded-circle rounded-circlepaket">
-                        <div class="card-body rounded-circle rounded-circlepaket dataangka3">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Simpenghulu/Penghulu/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-user-tie" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka3">
-                                    <?php echo number_format($total['simpenghulu'][1]->data_penghulu); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_penghulu">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color:black;">
-                                <b style="color: black;">Data Penghulu</b>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Jumlah Penghulu</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Simpenghulu/Peristiwa/index/'); ?>" class="card card-custom bg-success bg-hover-state-success card-stretch gutter-b rounded-circle rounded-circlepaket">
-                        <div class="card-body rounded-circle rounded-circlepaket dataangka3">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Simpenghulu/Peristiwa/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-restroom" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-restroom" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka3">
-                                    <?php echo number_format($total['simpenghulu'][2]->data_peristiwa_nikah); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_peristiwa_nikah">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Peristiwa Nikah</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
+                        </center>
+                    </div>
+                </a>
             </div>
-
-            <div class="row">
-                <div class="col-md">
-                    <a href="<?php echo site_url('PAI/Epai/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b rounded-circle rounded-circlesiap">
-                        <div class="card-body rounded-circle rounded-circlesiap dataangka4">
-                            <center>
+        </div>
+        <div class="row animate__animated animate__fadeIn">
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/PAI/Pns/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-user-tie" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka4">
-                                    <?php echo number_format($total['penyuluh'][0]->penyuluh); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="penyuluh">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Penyuluh Agama Islam</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('PAI/Ormas/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b rounded-circle rounded-circlesiap">
-                        <div class="card-body rounded-circle rounded-circlesiap dataangka4">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/PAI/Ormas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="far fa-flag" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="far fa-flag" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka4">
-                                    <?php echo number_format($total['simpenais'][5]->ormas_islam); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="ormas_islam">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Ormas Islam</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('PAI/LPTQ/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b rounded-circle rounded-circlesiap">
-                        <div class="card-body rounded-circle rounded-circlesiap dataangka4">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/PAI/LPTQ/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-quran" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-quran" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka4">
-                                    <?php echo number_format($total['simpenais'][8]->lptq); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="lptq">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">L P T Q</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="javascript:" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b rounded-circle rounded-circlesiap">
-                        <div class="card-body rounded-circle rounded-circlesiap dataangka4">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="javascript:void();" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-book-reader" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-book-reader" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka4">
-                                    <?php echo number_format($total['pustaka'][3]->total); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="pustaka_digital">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Pustaka Digital</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-md">
-                    <a href="<?php echo base_url('Siwak/index/'); ?>" class="card card-custom bg-primary bg-hover-state-primary card-stretch gutter-b rounded-circle rounded-circlesiap">
-                        <div class="card-body rounded-circle rounded-circlesiap dataangka4">
-                            <center>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Siwak/Wakaf/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                <i class="fas fa-hand-holding-heart" style="font-size: 48px;color: black;"></i>
-                                </center>
-                                <center>
-                                <b style="font-size: 30px;color: black;margin-left: 10px;" class="dataangka4">
-                                    <?php echo number_format($total['siwak'][0]->tanah_wakaf); ?>
-                                </b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_wakaf">0</b>
                                 </center>
                             </span>
-                            </center>
-                            <center>
-                            <div class="font-weight-bold text-inverse-danger" style="margin: 5px 0px;font-size: 20px;color: black;">
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
                                 <b style="color: black;">Total Data Wakaf</b>
                             </div>
-                            </center>
-                        </div>
-                    </a>
-                </div>
+                        </center>
+                    </div>
+                </a>
             </div>
         </div>
     </div>
 </div>
-<ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
-    <!--begin::Item-->
-    <li class="nav-item mb-2" id="kt_demo_panel_toggle" data-toggle="tooltip" title="" data-placement="right" data-original-title="Dashboard Sekretariat">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-success btn-hover-success" href="<?php echo base_url('Users/Sekretariat/Dashboard/index/'); ?>" target="_blank">
-            <i class="fas fa-sitemap"></i>
-        </a>
-    </li>
-    <!--end::Item-->
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_sihat/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
 
-    <!--begin::Item-->
-    <li class="nav-item mb-2" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard URAIS & BINSYAR">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-primary btn-hover-primary" href="<?php echo base_url('Users/Binsyar/Dashboard/index/'); ?>" target="_blank">
-            <i class="fas fa-mosque"></i>
-        </a>
-    </li>
-    <!--end::Item-->
+                $('#alat_sihat').attr('data-value', data[0].alat_hisab_rukyat);
 
-    <!--begin::Item-->
-    <li class="nav-item mb-2" data-toggle="tooltip" title="" data-placement="left" data-original-title="Bina KUA & Keluarga Sakinah">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-warning btn-hover-warning" href="<?php echo base_url('Users/BKKS/Dashboard/index/'); ?>" target="_blank">
-            <i class="fas fa-restroom"></i>
-        </a>
-    </li>
-    <!--end::Item-->
 
-    <!--begin::Item-->
-    <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard PENAIS">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/PAI/Dashboard/index/'); ?>" target="_blank">
-            <i class=" far fa-lightbulb "></i>
-        </a>
-    </li>
+                $('#tenaga_ahli').attr('data-value', data[1].tenaga_ahli);
 
-    <li class="nav-item" id="kt_sticky_toolbar_chat_toggler" data-toggle="tooltip" title="" data-placement="left" data-original-title="Dashboard Wakaf">
-        <a class="btn btn-sm btn-icon btn-bg-light btn-icon-danger btn-hover-danger" href="<?php echo base_url('Users/Siwak/Dashboard/index/'); ?>" target="_blank">
-            <i class="fas fa-hand-holding-heart"></i>
-        </a>
-    </li>
-    <!--end::Item-->
-</ul>
+
+                $('#hisab_pengukuran').attr('data-value', data[2].hisab_pengukuran);
+
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
