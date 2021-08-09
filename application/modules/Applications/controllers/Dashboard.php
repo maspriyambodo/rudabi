@@ -14,6 +14,7 @@ class Dashboard extends CI_Controller {
             'csrf' => $this->bodo->Csrf(),
             'item_active' => 'Applications/Dashboard/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Dashboard/index/'),
+            'pagetitle' => 'Dashboard',
             'siteTitle' => 'Dashboard Application | ' . $this->bodo->Sys('app_name'),
             'breadcrumb' => [
                 0 => [
@@ -23,35 +24,68 @@ class Dashboard extends CI_Controller {
                 ]
             ]
         ];
-//        $data['content'] = $this->parser->parse('v_dashboard', $data, true);
-//        return $this->parser->parse('Template/layout', $data);
-        return $this->_view($data);
-    }
-
-    private function _view($data) {
-        $data['total'] = $this->Total();
-        $dashboard = "v_dashboard";
-        $data['pagetitle'] = 'Dashboard';
-        $data['content'] = $this->parser->parse($dashboard, $data, true);
+        $data['content'] = $this->parser->parse("v_dashboard", $data, true);
         return $this->parser->parse('Template/layout', $data);
     }
 
-    private function Total() {
-        $data = [
-            'sihat' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/total?KEY=BOBA')),
-            'simas' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/total?KEY=BOBA')),
-            'alat' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/alat?KEY=BOBA')),
-            'pustaka' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pustaka?KEY=BOBA')),
-            'satker' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA')),
-            'sicakep' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/total?KEY=BOBA')),
-            'bimwin' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total?KEY=boba')),
-            'monev' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=boba')),
-            'simpenghulu' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/total?KEY=boba')),
-            'simpenais' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/total?KEY=BOBA')),
-            'penyuluh' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'epay/totalnew?KEY=BOBA')),
-            'siwak' => json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siwaks/wakaf?KEY=boba'))
-        ];
-        return $data;
+    public function Get_sihat() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/total?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_simas() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/total?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_alat() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/alat?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_pustaka() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pustaka?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_satker() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_sicakep() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/total?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_bimwin() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total?KEY=boba'));
+        ToJson($response);
+    }
+
+    public function Get_monev() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=boba'));
+        ToJson($response);
+    }
+
+    public function Get_simpenghulu() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/total?KEY=boba'));
+        ToJson($response);
+    }
+
+    public function Get_simpenais() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/total?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_penyuluh() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'epay/totalnew?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_siwak() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siwaks/wakaf?KEY=boba'));
+        ToJson($response);
     }
 
 }
