@@ -106,4 +106,33 @@ class M_menu extends CI_Model {
         return $exec;
     }
 
+    public function Get_detail($data) {
+        if (empty($data['menu_parent'])) {
+            $menu_parent = '`sys_menu`.`menu_parent` IS NULL';
+        } else {
+            $menu_parent = ['`sys_menu`.`menu_parent`' => $data['menu_parent'] + false];
+        }
+        $exec = $this->db->select('sys_menu.id,sys_menu.nama,sys_menu.order_no,sys_menu.group_menu,sys_menu.stat ')
+                ->from('sys_menu')
+                ->where('`sys_menu`.`group_menu`', $data['group_id'], false)
+                ->where('`sys_menu`.`stat`', 1, false)
+                ->where('`sys_menu`.`id` !=', $data['id_menu'], false)
+                ->where($menu_parent)
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    public function Change_order($data) {
+        $exec = $this->db->query('CALL sys_menu_order(' . $data['old_id'] . ',' . $data['old_order'] . ',' . $data['new_id'] . ',' . $data['new_order'] . ')');
+        if (empty($exec->conn_id->affected_rows) or $exec->conn_id->affected_rows == 0) {
+            log_message('error', APPPATH . 'modules/Systems/models/M_menu -> function Change_order ' . 'error ketika swap order number');
+            $result = redirect(base_url('Systems/Menu/index/'), $this->session->set_flashdata('err_msg', 'error while swap order number'));
+        } else {
+            mysqli_next_result($this->db->conn_id);
+            $result = redirect(base_url('Systems/Menu/index/'), $this->session->set_flashdata('succ_msg', 'success swap number order'));
+        }
+        return $result;
+    }
+
 }

@@ -147,4 +147,26 @@ class Menu extends CI_Controller {
         ToJson($exec->result());
     }
 
+    public function Get_detail() {
+        $data = [
+            'id_menu' => Post_get('id_menu'),
+            'group_id' => Post_get('group_id'),
+            'order_no' => Post_get('order_no'),
+            'menu_parent' => Post_get('menu_parent')
+        ];
+        $exec = $this->M_menu->Get_detail($data);
+        ToJson($exec);
+    }
+
+    public function Change_order() {
+        $arr = explode(',', Post_input('new_order'));
+        $data = [
+            'old_id' => Post_input('old_menu_id'),
+            'old_order' => Post_input('old_order_no'),
+            'new_id' => $arr[0],
+            'new_order' => $arr[1]
+        ];
+        $this->M_menu->Change_order($data);
+    }
+
 }

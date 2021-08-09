@@ -20,7 +20,6 @@
                         <th>parent</th>
                         <th>menu</th>
                         <th>location</th>
-                        <th>order</th>
                         <th>group</th>
                         <th>icon</th>
                         <th>status</th>
@@ -51,9 +50,8 @@
                                 }
                                 ?>
                             </td>
-                            <td><?php echo $menu->nama_menu; ?></td>
+                            <td><?php echo '<span id="nama_menu' . $menu->id_menu . '">' . $menu->nama_menu . '</span>'; ?></td>
                             <td><?php echo $menu->link; ?></td>
-                            <td class="text-center"><?php echo $menu->order_no; ?></td>
                             <td><?php echo $menu->group_menu; ?></td>
                             <td><?php echo $menu->icon; ?></td>
                             <td class="text-center">
@@ -66,12 +64,16 @@
                                 ?>
                             </td>
                             <?php
-                            $editbtn = '<button type="button" value="' . $id_menu . '" class="btn btn-icon btn-warning btn-xs" title="Edit" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
-                            $activebtn = '<button type="button" value="' . $id_menu . '" class="btn btn-icon btn-default btn-xs" title="Set Active" onclick="Active(this.value)"><i class="fas fa-unlock text-success"></i></button>';
-                            $delbtn = '<button type="button" value="' . $id_menu . '" class="btn btn-icon btn-danger btn-xs" title="Delete Menu" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
+                            echo '<input type="hidden" name="group_id' . $menu->id_menu . '" value="' . $menu->id_group_menu . '" readonly=""/>';
+                            echo '<input type="hidden" name="menu_parent' . $menu->id_menu . '" value="' . $menu->id_parent . '" readonly=""/>';
+                            echo '<input type="hidden" name="order_old' . $menu->id_menu . '" value="' . $menu->order_no . '" readonly=""/>';
+                            $editbtn = '<button type="button" value="' . $id_menu . '" class="btn btn-icon btn-default btn-xs" title="Edit Menu ' . $menu->nama_menu . '" onclick="Edit(this.value)"><i class="far fa-edit text-warning"></i></button>';
+                            $activebtn = '<button type="button" value="' . $id_menu . '" class="btn btn-icon btn-default btn-xs" title="Set Active ' . $menu->nama_menu . '" onclick="Active(this.value)"><i class="fas fa-unlock text-success"></i></button>';
+                            $delbtn = '<button type="button" value="' . $id_menu . '" class="btn btn-icon btn-default btn-xs" title="Delete Menu ' . $menu->nama_menu . '" onclick="Delete(this.value)"><i class="far fa-trash-alt text-danger"></i></button>';
+                            $btnorder = '<button type="button" id="btnorder" value="' . $menu->id_menu . '" class="btn btn-icon btn-default btn-xs" title="Change order menu ' . $menu->nama_menu . '" onclick="Change_order(this.value)"><i class="fas fa-sort text-success"></i></button>';
                             echo '<td class="text-center"><div class="btn-group">';
                             if ($privilege['update']) {
-                                echo $editbtn;
+                                echo $editbtn . $btnorder;
                             } else {
                                 null;
                             }
@@ -94,6 +96,9 @@
 <input type="hidden" name="err_msg" value="<?php echo $this->session->flashdata('err_msg'); ?>"/>
 <input type="hidden" name="succ_msg" value="<?php echo $this->session->flashdata('succ_msg'); ?>"/>
 <?php
+if ($privilege['update']) {
+    require 'modal_order.php';
+}
 if ($privilege['delete']) {
     require 'modal_delete.php';
     require 'modal_active.php';
