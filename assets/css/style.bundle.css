@@ -6140,7 +6140,7 @@ button.bg-white:focus {
   border-radius: 0.85rem !important; }
 
 .rounded-circle {
-  border-radius: 50% !important; }
+  //border-radius: 50% !important; }
 
 .rounded-pill {
   border-radius: 50rem !important; }

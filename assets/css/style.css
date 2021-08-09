@@ -38,48 +38,48 @@
 
 .rounded-circle{
 	background:white;
-	border:3px solid #f64e60;
+	border:3px solid #fff;
 	color:black;
 }
 
 .dataangka:hover{
-	background:#f64e60;
+	background:#86a221;
 	color:white;
 	visibility:visible;
 }
 
 .rounded-circleya{
 	background:white;
-	border:3px solid #8950fc;
+	border:3px solid #fff;
 	color:black;
 }
 
 .dataangka2:hover{
-	background:#8950fc;
+	background:#86a221;
 	color:white;
 	visibility:visible;
 }
 
 .rounded-circlepaket{
 	background:white;
-	border:3px solid #1bc5bd;
+	border:3px solid #fff;
 	color:black;
 }
 
 .dataangka3:hover{
-	background:#1bc5bd;
+	background:#86a221;
 	color:white;
 	visibility:visible;
 }
 
 .rounded-circlesiap{
 	background:white;
-	border:3px solid #037fff;
+	border:3px solid #fff;
 	color:black;
 }
 
 .dataangka4:hover{
-	background:#037fff;
+	background:#86a221;
 	color:white;
 	visibility:visible;
 }
