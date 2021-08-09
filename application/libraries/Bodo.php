@@ -16,7 +16,7 @@ class Bodo {
     }
 
     public function Url_API() {
-        $url = 'http://10.1.99.90/rudabi_api/datapi/';
+        $url = 'https://rudabi.kemenag.dev/rudabi_api/datapi/';
         return $url;
     }
 
