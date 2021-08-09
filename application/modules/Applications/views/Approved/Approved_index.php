@@ -86,6 +86,9 @@ if ($msg == false) {
                     $tottanah_kosong = 0;
                     $totperluasan_bangunan = 0;
                     $totnilai_dipa = 0;
+                    if (empty($approved)) {
+                        $approved = [];
+                    }
                     foreach ($approved as $approved) {
                         ?>
                         <tr>
