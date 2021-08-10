@@ -45,7 +45,7 @@ class Mtq extends CI_Controller {
 
     public function Get_mtq1() {
         $curl = new Curl\Curl();
-        $curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/Mtq/detailpesertapropinsi?KEY=boba');
+        $curl->get('http://10.1.99.90/rudabi_api/datapi/Mtq/detailpesertapropinsi?KEY=boba');
         if ($curl->error) {
             echo 'Error: ' . $curl->errorCode . ': ' . $curl->errorMessage . "\n";
         } else {
