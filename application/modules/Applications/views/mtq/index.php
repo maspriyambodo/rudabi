@@ -18,6 +18,51 @@
 </div>
 <script>
     $(document).ready(function () {
+        
+        var dt_nikah = function () {
+            var tmp = null;
+            $.ajax({
+                url: "<?php echo base_url('Applications/Mtq/Get_mtq1'); ?>",
+                async: false,
+                type: 'GET',
+                cache: true,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function (result) {
+                    var i, arr, tot;
+                    tot = 0;
+                    for (i = 0; i < result.length; i++) {
+                        arr = parseFloat(result[i].total);
+                        tot += arr; 
+                    }
+                    document.getElementById('title_chartdiv').innerText = 'Total Data MTQ: ' + numeral(tot).format('0,0');
+                    tmp = obj;
+                }
+            });
+            return tmp;
+        }();
+        
+        $.ajax({
+            url: "<?php echo base_url('Applications/Mtq/Get_mtq1/'); ?>",
+            async: false,
+            type: 'GET',
+            cache: true,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function (result) {
+                var data1 = JSON.stringify(result.data);
+                var obj = jQuery.parseJSON(data1);
+                var i, arr, tot;
+                tot = 0;
+                for (i = 0; i < obj.length; i++) {
+                    arr = parseFloat(obj[i].value);
+                    tot += arr;
+                }
+                document.getElementById('title_chartdiv').innerHTML = tot;
+            }
+        });
         am4core.ready(function () {
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
