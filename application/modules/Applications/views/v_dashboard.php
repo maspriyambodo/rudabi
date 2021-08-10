@@ -299,6 +299,84 @@
                 </a>
             </div>
         </div>
+        <div class="row animate__animated animate__fadeIn">
+            <div class="col-md">
+                <a href="<?php echo base_url('Applications/Simkah/index/?year=0'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
+                                <center>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                </center>
+                            </span>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Data SIMKAH</b>
+                            </div>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
+                                <center>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                </center>
+                            </span>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Data BAZNAS</b>
+                            </div>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
+                                <center>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                </center>
+                            </span>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">Data LAZNAS</b>
+                            </div>
+                        </center>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md">
+                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
+                                <center>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                </center>
+                            </span>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">e-pustaka slims</b>
+                            </div>
+                        </center>
+                    </div>
+                </a>
+            </div>
+        </div>
     </div>
 </div>
 <script>
