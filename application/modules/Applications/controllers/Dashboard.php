@@ -103,4 +103,21 @@ class Dashboard extends CI_Controller {
         ToJson($response);
     }
 
+    public function Get_baznas() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simzat/totaldatabaznas?KEY=boba'));
+        ToJson($response);
+    }
+
+    public function Get_laznas() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simzat/totaldatalaznas?KEY=boba'));
+        ToJson($response);
+    }
+
+    public function Get_pustakaslim() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'pustaka/totalbuku?KEY=boba'));
+        ToJson($response);
+    }
+
+    
+
 }

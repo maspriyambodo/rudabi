@@ -307,7 +307,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_simkah">0</b>
                                 </center>
                             </span>
                         </center>
@@ -326,7 +326,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_baznas">0</b>
                                 </center>
                             </span>
                         </center>
@@ -345,7 +345,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count"  id="data_laznas">0</b>
                                 </center>
                             </span>
                         </center>
@@ -364,7 +364,7 @@
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                 <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
                                 <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count">0</b>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_puslim">0</b>
                                 </center>
                             </span>
                         </center>
@@ -620,7 +620,111 @@
                     });
                 });
             }
-        });   
+        }); 
+        
+    
+            var tmp = null;
+            $.ajax({
+                url: "<?php echo base_url('Applications/Simkah/Get_nikah?year=' . $year); ?>",
+                async: false,
+                type: 'GET',
+                cache: true,
+                contentType: false,
+                processData: false,
+                dataType: 'json',
+                success: function (result) {
+                    var data1 = JSON.stringify(result.data);
+                    var obj = jQuery.parseJSON(data1);
+                    var i, arr, tot;
+                    tot = 0;
+                    for (i = 0; i < obj.length; i++) {
+                        arr = parseFloat(obj[i].value);
+                        tot += arr;
+                        
+                    }
+                    document.getElementById('title_chartdiv').innerText = 'Total Data Nikah: ' + numeral(tot).format('0,0');
+                    tmp = obj;
+                    $('#data_simkah').attr('data-value', tmp);
+                    $('.count').each(function () {
+                        $(this).prop('Counter', 0).animate({
+                            Counter: $(this).data('value')
+                        }, {
+                            duration: 3000,
+                            easing: 'swing',
+                            step: function (now) {
+                                $(this).text(numeral(now).format('0,0'));
+                            }
+                        });
+                    });
+                }
+            });
+
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_baznas/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('#data_baznas').attr('data-value', data[0].databaznas);
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });  
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_laznas/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('#data_laznas').attr('data-value', data[0].datalaznas);
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });  
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_pustakaslim/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('#data_puslim').attr('data-value', data[0].jumlah_buku );
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });  
+         
     });   
+
+    
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

@@ -1,0 +1,29 @@
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/siihat/total?KEY=BOBA
+# Content-Type: 'application/json'
+
+
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/eimas/total?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/siihat/alat?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/esbsnn/pustaka?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/esbsnn/sekretariat?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/sicakepp/total?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/embimwin/total?KEY=boba
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/monev/total?KEY=boba
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/simpenghulu/total?KEY=boba
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/simpenaiss/total?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/epay/totalnew?KEY=BOBA
+# Content-Type: 'application/json'
+# GET https://rudabi.kemenag.dev/rudabi_api/datapi/siwaks/wakaf?KEY=boba
+# Content-Type: 'application/json'
+
+GET https://simkah.kemenag.go.id/api/grafik/daftarnikah?level=pusat
+Content-Type: 'application/json'
