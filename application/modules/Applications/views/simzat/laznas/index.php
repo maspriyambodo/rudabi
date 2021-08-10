@@ -28,7 +28,6 @@ $b = json_decode($data);
                         <th>Longitude</th>
                         <th>No. Handphone</th>
                         <th>No. Telepon</th>
-                        <th>Verified</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -55,7 +54,6 @@ $b = json_decode($data);
                             <td><?php echo $c->lng; ?></td>
                             <td><?php echo $c->no_hp; ?></td>
                             <td><?php echo $c->no_telp; ?></td>
-                            <td><?php echo $c->verified; ?></td>
                         </tr>
                     <?php } ?>
                 </tbody>
