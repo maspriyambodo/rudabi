@@ -135,7 +135,7 @@ if ($sum_realisasi > 0 && $sum_realisasi < 1000) {
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous"></script>
 <script>
     window.onload = function () {
-        var url = "<?php echo $this->bodo->Url_API(); ?>" + 'embimwin/targetcatin2020?KEY=boba';
+        var url = 'https://rudabi.kemenag.dev/rudabi_api/datapi/embimwin/targetcatin2020?KEY=boba';
         $('table').dataTable({
             "ServerSide": true,
             "order": [[0, "asc"]],
