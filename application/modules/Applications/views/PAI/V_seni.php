@@ -26,7 +26,7 @@ $i = 0; // geo_kat_pelosok_teri
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
-<div class="clearfix" style="margin:5%;"></div>
+<!-- <div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
@@ -44,7 +44,7 @@ $i = 0; // geo_kat_pelosok_teri
         </div>
         <div id="chartdiv_a" class="chartdivs"></div>
     </div>
-</div>
+</div> -->
 <div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
@@ -68,9 +68,9 @@ $i = 0; // geo_kat_pelosok_teri
                         <th rowspan="2">
                             jumlah lsi
                         </th>
-                        <th colspan="2">
+                        <!-- <th colspan="2">
                             tipografi
-                        </th>
+                        </th> -->
                         <th colspan="4">
                             geografis
                         </th>
@@ -110,8 +110,8 @@ $i = 0; // geo_kat_pelosok_teri
                         <tr>
                             <td style="text-align: left !important;"><?php echo '<a href="' . base_url('Applications/PAI/Seni_Islam/Provinsi?key=' . str_replace(['+', '/', '='], ['-', '_', '~'], $this->encryption->encrypt('?a=' . $b->lembaga_seni_provinsi . '&b=' . $b->province_title))) . '" title="Detail Provinsi ' . $b->province_title . '">' . $b->province_title . '</a>'; ?></td>
                             <td><?php echo number_format($b->jum_ls); ?></td>
-                            <td><?php echo number_format($b->topo_kat_darat); ?></td>
-                            <td><?php echo number_format($b->topo_kat_laut); ?></td>
+                            <!-- <td><?php //echo number_format($b->topo_kat_darat); ?></td> -->
+                            <!-- <td><?php //echo number_format($b->topo_kat_laut); ?></td> -->
                             <td><?php echo number_format($b->geo_kat_kota); ?></td>
                             <td><?php echo number_format($b->geo_kat_desa); ?></td>
                             <td><?php echo number_format($b->geo_kat_pelosok); ?></td>
