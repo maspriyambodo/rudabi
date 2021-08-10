@@ -1,0 +1,13 @@
+{
+    "name": "vendor/rudabi-new",
+    "description": "Rumah Data Bimas Islam Kementerian Agama",
+    "authors": [
+        {
+            "name": "centos",
+            "email": "maspriyambodo@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "php-curl-class/php-curl-class": "9999999-dev"
+    }
+}
