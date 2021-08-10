@@ -381,6 +381,84 @@
 </div>
 <script>
     $(document).ready(function () {
+        
+        $.ajax({
+            url: "<?php echo base_url('Applications/Simkah/Get_nikah?year=0'); ?>",
+            async: false,
+            type: 'GET',
+            cache: true,
+            contentType: false,
+            processData: false,
+            dataType: 'json',
+            success: function (result) {
+                var data1 = JSON.stringify(result.data);
+                var obj = jQuery.parseJSON(data1);
+                var i, arr, tot;
+                tot = 0;
+                for (i = 0; i < obj.length; i++) {
+                    arr = parseFloat(obj[i].value);
+                    tot += arr;
+
+                }
+                $('#data_simkah').attr('data-value', tot);
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });
+        
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_masjid/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('#data_masjid').attr('data-value', data[0].data_masjid);
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });
+
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_musholla/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('#data_mushalla').attr('data-value', data[0].data_mushalla);
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_sihat/'); ?>",
             type: 'GET',
@@ -406,50 +484,7 @@
                 });
             }
         });
-    
-        $.ajax({
-            url: "<?php echo base_url('Applications/Dashboard/Get_masjid/'); ?>",
-            type: 'GET',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                $('#data_masjid').attr('data-value', data[0].data_masjid);
-                $('.count').each(function () {
-                    $(this).prop('Counter', 0).animate({
-                        Counter: $(this).data('value')
-                    }, {
-                        duration: 3000,
-                        easing: 'swing',
-                        step: function (now) {
-                            $(this).text(numeral(now).format('0,0'));
-                        }
-                    });
-                });
-            }
-        });
-   
-        $.ajax({
-            url: "<?php echo base_url('Applications/Dashboard/Get_musholla/'); ?>",
-            type: 'GET',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
-                $('#data_mushalla').attr('data-value', data[0].data_mushalla);
-                $('.count').each(function () {
-                    $(this).prop('Counter', 0).animate({
-                        Counter: $(this).data('value')
-                    }, {
-                        duration: 3000,
-                        easing: 'swing',
-                        step: function (now) {
-                            $(this).text(numeral(now).format('0,0'));
-                        }
-                    });
-                });
-            }
-        });
+
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_datacatin/'); ?>",
             type: 'GET',
@@ -471,6 +506,7 @@
                 });
             }
         });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_targetcatin/'); ?>",
             type: 'GET',
@@ -492,6 +528,7 @@
                 });
             }
         });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_penyuluh/'); ?>",
             type: 'GET',
@@ -513,6 +550,7 @@
                 });
             }
         });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_simpenghulu/'); ?>",
             type: 'GET',
@@ -535,7 +573,8 @@
                     });
                 });
             }
-        });    
+        });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_ormasislam/'); ?>",
             type: 'GET',
@@ -557,6 +596,7 @@
                 });
             }
         });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_lptq/'); ?>",
             type: 'GET',
@@ -578,6 +618,7 @@
                 });
             }
         });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_pustakadigital/'); ?>",
             type: 'GET',
@@ -620,44 +661,7 @@
                     });
                 });
             }
-        }); 
-        
-    
-            var tmp = null;
-            $.ajax({
-                url: "<?php echo base_url('Applications/Simkah/Get_nikah?year=' . $year); ?>",
-                async: false,
-                type: 'GET',
-                cache: true,
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                success: function (result) {
-                    var data1 = JSON.stringify(result.data);
-                    var obj = jQuery.parseJSON(data1);
-                    var i, arr, tot;
-                    tot = 0;
-                    for (i = 0; i < obj.length; i++) {
-                        arr = parseFloat(obj[i].value);
-                        tot += arr;
-                        
-                    }
-                    document.getElementById('title_chartdiv').innerText = 'Total Data Nikah: ' + numeral(tot).format('0,0');
-                    tmp = obj;
-                    $('#data_simkah').attr('data-value', tmp);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                }
-            });
+        });
 
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_baznas/'); ?>",
@@ -679,7 +683,8 @@
                     });
                 });
             }
-        });  
+        });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_laznas/'); ?>",
             type: 'GET',
@@ -700,7 +705,8 @@
                     });
                 });
             }
-        });  
+        });
+        
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_pustakaslim/'); ?>",
             type: 'GET',
@@ -708,7 +714,7 @@
             contentType: false,
             processData: false,
             success: function (data) {
-                $('#data_puslim').attr('data-value', data[0].jumlah_buku );
+                $('#data_puslim').attr('data-value', data[0].jumlah_buku);
                 $('.count').each(function () {
                     $(this).prop('Counter', 0).animate({
                         Counter: $(this).data('value')
@@ -721,10 +727,10 @@
                     });
                 });
             }
-        });  
-         
-    });   
+        });
 
-    
+    });
+
+
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
