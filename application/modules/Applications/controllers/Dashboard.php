@@ -118,6 +118,9 @@ class Dashboard extends CI_Controller {
         ToJson($response);
     }
 
-    
+    public function Get_mtq() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'Mtq/totalpeserta?KEY=boba'));
+        ToJson($response);
+    }
 
 }

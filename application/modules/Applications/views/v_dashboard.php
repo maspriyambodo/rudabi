@@ -376,6 +376,25 @@
                     </div>
                 </a>
             </div>
+            <div class="col-md">
+                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
+                                <center>
+                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_mtq">0</b>
+                                </center>
+                            </span>
+                        </center>
+                        <center>
+                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                <b style="color: black;">M T Q</b>
+                            </div>
+                        </center>
+                    </div>
+                </a>
+            </div>
         </div>
     </div>
 </div>
@@ -715,6 +734,28 @@
             processData: false,
             success: function (data) {
                 $('#data_puslim').attr('data-value', data[0].jumlah_buku);
+                $('.count').each(function () {
+                    $(this).prop('Counter', 0).animate({
+                        Counter: $(this).data('value')
+                    }, {
+                        duration: 3000,
+                        easing: 'swing',
+                        step: function (now) {
+                            $(this).text(numeral(now).format('0,0'));
+                        }
+                    });
+                });
+            }
+        });
+        
+        $.ajax({
+            url: "<?php echo base_url('Applications/Dashboard/Get_mtq/'); ?>",
+            type: 'GET',
+            cache: false,
+            contentType: false,
+            processData: false,
+            success: function (data) {
+                $('#data_mtq').attr('data-value', data[0].total);
                 $('.count').each(function () {
                     $(this).prop('Counter', 0).animate({
                         Counter: $(this).data('value')
