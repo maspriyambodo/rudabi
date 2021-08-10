@@ -3,6 +3,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Baznas extends CI_Controller {
 
+	function __construct()
+	{
+		parent::__construct();
+		$this->load->model('Baznas_m', 'bm');
+	}
+
 	public function index() {
         $data = [
             'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simzat/baznas?KEY=boba'),
