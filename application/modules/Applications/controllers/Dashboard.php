@@ -33,8 +33,23 @@ class Dashboard extends CI_Controller {
         ToJson($response);
     }
 
-    public function Get_simas() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/total?KEY=BOBA'));
+    public function Get_masjid() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/dtmasjid?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_musholla() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/dtmushalla?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_targetcatin() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total_targetcatin?KEY=boba'));
+        ToJson($response);
+    }
+
+    public function Get_datacatin() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total_datacatin?KEY=boba'));
         ToJson($response);
     }
 
@@ -43,8 +58,8 @@ class Dashboard extends CI_Controller {
         ToJson($response);
     }
 
-    public function Get_pustaka() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pustaka?KEY=BOBA'));
+    public function Get_pustakadigital() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pustakadigital?KEY=BOBA'));
         ToJson($response);
     }
 
@@ -58,11 +73,6 @@ class Dashboard extends CI_Controller {
         ToJson($response);
     }
 
-    public function Get_bimwin() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total?KEY=boba'));
-        ToJson($response);
-    }
-
     public function Get_monev() {
         $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=boba'));
         ToJson($response);
@@ -73,8 +83,13 @@ class Dashboard extends CI_Controller {
         ToJson($response);
     }
 
-    public function Get_simpenais() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/total?KEY=BOBA'));
+    public function Get_lptq() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/lptq?KEY=BOBA'));
+        ToJson($response);
+    }
+
+    public function Get_ormasislam() {
+        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/ormasislam?KEY=BOBA'));
         ToJson($response);
     }
 
