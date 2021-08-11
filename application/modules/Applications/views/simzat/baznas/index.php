@@ -31,19 +31,7 @@ $b = json_decode($data);
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    foreach ($b as $key => $c) {
-                        $d += $c->name;
-                        $e += $c->alamat;
-                        $f += $c->website;
-                        $g += $c->muzakki;
-                        $h += $c->mustahik;
-                        $i += $c->lat;
-                        $j += $c->lng;
-                        $k += $c->no_hp;
-                        $l += $c->no_telp;
-                        $m += $c->verified;
-                        ?>
+                    <?php foreach ($b as $key => $c) { ?>
                         <tr>
                             <td><?php echo $c->name; ?></td>
                             <td><?php echo $c->alamat; ?></td>
@@ -57,12 +45,6 @@ $b = json_decode($data);
                         </tr>
                     <?php } ?>
                 </tbody>
-                <!-- <tfoot class="text-center text-uppercase">
-                    <tr>
-                        <td>total</td>
-                        <td><?php //echo number_format($d); ?></td>
-                    </tr>
-                </tfoot> -->
             </table>
         </div>
     </div>
