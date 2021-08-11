@@ -1,8 +1,6 @@
 <?php
 $b = json_decode($data);
 ?>
-
-<div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
     <div class="card-header">
         <div class="card-title">
