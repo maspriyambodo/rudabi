@@ -8,6 +8,7 @@
         }
     ],
     "require-dev": {
-        "php-curl-class/php-curl-class": "9999999-dev"
+        "php-curl-class/php-curl-class": "9999999-dev",
+        "pusher/pusher-php-server": "dev-master"
     }
 }
