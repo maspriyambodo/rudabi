@@ -7,6 +7,7 @@ class Dashboard extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->user = $this->bodo->Dec($this->session->userdata('id_user'));
+        $this->curl = new Curl\Curl();
     }
 
     public function index() {
@@ -29,97 +30,192 @@ class Dashboard extends CI_Controller {
     }
 
     public function Get_sihat() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/total?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'siihat/total?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_masjid() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/dtmasjid?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'eimas/dtmasjid?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_musholla() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'eimas/dtmushalla?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'eimas/dtmushalla?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_targetcatin() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total_targetcatin?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'embimwin/total_targetcatin?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_datacatin() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'embimwin/total_datacatin?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'embimwin/total_datacatin?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_alat() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siihat/alat?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'siihat/alat?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_pustakadigital() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pustakadigital?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'esbsnn/pustakadigital?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_satker() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'esbsnn/sekretariat?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_sicakep() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/total?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'sicakepp/total?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_monev() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'monev/total?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'monev/total?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_simpenghulu() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/total?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'simpenghulu/total?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_lptq() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/lptq?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'simpenaiss/lptq?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_ormasislam() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/ormasislam?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'simpenaiss/ormasislam?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_penyuluh() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'epay/totalnew?KEY=BOBA'));
+        $this->curl->get($this->bodo->Url_API() . 'epay/totalnew?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_siwak() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'siwaks/wakaf?KEY=boba'));
+         $this->curl->get($this->bodo->Url_API() . 'siwaks/wakaf?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_baznas() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simzat/totaldatabaznas?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'simzat/totaldatabaznas?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_laznas() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simzat/totaldatalaznas?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'simzat/totaldatalaznas?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_pustakaslim() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'pustaka/totalbuku?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'pustaka/totalbuku?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
     public function Get_mtq() {
-        $response = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'Mtq/totalpeserta?KEY=boba'));
+        $this->curl->get($this->bodo->Url_API() . 'Mtq/totalpeserta?KEY=BOBA');
+        if ($this->curl->error) {
+            $response = [];
+        } else {
+            $response = $this->curl->response;
+        }
         ToJson($response);
     }
 
