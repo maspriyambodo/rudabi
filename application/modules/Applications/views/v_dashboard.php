@@ -320,7 +320,7 @@
                 </a>
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <a href="<?php echo base_url('Applications/Simzat/Baznas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -339,7 +339,7 @@
                 </a>
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <a href="<?php echo base_url('Applications/Simzat/Laznas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -358,7 +358,7 @@
                 </a>
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <a href="<?php echo base_url('Applications/Binsyar/Pustaka/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
@@ -377,7 +377,7 @@
                 </a>
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url(''); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <a href="<?php echo base_url('Applications/Mtq/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
                             <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
