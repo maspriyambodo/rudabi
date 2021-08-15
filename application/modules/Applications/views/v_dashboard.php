@@ -830,14 +830,42 @@
                 }
             });
         }
-        
+
         var pusher = new Pusher('4587e4cb86b14bb98e69', {
             cluster: 'ap1'
         });
 
         var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function (data) {
-            toastr.success('berhasil');
+        channel.bind('my-event', function (result) {
+            document.getElementById('alat_sihat').innerText = result.sihat.alat_hisab_rukyat;
+            document.getElementById('tenaga_ahli').innerText = result.sihat.tenaga_ahli;
+            document.getElementById('hisab_pengukuran').innerText = result.sihat.hisab_pengukuran;
+            document.getElementById('data_masjid').innerText = result.masjid.data_masjid;
+            document.getElementById('data_mushalla').innerText = result.mushalla.data_mushalla;
+            document.getElementById('jumlah_peserta').innerText = result.targetcatin.realisasi_wilayah;
+            document.getElementById('realisasi_wilayah').innerText = result.data_catin.jumlah_peserta;
+            document.getElementById('data_kua').innerText = result.simpenghulu.data_kua;
+            document.getElementById('data_penghulu').innerText = result.simpenghulu.data_penghulu;
+            document.getElementById('data_peristiwa_nikah').innerText = result.simpenghulu.data_peristiwa_nikah;
+            document.getElementById('penyuluh').innerText = result.penyuluh.penyuluh;
+            document.getElementById('ormas_islam').innerText = result.ormasislam.ormas_islam;
+            document.getElementById('lptq').innerText = result.lptq.lptq;
+            document.getElementById('pustaka_digital').innerText = result.pustakadigital.pustakadigital;
+            document.getElementById('data_wakaf').innerText = result.siwak.tanah_wakaf;
+            var data1 = JSON.stringify(result.simkah.data);
+            var obj = jQuery.parseJSON(data1);
+            var i, arr, tot;
+            tot = 0;
+            for (i = 0; i < obj.length; i++) {
+                arr = parseFloat(obj[i].value);
+                tot += arr;
+
+            }
+            document.getElementById('data_simkah').innerText = numeral(tot).format('0,0');
+            document.getElementById('data_baznas').innerText = result.baznas.databaznas;
+            document.getElementById('data_laznas').innerText = result.laznas.datalaznas;
+            document.getElementById('data_puslim').innerText = result.pustakaslim.jumlah_buku;
+            document.getElementById('data_mtq').innerText = result.mtq.tot_mtq;
         });
     });
 </script>
