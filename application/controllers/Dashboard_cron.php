@@ -55,7 +55,7 @@ class Dashboard_cron extends CI_Controller {
             'simkah' => $this->Simkah_get()
         ];
         write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
-        $this->pusher->trigger('my-channel', 'my-event', $data);
+        return $this->pusher->trigger('my-channel', 'my-event', $data);
     }
 
     private function sihat() {
