@@ -71,7 +71,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function sihat() {
-        $sihat = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/siihat/total?KEY=BOBA');
+        $sihat = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siihat/total?KEY=BOBA');
         $data = [
             'alat_hisab_rukyat' => $sihat[0]->alat_hisab_rukyat,
             'tenaga_ahli' => $sihat[1]->tenaga_ahli,
@@ -81,7 +81,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function masjid() {
-        $masjid = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/eimas/dtmasjid?KEY=BOBA');
+        $masjid = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmasjid?KEY=BOBA');
         $data = [
             'data_masjid' => $masjid[0]->data_masjid
         ];
@@ -89,7 +89,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function mushalla() {
-        $mushalla = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/eimas/dtmushalla?KEY=BOBA');
+        $mushalla = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmushalla?KEY=BOBA');
         $data = [
             'data_mushalla' => $mushalla[0]->data_mushalla
         ];
@@ -97,7 +97,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function targetcatin() {
-        $targetcatin = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/embimwin/total_targetcatin?KEY=BOBA');
+        $targetcatin = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/embimwin/total_targetcatin?KEY=BOBA');
         $data = [
             'realisasi_wilayah' => $targetcatin[0]->realisasi_wilayah
         ];
@@ -105,7 +105,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function data_catin() {
-        $data_catin = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/embimwin/total_datacatin?KEY=BOBA');
+        $data_catin = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/embimwin/total_datacatin?KEY=BOBA');
         $data = [
             'jumlah_peserta' => $data_catin[0]->jumlah_peserta
         ];
@@ -113,7 +113,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function pustakadigital() {
-        $pustakadigital = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/esbsnn/pustakadigital?KEY=BOBA');
+        $pustakadigital = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/esbsnn/pustakadigital?KEY=BOBA');
         $data = [
             'pustakadigital' => $pustakadigital[0]->total
         ];
@@ -121,7 +121,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function simpenghulu() {
-        $simpenghulu = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/simpenghulu/total?KEY=BOBA');
+        $simpenghulu = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenghulu/total?KEY=BOBA');
         $data = [
             'data_kua' => $simpenghulu[0]->data_kua,
             'data_penghulu' => $simpenghulu[1]->data_penghulu,
@@ -131,7 +131,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function lptq() {
-        $lptq = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/simpenaiss/lptq?KEY=BOBA');
+        $lptq = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/lptq?KEY=BOBA');
         $data = [
             'lptq' => $lptq[0]->lptq
         ];
@@ -139,7 +139,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function ormasislam() {
-        $ormas_islam = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/simpenaiss/ormasislam?KEY=BOBA');
+        $ormas_islam = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/ormasislam?KEY=BOBA');
         $data = [
             'ormas_islam' => $ormas_islam[0]->ormas_islam
         ];
@@ -147,7 +147,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function penyuluh() {
-        $penyuluh = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/epay/totalnew?KEY=BOBA');
+        $penyuluh = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/epay/totalnew?KEY=BOBA');
         $data = [
             'penyuluh' => $penyuluh[0]->penyuluh
         ];
@@ -155,7 +155,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function siwak() {
-        $siwak = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/siwaks/wakaf?KEY=BOBA');
+        $siwak = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siwaks/wakaf?KEY=BOBA');
         $data = [
             'tanah_wakaf' => $siwak[0]->tanah_wakaf
         ];
@@ -163,7 +163,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function baznas() {
-        $baznas = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/simzat/totaldatabaznas?KEY=BOBA');
+        $baznas = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatabaznas?KEY=BOBA');
         $data = [
             'databaznas' => $baznas[0]->databaznas
         ];
@@ -171,7 +171,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function laznas() {
-        $laznas = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/simzat/totaldatalaznas?KEY=BOBA');
+        $laznas = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatalaznas?KEY=BOBA');
         $data = [
             'datalaznas' => $laznas[0]->datalaznas
         ];
@@ -179,7 +179,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function pustakaslim() {
-        $jumlah_buku = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/pustaka/totalbuku?KEY=BOBA');
+        $jumlah_buku = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/pustaka/totalbuku?KEY=BOBA');
         $data = [
             'jumlah_buku' => $jumlah_buku[0]->jumlah_buku
         ];
@@ -187,7 +187,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function mtq() {
-        $mtq = $this->curl->get('https://rudabi.kemenag.dev/rudabi_api/datapi/Mtq/totalpeserta?KEY=BOBA');
+        $mtq = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/Mtq/totalpeserta?KEY=BOBA');
         $data = [
             'tot_mtq' => $mtq[0]->total
         ];
