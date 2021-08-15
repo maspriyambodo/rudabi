@@ -20,6 +20,7 @@ class Dashboard_cron extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->helper('file');
         $this->curl = new Curl\Curl();
         $this->pusher_option = [
             'cluster' => 'ap1',
@@ -35,6 +36,7 @@ class Dashboard_cron extends CI_Controller {
 
     public function index() {
         $data = [
+            'file_date' => date('Y-m-d'),
             'sihat' => $this->sihat(),
             'masjid' => $this->masjid(),
             'mushalla' => $this->mushalla(),
@@ -52,6 +54,7 @@ class Dashboard_cron extends CI_Controller {
             'mtq' => $this->mtq(),
             'simkah' => $this->Simkah_get()
         ];
+        write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
         $this->pusher->trigger('my-channel', 'my-event', $data);
         log_message('error', 'crontab berhasil dieksekusi!');
     }
