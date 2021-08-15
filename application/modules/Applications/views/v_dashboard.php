@@ -4,7 +4,10 @@
         <div style="font-size:40px;" class="7 text-white text-center my-10 animate__animated animate__fadeIn">
             <b>DIREKTORAT JENDERAL</b>
             <br>Bimbingan Masyarakat Islam
-            <br><small class="text-muted" style="font-size: 16px;">Data Rudabi Terkini, <?php echo date('d-m-Y'); ?></small>
+            <br>
+            <small class="text-muted" style="font-size: 16px;">
+                Data Rudabi Terkini, <span id="file_date"></span>
+            </small>
         </div>
     </div>
     <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
@@ -25,6 +28,7 @@
                                 <b style="color: black;">Alat Hisab Rukyat</b>
                             </div>
                         </center>
+                        <input type="hidden" name="old_ahr" readonly=""/>
                     </div>
                 </a>
             </div>
@@ -401,413 +405,17 @@
 <script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script>
     $(document).ready(function () {
-        toastr.options = {
-            "closeButton": false,
-            "debug": false,
-            "newestOnTop": true,
-            "progressBar": false,
-            "positionClass": "toast-top-right",
-            "preventDuplicates": true,
-            "onclick": null,
-            "showDuration": "300",
-            "hideDuration": "0",
-            "timeOut": "0",
-            "extendedTimeOut": "1000",
-            "showEasing": "swing",
-            "hideEasing": "linear",
-            "showMethod": "fadeIn",
-            "hideMethod": "fadeOut"
-        };
-        $.ajax({
-            url: "<?php echo base_url('Applications/Dashboard/Get_sihat/'); ?>",
-            type: 'GET',
-            cache: false,
-            contentType: false,
-            processData: false,
-            success: function (data) {
+        data_dir();
 
-                $('#alat_sihat').attr('data-value', data[0].alat_hisab_rukyat);
-                $('#tenaga_ahli').attr('data-value', data[1].tenaga_ahli);
-                $('#hisab_pengukuran').attr('data-value', data[2].hisab_pengukuran);
-
-                $('.count').each(function () {
-                    $(this).prop('Counter', 0).animate({
-                        Counter: $(this).data('value')
-                    }, {
-                        duration: 3000,
-                        easing: 'swing',
-                        step: function (now) {
-                            $(this).text(numeral(now).format('0,0'));
-                        }
-                    });
-                });
-                Get_masjid();
-            }
-        });
-
-        function Get_masjid() {
+        function data_dir() {
             $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_masjid/'); ?>",
+                url: "<?php echo base_url('Dashboard_cron.json'); ?>",
                 type: 'GET',
                 cache: false,
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    $('#data_masjid').attr('data-value', data[0].data_masjid);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_musholla();
-                }
-            });
-        }
-
-        function Get_musholla() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_musholla/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_mushalla').attr('data-value', data[0].data_mushalla);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_datacatin();
-                }
-            });
-        }
-        function Get_datacatin() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_datacatin/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#jumlah_peserta').attr('data-value', data[0].jumlah_peserta);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_targetcatin();
-                }
-            });
-        }
-
-        function Get_targetcatin() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_targetcatin/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#realisasi_wilayah').attr('data-value', data[0].realisasi_wilayah);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_simpenghulu();
-                }
-            });
-        }
-
-        function Get_simpenghulu() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_simpenghulu/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_kua').attr('data-value', data[0].data_kua);
-                    $('#data_penghulu').attr('data-value', data[1].data_penghulu);
-                    $('#data_peristiwa_nikah').attr('data-value', data[2].data_peristiwa_nikah);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_penyuluh();
-                }
-            });
-        }
-
-        function Get_penyuluh() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_penyuluh/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#penyuluh').attr('data-value', data[0].penyuluh);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_ormasislam();
-                }
-            });
-        }
-
-        function Get_ormasislam() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_ormasislam/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#ormas_islam').attr('data-value', data[0].ormas_islam);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_lptq();
-                }
-            });
-        }
-
-        function Get_lptq() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_lptq/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#lptq').attr('data-value', data[0].lptq);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_pustakadigital();
-                }
-            });
-        }
-
-        function Get_pustakadigital() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_pustakadigital/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#pustaka_digital').attr('data-value', data[0].total);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_siwak();
-                }
-            });
-        }
-
-        function Get_siwak() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_siwak/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_wakaf').attr('data-value', data[0].tanah_wakaf);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_baznas();
-                }
-            });
-        }
-
-        function Get_baznas() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_baznas/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_baznas').attr('data-value', data[0].databaznas);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_laznas();
-                }
-            });
-        }
-
-        function Get_laznas() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_laznas/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_laznas').attr('data-value', data[0].datalaznas);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_pustakaslim();
-                }
-            });
-        }
-
-        function Get_pustakaslim() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_pustakaslim/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_puslim').attr('data-value', data[0].jumlah_buku);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    Get_mtq();
-                }
-            });
-        }
-
-        function Get_mtq() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Dashboard/Get_mtq/'); ?>",
-                type: 'GET',
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (data) {
-                    $('#data_mtq').attr('data-value', data[0].total);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
-                    setTimeout(function () {
-                        Get_nikah();
-                    }, 5000);
-                }
-            });
-        }
-        function Get_nikah() {
-            $.ajax({
-                url: "<?php echo base_url('Applications/Simkah/Get_nikah?year=0'); ?>",
-                async: false,
-                type: 'GET',
-                cache: true,
-                contentType: false,
-                processData: false,
-                dataType: 'json',
-                success: function (result) {
-                    var data1 = JSON.stringify(result.data);
+                    var data1 = JSON.stringify(data.simkah.data);
                     var obj = jQuery.parseJSON(data1);
                     var i, arr, tot;
                     tot = 0;
@@ -815,57 +423,52 @@
                         arr = parseFloat(obj[i].value);
                         tot += arr;
                     }
+                    $('#alat_sihat').attr('data-value', data.sihat.alat_hisab_rukyat);
+                    $('#tenaga_ahli').attr('data-value', data.sihat.tenaga_ahli);
+                    $('#hisab_pengukuran').attr('data-value', data.sihat.hisab_pengukuran);
+                    $('#data_masjid').attr('data-value', data.masjid.data_masjid);
+                    $('#data_mushalla').attr('data-value', data.mushalla.data_mushalla);
+                    $('#jumlah_peserta').attr('data-value', data.targetcatin.realisasi_wilayah);
+                    $('#realisasi_wilayah').attr('data-value', data.data_catin.jumlah_peserta);
+                    $('#data_kua').attr('data-value', data.simpenghulu.data_kua);
+                    $('#data_penghulu').attr('data-value', data.simpenghulu.data_penghulu);
+                    $('#data_peristiwa_nikah').attr('data-value', data.simpenghulu.data_peristiwa_nikah);
+                    $('#penyuluh').attr('data-value', data.penyuluh.penyuluh);
+                    $('#ormas_islam').attr('data-value', data.ormasislam.ormas_islam);
+                    $('#lptq').attr('data-value', data.lptq.lptq);
+                    $('#pustaka_digital').attr('data-value', data.pustakadigital.pustakadigital);
+                    $('#data_wakaf').attr('data-value', data.siwak.tanah_wakaf);
                     $('#data_simkah').attr('data-value', tot);
-                    $('.count').each(function () {
-                        $(this).prop('Counter', 0).animate({
-                            Counter: $(this).data('value')
-                        }, {
-                            duration: 3000,
-                            easing: 'swing',
-                            step: function (now) {
-                                $(this).text(numeral(now).format('0,0'));
-                            }
-                        });
-                    });
+                    $('#data_baznas').attr('data-value', data.baznas.databaznas);
+                    $('#data_laznas').attr('data-value', data.laznas.datalaznas);
+                    $('#data_puslim').attr('data-value', data.pustakaslim.jumlah_buku);
+                    $('#data_mtq').attr('data-value', data.mtq.tot_mtq);
+                    document.getElementById('file_date').innerText = moment(data.file_date).format('D MMMM YYYY, H:mm:ss');
+                    animate_counter();
                 }
+            });
+        }
+
+        function animate_counter() {
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).data('value')
+                }, {
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text(numeral(now).format('0,0'));
+                    }
+                });
             });
         }
 
         var pusher = new Pusher('4587e4cb86b14bb98e69', {
             cluster: 'ap1'
         });
-
         var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function (result) {
-            document.getElementById('alat_sihat').innerText = result.sihat.alat_hisab_rukyat;
-            document.getElementById('tenaga_ahli').innerText = result.sihat.tenaga_ahli;
-            document.getElementById('hisab_pengukuran').innerText = result.sihat.hisab_pengukuran;
-            document.getElementById('data_masjid').innerText = result.masjid.data_masjid;
-            document.getElementById('data_mushalla').innerText = result.mushalla.data_mushalla;
-            document.getElementById('jumlah_peserta').innerText = result.targetcatin.realisasi_wilayah;
-            document.getElementById('realisasi_wilayah').innerText = result.data_catin.jumlah_peserta;
-            document.getElementById('data_kua').innerText = result.simpenghulu.data_kua;
-            document.getElementById('data_penghulu').innerText = result.simpenghulu.data_penghulu;
-            document.getElementById('data_peristiwa_nikah').innerText = result.simpenghulu.data_peristiwa_nikah;
-            document.getElementById('penyuluh').innerText = result.penyuluh.penyuluh;
-            document.getElementById('ormas_islam').innerText = result.ormasislam.ormas_islam;
-            document.getElementById('lptq').innerText = result.lptq.lptq;
-            document.getElementById('pustaka_digital').innerText = result.pustakadigital.pustakadigital;
-            document.getElementById('data_wakaf').innerText = result.siwak.tanah_wakaf;
-            var data1 = JSON.stringify(result.simkah.data);
-            var obj = jQuery.parseJSON(data1);
-            var i, arr, tot;
-            tot = 0;
-            for (i = 0; i < obj.length; i++) {
-                arr = parseFloat(obj[i].value);
-                tot += arr;
-
-            }
-            document.getElementById('data_simkah').innerText = numeral(tot).format('0,0');
-            document.getElementById('data_baznas').innerText = result.baznas.databaznas;
-            document.getElementById('data_laznas').innerText = result.laznas.datalaznas;
-            document.getElementById('data_puslim').innerText = result.pustakaslim.jumlah_buku;
-            document.getElementById('data_mtq').innerText = result.mtq.tot_mtq;
+        channel.bind('my-event', function () {
+            data_dir();
         });
     });
 </script>

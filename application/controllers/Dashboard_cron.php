@@ -34,9 +34,14 @@ class Dashboard_cron extends CI_Controller {
         );
     }
 
+    private function json_validator($string, $return_data = false) {
+        $data = json_decode($string);
+        return (json_last_error() == JSON_ERROR_NONE) ? ($return_data ? $data : true) : false;
+    }
+
     public function index() {
         $data = [
-            'file_date' => date('Y-m-d'),
+            'file_date' => date('Y-m-d H:i:s'),
             'sihat' => $this->sihat(),
             'masjid' => $this->masjid(),
             'mushalla' => $this->mushalla(),
@@ -54,9 +59,15 @@ class Dashboard_cron extends CI_Controller {
             'mtq' => $this->mtq(),
             'simkah' => $this->Simkah_get()
         ];
-        write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
-        $this->pusher->trigger('my-channel', 'my-event', $data);
-        log_message('error', 'crontab berhasil dieksekusi!');
+        $validatior = $this->json_validator(json_encode($data));
+        if ($validatior == true) {
+            write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
+            $this->pusher->trigger('my-channel', 'my-event', $data);
+            log_message('error', 'berhasil');
+        } else {
+            log_message('error', 'gagal');
+            null;
+        }
     }
 
     private function sihat() {
