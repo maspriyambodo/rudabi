@@ -34,9 +34,15 @@ class Dashboard_cron extends CI_Controller {
         );
     }
 
-    private function json_validator($string, $return_data = false) {
-        $data = json_decode($string);
-        return (json_last_error() == JSON_ERROR_NONE) ? ($return_data ? $data : true) : false;
+    private function json_validator($string) {
+        json_decode($string);
+        if (json_last_error() == false) {
+            write_file(FCPATH . '/Dashboard_cron.json', json_encode($string), 'r+');
+            $result = $this->pusher->trigger('my-channel', 'my-event', []);
+        } else {
+            $result = null;
+        }
+        return $result;
     }
 
     public function index() {
@@ -59,15 +65,7 @@ class Dashboard_cron extends CI_Controller {
             'mtq' => $this->mtq(),
             'simkah' => $this->Simkah_get()
         ];
-        $validatior = $this->json_validator(json_encode($data));
-        if ($validatior == true) {
-            write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
-            $this->pusher->trigger('my-channel', 'my-event', $data);
-            log_message('error', 'berhasil');
-        } else {
-            log_message('error', 'gagal');
-            null;
-        }
+        return $this->json_validator(json_encode($data));
     }
 
     private function sihat() {
