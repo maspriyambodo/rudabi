@@ -398,9 +398,26 @@
         </div>
     </div>
 </div>
+<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
 <script>
     $(document).ready(function () {
-
+        toastr.options = {
+            "closeButton": false,
+            "debug": false,
+            "newestOnTop": true,
+            "progressBar": false,
+            "positionClass": "toast-top-right",
+            "preventDuplicates": true,
+            "onclick": null,
+            "showDuration": "300",
+            "hideDuration": "0",
+            "timeOut": "0",
+            "extendedTimeOut": "1000",
+            "showEasing": "swing",
+            "hideEasing": "linear",
+            "showMethod": "fadeIn",
+            "hideMethod": "fadeOut"
+        };
         $.ajax({
             url: "<?php echo base_url('Applications/Dashboard/Get_sihat/'); ?>",
             type: 'GET',
@@ -797,7 +814,6 @@
                     for (i = 0; i < obj.length; i++) {
                         arr = parseFloat(obj[i].value);
                         tot += arr;
-
                     }
                     $('#data_simkah').attr('data-value', tot);
                     $('.count').each(function () {
@@ -814,8 +830,14 @@
                 }
             });
         }
+        
+        var pusher = new Pusher('4587e4cb86b14bb98e69', {
+            cluster: 'ap1'
+        });
+
+        var channel = pusher.subscribe('my-channel');
+        channel.bind('my-event', function (data) {
+            toastr.success('berhasil');
+        });
     });
-
-
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

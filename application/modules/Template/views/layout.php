@@ -22,7 +22,7 @@ $fullname = $this->session->userdata('fullname');
             echo '';
             $aside = null;
         } else {
-            echo '<meta http-equiv="refresh" content="30">';
+//            echo '<meta http-equiv="refresh" content="30">';
             $aside = ' aside-minimize';
         }
         ?>
