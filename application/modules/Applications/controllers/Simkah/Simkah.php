@@ -22,6 +22,7 @@ class Simkah extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->user = $this->bodo->Dec($this->session->userdata('id_user'));
+        $this->load->model('M_simkah', 'model');
     }
 
     public function index() {
@@ -42,6 +43,11 @@ class Simkah extends CI_Controller {
         ];
         $data['content'] = $this->parser->parse('simkah/v_index', $data, true);
         return $this->parser->parse('Template/layout', $data);
+    }
+
+    public function Get_simkah() {
+        $exec = $this->model->index();
+        ToJson($exec);
     }
 
     public function Get_nikah() {

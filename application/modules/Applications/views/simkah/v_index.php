@@ -21,7 +21,7 @@
         var dt_nikah = function () {
             var tmp = null;
             $.ajax({
-                url: "<?php echo base_url('Applications/Simkah/Get_nikah?year=' . $year); ?>",
+                url: "<?php echo base_url('Applications/Simkah/Get_simkah'); ?>",
                 async: false,
                 type: 'GET',
                 cache: true,
@@ -29,17 +29,15 @@
                 processData: false,
                 dataType: 'json',
                 success: function (result) {
-                    var data1 = JSON.stringify(result.data);
-                    var obj = jQuery.parseJSON(data1);
                     var i, arr, tot;
                     tot = 0;
-                    for (i = 0; i < obj.length; i++) {
-                        arr = parseFloat(obj[i].value);
+                    for (i = 0; i < result.length; i++) {
+                        arr = parseFloat(result[i].jumlah);
                         tot += arr;
-                        
+
                     }
                     document.getElementById('title_chartdiv').innerText = 'Total Data Nikah: ' + numeral(tot).format('0,0');
-                    tmp = obj;
+                    tmp = result;
                 }
             });
             return tmp;
@@ -48,12 +46,12 @@
             am4core.useTheme(am4themes_animated);
             var chart = am4core.create("chartdiv", am4charts.XYChart);
             chart.scrollbarX = new am4core.Scrollbar();
-            chart.data = dt_nikah;
+            chart.dataSource.url = '<?php echo base_url('Applications/Simkah/Get_simkah'); ?>';
             chart.exporting.menu = new am4core.ExportMenu();
             var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
             categoryAxis.title.fontWeight = 800;
             categoryAxis.title.text = 'Daerah Tingkat Provinsi';
-            categoryAxis.dataFields.category = "name";
+            categoryAxis.dataFields.category = "provinsi";
             categoryAxis.renderer.grid.template.location = 0;
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
@@ -67,9 +65,9 @@
             valueAxis.title.fontWeight = 800;
             var series = chart.series.push(new am4charts.ColumnSeries());
             series.sequencedInterpolation = true;
-            series.dataFields.valueY = "value";
-            series.dataFields.categoryX = "name";
-            series.tooltipText = "Jumlah Data Nikah {name}: [bold]{valueY}[/]";
+            series.dataFields.valueY = "jumlah";
+            series.dataFields.categoryX = "provinsi";
+            series.tooltipText = "Jumlah Data Nikah {provinsi}: [bold]{valueY}[/]";
             series.columns.template.strokeWidth = 0;
             series.tooltip.pointerOrientation = "vertical";
             series.columns.template.column.cornerRadiusTopLeft = 10;
@@ -86,4 +84,3 @@
         });
     });
 </script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/numeral.js/2.0.6/numeral.min.js" integrity="sha512-USPCA7jmJHlCNRSFwUFq3lAm9SaOjwG8TaB8riqx3i/dAJqhaYilVnaf2eVUH5zjq89BU6YguUuAno+jpRvUqA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
