@@ -22,7 +22,7 @@
             var tmp = null;
             $.ajax({
                 url: "<?php echo base_url('Applications/Simkah/Get_simkah'); ?>",
-                async: false,
+                async: true,
                 type: 'GET',
                 cache: true,
                 contentType: false,
@@ -56,9 +56,12 @@
             categoryAxis.renderer.minGridDistance = 30;
             categoryAxis.renderer.labels.template.horizontalCenter = "right";
             categoryAxis.renderer.labels.template.verticalCenter = "middle";
-            categoryAxis.renderer.labels.template.rotation = 270;
+            categoryAxis.renderer.labels.template.rotation = 300;
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 110;
+            let label = categoryAxis.renderer.labels.template;
+            label.wrap = true;
+            label.maxWidth = 120;
             var valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
             valueAxis.renderer.minWidth = 50;
             valueAxis.title.text = "Jumlah Data Nikah";

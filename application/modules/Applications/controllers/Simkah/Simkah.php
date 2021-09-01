@@ -42,6 +42,7 @@ class Simkah extends CI_Controller {
             ]
         ];
         $data['content'] = $this->parser->parse('simkah/v_index', $data, true);
+        $this->Update_simkah();
         return $this->parser->parse('Template/layout', $data);
     }
 
@@ -50,7 +51,23 @@ class Simkah extends CI_Controller {
         ToJson($exec);
     }
 
-    public function Get_nikah() {
+    public function Update_simkah() {
+        $old_data = $this->model->index();
+        $new_data = $this->Get_nikah();
+        foreach ($new_data as $key => $value) {
+            if ($value['value'] != $old_data[$key]->jumlah) {
+                $update[] = (object) [
+                            'provinsi' => $value['name'],
+                            'jumlah' => $value['value']
+                ];
+            }
+        }
+//        print_r($update[0]->provinsi);die;
+        $exec = $this->model->Update_simkah($update);
+        return $exec;
+    }
+
+    private function Get_nikah() {
         $year = Post_get('year');
         $curl = curl_init();
         curl_setopt_array($curl, array(
@@ -73,7 +90,8 @@ class Simkah extends CI_Controller {
         ));
         $response = curl_exec($curl);
         curl_close($curl);
-        echo $response;
+        $json = json_decode($response, true);
+        return $json['data'];
     }
 
 }

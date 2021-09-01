@@ -1,8 +1,9 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php/$1 [NC,L,QSA]
+  RewriteBase /Rudabi_new/
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
 </IfModule>
 <IfModule mod_deflate.c>
 AddOutputFilterByType DEFLATE text/html

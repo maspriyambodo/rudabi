@@ -27,4 +27,14 @@ class M_simkah extends CI_Model {
         return $exec;
     }
 
+    public function Update_simkah($data) {
+        $totdata = count($data);
+        for ($i = 0; $i < $totdata; $i++) {
+            $this->db->set('`jumlah`', $data[$i]->jumlah, false)
+                    ->where('provinsi', $data[$i]->provinsi)
+                    ->update('dt_simkah');
+        }
+        return $this->index();
+    }
+
 }
