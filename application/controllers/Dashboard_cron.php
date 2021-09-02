@@ -35,6 +35,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     public function index() {
+        if ($this->Simkah_get() == false) {
+            $simkah = [];
+        } else {
+            $simkah = $this->Simkah_get();
+        }
         $data = [
             'file_date' => date('Y-m-d H:i:s'),
             'sihat' => $this->sihat(),
@@ -52,7 +57,7 @@ class Dashboard_cron extends CI_Controller {
             'laznas' => $this->laznas(),
             'pustakaslim' => $this->pustakaslim(),
             'mtq' => $this->mtq(),
-            'simkah' => $this->Simkah_get()
+            'simkah' => $simkah
         ];
         write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
         return $this->pusher->trigger('my-channel', 'my-event', []);
