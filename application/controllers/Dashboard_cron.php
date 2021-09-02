@@ -35,32 +35,33 @@ class Dashboard_cron extends CI_Controller {
     }
 
     public function index() {
-        if ($this->Simkah_get() == false) {
-            $simkah = 0;
+        $simkah = $this->Simkah_get();
+        if (empty($simkah)) {
+            $result = log_message('error', 'error ketika ambil data simkah');
         } else {
-            $simkah = $this->Simkah_get();
+            $data = [
+                'file_date' => date('Y-m-d H:i:s'),
+                'sihat' => $this->sihat(),
+                'masjid' => $this->masjid(),
+                'mushalla' => $this->mushalla(),
+                'targetcatin' => $this->targetcatin(),
+                'data_catin' => $this->data_catin(),
+                'pustakadigital' => $this->pustakadigital(),
+                'simpenghulu' => $this->simpenghulu(),
+                'lptq' => $this->lptq(),
+                'ormasislam' => $this->ormasislam(),
+                'penyuluh' => $this->penyuluh(),
+                'siwak' => $this->siwak(),
+                'baznas' => $this->baznas(),
+                'laznas' => $this->laznas(),
+                'pustakaslim' => $this->pustakaslim(),
+                'mtq' => $this->mtq(),
+                'simkah' => $simkah
+            ];
+            write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
+            $result = $this->pusher->trigger('my-channel', 'my-event', []);
         }
-        $data = [
-            'file_date' => date('Y-m-d H:i:s'),
-            'sihat' => $this->sihat(),
-            'masjid' => $this->masjid(),
-            'mushalla' => $this->mushalla(),
-            'targetcatin' => $this->targetcatin(),
-            'data_catin' => $this->data_catin(),
-            'pustakadigital' => $this->pustakadigital(),
-            'simpenghulu' => $this->simpenghulu(),
-            'lptq' => $this->lptq(),
-            'ormasislam' => $this->ormasislam(),
-            'penyuluh' => $this->penyuluh(),
-            'siwak' => $this->siwak(),
-            'baznas' => $this->baznas(),
-            'laznas' => $this->laznas(),
-            'pustakaslim' => $this->pustakaslim(),
-            'mtq' => $this->mtq(),
-            'simkah' => $simkah
-        ];
-        write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
-        return $this->pusher->trigger('my-channel', 'my-event', []);
+        return $result;
     }
 
     private function sihat() {
