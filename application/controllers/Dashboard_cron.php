@@ -36,7 +36,7 @@ class Dashboard_cron extends CI_Controller {
 
     public function index() {
         if ($this->Simkah_get() == false) {
-            $simkah = [];
+            $simkah = null;
         } else {
             $simkah = $this->Simkah_get();
         }
