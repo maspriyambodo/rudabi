@@ -21,7 +21,11 @@ class Dashboard_cron extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->helper('file');
+        $this->load->library('user_agent');
         $this->curl = new Curl\Curl();
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->pusher_option = [
             'cluster' => 'ap1',
             'useTLS' => true
@@ -65,7 +69,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function sihat() {
-        $sihat = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siihat/total?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siihat/total?KEY=BOBA');
+        $sihat = $this->curl->response;
         $data = [
             'alat_hisab_rukyat' => $sihat[0]->alat_hisab_rukyat,
             'tenaga_ahli' => $sihat[1]->tenaga_ahli,
@@ -75,7 +80,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function masjid() {
-        $masjid = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmasjid?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmasjid?KEY=BOBA');
+        $masjid = $this->curl->response;
         $data = [
             'data_masjid' => $masjid[0]->data_masjid
         ];
@@ -83,7 +89,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function mushalla() {
-        $mushalla = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmushalla?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmushalla?KEY=BOBA');
+        $mushalla = $this->curl->response;
         $data = [
             'data_mushalla' => $mushalla[0]->data_mushalla
         ];
@@ -107,7 +114,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function pustakadigital() {
-        $pustakadigital = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/esbsnn/pustakadigital?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/esbsnn/pustakadigital?KEY=BOBA');
+        $pustakadigital = $this->curl->response;
         $data = [
             'pustakadigital' => $pustakadigital[0]->total
         ];
@@ -115,7 +123,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function simpenghulu() {
-        $simpenghulu = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenghulu/total?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenghulu/total?KEY=BOBA');
+        $simpenghulu = $this->curl->response;
         $data = [
             'data_kua' => $simpenghulu[0]->data_kua,
             'data_penghulu' => $simpenghulu[1]->data_penghulu,
@@ -125,7 +134,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function lptq() {
-        $lptq = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/lptq?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/lptq?KEY=BOBA');
+        $lptq = $this->curl->response;
         $data = [
             'lptq' => $lptq[0]->lptq
         ];
@@ -133,7 +143,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function ormasislam() {
-        $ormas_islam = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/ormasislam?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/ormasislam?KEY=BOBA');
+        $ormas_islam = $this->curl->response;
         $data = [
             'ormas_islam' => $ormas_islam[0]->ormas_islam
         ];
@@ -141,7 +152,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function penyuluh() {
-        $penyuluh = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/epay/totalnew?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/epay/totalnew?KEY=BOBA');
+        $penyuluh = $this->curl->response;
         $data = [
             'penyuluh' => $penyuluh[0]->penyuluh
         ];
@@ -149,7 +161,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function siwak() {
-        $siwak = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siwaks/wakaf?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siwaks/wakaf?KEY=BOBA');
+        $siwak = $this->curl->response;
         $data = [
             'tanah_wakaf' => $siwak[0]->tanah_wakaf
         ];
@@ -157,7 +170,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function baznas() {
-        $baznas = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatabaznas?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatabaznas?KEY=BOBA');
+        $baznas = $this->curl->response;
         $data = [
             'databaznas' => $baznas[0]->databaznas
         ];
@@ -165,7 +179,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function laznas() {
-        $laznas = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatalaznas?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatalaznas?KEY=BOBA');
+        $laznas = $this->curl->response;
         $data = [
             'datalaznas' => $laznas[0]->datalaznas
         ];
@@ -173,7 +188,8 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function pustakaslim() {
-        $jumlah_buku = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/pustaka/totalbuku?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/pustaka/totalbuku?KEY=BOBA');
+        $jumlah_buku = $this->curl->response;
         $data = [
             'jumlah_buku' => $jumlah_buku[0]->jumlah_buku
         ];
@@ -181,22 +197,18 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function mtq() {
-        $mtq = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/Mtq/totalpeserta?KEY=BOBA');
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/Mtq/totalpeserta?KEY=BOBA');
+        $mtq = $this->curl->response;
         $data = [
             'tot_mtq' => $mtq[0]->total
         ];
         return $data;
     }
 
-    public function Simkah_get() {
-        $this->load->library('user_agent');
+    private function Simkah_get() {
         $this->curl->setBasicAuthentication('simkah_sim', 'simkahsim@!');
         $this->curl->setCookie('cookiesession1', '678B28A6WYZABCDEFHIJKLMNOPQR08DC');
-        $this->curl->setHeader('Connection', 'keep-alive');
-        $this->curl->setHeader('Accept-Encoding', 'gzip, deflate, br');
         $this->curl->setHeader('Content-Type', 'application/json');
-        $this->curl->setHeader('User-Agent', $this->agent->referrer());
-        $this->curl->setFollowLocation(true);
         $this->curl->get('https://simkah.kemenag.go.id/api/grafik/daftarnikah?tahun=' . date('Y') . '&level=pusat');
         return $this->curl->response;
     }
