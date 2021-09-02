@@ -42,7 +42,6 @@ class Simkah extends CI_Controller {
             ]
         ];
         $data['content'] = $this->parser->parse('simkah/v_index', $data, true);
-        $this->Update_simkah();
         return $this->parser->parse('Template/layout', $data);
     }
 
