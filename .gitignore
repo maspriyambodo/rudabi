@@ -20,3 +20,4 @@ application/logs/*
 /application/logs/
 /vendor/*
 /application/config/database.php
+/Dashboard_cron.json
