@@ -62,15 +62,14 @@ class Simkah extends CI_Controller {
             }
         }
 //        print_r($update[0]->provinsi);die;
-        $exec = $this->model->Update_simkah($update);
-        return $exec;
+        $this->model->Update_simkah($update);
+        return ToJson($this->model->index() );
     }
 
     private function Get_nikah() {
-        $year = Post_get('year');
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => 'https://simkah.kemenag.go.id/api/grafik/daftarnikah?tahun=' . ($year == 0 ? date('Y') : $year) . '&level=pusat',
+            CURLOPT_URL => 'https://simkah.kemenag.go.id/api/grafik/daftarnikah?tahun=' . date('Y') . '&level=pusat',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
