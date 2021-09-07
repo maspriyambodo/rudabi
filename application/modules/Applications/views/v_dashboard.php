@@ -415,12 +415,12 @@
                 contentType: false,
                 processData: false,
                 success: function (data) {
-                    var data1 = JSON.stringify(data.simkah.data);
+                    var data1 = JSON.stringify(data.simkah);
                     var obj = jQuery.parseJSON(data1);
                     var i, arr, tot;
                     tot = 0;
                     for (i = 0; i < obj.length; i++) {
-                        arr = parseFloat(obj[i].value);
+                        arr = parseFloat(obj[i].jumlah);
                         tot += arr;
                     }
                     $('#alat_sihat').attr('data-value', data.sihat.alat_hisab_rukyat);

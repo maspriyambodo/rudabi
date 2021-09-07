@@ -20,6 +20,7 @@ class Dashboard_cron extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->model('Applications/M_simkah', 'model');
         $this->load->helper('file');
         $this->load->library('user_agent');
         $this->curl = new Curl\Curl();
@@ -39,7 +40,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     public function index() {
-        $simkah = $this->Simkah_get();
+        $simkah = $this->Simkah_get();;
         if (empty($simkah)) {
             $result = log_message('error', 'error ketika ambil data simkah');
         } else {
@@ -210,7 +211,15 @@ class Dashboard_cron extends CI_Controller {
         $this->curl->setCookie('cookiesession1', '678B28A6WYZABCDEFHIJKLMNOPQR08DC');
         $this->curl->setHeader('Content-Type', 'application/json');
         $this->curl->get('https://simkah.kemenag.go.id/api/grafik/daftarnikah?tahun=' . date('Y') . '&level=pusat');
-        return $this->curl->response;
+        $sj = $this->curl->response;
+        foreach ($sj->data as $value) {
+            $update[] = (object) [
+                        'provinsi' => $value->name,
+                        'jumlah' => $value->value
+            ];
+        }
+        $this->model->Update_simkah($update);
+        return $update;
     }
 
 }

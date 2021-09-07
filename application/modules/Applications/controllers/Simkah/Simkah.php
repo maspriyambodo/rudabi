@@ -63,7 +63,7 @@ class Simkah extends CI_Controller {
         }
 //        print_r($update[0]->provinsi);die;
         $this->model->Update_simkah($update);
-        return ToJson($this->model->index() );
+        return ToJson($this->model->index());
     }
 
     private function Get_nikah() {
