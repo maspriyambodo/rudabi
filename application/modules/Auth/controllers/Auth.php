@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') OR exit('No direct script access allowed, are you trying to signin backdoor?');
 
 class Auth extends CI_Controller {
 
@@ -12,8 +12,10 @@ class Auth extends CI_Controller {
     private function Check_session() {
         if ($this->session->userdata('id_user') and $this->session->userdata('uname') and $this->session->userdata('stat_aktif') and $this->session->userdata('role_id')) {
             $result = redirect(base_url('Dashboard'), 'refresh');
-        } elseif ($this->session->tempdata('penalty')) {
-            $result = show_404();
+        } elseif ($this->session->tempdata('auth_sekuriti')) {
+            $result = auth_sekuriti();
+        } elseif ($this->session->tempdata('blocked_account')) {
+            $result = blocked_account();
         } else {
             $result = true;
         }
@@ -35,7 +37,7 @@ class Auth extends CI_Controller {
             'pwd' => Post_input("password")
         ];
         $exec = $this->M_auth->Signin($data);
-        if ($exec->limit_login == 0 or $exec->limit_login != 3) {
+        if (!empty($exec) and ($exec->limit_login == 0 or $exec->limit_login != 3)) {
             $hashed = $exec->pwd;
             if (password_verify($data['pwd'], $hashed)) {
                 $this->bodo->Set_session($exec);
@@ -45,7 +47,7 @@ class Auth extends CI_Controller {
                 $this->Attempt(1);
                 $result = redirect(base_url('Signin'), $this->session->set_flashdata('err_msg', 'Sorry, your password was incorrect. Please double-check your password.'));
             }
-        } elseif ($exec->limit_login == 3) {
+        } elseif (!empty($exec) and $exec->limit_login == 3) {
             blocked_account();
         } else {
             $this->Attempt(2);
@@ -66,13 +68,13 @@ class Auth extends CI_Controller {
             case 1:
                 $this->M_auth->Penalty($data);
                 if ($attempt == 3) {
-                    $this->session->set_tempdata('penalty', true, 300);
+                    $this->session->set_tempdata('blocked_account', true, 300);
                     blocked_account();
                 }
             case 2:
-                if ($attempt == 5) {
-                    $this->session->set_tempdata('penalty', true, 360);
-                    show_404();
+                if ($attempt == 5 or $attempt >= 5) {
+                    $this->session->set_tempdata('auth_sekuriti', true, 360);
+                    auth_sekuriti();
                 }
         }
     }
