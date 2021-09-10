@@ -11,13 +11,30 @@
     </div>
     <div class="card-body">
         <div class="text-center">
-            <b><u id="title_chartdiv"></u></b>
+            <b><u id="title_chartdiv" class="count"></u></b>
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
 </div>
 <script>
     window.onload = function () {
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            newestOnTop: true,
+            progressBar: false,
+            positionClass: "toast-top-right",
+            preventDuplicates: true,
+            onclick: null,
+            showDuration: "300",
+            hideDuration: "2000",
+            timeOut: false,
+            extendedTimeOut: "2000",
+            showEasing: "swing",
+            hideEasing: "linear",
+            showMethod: "fadeIn",
+            hideMethod: "fadeOut"
+        };
         var dt_nikah = function () {
             var tmp = null;
             $.ajax({
@@ -87,6 +104,7 @@
         });
     };
     $(document).ready(function () {
+        toastr.warning('checking new data');
         $.ajax({
             url: "<?php echo base_url('Applications/Simkah/Update_simkah'); ?>",
             async: true,
@@ -96,15 +114,18 @@
             processData: false,
             dataType: 'json',
             success: function (result) {
+                toastr.success('success checking data!');
+                document.getElementById('title_chartdiv').innerText = 0;
                 var i, arr, tot;
-                    tot = 0;
-                    for (i = 0; i < result.length; i++) {
-                        arr = parseFloat(result[i].jumlah);
-                        tot += arr;
+                tot = 0;
+                for (i = 0; i < result.length; i++) {
+                    arr = parseFloat(result[i].jumlah);
+                    tot += arr;
+                }
+                $('#title_chartdiv').attr('data-value', tot);
 
-                    }
-                    document.getElementById('title_chartdiv').innerText = 'Total Data Nikah: ' + numeral(tot).format('0,0');
                 am4core.ready(function () {
+                    am4core.disposeAllCharts();
                     am4core.useTheme(am4themes_animated);
                     var chart = am4core.create("chartdiv", am4charts.XYChart);
                     chart.scrollbarX = new am4core.Scrollbar();
@@ -147,7 +168,24 @@
                     });
                     chart.cursor = new am4charts.XYCursor();
                 });
+                animate_counter();
+            },
+            error: function () {
+                toastr.error('error getting new data, please refresh this page!');
             }
         });
+        function animate_counter() {
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).data('value')
+                }, {
+                    duration: 3000,
+                    easing: 'swing',
+                    step: function (now) {
+                        $(this).text('Total Data Nikah: ' + numeral(now).format('0,0'));
+                    }
+                });
+            });
+        }
     });
 </script>
