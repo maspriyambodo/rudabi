@@ -65,10 +65,10 @@ class Penilaian extends CI_Controller {
     }
 
     public function Kabupaten() {
-        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2017 as tahun [1] => 01 as kodekua [2] => ACEH as propinsi ) 
+        $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2017 as tahun [1] => 01 as kodekua [2] => ACEH as propinsi )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=2017&kodekua=01'),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=' . $param[0] . '&kodekua=' . $param[1]),
             'item_active' => 'Applications/Emonev/Penilaian/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Penilaian/index/'),
             'siteTitle' => 'Rekapitulasi Penilaian KUA | ' . $this->bodo->Sys('app_name'),
@@ -99,7 +99,7 @@ class Penilaian extends CI_Controller {
         $param = $this->bodo->Url(Post_get("key")); // output $param = Array ( [0] => 2017 as tahun [1] => 01 as kodekua [2] => ACEH as propinsi [3] => 0101 as kodekab [4] => KABUPATEN ACEH SELATAN as kabupaten ) 
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=' . $param[0] . '&kodekab=' . $param[3] . ''),
+            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Penilaian?KEY=boba&tahun=' . $param[0] . '&kodekab=' . $param[3]),
             'item_active' => 'Applications/Emonev/Penilaian/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Penilaian/index/'),
             'siteTitle' => 'Rekapitulasi Penilaian KUA | ' . $this->bodo->Sys('app_name'),
@@ -127,7 +127,7 @@ class Penilaian extends CI_Controller {
                 ]
             ]
         ];
-        if($data['data']){
+        if ($data['data']) {
             $data['content'] = $this->parser->parse('emonev/Penilaian_Detail', $data, true);
         } else {
             $data['content'] = $this->parser->parse('emonev/Penilaian_error', $data, true);
