@@ -40,7 +40,7 @@ class Dashboard_cron extends CI_Controller {
     }
 
     public function index() {
-        $simkah = $this->Simkah_get();;
+        $simkah = $this->Simkah_get();
         if (empty($simkah)) {
             $result = log_message('error', 'error ketika ambil data simkah');
         } else {
