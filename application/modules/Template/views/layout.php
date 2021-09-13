@@ -3,6 +3,8 @@
 $this->bodo->Check_login();
 $uname = $this->session->userdata('uname');
 $fullname = $this->session->userdata('fullname');
+$menu_dir = $this->M_default->Menu()->result_array();
+$group_menu = $this->M_default->Group_menu();
 ?>
 <html lang="en">
     <head>
@@ -79,8 +81,8 @@ $fullname = $this->session->userdata('fullname');
                     <div class="aside-menu-wrapper flex-column-fluid" id="kt_aside_menu_wrapper">
                         <div id="kt_aside_menu" class="aside-menu my-4" data-menu-vertical="1" data-menu-scroll="1" data-menu-dropdown-timeout="500">
                             <?php
-                            $this->multi_menu->set_items($this->M_default->Menu()->result_array());
-                            echo $this->multi_menu->render($item_active, $this->M_default->Group_menu());
+                            $this->multi_menu->set_items($menu_dir);
+                            echo $this->multi_menu->render($item_active, $group_menu);
                             ?>
                         </div>
                     </div>

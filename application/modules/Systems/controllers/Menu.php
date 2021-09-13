@@ -39,17 +39,18 @@ class Menu extends CI_Controller {
         }
         $order = Post_input('order_no');
         if ($order == 'undefined') {
-            $order = $this->bodo->Dec(Post_input('gr_menu')) . '00';
+            $new_order = Dekrip(Post_input('gr_menu')) . '00';
         } else {
-            $order = Post_input('order_no') + 1;
+            $new_order = $order + 1;
         }
         $data = [
             'parent' => $parent,
+            'description' => Post_input('desc_txt'),
             'nama_menu' => Post_input('nama_menu'),
             'link_menu' => Post_input('link_menu'),
             'gr_menu' => $this->bodo->Dec(Post_input('gr_menu')),
             'ico_menu' => Post_input('ico_menu'),
-            'order_no' => $order,
+            'order_no' => $new_order,
             'user_login' => $this->user
         ];
         $exec = $this->M_menu->Save($data);
@@ -125,6 +126,7 @@ class Menu extends CI_Controller {
         }
         $data = [
             'parent' => $id_parent,
+            'description' => Post_input('desc_txt'),
             'menu' => Post_input("nama_menu"),
             'location' => Post_input("link_menu"),
             'nomor_order' => Post_input("order_no"),

@@ -52,7 +52,8 @@ class Systems extends CI_Controller {
         $param = [
             'upload_path' => 'assets/images/systems/',
             'file_name' => "favicon",
-            'input_name' => "favico"
+            'input_name' => "favico",
+            'allowed_types' => 'gif|jpg|png|gif|ico'
         ];
         $fav = _Upload($param);
         if (!$fav) {
@@ -81,7 +82,8 @@ class Systems extends CI_Controller {
         $param = [
             'upload_path' => 'assets/images/systems/',
             'file_name' => "logo",
-            'input_name' => "logo_comp"
+            'input_name' => "logo_comp",
+            'allowed_types' => 'gif|jpg|png|gif|ico'
         ];
         $fav = _Upload($param);
         if (!$fav) {
@@ -195,18 +197,20 @@ class Systems extends CI_Controller {
         $param = [
             'upload_path' => 'assets/images/users/',
             'file_name' => 'users' . date('d_His'),
-            'input_name' => "profile_avatar"
+            'input_name' => "profile_avatar",
+            'allowed_types' => 'gif|jpg|png|gif|ico'
         ];
-        $pict = [];
+        $pict = _Upload($param);
         $old_ava = Post_input("old_ava");
         $address_provinsi = $this->bodo->Dec(Post_input('provinsi'));
-        if (!$param['input_name'] or empty($param['input_name'])) {
+        if (!$pict['status'] or empty($pict['status'])) {
             $pict['file_name'] = $old_ava;
         } elseif (!$old_ava or empty($old_ava)) {
             $pict['file_name'] = 'blank.png';
         } else {
-            unlink('assets/images/users/' . $old_ava); // fungsi menghapus avatar yang lama
-            $pict = _Upload($param);
+            if ($old_ava <> 'blank.png') {
+                unlink('assets/images/users/' . $old_ava);
+            }
         }
         $data = [
             'pict' => $pict['file_name'],

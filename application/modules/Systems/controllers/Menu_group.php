@@ -13,6 +13,7 @@ class Menu_group extends CI_Controller {
     public function index() {
         $data = [
             'data' => $this->M_menu->name_group(),
+            'group_dir' => $this->M_menugrup->Group_dir(),
             'csrf' => $this->bodo->Csrf(),
             'item_active' => 'Systems/Menu_group/index/',
             'privilege' => $this->bodo->Check_previlege('Systems/Menu_group/index/'),
@@ -37,6 +38,7 @@ class Menu_group extends CI_Controller {
             'id_grup' => 0,
             'nama_group' => $nama_grup,
             'deskripsi' => "null",
+            'order' => 0,
             'user_login' => 0
         ];
         $exec = $this->M_menugrup->sys_menu_group($data);
@@ -49,13 +51,19 @@ class Menu_group extends CI_Controller {
     }
 
     public function Save() {
-        $data = [
-            'param' => 'insert_baru',
-            'id_grup' => 0,
-            'nama_group' => Post_input("nama_grup"),
-            'deskripsi' => Post_input("des_grup"),
-            'user_login' => $this->user
-        ];
+        $order_no = $this->bodo->Dec(Post_input('order_no'));
+        if (empty($order_no)) {
+            $result = redirect(base_url('Systems/Menu_group/index/'), $this->session->set_flashdata('err_msg', 'error while insert new group'));
+        } else {
+            $data = [
+                'param' => 'insert_baru',
+                'id_grup' => 0,
+                'nama_group' => Post_input("nama_grup"),
+                'deskripsi' => Post_input("des_grup"),
+                'order' => $order_no,
+                'user_login' => $this->user
+            ];
+        }
         $exec = $this->M_menugrup->sys_menu_group($data);
         if (empty($exec->conn_id->affected_rows) or $exec->conn_id->affected_rows == 0) {
             log_message('error', APPPATH . 'modules/Systems/models/M_menugrup -> function sys_menu_group ' . 'error ketika insert group menu');
@@ -76,6 +84,7 @@ class Menu_group extends CI_Controller {
                 'id_grup' => $id_grup,
                 'nama_group' => Post_input("nama_grup"),
                 'deskripsi' => Post_input("e_des_grup"),
+                'order' => 0,
                 'user_login' => $this->user
             ];
             $exec = $this->M_menugrup->sys_menu_group($data);
@@ -96,6 +105,7 @@ class Menu_group extends CI_Controller {
             'id_grup' => $id_grup,
             'nama_group' => "null",
             'deskripsi' => "null",
+            'order' => 0,
             'user_login' => 0
         ];
         $exec = $this->M_menugrup->sys_menu_group($data)->row();
@@ -117,6 +127,7 @@ class Menu_group extends CI_Controller {
                 'id_grup' => $id_grup,
                 'nama_group' => "null",
                 'deskripsi' => "null",
+                'order' => 0,
                 'user_login' => $this->user
             ];
             $exec = $this->M_menugrup->sys_menu_group($data);
@@ -128,6 +139,22 @@ class Menu_group extends CI_Controller {
             $result = redirect(base_url('Systems/Menu_group/index/'), $this->session->set_flashdata('succ_msg', 'success, group menu has been deleted'));
         }
         return $result;
+    }
+
+    public function Get_id() {
+        $exec = $this->M_menugrup->Get_id(Post_get('id'));
+        ToJson($exec);
+    }
+
+    public function Change_order() {
+        $arr = explode(',', Post_input('ro_to'));
+        $data = [
+            'old_id' => Post_input('id_grup'),
+            'old_order' => Post_input('from_id'),
+            'new_id' => $arr[0],
+            'new_order' => $arr[1]
+        ];
+        $this->M_menugrup->Change_order($data);
     }
 
 }

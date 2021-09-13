@@ -1,5 +1,5 @@
 <div class="modal fade" id="modal_add" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="modal_add" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal_addLabel">Add new group</h5>
@@ -21,11 +21,22 @@
                                 <input id="nama_stat" type="hidden" name="nama_stat" value=""/>
                                 <div id="nama_msg"></div>
                             </div>
+                            <div class="form-group">
+                                <label for="order_no">Order</label>
+                                <select id="order_no" name="order_no" class="form-select custom-select" required="" style="clear: both;width:100%;">
+                                    <?php
+                                    foreach ($group_dir as $group_dir) {
+                                        $order_no = Enkrip($group_dir->order_no);
+                                        echo '<option value="' . $order_no . '">After ' . $group_dir->nama . '</option>';
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label for="des_grup">Group Description:</label>
-                                <textarea id="des_grup" class="form-control" name="des_grup" required=""></textarea>
+                                <textarea id="des_grup" class="form-control" name="des_grup" required="" rows="5"></textarea>
                             </div>
                         </div>
                     </div>
@@ -39,6 +50,7 @@
     </div>
 </div>
 <script>
+    $('#order_no').select2();
     function Check_nama(val) {
         $.ajax({
             url: "<?php echo base_url('Systems/Menu_group/Check_nama?nama='); ?>" + val,

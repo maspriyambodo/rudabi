@@ -53,21 +53,27 @@
                             </td>
                             <td class="text-center">
                                 <?php
-                                $editbtn = '<button id="editbtn" type="button" class="btn btn-icon btn-warning btn-xs" title="Edit Group Menu" value="' . $id_menu . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
-                                $delbtn = '<button id="delbtn" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete Group Menu" value="' . $id_menu . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
+                                if ($menu->order_no == 999) {
+                                    $orderbtn = '<button id="orderbtn" type="button" class="btn btn-icon btn-default btn-xs" title="default by systems"><i class="fas fa-sort text-success"></i></button>';
+                                } else {
+                                    echo '<input type="hidden" name="id_grup' . $menu->order_no . '" value="' . $menu->id . '"/>';
+                                    echo '<input type="hidden" name="nama' . $menu->order_no . '" value="' . $menu->nama . '"/>';
+                                    $orderbtn = '<button id="orderbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Change Order Group ' . $menu->nama . '" value="' . $menu->order_no . '" onclick="Change_order(this.value)"><i class="fas fa-sort text-success"></i></button>';
+                                }
+                                $editbtn = '<button id="editbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Edit Group Menu" value="' . $id_menu . '" onclick="Edit(this.value)"><i class="far fa-edit text-warning"></i></button>';
+                                $delbtn = '<button id="delbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Delete Group Menu" value="' . $id_menu . '" onclick="Delete(this.value)"><i class="far fa-trash-alt text-danger"></i></button>';
                                 $activebtn = '<button id="actvbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Set Active" value="' . $id_menu . '" onclick="Active(this.value)"><i class="fas fa-unlock text-success"></i></button>';
-
                                 echo '<div class="btn-group">'; // open div btn-group
 
                                 if ($privilege['update']) { // jika memiliki privilege edit
-                                    echo $editbtn;
+                                    echo $editbtn . $orderbtn;
                                 }
                                 if (!$menu->stat and $privilege['delete']) { // jika memiliki privilege delete
                                     echo $activebtn;
                                 } elseif ($menu->stat and $privilege['delete']) {
                                     echo $delbtn;
                                 }
-                                
+
                                 echo '</div>'; //close div btn-group
                                 ?>
                             </td>
@@ -83,6 +89,7 @@
 <?php
 if ($privilege['update']) {
     require_once 'modal_edit.php';
+    require_once 'modal_order.php';
 }
 if ($privilege['delete']) {
     require_once 'modal_delete.php';

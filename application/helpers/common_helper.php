@@ -47,7 +47,7 @@ function _Upload($param) {
     $config['upload_path'] = FCPATH . $param['upload_path'];
     $config['file_name'] = $param['file_name'];
     $config['allowed_types'] = 'gif|jpg|png|gif|ico';
-    $config['max_size'] = 1000;
+//    $config['max_size'] = 1000;
     $config['maintain_ratio'] = true;
     $config['file_ext_tolower'] = true;
     $config['remove_spaces'] = true;

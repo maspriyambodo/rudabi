@@ -3,7 +3,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal_editLabel">Edit group menu</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" onclick="Close_edit()">
                     <i aria-hidden="true" class="fas fa-times"></i>
                 </button>
             </div>
@@ -14,9 +14,9 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="nama_grup">Group Name:</label>
+                                <label for="e_nama_grup">Group Name:</label>
                                 <div class="input-group">
-                                    <input id="nama_grup" type="text" name="nama_grup" class="form-control" autocomplete="off" required="" onchange="Check(this.value)"/>
+                                    <input id="e_nama_grup" type="text" name="e_nama_grup" class="form-control" autocomplete="off" required="" onchange="Check(this.value)"/>
                                     <div id="e_check_nama" class="input-group-append"></div>
                                 </div>
                                 <input id="e_nama_stat" type="hidden" name="e_nama_stat" value="1"/>
@@ -32,7 +32,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal"><i class="far fa-times-circle"></i> Close</button>
+                    <button type="button" class="btn btn-light-primary font-weight-bold" data-dismiss="modal" onclick="Close_edit()"><i class="far fa-times-circle"></i> Close</button>
                     <button type="button" class="btn btn-primary font-weight-bold" onclick="Update()"><i class="far fa-save"></i> Update</button>
                 </div>
             </form>
@@ -40,9 +40,14 @@
     </div>
 </div>
 <script>
+    function Close_edit() {
+        document.getElementById('modal_editLabel').innerHTML = '';
+        $('input[name="e_nama_grup"]').val('');
+        $('textarea[name="e_des_grup"]').val('');
+    }
     function Edit(val) {
         $('#modal_edit').modal({show: true, backdrop: 'static', keyboard: false});
-        $('input[name="nama_grup"]').val("");
+        $('input[name="e_nama_grup"]').val("");
         $('input[name="e_id"]').val("");
         $.ajax({
             url: "<?php echo base_url('Systems/Menu_group/Edit?id='); ?>" + val,
@@ -50,8 +55,9 @@
             contentType: false,
             processData: false,
             success: function (data) {
+                document.getElementById('modal_editLabel').innerHTML = 'Edit Group: <b>' + data.exec.nama_grup + '</b>';
                 if (data.status) {
-                    $('input[name="nama_grup"]').val(data.exec.nama_grup);
+                    $('input[name="e_nama_grup"]').val(data.exec.nama_grup);
                     $('input[name="e_id"]').val(val);
                     $('textarea[name="e_des_grup"]').val(data.exec.description);
                 } else {
@@ -66,7 +72,7 @@
 
     function Update() {
         var a, b, c;
-        a = $('input[name="nama_grup"]').val();
+        a = $('input[name="e_nama_grup"]').val();
         b = $('input[name="e_nama_stat"]').val();
         c = $('textarea[name="e_des_grup"]').val();
         if (!a | !b) {
