@@ -40,169 +40,290 @@ class Dashboard_cron extends CI_Controller {
     }
 
     public function index() {
-        $simkah = $this->Simkah_get();
-        if (empty($simkah)) {
-            $result = log_message('error', 'error ketika ambil data simkah');
-        } else {
-            $data = [
-                'file_date' => date('Y-m-d H:i:s'),
-                'sihat' => $this->sihat(),
-                'masjid' => $this->masjid(),
-                'mushalla' => $this->mushalla(),
-                'targetcatin' => $this->targetcatin(),
-                'data_catin' => $this->data_catin(),
-                'pustakadigital' => $this->pustakadigital(),
-                'simpenghulu' => $this->simpenghulu(),
-                'lptq' => $this->lptq(),
-                'ormasislam' => $this->ormasislam(),
-                'penyuluh' => $this->penyuluh(),
-                'siwak' => $this->siwak(),
-                'baznas' => $this->baznas(),
-                'laznas' => $this->laznas(),
-                'pustakaslim' => $this->pustakaslim(),
-                'mtq' => $this->mtq(),
-                'simkah' => $simkah
-            ];
-            write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
-            $result = $this->pusher->trigger('my-channel', 'my-event', []);
-        }
+        $data = [
+            'file_date' => date('Y-m-d H:i:s'),
+            'sihat' => $this->sihat(),
+            'masjid' => $this->masjid(),
+            'mushalla' => $this->mushalla(),
+            'targetcatin' => $this->targetcatin(),
+            'data_catin' => $this->data_catin(),
+            'pustakadigital' => $this->pustakadigital(),
+            'simpenghulu' => $this->simpenghulu(),
+            'lptq' => $this->lptq(),
+            'ormasislam' => $this->ormasislam(),
+            'penyuluh' => $this->penyuluh(),
+            'siwak' => $this->siwak(),
+            'baznas' => $this->baznas(),
+            'laznas' => $this->laznas(),
+            'pustakaslim' => $this->pustakaslim(),
+            'mtq' => $this->mtq(),
+            'simkah' => $this->Simkah_get()
+        ];
+        write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
+        $result = $this->pusher->trigger('my-channel', 'my-event', []);
         return $result;
     }
 
     private function sihat() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siihat/total?KEY=BOBA');
-        $sihat = $this->curl->response;
-        $data = [
-            'alat_hisab_rukyat' => $sihat[0]->alat_hisab_rukyat,
-            'tenaga_ahli' => $sihat[1]->tenaga_ahli,
-            'hisab_pengukuran' => $sihat[2]->hisab_pengukuran
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data sihat');
+            $data = [
+                'alat_hisab_rukyat' => 0,
+                'tenaga_ahli' => 0,
+                'hisab_pengukuran' => 0
+            ];
+        } else {
+            $sihat = $this->curl->response;
+            $data = [
+                'alat_hisab_rukyat' => $sihat[0]->alat_hisab_rukyat,
+                'tenaga_ahli' => $sihat[1]->tenaga_ahli,
+                'hisab_pengukuran' => $sihat[2]->hisab_pengukuran
+            ];
+        }
         return $data;
     }
 
     private function masjid() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmasjid?KEY=BOBA');
+        $getInfo = $this->curl->getInfo();
         $masjid = $this->curl->response;
-        $data = [
-            'data_masjid' => $masjid[0]->data_masjid
-        ];
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data masjid');
+            $data = [
+                'data_masjid' => 0
+            ];
+        } else {
+            $data = [
+                'data_masjid' => $masjid[0]->data_masjid
+            ];
+        }
         return $data;
     }
 
     private function mushalla() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmushalla?KEY=BOBA');
-        $mushalla = $this->curl->response;
-        $data = [
-            'data_mushalla' => $mushalla[0]->data_mushalla
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data mushalla');
+            $data = [
+                'data_mushalla' => 0
+            ];
+        } else {
+            $mushalla = $this->curl->response;
+            $data = [
+                'data_mushalla' => $mushalla[0]->data_mushalla
+            ];
+        }
         return $data;
     }
 
     private function targetcatin() {
-        $targetcatin = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/embimwin/total_targetcatin?KEY=BOBA');
-        $data = [
-            'realisasi_wilayah' => $targetcatin[0]->realisasi_wilayah
-        ];
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/embimwin/total_targetcatin?KEY=BOBA');
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data targetcatin');
+            $data = [
+                'realisasi_wilayah' => 0
+            ];
+        } else {
+            $targetcatin = $this->curl->response;
+            $data = [
+                'realisasi_wilayah' => $targetcatin[0]->realisasi_wilayah
+            ];
+        }
         return $data;
     }
 
     private function data_catin() {
-        $data_catin = $this->curl->get('http://10.1.99.90/rudabi_api/datapi/embimwin/total_datacatin?KEY=BOBA');
-        $data = [
-            'jumlah_peserta' => $data_catin[0]->jumlah_peserta
-        ];
+        $this->curl->get('http://10.1.99.90/rudabi_api/datapi/embimwin/total_datacatin?KEY=BOBA');
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data data_catin');
+            $data = [
+                'jumlah_peserta' => 0
+            ];
+        } else {
+            $data_catin = $this->curl->response;
+            $data = [
+                'jumlah_peserta' => $data_catin[0]->jumlah_peserta
+            ];
+        }
         return $data;
     }
 
     private function pustakadigital() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/esbsnn/pustakadigital?KEY=BOBA');
-        $pustakadigital = $this->curl->response;
-        $data = [
-            'pustakadigital' => $pustakadigital[0]->total
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data pustakadigital');
+            $data = [
+                'pustakadigital' => 0
+            ];
+        } else {
+            $pustakadigital = $this->curl->response;
+            $data = [
+                'pustakadigital' => $pustakadigital[0]->total
+            ];
+        }
         return $data;
     }
 
     private function simpenghulu() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenghulu/total?KEY=BOBA');
-        $simpenghulu = $this->curl->response;
-        $data = [
-            'data_kua' => $simpenghulu[0]->data_kua,
-            'data_penghulu' => $simpenghulu[1]->data_penghulu,
-            'data_peristiwa_nikah' => $simpenghulu[2]->data_peristiwa_nikah
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data simpenghulu');
+            $data = [
+                'data_kua' => 0,
+                'data_penghulu' => 0,
+                'data_peristiwa_nikah' => 0
+            ];
+        } else {
+            $simpenghulu = $this->curl->response;
+            $data = [
+                'data_kua' => $simpenghulu[0]->data_kua,
+                'data_penghulu' => $simpenghulu[1]->data_penghulu,
+                'data_peristiwa_nikah' => $simpenghulu[2]->data_peristiwa_nikah
+            ];
+        }
         return $data;
     }
 
     private function lptq() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/lptq?KEY=BOBA');
-        $lptq = $this->curl->response;
-        $data = [
-            'lptq' => $lptq[0]->lptq
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data lptq');
+            $data = [
+                'lptq' => 0
+            ];
+        } else {
+            $lptq = $this->curl->response;
+            $data = [
+                'lptq' => $lptq[0]->lptq
+            ];
+        }
         return $data;
     }
 
     private function ormasislam() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenaiss/ormasislam?KEY=BOBA');
-        $ormas_islam = $this->curl->response;
-        $data = [
-            'ormas_islam' => $ormas_islam[0]->ormas_islam
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data ormasislam');
+            $data = [
+                'ormas_islam' => 0
+            ];
+        } else {
+            $ormas_islam = $this->curl->response;
+            $data = [
+                'ormas_islam' => $ormas_islam[0]->ormas_islam
+            ];
+        }
         return $data;
     }
 
     private function penyuluh() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/epay/totalnew?KEY=BOBA');
-        $penyuluh = $this->curl->response;
-        $data = [
-            'penyuluh' => $penyuluh[0]->penyuluh
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data penyuluh');
+            $data = [
+                'penyuluh' => 0
+            ];
+        } else {
+            $penyuluh = $this->curl->response;
+            $data = [
+                'penyuluh' => $penyuluh[0]->penyuluh
+            ];
+        }
         return $data;
     }
 
     private function siwak() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siwaks/wakaf?KEY=BOBA');
-        $siwak = $this->curl->response;
-        $data = [
-            'tanah_wakaf' => $siwak[0]->tanah_wakaf
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data siwak');
+            $data = [
+                'tanah_wakaf' => 0
+            ];
+        } else {
+            $siwak = $this->curl->response;
+            $data = [
+                'tanah_wakaf' => $siwak[0]->tanah_wakaf
+            ];
+        }
         return $data;
     }
 
     private function baznas() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatabaznas?KEY=BOBA');
-        $baznas = $this->curl->response;
-        $data = [
-            'databaznas' => $baznas[0]->databaznas
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data baznas');
+            $data = [
+                'databaznas' => 0
+            ];
+        } else {
+            $baznas = $this->curl->response;
+            $data = [
+                'databaznas' => $baznas[0]->databaznas
+            ];
+        }
         return $data;
     }
 
     private function laznas() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simzat/totaldatalaznas?KEY=BOBA');
-        $laznas = $this->curl->response;
-        $data = [
-            'datalaznas' => $laznas[0]->datalaznas
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data laznas');
+            $data = [
+                'datalaznas' => 0
+            ];
+        } else {
+            $laznas = $this->curl->response;
+            $data = [
+                'datalaznas' => $laznas[0]->datalaznas
+            ];
+        }
         return $data;
     }
 
     private function pustakaslim() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/pustaka/totalbuku?KEY=BOBA');
-        $jumlah_buku = $this->curl->response;
-        $data = [
-            'jumlah_buku' => $jumlah_buku[0]->jumlah_buku
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data pustakaslim');
+            $data = [
+                'jumlah_buku' => 0
+            ];
+        } else {
+            $jumlah_buku = $this->curl->response;
+            $data = [
+                'jumlah_buku' => $jumlah_buku[0]->jumlah_buku
+            ];
+        }
         return $data;
     }
 
     private function mtq() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/Mtq/totalpeserta?KEY=BOBA');
-        $mtq = $this->curl->response;
-        $data = [
-            'tot_mtq' => $mtq[0]->total
-        ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data mtq');
+            $data = [
+                'tot_mtq' => 0
+            ];
+        } else {
+            $mtq = $this->curl->response;
+            $data = [
+                'tot_mtq' => $mtq[0]->total
+            ];
+        }
         return $data;
     }
 
@@ -211,14 +332,20 @@ class Dashboard_cron extends CI_Controller {
         $this->curl->setCookie('cookiesession1', '678B28A6WYZABCDEFHIJKLMNOPQR08DC');
         $this->curl->setHeader('Content-Type', 'application/json');
         $this->curl->get('https://simkah.kemenag.go.id/api/grafik/daftarnikah?tahun=' . date('Y') . '&level=pusat');
-        $sj = $this->curl->response;
-        foreach ($sj->data as $value) {
-            $update[] = (object) [
-                        'provinsi' => $value->name,
-                        'jumlah' => $value->value
-            ];
+        $getInfo = $this->curl->getInfo();
+        if ($getInfo['http_code'] <> 200) {
+            $update = $this->model->index();
+            log_message('error', 'error ketika mendapatkan data simkah');
+        } else {
+            $sj = $this->curl->response;
+            foreach ($sj->data as $value) {
+                $update[] = (object) [
+                            'provinsi' => $value->name,
+                            'jumlah' => $value->value
+                ];
+            }
+            $this->model->Update_simkah($update);
         }
-        $this->model->Update_simkah($update);
         return $update;
     }
 
