@@ -466,8 +466,8 @@
         var pusher = new Pusher('4587e4cb86b14bb98e69', {
             cluster: 'ap1'
         });
-        var channel = pusher.subscribe('my-channel');
-        channel.bind('my-event', function () {
+        var channel = pusher.subscribe('rudabi_dashboard-channel');
+        channel.bind('rudabi_dashboard-event', function () {
             data_dir();
         });
     });

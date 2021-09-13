@@ -24,6 +24,7 @@ class Dashboard_cron extends CI_Controller {
         $this->load->helper('file');
         $this->load->library('user_agent');
         $this->curl = new Curl\Curl();
+        $this->curl->disableTimeout();
         $this->curl->setHeader('Connection', 'keep-alive');
         $this->curl->setHeader('User-Agent', $this->agent->referrer());
         $this->curl->setFollowLocation(true);
@@ -60,8 +61,7 @@ class Dashboard_cron extends CI_Controller {
             'simkah' => $this->Simkah_get()
         ];
         write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
-        $result = $this->pusher->trigger('my-channel', 'my-event', []);
-        return $result;
+        $this->pusher->trigger('rudabi_dashboard-channel', 'rudabi_dashboard-event', []);
     }
 
     private function sihat() {
