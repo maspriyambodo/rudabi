@@ -21,3 +21,4 @@ application/logs/*
 /vendor/*
 /application/config/database.php
 /Dashboard_cron.json
+/db_template
