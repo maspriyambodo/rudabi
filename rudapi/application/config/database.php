@@ -6,9 +6,9 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => '10.1.99.90',
+	'hostname' => 'localhost',
 	'username' => 'root', //
-	'password' => 'Masdatin@2020!', //Masdatin@2020!
+	'password' => 'password', //Masdatin@2020!
 	'database' => 'rudapi', //rudapi
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
