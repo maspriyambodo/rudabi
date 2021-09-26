@@ -144,7 +144,7 @@
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- Sweetalert 2 -->
-<script src="<?php echo base_url();?>assets/sweetalert/sweetalert2.all.js"></script>
+<script src="<?php echo base_url();?>assets/sweetalert/swal.js"></script>
 <!-- FancyGrid -->
 <script src="<?php echo base_url();?>assets/mejo/fancygrid/fancy.full.min.js"></script>
 
@@ -254,7 +254,7 @@ echo $js_inlines;
             align: 'center',
             width: 190
         },{
-            index: 'id',
+            index: 'id_vp',
             title: 'Aksi',
             align: 'center',
             cellAlign: 'center',
@@ -270,7 +270,7 @@ echo $js_inlines;
               +('<a class="text-warning btn_edit" href="javascript:;" onclick="Page.Edited(\'' + o.value + '\')" data-toggle="tooltip" data-html="true" title="Edit Data" style="margin-right:20px;"><i class="fa fa-edit"></i><a>')
             <?php endif; ?>
             <?php if ($this->datainclude->_deleted()) : ?>
-              +('<a class="text-danger btn_hapus" href="javascript:;" onclick="Page.Delete(\'' + o.value + '\')" data-toggle="tooltip" data-html="true" title="Hapus Data" style="margin-right:10px;"><i class="fa fa-minus-circle"></i><a>')
+              +('<a class="text-danger btn_hapus" href="javascript:;" onclick="Page.Delete(\'' + o.id + '\')" data-toggle="tooltip" data-html="true" title="Hapus Data" style="margin-right:10px;"><i class="fa fa-minus-circle"></i><a>')
             <?php endif; ?>
             } else if(o.data.is_trash == 0){
               o.value = ''
@@ -397,17 +397,17 @@ echo $js_inlines;
       });
     };
 
-    Page.Edited = function(id){
+    Page.Edited = function(id_vp){
       // console.log(id);
-      if(id != '') {
-        window.location.href = '<?php echo base_url(); ?>post/edited/' + id;
+      if(id_vp != '') {
+        window.location.href = '<?php echo base_url(); ?>post/edited/' + id_vp;
       }
     };
 
-    Page.Detail = function(id){
+    Page.Detail = function(id_vp){
       // console.log(id);
-      if(id != '') {
-        window.location.href = '<?php echo base_url(); ?>post/detail/' + id;
+      if(id_vp != '') {
+        window.location.href = '<?php echo base_url(); ?>post/detail/' + id_vp;
       }
     };
 

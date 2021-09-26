@@ -79,8 +79,8 @@
                     <label>Kategori Post API</label>
                     <select class="form-control" name="is_trash">
                       <option>Pilih</option>
-                      <option <?php if($tampil->is_trash == 1){ echo 'selected'; }?> value="1"><?php echo $tampil->status;?></option>
-                      <option <?php if($tampil->is_trash == 0){ echo 'selected'; }?> value="0"><?php echo $tampil->status;?></option>
+                      <option <?php if($tampil->is_trash == 1){ echo 'selected'; }?> value="1">Data aktif</option>
+                      <option <?php if($tampil->is_trash == 0){ echo 'selected'; }?> value="0">Data nonaktif</option>
                     </select>
                   </div>
                 </div>
@@ -141,7 +141,7 @@
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- Sweetalert 2 -->
-<script src="<?php echo base_url();?>assets/sweetalert/sweetalert2.all.js"></script>
+<script src="<?php echo base_url();?>assets/sweetalert/swal.js"></script>
 <!-- FancyGrid -->
 <script src="<?php echo base_url();?>assets/mejo/fancygrid/fancy.full.min.js"></script>
 

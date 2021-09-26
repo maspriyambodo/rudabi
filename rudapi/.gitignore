@@ -39,4 +39,5 @@ application/logs/*
 /application/sessions/
 /application/logs/
 /vendor/*
+/application/config/config.php
 /application/config/database.php

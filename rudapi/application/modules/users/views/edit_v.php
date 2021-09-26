@@ -143,7 +143,7 @@
 <script src="<?php echo base_url();?>assets/lteadmin/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?php echo base_url();?>assets/lteadmin/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- Sweetalert 2 -->
-<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+<script src="<?php echo base_url();?>assets/sweetalert/swal.js"></script>
 
 <script type="text/javascript">
   // Inputan Tertentu

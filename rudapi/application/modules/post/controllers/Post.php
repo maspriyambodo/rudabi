@@ -61,7 +61,7 @@ class Post extends CI_Controller {
 			"menu" 			=> $this->allmodel->menuBackend(0,""),
 			"titleweb" 		=> ".: Halaman Dashboard ".ucfirst($title)." :.",
 			"paths"			=> $this->datainclude->_path(),
-			"kategori"			=> $this->datainclude->_kategoriapi(),
+			"kategori"		=> $this->datainclude->_kategoriapi(),
 			"breadcumb" 	=> "Dashboard"
 		);
 		$this->load->view('edit', $data);
@@ -75,7 +75,7 @@ class Post extends CI_Controller {
 			"menu" 			=> $this->allmodel->menuBackend(0,""),
 			"titleweb" 		=> ".: Halaman Dashboard ".ucfirst($title)." :.",
 			"paths"			=> $this->datainclude->_path(),
-			"kategori"			=> $this->datainclude->_kategoriapi(),
+			"kategori"		=> $this->datainclude->_kategoriapi(),
 			"breadcumb" 	=> "Dashboard"
 		);
 		$this->load->view('detail', $data);
@@ -156,6 +156,7 @@ class Post extends CI_Controller {
             $row = [];
             $row['no'] = $no;
             $row['id'] = $value->id;
+            $row['id_vp'] = $value->id_vp;
             $row['sumber'] = ucfirst($value->sumber);
             $row['nama'] = ucfirst($value->nama);
             $row['nama_path'] = $value->nama_path;

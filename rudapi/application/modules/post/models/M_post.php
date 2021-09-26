@@ -62,19 +62,19 @@ class M_post extends CI_Model {
 
     public function ambilID($id)
     {
-        $query = $this->db->get_where('view_post', array('id' => $id))->row();
+        $query = $this->db->get_where('view_post', array('id_vp' => $id))->row();
         return $query;
     }
 
     public function ambilParam($id)
     {
-        $query = $this->db->get_where('dt_params', array('id_post' => $id))->result();
+        $query = $this->db->get_where('view_params', array('id_vp' => $id))->result();
         return $query;
     }
 
     public function ambilParams($id)
     {
-        $query = $this->db->get_where('view_params', array('id_post' => $id))->result();
+        $query = $this->db->get_where('view_params', array('id_vp' => $id))->result();
         return $query;
     }
 
