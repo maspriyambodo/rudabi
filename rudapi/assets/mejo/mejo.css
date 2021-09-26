@@ -1,0 +1,86 @@
+.mejo-nav {
+    margin-bottom: 10px;
+}
+
+.mejo-filter-wrapper { height: auto; }
+.mejo-filter-wrapper {}
+.mejo-filter-wrapper .form-group {
+    margin-bottom: 5px;
+}
+.mejo-filter-wrapper .form-control {
+    font-size: 11px;
+    padding: 3px 8px;
+}
+.mejo-filter-wrapper .control-label {
+    font-weight: 500;
+    font-size: 12px;
+    padding-top: 5px;
+}
+
+.mejo-btn {
+    display: inline-block;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    color: #333;
+}
+
+.mejo-btn-blue {
+    background: #03a9f3;
+    border-color: #03a9f3;
+    color: #fff;
+}
+.mejo-btn-blue:hover {
+    background: #038fcd;
+    border-color: #038fcd;
+    color: #fff;
+}
+.mejo-btn-green {
+    background: #38d57a;
+    border-color: #38d57a;
+    color: #fff;
+}
+.mejo-btn-green:hover {
+    background: #28bf67;
+    border-color: #28bf67;
+    color: #fff;
+}
+.mejo-btn-yellow {
+    background: #ffcc02;
+    border-color: #ffcc02;
+    color: #fff;
+}
+.mejo-btn-yellow:hover {
+    background: #dbaf00;
+    border-color: #cea400;
+    color: #fff;
+}
+.mejo-btn-red {
+    background: #e6614f;
+    border-color: #e6614f;
+    color: #fff;
+}
+.mejo-btn-red:hover {
+    background: #e1432e;
+    border-color: #e03922;
+    color: #fff;
+}
+
+.fancy-panel {
+    border-top: 1px solid #c4cbd3;
+    border-bottom: 1px solid #c4cbd3;
+}
+
+.fancy-theme-blue.fancy-panel-grid-inside {
+    border-bottom-width: 1px;
+}
