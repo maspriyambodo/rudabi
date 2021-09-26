@@ -23,8 +23,8 @@ date_default_timezone_set('Asia/Jakarta');
 | a PHP script and you can easily do that on your own.
 |
 */
-//$config['base_url']	= "https://bengkelbatursamy.com/";
-$config['base_url']	= "http://".$_SERVER['HTTP_HOST'].
+
+$config['base_url']	= "https://".$_SERVER['HTTP_HOST'].
 str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 /*
 |--------------------------------------------------------------------------
