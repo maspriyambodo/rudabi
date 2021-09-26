@@ -85,7 +85,7 @@
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- Sweetalert 2 -->
-<script src="<?php echo base_url();?>assets/sweetalert/sweetalert2.all.js"></script>
+<script src="<?php echo base_url();?>assets/sweetalert/swal.js"></script>
 <!-- FancyGrid -->
 <script src="<?php echo base_url();?>assets/mejo/fancygrid/fancy.full.min.js"></script>
 <!-- Uibutton -->

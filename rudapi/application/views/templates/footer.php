@@ -36,7 +36,7 @@
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/jquery.vmap.min.js"></script>
 <script src="<?php echo base_url();?>assets/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
 <!-- Sweetalert 2 -->
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script src="<?php echo base_url();?>assets/sweetalert/swal.js"></script>
 <!-- Uibutton -->
 <script>
 	$.widget.bridge('uibutton', $.ui.button)
