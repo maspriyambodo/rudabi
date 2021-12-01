@@ -7,7 +7,7 @@ deploy-server:
     name: development
     url: https://rudabi.kemenag.dev/
   script:
-    - sshpass -p 'Masdatinlantai7' ssh -oStrictHostKeyChecking=no -p 22 root@10.1.99.90 -t "cd /var/www/html/Rudabi && sh update.sh"
+    - sshpass -p ${SSH_PWD} ssh -oStrictHostKeyChecking=no -p ${SSH_PORT} ${SSH_LOGIN} -t "cd /var/www/html/Rudabi && sh update.sh"
     - echo "Job-mu is sukespulll!"
   only:
     - main
