@@ -29,7 +29,7 @@
                 <div class="login-content flex-row-fluid d-flex flex-column justify-content-center position-relative overflow-hidden p-7 ml-auto mr-auto">
                     <div class="d-flex flex-column-fluid flex-center mt-6 mt-lg-0">
                         <div class="login-form login-signin">
-                            <a href="#" class="text-center nav-brand"> <img src="https://simas.kemenag.go.id/assets/img/rudabilogo.png" style="width:70%;" alt="Rudabi Logo" /> </a>
+                            <a href="#" class="text-center nav-brand"> <img src="<?php echo base_url('assets/images/systems/' . $this->bodo->Sys('logo')); ?>" style="width:70%;" alt="Rudabi Logo" /> </a>
                             <h3 class="login-title">Sign in to system</h3>
                             <form class="form" novalidate="novalidate" id="kt_login_signin_form" action="<?php echo base_url('Auth/Signin/'); ?>" method="post">
                                 <div class="form-group">

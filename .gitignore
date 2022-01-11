@@ -16,3 +16,4 @@
 /application/libraries/Multi_menu.php
 /application/modules/Systems/models/M_default.development
 /composer.lock
+/Dashboard_cron.json
