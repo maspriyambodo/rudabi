@@ -1,6 +1,6 @@
 <?php
 
-defined('BASEPATH') OR exit('No direct script access allowed, are you trying to signin backdoor?');
+defined('BASEPATH') OR exit('are you trying to signin backdoor?');
 
 class Auth extends CI_Controller {
 
