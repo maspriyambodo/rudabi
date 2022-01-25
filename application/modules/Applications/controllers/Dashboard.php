@@ -7,7 +7,7 @@ class Dashboard extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->user = $this->bodo->Dec($this->session->userdata('id_user'));
-        $this->curl = new Curl\Curl();
+//        $this->curl = new Curl\Curl();
     }
 
     public function index() {
