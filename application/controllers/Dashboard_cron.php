@@ -340,7 +340,6 @@ class Dashboard_cron extends CI_Controller {
         $this->curl->get('https://simkah.kemenag.go.id/api/grafik/daftarnikah?tahun=' . date('Y') . '&level=pusat');
         $getInfo = $this->curl->getInfo();
         if ($getInfo['http_code'] <> 200) {
-            $update = $this->model->index();
             log_message('error', 'error ketika mendapatkan data simkah');
         } else {
             $sj = $this->curl->response;
@@ -352,7 +351,8 @@ class Dashboard_cron extends CI_Controller {
             }
             $this->model->Update_simkah($update);
         }
-        return $update;
+        $data = $this->model->index();
+        return $data;
     }
 
 }
