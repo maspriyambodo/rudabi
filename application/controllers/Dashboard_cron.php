@@ -62,6 +62,7 @@ class Dashboard_cron extends CI_Controller {
         ];
         write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
         $this->pusher->trigger('rudabi_dashboard-channel', 'rudabi_dashboard-event', []);
+        echo 'sukses';
     }
 
     private function Data_json() {
