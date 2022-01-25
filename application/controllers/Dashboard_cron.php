@@ -64,15 +64,21 @@ class Dashboard_cron extends CI_Controller {
         $this->pusher->trigger('rudabi_dashboard-channel', 'rudabi_dashboard-event', []);
     }
 
+    private function Data_json() {
+        $this->curl->get(base_url('Dashboard_cron.json'));
+        return $this->curl->response;
+//        print_array($sihat->sihat->alat_hisab_rukyat);
+    }
+
     private function sihat() {
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siihat/total?KEY=BOBA');
         $getInfo = $this->curl->getInfo();
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data sihat');
             $data = [
-                'alat_hisab_rukyat' => 0,
-                'tenaga_ahli' => 0,
-                'hisab_pengukuran' => 0
+                'alat_hisab_rukyat' => $this->Data_json()->sihat->alat_hisab_rukyat,
+                'tenaga_ahli' => $this->Data_json()->sihat->tenaga_ahli,
+                'hisab_pengukuran' => $this->Data_json()->sihat->hisab_pengukuran
             ];
         } else {
             $sihat = $this->curl->response;
@@ -92,7 +98,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data masjid');
             $data = [
-                'data_masjid' => 0
+                'data_masjid' => $this->Data_json()->masjid->data_masjid
             ];
         } else {
             $data = [
@@ -108,7 +114,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data mushalla');
             $data = [
-                'data_mushalla' => 0
+                'data_mushalla' => $this->Data_json()->mushalla->data_mushalla
             ];
         } else {
             $mushalla = $this->curl->response;
@@ -125,7 +131,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data targetcatin');
             $data = [
-                'realisasi_wilayah' => 0
+                'realisasi_wilayah' => $this->Data_json()->targetcatin->realisasi_wilayah
             ];
         } else {
             $targetcatin = $this->curl->response;
@@ -142,7 +148,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data data_catin');
             $data = [
-                'jumlah_peserta' => 0
+                'jumlah_peserta' => $this->Data_json()->data_catin->jumlah_peserta
             ];
         } else {
             $data_catin = $this->curl->response;
@@ -159,7 +165,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data pustakadigital');
             $data = [
-                'pustakadigital' => 0
+                'pustakadigital' => $this->Data_json()->pustakadigital->pustakadigital
             ];
         } else {
             $pustakadigital = $this->curl->response;
@@ -176,9 +182,9 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data simpenghulu');
             $data = [
-                'data_kua' => 0,
-                'data_penghulu' => 0,
-                'data_peristiwa_nikah' => 0
+                'data_kua' => $this->Data_json()->simpenghulu->data_kua,
+                'data_penghulu' => $this->Data_json()->simpenghulu->data_penghulu,
+                'data_peristiwa_nikah' => $this->Data_json()->simpenghulu->data_peristiwa_nikah
             ];
         } else {
             $simpenghulu = $this->curl->response;
@@ -197,7 +203,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data lptq');
             $data = [
-                'lptq' => 0
+                'lptq' => $this->Data_json()->lptq->lptq
             ];
         } else {
             $lptq = $this->curl->response;
@@ -214,7 +220,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data ormasislam');
             $data = [
-                'ormas_islam' => 0
+                'ormas_islam' => $this->Data_json()->ormasislam->ormas_islam
             ];
         } else {
             $ormas_islam = $this->curl->response;
@@ -231,7 +237,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data penyuluh');
             $data = [
-                'penyuluh' => 0
+                'penyuluh' => $this->Data_json()->penyuluh->penyuluh
             ];
         } else {
             $penyuluh = $this->curl->response;
@@ -248,7 +254,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data siwak');
             $data = [
-                'tanah_wakaf' => 0
+                'tanah_wakaf' => $this->Data_json()->siwak->tanah_wakaf
             ];
         } else {
             $siwak = $this->curl->response;
@@ -265,7 +271,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data baznas');
             $data = [
-                'databaznas' => 0
+                'databaznas' => $this->Data_json()->baznas->databaznas
             ];
         } else {
             $baznas = $this->curl->response;
@@ -282,7 +288,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data laznas');
             $data = [
-                'datalaznas' => 0
+                'datalaznas' => $this->Data_json()->laznas->datalaznas
             ];
         } else {
             $laznas = $this->curl->response;
@@ -299,7 +305,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data pustakaslim');
             $data = [
-                'jumlah_buku' => 0
+                'jumlah_buku' => $this->Data_json()->pustakaslim->jumlah_buku
             ];
         } else {
             $jumlah_buku = $this->curl->response;
@@ -316,7 +322,7 @@ class Dashboard_cron extends CI_Controller {
         if ($getInfo['http_code'] <> 200) {
             log_message('error', 'error ketika mendapatkan data mtq');
             $data = [
-                'tot_mtq' => 0
+                'tot_mtq' => $this->Data_json()->mtq->tot_mtq
             ];
         } else {
             $mtq = $this->curl->response;
