@@ -5,7 +5,7 @@ class Sipaham extends CI_Controller {
 
 	public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sipaham?KEY=boba'),
+            'data' => $this->bodo->Curel('sipaham?KEY=boba'),
             'item_active' => 'Applications/Sipaham/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Sipaham/index/'),
             'siteTitle' => 'Data Konflik | ' . $this->bodo->Sys('app_name'),

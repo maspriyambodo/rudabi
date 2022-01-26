@@ -21,8 +21,8 @@ class Isian extends CI_Controller {
 
     public function index() {
         $data = [
-            'urung_input' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Rekap?KEY=boba'),
-            'rekap' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Isian?KEY=boba'),
+            'urung_input' => $this->bodo->Curel('monev/Rekap?KEY=boba'),
+            'rekap' => $this->bodo->Curel('monev/Isian?KEY=boba'),
             'item_active' => 'Applications/Emonev/Isian/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Isian/index/'),
             'siteTitle' => 'Rekapitulasi Isian KUA | ' . $this->bodo->Sys('app_name'),

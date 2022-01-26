@@ -25,7 +25,7 @@ class Laporan extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisablaporan?KEY=BOBA'),
+            'data' => $this->bodo->Curel('siihat/hisablaporan?KEY=BOBA'),
             'item_active' => 'Applications/Binsyar/Laporan/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Laporan/index/'),
             'siteTitle' => 'Data Laporan Hisab | ' . $this->bodo->Sys('app_name'),
@@ -45,7 +45,7 @@ class Laporan extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 12 as ukur_provinsi [1] => Jawa Barat as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisablaporan?KEY=BOBA&ukur_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('siihat/hisablaporan?KEY=BOBA&ukur_provinsi=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Laporan/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Laporan/index/'),

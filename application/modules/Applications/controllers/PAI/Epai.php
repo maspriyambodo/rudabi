@@ -21,7 +21,7 @@ class Epai extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'epay?KEY=BOBA'),
+            'data' => $this->bodo->Curel('epay?KEY=BOBA'),
             'item_active' => 'Applications/PAI/Epai/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Epai/index/'),
             'siteTitle' => 'Data Penyuluh Agama Islam | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Epai extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => AC as provinsi_kode [1] => Aceh as provinsi_nama)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'epay?KEY=BOBA&provinsi_kode=%27' . $param[0] . '%27'),
+            'data' => $this->bodo->Curel('epay?KEY=BOBA&provinsi_kode=%27' . $param[0] . '%27'),
             'param' => $param,
             'item_active' => 'Applications/PAI/Epai/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Epai/index/'),
@@ -67,7 +67,7 @@ class Epai extends CI_Controller {
     public function Detail() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => JK as provinsi_kode [1] => Jakarta as provinsi_nama [2] => JK01 as penyuluh_KabKota_Kode [3] => Kepulauan Seribu as kabkota_nama)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'epay/penyuluh?KEY=BOBA&penyuluh_KabKota_Kode=%27' . $param[2] . '%27'),
+            'data' => $this->bodo->Curel('epay/penyuluh?KEY=BOBA&penyuluh_KabKota_Kode=%27' . $param[2] . '%27'),
             'param' => $param,
             'item_active' => 'Applications/PAI/Epai/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Epai/index/'),

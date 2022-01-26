@@ -24,8 +24,8 @@ class Pensiun extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Sekretariat/Pensiun/index/'),
             'siteTitle' => 'SICAKEP - Data Pensiun | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Mutasi Pegawai Pensiun',
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=BOBA'),
-            'gol' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/golongan?KEY=BOBA'),
+            'data' => $this->bodo->Curel('sicakepp/pensiun?KEY=BOBA'),
+            'gol' => $this->bodo->Curel('sicakepp/golongan?KEY=BOBA'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pensiun',
@@ -46,8 +46,8 @@ class Pensiun extends CI_Controller {
             'siteTitle' => 'SICAKEP - Data Pensiun | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pensiun - Provinsi ' . $param[1],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=BOBA&peg_provinsi=' . $param[0]),
-            'gol' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/golongan?KEY=BOBA'),
+            'data' => $this->bodo->Curel('sicakepp/pensiun?KEY=BOBA&peg_provinsi=' . $param[0]),
+            'gol' => $this->bodo->Curel('sicakepp/golongan?KEY=BOBA'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pensiun',
@@ -73,7 +73,7 @@ class Pensiun extends CI_Controller {
             'siteTitle' => 'SICAKEP - Provinsi | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pensiun - ' . $param[1],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=boba&kab_id=' . $param[0]),
+            'data' => $this->bodo->Curel('sicakepp/pensiun?KEY=boba&kab_id=' . $param[0]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pensiun',
@@ -104,7 +104,7 @@ class Pensiun extends CI_Controller {
             'siteTitle' => 'SICAKEP - Provinsi | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pensiun - Golongan ' . $param[3],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp/pensiun?KEY=boba&kab_id=' . $param[0] . '&item_id=' . $param[2] . ''),
+            'data' => $this->bodo->Curel('sicakepp/pensiun?KEY=boba&kab_id=' . $param[0] . '&item_id=' . $param[2] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pensiun',

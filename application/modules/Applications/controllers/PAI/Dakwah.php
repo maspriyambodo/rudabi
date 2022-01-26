@@ -21,7 +21,7 @@ class Dakwah extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/dakwah?KEY=BOBA'),
+            'data' => $this->bodo->Curel('simpenaiss/dakwah?KEY=BOBA'),
             'item_active' => 'Applications/PAI/Dakwah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Dakwah/index/'),
             'siteTitle' => 'Lembaga Dakwah | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Dakwah extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 5 as province_id [1] => Jambi as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/dakwah?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenaiss/dakwah?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Dakwah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Dakwah/index/'),
@@ -67,7 +67,7 @@ class Dakwah extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 5 as province_id [1] => Jambi as province_title [2] => 190 as city_id [3] => Bantul as city_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/dakwah?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('simpenaiss/dakwah?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Dakwah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Dakwah/index/'),

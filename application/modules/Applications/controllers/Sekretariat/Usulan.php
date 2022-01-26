@@ -31,8 +31,8 @@ class Usulan extends CI_Controller {
             'siteTitle' => 'Data Usulan Triwulan | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Usulan Triwulan Tahun ' . $param[0],
             'param' => $param,
-            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . ''),
+            'pertahun' => $this->bodo->Curel('esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel('esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Usulan',
@@ -58,7 +58,7 @@ class Usulan extends CI_Controller {
             'siteTitle' => 'Data Usulan Triwulan | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Usulan Triwulan Tahun ' . $param[0],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . ''),
+            'data' => $this->bodo->Curel('esbsnn/usulantriwulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Usulan',

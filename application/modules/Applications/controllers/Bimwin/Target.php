@@ -21,7 +21,7 @@ class Target extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => json_decode(file_get_contents($this->bodo->Url_API() . 'embimwin/targetcatin2020?KEY=BOBA')),
+            'data' => json_decode($this->bodo->Curel('embimwin/targetcatin2020?KEY=BOBA')),
             'item_active' => 'Applications/Bimwin/Target/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Target/index/'),
             'siteTitle' => 'Data Target Catin | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Target extends CI_Controller {
         $data = [
             'id' => $id,
             'provinsi' => str_replace(['_', '%20'], ' ', $prov),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/targetcatin2020?KEY=BOBA&id_prop=' . $id),
+            'data' => $this->bodo->Curel('embimwin/targetcatin2020?KEY=BOBA&id_prop=' . $id),
             'item_active' => 'Applications/Bimwin/Target/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Target/index/'),
             'siteTitle' => 'Data Target Catin - Provinsi | ' . $this->bodo->Sys('app_name'),
@@ -64,7 +64,7 @@ class Target extends CI_Controller {
         if (strlen($id) <= 99) {
             $data = '[{"kabkot":0,"nama_lokasi":"","target_kabkot":"","anggaran":0,"total_anggaran":0,"realisasi_kabupaten":0,"total_realisasi":0,"persentase_realisasi":0}]';
         } else {
-            $data = $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/targetcatin2020?KEY=BOBA&id_prop=' . $dec);
+            $data = $this->bodo->Curel('embimwin/targetcatin2020?KEY=BOBA&id_prop=' . $dec);
         }
         $this->output
                 ->set_status_header(200)

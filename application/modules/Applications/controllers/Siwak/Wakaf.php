@@ -21,7 +21,7 @@ class Wakaf extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba'),
+            'data' => $this->bodo->Curel('siwaks/tanahwakaf?KEY=boba'),
             'item_active' => 'Applications/Siwak/Wakaf/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Siwak/Wakaf/index/'),
             'siteTitle' => 'Data Wakaf Tanah | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Wakaf extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 11 as Lokasi_Prop [1] => ACEH as lokasi_nama)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba&Lokasi_Prop=' . $param[0]),
+            'data' => $this->bodo->Curel('siwaks/tanahwakaf?KEY=boba&Lokasi_Prop=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Siwak/Wakaf/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Siwak/Wakaf/index/'),
@@ -67,7 +67,7 @@ class Wakaf extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 11 as Lokasi_Prop [1] => ACEH as lokasi_nama [2] => 11.06 as lokasi_kode [3] => KABUPATEN ACEH BARAT as lokasi_nama)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba&lokasi_kode=' . $param[2]),
+            'data' => $this->bodo->Curel('siwaks/tanahwakaf?KEY=boba&lokasi_kode=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/Siwak/Wakaf/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Siwak/Wakaf/index/'),
@@ -98,7 +98,7 @@ class Wakaf extends CI_Controller {
     public function Kecamatan() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 11 [1] => ACEH as lokasi_nama [2] => 11.05 as lokasi_kode [3] => KABUPATEN ACEH TENGAH as lokasi_nama [4] => 68679 as lokasi_ID [5] => KOTA TAKENGON as lokasi_nama)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siwaks/tanahwakaf?KEY=boba&lokasi_ID=' . $param[4]),
+            'data' => $this->bodo->Curel('siwaks/tanahwakaf?KEY=boba&lokasi_ID=' . $param[4]),
             'param' => $param,
             'item_active' => 'Applications/Siwak/Wakaf/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Siwak/Wakaf/index/'),

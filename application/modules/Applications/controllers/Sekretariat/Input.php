@@ -34,8 +34,8 @@ class Input extends CI_Controller {
             'siteTitle' => 'Data Input Triwulan | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Input Triwulan Tahun ' . $param[0],
             'param' => $param,
-            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . ''),
+            'pertahun' => $this->bodo->Curel('esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel('esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Input',
@@ -61,7 +61,7 @@ class Input extends CI_Controller {
             'siteTitle' => 'Data Input Triwulan | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Input provinsi ' . $param[2] . ' Tahun ' . $param[0],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . ''),
+            'data' => $this->bodo->Curel('esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[0] . '&usul_propinsi=' . $param[1] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Input',
@@ -94,7 +94,7 @@ class Input extends CI_Controller {
             'siteTitle' => 'Data Input Triwulan | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Input Triwulan ' . $param[0] . ' Tahun ' . $param[1],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3]),
+            'data' => $this->bodo->Curel('esbsnn/inputusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Input',

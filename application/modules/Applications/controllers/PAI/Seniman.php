@@ -21,7 +21,7 @@ class Seniman extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/seniman?KEY=BOBA'),
+            'data' => $this->bodo->Curel('simpenaiss/seniman?KEY=BOBA'),
             'item_active' => 'Applications/PAI/Seniman/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Seniman/index/'),
             'siteTitle' => 'Data Seniman Islam | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Seniman extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 8 as province_id [1] => Bengkulu as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/seniman?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenaiss/seniman?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Seniman/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Seniman/index/'),
@@ -67,7 +67,7 @@ class Seniman extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 17 as province_id [1] => Banten as province_title [2] => 233 as city_id [3] => Lebak city_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/seniman?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('simpenaiss/seniman?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Seniman/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Seniman/index/'),

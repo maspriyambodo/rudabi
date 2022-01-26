@@ -29,7 +29,7 @@ class Lokasi extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Lokasi/index/'),
             'siteTitle' => 'Data Hisab Lokasi | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Hisab Lokasi',
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisablokasi?KEY=boba'),
+            'data' => $this->bodo->Curel('siihat/hisablokasi?KEY=boba'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Home',
@@ -46,7 +46,7 @@ class Lokasi extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2 as lokasi_provinsi [1] => Sumatera Utara as province_title)
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisablokasi?KEY=boba&lokasi_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('siihat/hisablokasi?KEY=boba&lokasi_provinsi=' . $param[0]),
             'item_active' => 'Applications/Binsyar/Lokasi/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Lokasi/index/'),
             'siteTitle' => 'Data Hisab Lokasi | ' . $this->bodo->Sys('app_name'),

@@ -5,7 +5,7 @@ class Baznas extends CI_Controller {
 
 	public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simzat/baznas?KEY=boba'),
+            'data' => $this->bodo->Curel('simzat/baznas?KEY=boba'),
             'item_active' => 'Applications/Simzat/Baznas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simzat/Baznas/index/'),
             'siteTitle' => 'Data Baznas | ' . $this->bodo->Sys('app_name'),

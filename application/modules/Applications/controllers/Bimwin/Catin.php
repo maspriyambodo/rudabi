@@ -21,7 +21,7 @@ class Catin extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba'),
+            'data' => $this->bodo->Curel('embimwin/datacatin?KEY=boba'),
             'item_active' => 'Applications/Bimwin/Catin/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Catin/index/'),
             'siteTitle' => 'Data Catin | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Catin extends CI_Controller {
     public function Tahun() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2020 as tahun_target_wilayah)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0]),
+            'data' => $this->bodo->Curel('embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Bimwin/Catin/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Catin/index/'),
@@ -67,7 +67,7 @@ class Catin extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2020 as tahun_target_wilayah [1] => 11 as id_prop [2] => DKI JAKARTA as nama_lokasi)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0] . '&id_prop=' . $param[1]),
+            'data' => $this->bodo->Curel('embimwin/datacatin?KEY=boba&tahun_target_wilayah=' . $param[0] . '&id_prop=' . $param[1]),
             'param' => $param,
             'item_active' => 'Applications/Bimwin/Catin/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Catin/index/'),
@@ -98,7 +98,7 @@ class Catin extends CI_Controller {
     public function Detail() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2020 as tahun_target_wilayah [1] => 16 as id_prop [2] => JAWA TIMUR as nama_lokasi [3] => 162600 as kabkot [4] => KAB. BANGKALAN as nama_lokasi)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/datacatin?KEY=boba&tahun_target_kua=' . $param[0] . '&kabkot=' . $param[3]),
+            'data' => $this->bodo->Curel('embimwin/datacatin?KEY=boba&tahun_target_kua=' . $param[0] . '&kabkot=' . $param[3]),
             'param' => $param,
             'item_active' => 'Applications/Bimwin/Catin/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Catin/index/'),

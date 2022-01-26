@@ -21,8 +21,8 @@ class Registrasi extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regmenag?KEY=boba'),
-            'regkua' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regkua?KEY=boba'),
+            'data' => $this->bodo->Curel('monev/regmenag?KEY=boba'),
+            'regkua' => $this->bodo->Curel('monev/regkua?KEY=boba'),
             'item_active' => 'Applications/Emonev/Registrasi/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Registrasi/index/'),
             'siteTitle' => 'Rekapitulasi Registrasi KANKEMENAG | ' . $this->bodo->Sys('app_name'),
@@ -43,7 +43,7 @@ class Registrasi extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param =Array ( [0] => 0 [1] => akun tidak aktif )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regmenag?KEY=boba&status=' . $param[0]),
+            'data' => $this->bodo->Curel('monev/regmenag?KEY=boba&status=' . $param[0]),
             'item_active' => 'Applications/Emonev/Registrasi/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Registrasi/index/'),
             'siteTitle' => 'Rekapitulasi Registrasi KANKEMENAG | ' . $this->bodo->Sys('app_name'),
@@ -69,7 +69,7 @@ class Registrasi extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 [1] => akun butuh approval )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/regkua?KEY=boba&status=' . $param[0]),
+            'data' => $this->bodo->Curel('monev/regkua?KEY=boba&status=' . $param[0]),
             'item_active' => 'Applications/Emonev/Registrasi/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Registrasi/index/'),
             'siteTitle' => 'Rekapitulasi Registrasi KANKEMENAG | ' . $this->bodo->Sys('app_name'),

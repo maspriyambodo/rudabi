@@ -21,7 +21,7 @@ class KUA extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/kua?KEY=boba'),
+            'data' => $this->bodo->Curel('simpenghulu/kua?KEY=boba'),
             'item_active' => 'Applications/Simpenghulu/KUA/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/KUA/index/'),
             'siteTitle' => 'Data Penghulu | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class KUA extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as kua_province_id [1] => Jawa Timur as province_title )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/kua?KEY=boba&kua_province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/kua?KEY=boba&kua_province_id=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/KUA/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/KUA/index/'),
             'siteTitle' => 'Data Penghulu | ' . $this->bodo->Sys('app_name'),
@@ -68,7 +68,7 @@ class KUA extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 225 as kua_city_id [1] => Kab. Malang as city_title [2] => 16 as kua_province_id [3] => Jawa Timur as province_title)
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/kua?KEY=boba&kua_city_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/kua?KEY=boba&kua_city_id=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/KUA/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/KUA/index/'),
             'siteTitle' => 'Data Penghulu | ' . $this->bodo->Sys('app_name'),

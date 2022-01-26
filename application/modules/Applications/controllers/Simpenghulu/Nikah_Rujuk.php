@@ -22,13 +22,13 @@ class Nikah_Rujuk extends CI_Controller {
     public function index() {
         $param = $this->bodo->Url($this->input->post_get('key'));
         $a[0] = (object) ['rekap_tahun' => 'Semua Tahun'];
-        $b = json_decode($this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/kategoritahun?KEY=boba'));
+        $b = json_decode($this->bodo->Curel('simpenghulu/kategoritahun?KEY=boba'));
         if (!isset($param)) {
-            $url = $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba');
+            $url = $this->bodo->Curel('simpenghulu/nikahrujuk?KEY=boba');
         } elseif ($param[0] == "Semua Tahun") {
-            $url = $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba');
+            $url = $this->bodo->Curel('simpenghulu/nikahrujuk?KEY=boba');
         } else {
-            $url = $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba&rekap_tahun=' . $param[0]);
+            $url = $this->bodo->Curel('simpenghulu/nikahrujuk?KEY=boba&rekap_tahun=' . $param[0]);
         }
         $data = [
             'param' => $param,
@@ -54,7 +54,7 @@ class Nikah_Rujuk extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2020 as rekap_tahun [1] => 1 as rekap_province [2] => ACEH province_title)
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba&rekap_province=' . $param[1] . '&rekap_tahun=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/nikahrujuk?KEY=boba&rekap_province=' . $param[1] . '&rekap_tahun=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/Nikah_Rujuk/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Nikah_Rujuk/index/'),
             'siteTitle' => 'Rekapitulasi Nikah & Rujuk | ' . $this->bodo->Sys('app_name'),
@@ -84,7 +84,7 @@ class Nikah_Rujuk extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 2020 as rekap_tahun [1] => 1 as rekap_province [2] => Aceh as province_title [3] => 13 as city_id [4] => Kab. Aceh Gayo Lues as city_title ) 
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikahrujuk?KEY=boba&city_id=' . $param[3] . '&rekap_tahun=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/nikahrujuk?KEY=boba&city_id=' . $param[3] . '&rekap_tahun=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/Nikah_Rujuk/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Nikah_Rujuk/index/'),
             'siteTitle' => 'Rekapitulasi Nikah & Rujuk | ' . $this->bodo->Sys('app_name'),

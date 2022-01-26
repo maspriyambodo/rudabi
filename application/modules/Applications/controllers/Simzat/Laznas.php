@@ -5,7 +5,7 @@ class Laznas extends CI_Controller {
 
 	public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simzat/laznas?KEY=boba'),
+            'data' => $this->bodo->Curel('simzat/laznas?KEY=boba'),
             'item_active' => 'Applications/Simzat/Laznas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simzat/Laznas/index/'),
             'siteTitle' => 'Data Laznas | ' . $this->bodo->Sys('app_name'),

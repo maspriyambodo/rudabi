@@ -21,7 +21,7 @@ class Ormas extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/ormas?KEY=BOBA'),
+            'data' => $this->bodo->Curel('simpenaiss/ormas?KEY=BOBA'),
             'item_active' => 'Applications/PAI/Ormas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Ormas/index/'),
             'siteTitle' => 'Ormas Islam | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Ormas extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 12 as province_id [1] => DKI Jakarta as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/ormas?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenaiss/ormas?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Ormas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Ormas/index/'),
@@ -67,7 +67,7 @@ class Ormas extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as province_id [1] => Jawa Timur as province_title [2] => 215 as city_id [3] => Bojonegoro as city_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/ormas?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('simpenaiss/ormas?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Ormas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Ormas/index/'),

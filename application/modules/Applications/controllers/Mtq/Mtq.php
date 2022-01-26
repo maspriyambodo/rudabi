@@ -27,7 +27,7 @@ class Mtq extends CI_Controller {
     public function index() {
         $data = [
             'csrf' => $this->bodo->Csrf(),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'mtq/detailpesertapropinsi?KEY=boba'),
+            'data' => $this->bodo->Curel('mtq/detailpesertapropinsi?KEY=boba'),
             'item_active' => 'Applications/Mtq/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Mtq/index/'),
             'pagetitle' => 'Data M T Q',
@@ -58,7 +58,7 @@ class Mtq extends CI_Controller {
     public function propinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 13 provinsi_id [1] => JAWA BARAT as provinsi_name)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'mtq/per_propinsi?KEY=boba&id=' . $param[0]),
+            'data' => $this->bodo->Curel('mtq/per_propinsi?KEY=boba&id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Mtq/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Mtq/index/'),

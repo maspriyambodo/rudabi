@@ -25,7 +25,7 @@ class Lintang extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/datalintang?KEY=BOBA'),
+            'data' => $this->bodo->Curel('siihat/datalintang?KEY=BOBA'),
             'item_active' => 'Applications/Binsyar/Lintang/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Lintang/index/'),
             'siteTitle' => 'Data Lintang Kota | ' . $this->bodo->Sys('app_name'),
@@ -45,7 +45,7 @@ class Lintang extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as nama_propinsi [1] => Aceh as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/datalintang?KEY=BOBA&nama_propinsi=1'),
+            'data' => $this->bodo->Curel('siihat/datalintang?KEY=BOBA&nama_propinsi=1'),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Lintang/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Lintang/index/'),

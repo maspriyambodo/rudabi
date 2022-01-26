@@ -29,7 +29,7 @@ class Sihat extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Sihat/index/'),
             'siteTitle' => 'Data Alat Hisab Rukyat | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Alat Hisab Rukyat',
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/alat2020?KEY=BOBA'),
+            'data' => $this->bodo->Curel('siihat/alat2020?KEY=BOBA'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Home',
@@ -49,7 +49,7 @@ class Sihat extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Sihat/index/'),
             'siteTitle' => 'Data Alat Hisab Rukyat | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Alat Hisab Rukyat - Provinsi ' . $param[1],
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/alat2020?KEY=BOBA&alat_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('siihat/alat2020?KEY=BOBA&alat_provinsi=' . $param[0]),
             'param' => $param,
             'breadcrumb' => [
                 0 => [

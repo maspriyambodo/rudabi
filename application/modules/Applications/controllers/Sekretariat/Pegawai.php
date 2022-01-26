@@ -29,7 +29,7 @@ class Pegawai extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Sekretariat/Pegawai/index/'),
             'siteTitle' => 'SICAKEP - Data Pegawai | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pegawai',
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA'),
+            'data' => $this->bodo->Curel('sicakepp?KEY=BOBA'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pegawai',
@@ -50,7 +50,7 @@ class Pegawai extends CI_Controller {
             'siteTitle' => 'Data Pegawai - Provinsi | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pegawai - Provinsi ' . $param[0],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA&peg_provinsi=' . $param[1]),
+            'data' => $this->bodo->Curel('sicakepp?KEY=BOBA&peg_provinsi=' . $param[1]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pegawai',
@@ -76,7 +76,7 @@ class Pegawai extends CI_Controller {
             'siteTitle' => 'Data Pegawai - Kabupaten | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pegawai - ' . $param[0],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA&peg_kabupaten=' . $param[1]),
+            'data' => $this->bodo->Curel('sicakepp?KEY=BOBA&peg_kabupaten=' . $param[1]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pegawai',
@@ -107,7 +107,7 @@ class Pegawai extends CI_Controller {
             'siteTitle' => 'Data Pegawai - Kabupaten | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Pegawai - ' . $param[1],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'sicakepp?KEY=BOBA&peg_id=' . $param[0]),
+            'data' => $this->bodo->Curel('sicakepp?KEY=BOBA&peg_id=' . $param[0]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Pegawai',

@@ -21,7 +21,7 @@ class Tipologi extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/tipologi?KEY=boba'),
+            'data' => $this->bodo->Curel('monev/tipologi?KEY=boba'),
             'item_active' => 'Applications/Emonev/Tipologi/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Tipologi/index/'),
             'siteTitle' => 'Data Tipologi KUA | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Tipologi extends CI_Controller {
         $param = $this->bodo->Url(Post_get("key"));
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Tipokua?KEY=boba&tipokua=' . $param[0]),
+            'data' => $this->bodo->Curel('monev/Tipokua?KEY=boba&tipokua=' . $param[0]),
             'item_active' => 'Applications/Emonev/Tipologi/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Tipologi/index/'),
             'siteTitle' => 'Jenis Tipologi KUA | ' . $this->bodo->Sys('app_name'),

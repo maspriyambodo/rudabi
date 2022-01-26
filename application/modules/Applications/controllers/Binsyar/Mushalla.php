@@ -25,7 +25,7 @@ class Mushalla extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamushalla?KEY=boba'),
+            'data' => $this->bodo->Curel('eimas/datamushalla?KEY=boba'),
             'item_active' => 'Applications/Binsyar/Mushalla/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Mushalla/index/'),
             'siteTitle' => 'Data Mushalla | ' . $this->bodo->Sys('app_name'),
@@ -45,7 +45,7 @@ class Mushalla extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as provinsi_id [1] => ACEH as provinsi_name )
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamushalla?KEY=boba&provinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel('eimas/datamushalla?KEY=boba&provinsi_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Mushalla/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Mushalla/index/'),
@@ -71,7 +71,7 @@ class Mushalla extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as provinsi_id [1] => JAWA TIMUR as provinsi_name [2] => 236 as kabupaten_id [3] => KAB. MALANG as kabupaten_name)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamushalla?KEY=boba&kabupaten_id=' . $param[2]),
+            'data' => $this->bodo->Curel('eimas/datamushalla?KEY=boba&kabupaten_id=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Mushalla/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Mushalla/index/'),
@@ -102,7 +102,7 @@ class Mushalla extends CI_Controller {
     public function Detail() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as provinsi_id [1] => JAWA TIMUR as provinsi_name [2] => 236 as kabupaten_id [3] => KAB. MALANG as kabupaten_name [4] => 239 as kecamatan_id [5] => Rantau as kecamatan_name)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamushalla?KEY=boba&kecamatan_id=' . $param[4]),
+            'data' => $this->bodo->Curel('eimas/datamushalla?KEY=boba&kecamatan_id=' . $param[4]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Mushalla/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Mushalla/index/'),

@@ -21,7 +21,7 @@ class Peristiwa extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikah?KEY=boba'),
+            'data' => $this->bodo->Curel('simpenghulu/nikah?KEY=boba'),
             'item_active' => 'Applications/Simpenghulu/Peristiwa/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Peristiwa/index/'),
             'siteTitle' => 'Rekapitulasi Data Peristiwa Nikah | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Peristiwa extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as city_province [1] => Aceh as province_title )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikah?KEY=boba&city_province=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/nikah?KEY=boba&city_province=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/Peristiwa/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Peristiwa/index/'),
             'siteTitle' => 'Rekapitulasi Data Peristiwa Nikah | ' . $this->bodo->Sys('app_name'),
@@ -68,7 +68,7 @@ class Peristiwa extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 3 as nikah_city_id [1] => Kab. Aceh Selatan as city_title [2] => 1 as city_province [3] => Aceh as province_title ) 
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/nikah?KEY=boba&nikah_city_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/nikah?KEY=boba&nikah_city_id=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/Peristiwa/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Peristiwa/index/'),
             'siteTitle' => 'Rekapitulasi Data Peristiwa Nikah | ' . $this->bodo->Sys('app_name'),

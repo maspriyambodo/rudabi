@@ -29,7 +29,7 @@ class Pengukuran extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Pengukuran/index/'),
             'siteTitle' => 'Data Hisab Pengukuran | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Hisab Pengukuran',
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisabpengukuran?KEY=boba'),
+            'data' => $this->bodo->Curel('siihat/hisabpengukuran?KEY=boba'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Home',
@@ -50,7 +50,7 @@ class Pengukuran extends CI_Controller {
             'siteTitle' => 'Data Hisab Pengukuran | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Hisab Pengukuran - Provinsi ' . $param[1],
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/hisabpengukuran?KEY=boba&ukur_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('siihat/hisabpengukuran?KEY=boba&ukur_provinsi=' . $param[0]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Home',

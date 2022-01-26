@@ -31,7 +31,7 @@ class Satker extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Sekretariat/Satker/index/'),
             'siteTitle' => 'Data SATKER | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Satker Tahun ' . date('Y'),
-            'data' => file_get_contents($this->bodo->Url_API() . 'esbsnn?KEY=boba'),
+            'data' => file_get_contents('esbsnn?KEY=boba'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Satker',
@@ -63,7 +63,7 @@ class Satker extends CI_Controller {
                     'status' => true
                 ]
             ],
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel('esbsnn?KEY=BOBA&kab_propinsi_id=' . $param[0]),
             'param' => $param
         ];
         $data['content'] = $this->parser->parse('Satker/V_Provinsi', $data, true);

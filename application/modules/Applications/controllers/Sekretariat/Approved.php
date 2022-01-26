@@ -29,8 +29,8 @@ class Approved extends CI_Controller {
             'siteTitle' => 'Data Approved Usulan Tahun | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Approved Usulan Tahun ' . $param[0],
             'param' => $param,
-            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[0]),
+            'pertahun' => $this->bodo->Curel('esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel('esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[0]),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Approved',
@@ -56,8 +56,8 @@ class Approved extends CI_Controller {
             'siteTitle' => 'Data Approved Usulan Tahun | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Approved Usulan Tahun ' . $param[1],
             'param' => $param,
-            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . ''),
+            'pertahun' => $this->bodo->Curel('esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel('esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Approved',
@@ -83,8 +83,8 @@ class Approved extends CI_Controller {
             'siteTitle' => 'Data Approved Usulan Tahun | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Approved Provinsi ' . $param[0] . ' Tahun ' . $param[1],
             'param' => $param,
-            'pertahun' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/pertahun?KEY=BOBA'),
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3] . ''),
+            'pertahun' => $this->bodo->Curel('esbsnn/pertahun?KEY=BOBA'),
+            'data' => $this->bodo->Curel('esbsnn/approveusulan?KEY=BOBA&usul_tahun=' . $param[1] . '&usul_propinsi=' . $param[2] . '&usul_kabupaten=' . $param[3] . ''),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Approved',

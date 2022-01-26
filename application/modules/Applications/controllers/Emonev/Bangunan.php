@@ -21,7 +21,7 @@ class Bangunan extends CI_Controller {
 
     public function index() {
         $data = [
-            'bangunan' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Statbangunan?KEY=boba'),
+            'bangunan' => $this->bodo->Curel('monev/Statbangunan?KEY=boba'),
             'item_active' => 'Applications/Emonev/Bangunan/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Bangunan/index/'),
             'siteTitle' => 'Status Bangunan KUA | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Bangunan extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 0 [1] => Tidak Mengisi Inputan )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Stat_bangunan?KEY=boba&status=' . $param[0]),
+            'data' => $this->bodo->Curel('monev/Stat_bangunan?KEY=boba&status=' . $param[0]),
             'item_active' => 'Applications/Emonev/Bangunan/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Bangunan/index/'),
             'siteTitle' => 'Status Bangunan KUA | ' . $this->bodo->Sys('app_name'),

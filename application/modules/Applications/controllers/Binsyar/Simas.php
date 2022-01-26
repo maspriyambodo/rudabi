@@ -21,11 +21,17 @@ class Simas extends CI_Controller {
 
     public function __construct() {
         parent::__construct();
+        $this->load->library('user_agent');
+        $this->curl = new Curl\Curl();
+        $this->curl->disableTimeout();
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
     }
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamasjid?KEY=boba'),
+            'data' => $this->bodo->Curel('eimas/datamasjid?KEY=boba'),
             'item_active' => 'Applications/Binsyar/Simas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Simas/index/'),
             'siteTitle' => 'Data Masjid | ' . $this->bodo->Sys('app_name'),
@@ -45,7 +51,7 @@ class Simas extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 13 provinsi_id [1] => JAWA BARAT as provinsi_name)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamasjid?KEY=boba&provinsi_id=' . $param[0]),
+            'data' => $this->bodo->Curel('eimas/datamasjid?KEY=boba&provinsi_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Simas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Simas/index/'),
@@ -71,7 +77,7 @@ class Simas extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 13 as provinsi_id [1] => JAWA BARAT as provinsi_name [2] => 165 as kabupaten_id [3] => KAB. SUKABUMI as kabupaten_name)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamasjid?KEY=boba&kabupaten_id=' . $param[2]),
+            'data' => $this->bodo->Curel('eimas/datamasjid?KEY=boba&kabupaten_id=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Simas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Simas/index/'),
@@ -102,7 +108,7 @@ class Simas extends CI_Controller {
     public function Kecamatan() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 13 as provinsi_id [1] => JAWA BARAT as provinsi_name [2] => 165 as kabupaten_id [3] => KAB. SUKABUMI as kabupaten_name [4] => 2075 as kecamatan_id [5] => Surade as kecamatan_name ) 
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/datamasjid?KEY=boba&kecamatan_id=' . $param[4]),
+            'data' => $this->bodo->Curel('eimas/datamasjid?KEY=boba&kecamatan_id=' . $param[4]),
             'param' => $param,
             'item_active' => 'Applications/Binsyar/Simas/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Simas/index/'),

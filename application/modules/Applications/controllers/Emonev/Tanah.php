@@ -21,7 +21,7 @@ class Tanah extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/statustanah?KEY=boba'),
+            'data' => $this->bodo->Curel('monev/statustanah?KEY=boba'),
             'item_active' => 'Applications/Emonev/Tanah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Tanah/index/'),
             'siteTitle' => 'Status Tanah KUA | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Tanah extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 0 [1] => Tidak Mengisi Inputan )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/Stattanah?KEY=boba&statustanah=' . $param[0]),
+            'data' => $this->bodo->Curel('monev/Stattanah?KEY=boba&statustanah=' . $param[0]),
             'item_active' => 'Applications/Emonev/Tanah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Tanah/index/'),
             'siteTitle' => 'Status Tanah KUA | ' . $this->bodo->Sys('app_name'),

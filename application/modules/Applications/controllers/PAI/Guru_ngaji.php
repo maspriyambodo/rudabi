@@ -21,7 +21,7 @@ class Guru_ngaji extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/tokoh?KEY=BOBA'),
+            'data' => $this->bodo->Curel('simpenaiss/tokoh?KEY=BOBA'),
             'item_active' => 'Applications/PAI/Guru_ngaji/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Guru_ngaji/index/'),
             'siteTitle' => 'Guru Mengaji | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class Guru_ngaji extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as province_id [1] => Jawa Timur as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/tokoh?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenaiss/tokoh?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Guru_ngaji/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Guru_ngaji/index/'),
@@ -67,7 +67,7 @@ class Guru_ngaji extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 16 as province_id [1] => Jawa Timur as province_title [2] => 215 as city_id [3] => Bojonegoro as city_title )
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/tokoh?KEY=BOBA&city_id=' . $param[2]),
+            'data' => $this->bodo->Curel('simpenaiss/tokoh?KEY=BOBA&city_id=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/PAI/Guru_ngaji/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/Guru_ngaji/index/'),

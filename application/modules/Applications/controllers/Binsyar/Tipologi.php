@@ -25,7 +25,7 @@ class Tipologi extends CI_Controller {
 
     public function Masjid() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/tipologimasjid?KEY=boba'),
+            'data' => $this->bodo->Curel('eimas/tipologimasjid?KEY=boba'),
             'item_active' => 'Applications/Binsyar/Tipologi/Masjid/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Tipologi/Masjid/'),
             'siteTitle' => 'Data Masjid Tipologi | ' . $this->bodo->Sys('app_name'),
@@ -44,7 +44,7 @@ class Tipologi extends CI_Controller {
 
     public function Mushalla() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'eimas/tipologimushalla?KEY=boba'),
+            'data' => $this->bodo->Curel('eimas/tipologimushalla?KEY=boba'),
             'item_active' => 'Applications/Binsyar/Tipologi/Mushalla/',
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Tipologi/Mushalla/'),
             'siteTitle' => 'Data Mushalla Tipologi | ' . $this->bodo->Sys('app_name'),

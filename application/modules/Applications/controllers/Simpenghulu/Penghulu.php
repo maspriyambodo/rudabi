@@ -21,7 +21,7 @@ class Penghulu extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/penghulu?KEY=boba'),
+            'data' => $this->bodo->Curel('simpenghulu/penghulu?KEY=boba'),
             'item_active' => 'Applications/Simpenghulu/Penghulu/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Penghulu/index/'),
             'siteTitle' => 'Rekapitulasi Data Penghulu | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Penghulu extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 13 as city_province [1] => Jawa Barat as province_title)
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/penghulu?KEY=boba&city_province=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/penghulu?KEY=boba&city_province=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/Penghulu/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Penghulu/index/'),
             'siteTitle' => 'Rekapitulasi Data Penghulu | ' . $this->bodo->Sys('app_name'),
@@ -68,7 +68,7 @@ class Penghulu extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 129 as city_id [1] => Kab. Bogor as city_title [2] => 13 as city_province [3] => Jawa Barat as province_title) 
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenghulu/penghulu?KEY=boba&city_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenghulu/penghulu?KEY=boba&city_id=' . $param[0]),
             'item_active' => 'Applications/Simpenghulu/Penghulu/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Simpenghulu/Penghulu/index/'),
             'siteTitle' => 'Rekapitulasi Data Penghulu | ' . $this->bodo->Sys('app_name'),

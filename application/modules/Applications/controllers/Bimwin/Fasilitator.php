@@ -25,7 +25,7 @@ class Fasilitator extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/fasilitator?KEY=boba'),
+            'data' => $this->bodo->Curel('embimwin/fasilitator?KEY=boba'),
             'item_active' => 'Applications/Bimwin/Fasilitator/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Fasilitator/index/'),
             'siteTitle' => 'Data Fasilitator | ' . $this->bodo->Sys('app_name'),
@@ -45,7 +45,7 @@ class Fasilitator extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 1 as id_j_kegiatan [1] => Bimbingan Pra Nikah as jenis_kegiatan)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'embimwin/fasilitator?KEY=boba&id_j_kegiatan=' . $param[0]),
+            'data' => $this->bodo->Curel('embimwin/fasilitator?KEY=boba&id_j_kegiatan=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/Bimwin/Fasilitator/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Bimwin/Fasilitator/index/'),

@@ -29,7 +29,7 @@ class Ahli extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Ahli/index/'),
             'siteTitle' => 'Data Tenaga Ahli | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Tenaga Ahli',
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/tenagaahli?KEY=boba'),
+            'data' => $this->bodo->Curel('siihat/tenagaahli?KEY=boba'),
             'breadcrumb' => [
                 0 => [
                     'nama' => 'Home',
@@ -49,7 +49,7 @@ class Ahli extends CI_Controller {
             'privilege' => $this->bodo->Check_previlege('Applications/Binsyar/Ahli/index/'),
             'siteTitle' => 'Data Tenaga Ahli | ' . $this->bodo->Sys('app_name'),
             'pagetitle' => 'Data Tenaga Ahli - Provinsi ' . $param[1],
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'siihat/tenagaahli?KEY=boba&tenaga_provinsi=' . $param[0]),
+            'data' => $this->bodo->Curel('siihat/tenagaahli?KEY=boba&tenaga_provinsi=' . $param[0]),
             'param' => $param,
             'breadcrumb' => [
                 0 => [

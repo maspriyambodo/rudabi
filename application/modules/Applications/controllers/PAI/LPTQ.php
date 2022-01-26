@@ -21,7 +21,7 @@ class LPTQ extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/lsm?KEY=BOBA'),
+            'data' => $this->bodo->Curel('simpenaiss/lsm?KEY=BOBA'),
             'item_active' => 'Applications/PAI/LPTQ/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/LPTQ/index/'),
             'siteTitle' => 'LPTQ | ' . $this->bodo->Sys('app_name'),
@@ -41,7 +41,7 @@ class LPTQ extends CI_Controller {
     public function Provinsi() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 18 as province_id [1] => Bali as province_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/lsm?KEY=BOBA&province_id=' . $param[0]),
+            'data' => $this->bodo->Curel('simpenaiss/lsm?KEY=BOBA&province_id=' . $param[0]),
             'param' => $param,
             'item_active' => 'Applications/PAI/LPTQ/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/LPTQ/index/'),
@@ -67,7 +67,7 @@ class LPTQ extends CI_Controller {
     public function Kabupaten() {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 18 as province_id [1] => Bali as province_title [2] => 246 as lsm_city [3] => Kota Denpasar as city_title)
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'simpenaiss/lsm?KEY=BOBA&lsm_city=' . $param[2]),
+            'data' => $this->bodo->Curel('simpenaiss/lsm?KEY=BOBA&lsm_city=' . $param[2]),
             'param' => $param,
             'item_active' => 'Applications/PAI/LPTQ/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/PAI/LPTQ/index/'),

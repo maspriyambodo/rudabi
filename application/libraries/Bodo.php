@@ -12,12 +12,20 @@ class Bodo {
     }
 
     public function Curel($url) {
-        $output = read_file($url);
-        return $output;
+        $this->CI->load->library('user_agent');
+        $this->CI->curl = new Curl\Curl();
+        $this->CI->curl->disableTimeout();
+        $this->CI->curl->setHeader('Connection', 'keep-alive');
+        $this->CI->curl->setHeader('User-Agent', $this->CI->agent->referrer());
+        $this->CI->curl->setFollowLocation(true);
+        $this->CI->curl->get('http://10.1.99.90/rudabi_api/datapi/' . $url);
+        $response = $this->CI->curl->response;
+//        $output = read_file($url);
+        return json_encode($response);
     }
 
     public function Url_API() {
-        $url = 'https://rudabi.kemenag.dev/rudabi_api/datapi/';
+        $url = 'http://10.1.99.90/rudabi_api/datapi/';
         return $url;
     }
 

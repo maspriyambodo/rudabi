@@ -21,7 +21,7 @@ class Simkah extends CI_Controller {
 
     public function index() {
         $data = [
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/simkah?KEY=boba'),
+            'data' => $this->bodo->Curel('monev/simkah?KEY=boba'),
             'item_active' => 'Applications/Emonev/Simkah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Simkah/index/'),
             'siteTitle' => 'Rekap Penggunaan SIMKAH | ' . $this->bodo->Sys('app_name'),
@@ -42,7 +42,7 @@ class Simkah extends CI_Controller {
         $param = $this->bodo->Url($this->input->post_get('key')); // output $param = Array ( [0] => 0 [1] => belum mengisi simkah )
         $data = [
             'param' => $param,
-            'data' => $this->bodo->Curel($this->bodo->Url_API() . 'monev/simkah?KEY=boba&simkah=' . $param[0]),
+            'data' => $this->bodo->Curel('monev/simkah?KEY=boba&simkah=' . $param[0]),
             'item_active' => 'Applications/Emonev/Simkah/index/',
             'privilege' => $this->bodo->Check_previlege('Applications/Emonev/Simkah/index/'),
             'siteTitle' => 'Rekap Penggunaan SIMKAH | ' . $this->bodo->Sys('app_name'),
