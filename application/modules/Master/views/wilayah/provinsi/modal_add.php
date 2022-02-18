@@ -15,7 +15,7 @@
                             <div class="form-group">
                                 <label for="prov_id">Provinsi ID:</label>
                                 <div class="input-group">
-                                    <input id="prov_id" type="text" name="prov_id" type="text" class="form-control" required="" autocomplete="off" onchange="Prov_id(this.value)" maxlength="2"/>
+                                    <input id="prov_id" type="text" name="prov_id" type="text" class="form-control" required="" autocomplete="off" onchange="Prov_id(this.value)" maxlength="2" onkeypress="return isNumber(event)"/>
                                     <div id="check_id" class="input-group-append"></div>
                                 </div>
                                 <input id="code_stat" type="hidden" name="code_stat" value=""/>

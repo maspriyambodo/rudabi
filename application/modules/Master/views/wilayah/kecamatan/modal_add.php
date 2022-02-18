@@ -27,7 +27,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="">ID Kecamatan:</label>
+                                <label for="a_id">ID Kecamatan:</label>
                                 <div class="input-group">
                                     <input id="a_id" name="a_id" type="text" class="form-control" max="10" autocomplete="off" required="" onkeypress="return isNumber(event)" onchange="Kecamatan_id(this.value)"/>
                                     <div id="check_id" class="input-group-append"></div>

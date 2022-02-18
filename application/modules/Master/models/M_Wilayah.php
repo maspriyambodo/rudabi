@@ -9,5 +9,5 @@ class M_Wilayah extends CI_Model {
         mysqli_next_result($this->db->conn_id);
         return $exec;
     }
-
+    
 }

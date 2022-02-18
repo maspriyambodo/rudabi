@@ -11,24 +11,6 @@ class Bodo {
         $this->role_id = $this->Dec($this->CI->session->userdata('role_id'));
     }
 
-    public function Curel($url) {
-        $this->CI->load->library('user_agent');
-        $this->CI->curl = new Curl\Curl();
-        $this->CI->curl->disableTimeout();
-        $this->CI->curl->setHeader('Connection', 'keep-alive');
-        $this->CI->curl->setHeader('User-Agent', $this->CI->agent->referrer());
-        $this->CI->curl->setFollowLocation(true);
-        $this->CI->curl->get('http://10.1.99.90/rudabi_api/datapi/' . $url);
-        $response = $this->CI->curl->response;
-//        $output = read_file($url);
-        return json_encode($response);
-    }
-
-    public function Url_API() {
-        $url = 'http://10.1.99.90/rudabi_api/datapi/';
-        return $url;
-    }
-
     public function Check_login() {
         if ($this->CI->session->userdata('id_user') and $this->CI->session->userdata('uname') and $this->CI->session->userdata('stat_aktif') and $this->CI->session->userdata('role_id')) {
             $result = true;
@@ -62,6 +44,15 @@ class Bodo {
             $result = show_404();
         }
         return $result;
+    }
+
+    public function Count_notif() {
+        if ($this->role_id == 1) {
+            $exec = $this->CI->M_notification->Count_notif_su();
+        } else {
+            $exec = $this->CI->M_notification->Count_notif();
+        }
+        return $exec;
     }
 
     public function Dec($enc) {
@@ -100,6 +91,24 @@ class Bodo {
             'avatar' => $param->pict
         ];
         $this->CI->session->set_userdata($data);
+    }
+    
+    public function Curel($url) {
+        $this->CI->load->library('user_agent');
+        $this->CI->curl = new Curl\Curl();
+        $this->CI->curl->disableTimeout();
+        $this->CI->curl->setHeader('Connection', 'keep-alive');
+        $this->CI->curl->setHeader('User-Agent', $this->CI->agent->referrer());
+        $this->CI->curl->setFollowLocation(true);
+        $this->CI->curl->get('http://10.1.99.90/rudabi_api/datapi/' . $url);
+        $response = $this->CI->curl->response;
+//        $output = read_file($url);
+        return json_encode($response);
+    }
+
+    public function Url_API() {
+        $url = 'http://10.1.99.90/rudabi_api/datapi/';
+        return $url;
     }
 
 }

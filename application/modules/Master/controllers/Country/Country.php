@@ -7,7 +7,68 @@ class Country extends CI_Controller {
     public function __construct() {
         parent::__construct();
         $this->load->model('M_country', 'model');
-        $this->user = $this->bodo->Dec($this->session->userdata('id_user'));
+        $this->user = Dekrip($this->session->userdata('id_user'));
+    }
+
+    public function lists() {
+        $list = $this->model->lists();
+        $data = [];
+        $no = Post_get("start");
+        $privilege = $this->bodo->Check_previlege('Master/Country/index/');
+        foreach ($list as $value) {
+            $id = Enkrip($value->id_country);
+            if ($value->flags) {
+                $flags = '<img src="' . base_url("assets/images/systems/flags/" . $value->flags) . '" width="25" alt="flag ' . $value->nama_country . '"/>';
+            } else {
+                $flags = null;
+            }
+            if ($value->stat) {
+                $stat = '<span class="label label-success label-inline font-weight-lighter mr-2">active</span>';
+            } else {
+                $stat = '<span class="label label-danger label-inline font-weight-lighter mr-2">nonactive</span>';
+            }
+            if ($privilege['update']) {
+                $editbtn = '<button id="editbtn" type="button" class="btn btn-icon btn-warning btn-xs" title="Edit Country" value="' . $id . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
+            } else {
+                $editbtn = null;
+            }
+            if ($privilege['delete'] and $value->stat) {
+                $delbtn = '<button id="delbtn" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete Country" value="' . $id . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
+            } elseif ($privilege['delete'] and!$value->stat) {
+                $delbtn = null;
+            } else {
+                $delbtn = null;
+            }
+            $no++;
+            $row = [];
+            $row[] = $no;
+            $row[] = $value->code_country;
+            $row[] = $value->nama_country;
+            $row[] = $flags;
+            $row[] = $stat;
+            $row[] = '<div class="btn-group">' . $editbtn . $delbtn . '</div>';
+            $data[] = $row;
+        }
+        return $this->_list($data, $privilege);
+    }
+
+    private function _list($data, $privilege) {
+        if ($privilege['read']) {
+            $output = [
+                "draw" => Post_get('draw'),
+                "recordsTotal" => $this->model->count_all(),
+                "recordsFiltered" => $this->model->count_filtered(),
+                "data" => $data
+            ];
+        } else {
+            $output = [
+                "draw" => Post_get('draw'),
+                "recordsTotal" => 0,
+                "recordsFiltered" => 0,
+                "data" => []
+            ];
+        }
+        ToJson($output);
     }
 
     private function _Save($bendera) {
@@ -33,9 +94,7 @@ class Country extends CI_Controller {
     }
 
     public function index() {
-        $param = ['param' => 'select', 'country_id' => 0, 'kode_negara' => 'NULL', 'nama_negara' => 'NULL', 'bendera' => 'NULL', 'user_login' => 'NULL'];
         $data = [
-            'data' => $this->model->index($param)->result(),
             'csrf' => $this->bodo->Csrf(),
             'item_active' => 'Master/Country/index/',
             'privilege' => $this->bodo->Check_previlege('Master/Country/index/'),
@@ -86,7 +145,7 @@ class Country extends CI_Controller {
     }
 
     public function Edit() {
-        $country_id = $this->bodo->Dec(Post_get("id"));
+        $country_id = Dekrip(Post_get("id"));
         $data = [
             'param' => 'get_detail',
             'country_id' => $country_id,
@@ -122,7 +181,7 @@ class Country extends CI_Controller {
         if (!$bendera['file_name']) {
             $result = redirect(base_url('Master/Country/index/'), $this->session->set_flashdata('err_msg', 'error while upload image flag'));
         } else {
-            $country_id = $this->bodo->Dec(Post_input("e_id"));
+            $country_id = Dekrip(Post_input("e_id"));
             $data = [
                 'param' => 'update',
                 'country_id' => $country_id,
@@ -142,7 +201,7 @@ class Country extends CI_Controller {
     }
 
     public function Delete() {
-        $country_id = $this->bodo->Dec(Post_input("d_id"));
+        $country_id = Dekrip(Post_input("d_id"));
         $data = [
             'param' => 'delete',
             'country_id' => $country_id,

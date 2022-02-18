@@ -24,64 +24,7 @@
                         <th>action</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <?php
-                    if (!$privilege['read']) { // jika memiliki privilege tambah atau create
-                        $data = [];
-                    }
-                    foreach ($data as $key => $a) {
-                        $id_country = Enkrip($a->id_country);
-                        ?>
-                        <tr>
-                            <td class="text-center">
-                                <?php
-                                static $id = 1;
-                                echo $id++;
-                                ?>
-                            </td>
-                            <td class="text-center"><?php echo $a->code_country; ?></td>
-                            <td><?php echo $a->nama_country; ?></td>
-                            <td class="text-center">
-                                <?php
-                                if ($a->flags) {
-                                    echo '<img src="' . base_url("assets/images/systems/flags/" . $a->flags) . '" width="25" alt="flag ' . $a->nama_country . '"/>';
-                                } else {
-                                    null;
-                                }
-                                ?>
-                            </td>
-                            <td class="text-center">
-                                <?php
-                                if ($a->stat) {
-                                    echo '<span class="label label-xl label-dot label-success" title="active"></span>';
-                                } else {
-                                    echo '<span class="label label-xl label-dot label-danger" title="non-active"></span>';
-                                }
-                                ?>
-                            </td>
-                            <td class="text-center">
-                                <?php
-                                $editbtn = '<button id="editbtn" type="button" class="btn btn-icon btn-warning btn-xs" title="Edit Country" value="' . $id_country . '" onclick="Edit(this.value)"><i class="far fa-edit"></i></button>';
-                                $delbtn = '<button id="delbtn" type="button" class="btn btn-icon btn-danger btn-xs" title="Delete Country" value="' . $id_country . '" onclick="Delete(this.value)"><i class="far fa-trash-alt"></i></button>';
-                                $activebtn = '<button id="actvbtn" type="button" class="btn btn-icon btn-default btn-xs" title="Set Active" value="' . $id_country . '" onclick="Active(this.value)"><i class="fas fa-unlock text-success"></i></button>';
-
-                                echo '<div class="btn-group">'; // open div btn-group
-
-                                if ($privilege['update']) { // jika memiliki privilege edit
-                                    echo $editbtn;
-                                }
-                                if (!$a->stat and $privilege['delete']) { // jika memiliki privilege delete
-                                    echo $activebtn;
-                                } elseif ($a->stat and $privilege['delete']) {
-                                    echo $delbtn;
-                                }
-
-                                echo '</div>'; //close div btn-group
-                                ?>
-                            </td>
-                        </tr>
-                    <?php } ?>
-                </tbody>
+                <tbody></tbody>
             </table>
         </div>
     </div>
@@ -94,7 +37,6 @@ if ($privilege['update']) {
 }
 if ($privilege['delete']) {
     require_once 'modal_delete.php';
-    require_once 'modal_activate.php';
 } else {
     null;
 }
@@ -129,7 +71,7 @@ unset($_SESSION['succ_msg']);
             toastr.success(b);
         }
         $('table').dataTable({
-            "ServerSide": true,
+            "serverSide": true,
             "order": [[0, "asc"]],
             "paging": true,
             "ordering": true,
@@ -148,6 +90,35 @@ unset($_SESSION['succ_msg']);
                 {extend: 'excelHtml5', footer: true},
                 {extend: 'csvHtml5', footer: true},
                 {extend: 'pdfHtml5', footer: true}
+            ],
+            "ajax": {
+                "url": "Master/Country/lists",
+                "type": "GET"
+            },
+            columnDefs: [
+                {
+                    targets: 0,
+                    className: 'text-center',
+                    orderable: false
+                },
+                {
+                    targets: 1,
+                    className: 'text-center'
+                },
+                {
+                    targets: 3,
+                    className: 'text-center',
+                    orderable: false
+                },
+                {
+                    targets: 4,
+                    className: 'text-center'
+                },
+                {
+                    targets: 5,
+                    className: 'text-center',
+                    orderable: false
+                }
             ]
         });
     };
