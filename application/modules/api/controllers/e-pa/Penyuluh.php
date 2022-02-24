@@ -18,7 +18,7 @@ class Penyuluh extends CI_Controller {
     }
 
     private function auth() {
-        $token = explode(':', base64_decode(Post_get('token')));
+        $token = explode(':', Dekrip(Post_get('token')));
         if (!empty($token) and Post_get('token')) {
             $data = [
                 'uname' => $token[0],
