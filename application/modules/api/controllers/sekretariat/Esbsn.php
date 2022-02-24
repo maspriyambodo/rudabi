@@ -13,7 +13,7 @@ class Esbsn extends CI_Controller {
     private function auth() {
         //http://rudabi.io/api/sekretariat/esbsn/lists?token=YWRtaW46YQ==
         $token = explode(':', base64_decode(Post_get('token')));
-        if (!empty($token)) {
+        if (!empty($token) and Post_get('token')) {
             $data = [
                 'uname' => $token[0],
                 'pwd' => $token[1]

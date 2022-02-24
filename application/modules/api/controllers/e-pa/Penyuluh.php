@@ -19,7 +19,7 @@ class Penyuluh extends CI_Controller {
 
     private function auth() {
         $token = explode(':', base64_decode(Post_get('token')));
-        if (!empty($token)) {
+        if (!empty($token) and Post_get('token')) {
             $data = [
                 'uname' => $token[0],
                 'pwd' => $token[1]
@@ -42,7 +42,6 @@ class Penyuluh extends CI_Controller {
 
     public function lists() {
         $this->auth();
-
         $prov_id = $this->input->get('prov_id');
         $list = $this->model->lists($prov_id);
         $data = [];
@@ -56,19 +55,18 @@ class Penyuluh extends CI_Controller {
                 $nama_wilayah = $penyuluh->kabupaten;
                 $id_wilayah = $penyuluh->id_kab;
             }
-            $jumlah = $penyuluh->jumlah_pns+$penyuluh->jumlah_nonpns;
+            $jumlah = $penyuluh->jumlah_pns + $penyuluh->jumlah_nonpns;
             $no++;
             $row = [];
-            $row[] = $no;
-            $row[] = $id_wilayah;
-            $row[] = $nama_wilayah;
-            $row[] = $penyuluh->jumlah_kua;
-            $row[] = $penyuluh->jumlah_pns;
-            $row[] = $penyuluh->jumlah_nonpns;
-            $row[] = str_replace("'", '"', $jumlah);
+            $row['norut'] = $no;
+            $row['id_wilayah'] = $id_wilayah;
+            $row['nama_wilayah'] = $nama_wilayah;
+            $row['jumlah_kua'] = $penyuluh->jumlah_kua;
+            $row['jumlah_pns'] = $penyuluh->jumlah_pns;
+            $row['jumlah_nonpns'] = $penyuluh->jumlah_nonpns;
+            $row['total'] = str_replace("'", '"', $jumlah);
             $data[] = $row;
         }
-
         return $this->_list($data, $privilege);
     }
 
