@@ -110,44 +110,7 @@
             </div>
         </div>
         <div class="row animate__animated animate__fadeIn">
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Bimwin/Target/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="far fa-list-alt" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="jumlah_peserta">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Target Catin</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Bimwin/Catin/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-home" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="realisasi_wilayah">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Realisasi Catin</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
+            
             <div class="col-md">
                 <a href="<?php echo base_url('Applications/Simpenghulu/KUA/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
@@ -186,84 +149,10 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Simpenghulu/Peristiwa/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-restroom" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_peristiwa_nikah">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Peristiwa Nikah</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
+            
         </div>
         <div class="row animate__animated animate__fadeIn">
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/PAI/Pns/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="penyuluh">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Penyuluh Agama Islam</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/PAI/Ormas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="far fa-flag" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="ormas_islam">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Ormas Islam</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/PAI/LPTQ/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-quran" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="lptq">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">L P T Q</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
+            
             <div class="col-md">
                 <a href="javascript:void();" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
@@ -323,44 +212,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Simzat/Baznas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_baznas">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Data BAZNAS</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Simzat/Laznas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count"  id="data_laznas">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Data LAZNAS</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
+            
             <div class="col-md">
                 <a href="<?php echo base_url('Applications/Binsyar/Pustaka/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
@@ -380,25 +232,7 @@
                     </div>
                 </a>
             </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Mtq/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_mtq">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">M T Q</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
+            
         </div>
     </div>
 </div>
@@ -428,21 +262,18 @@
                     $('#hisab_pengukuran').attr('data-value', data.sihat.hisab_pengukuran);
                     $('#data_masjid').attr('data-value', data.masjid.data_masjid);
                     $('#data_mushalla').attr('data-value', data.mushalla.data_mushalla);
-                    $('#jumlah_peserta').attr('data-value', data.targetcatin.realisasi_wilayah);
-                    $('#realisasi_wilayah').attr('data-value', data.data_catin.jumlah_peserta);
+                    
                     $('#data_kua').attr('data-value', data.simpenghulu.data_kua);
                     $('#data_penghulu').attr('data-value', data.simpenghulu.data_penghulu);
-                    $('#data_peristiwa_nikah').attr('data-value', data.simpenghulu.data_peristiwa_nikah);
+                    
                     $('#penyuluh').attr('data-value', data.penyuluh.penyuluh);
-                    $('#ormas_islam').attr('data-value', data.ormasislam.ormas_islam);
-                    $('#lptq').attr('data-value', data.lptq.lptq);
+                    
                     $('#pustaka_digital').attr('data-value', data.pustakadigital.pustakadigital);
                     $('#data_wakaf').attr('data-value', data.siwak.tanah_wakaf);
                     $('#data_simkah').attr('data-value', tot);
-                    $('#data_baznas').attr('data-value', data.baznas.databaznas);
-                    $('#data_laznas').attr('data-value', data.laznas.datalaznas);
+                    
                     $('#data_puslim').attr('data-value', data.pustakaslim.jumlah_buku);
-                    $('#data_mtq').attr('data-value', data.mtq.tot_mtq);
+                    
                     document.getElementById('file_date').innerText = moment(data.file_date).format('D MMMM YYYY, H:mm:ss');
                     animate_counter();
                 }
