@@ -9,4 +9,5 @@ $route['Setting%20Profile'] = 'Systems/Profile/';
 $route['Dashboard'] = 'Applications/Dashboard/index/';
 $route['Signin'] = 'Auth/index/';
 $route['404_override'] = 'Error_404';
+$route['welcome'] = 'Error_404';
 $route['translate_uri_dashes'] = false;
