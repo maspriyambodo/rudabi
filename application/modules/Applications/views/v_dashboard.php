@@ -13,226 +13,292 @@
     <div class="card-body bg-white col-11 col-lg-12 col-xxl-10 mx-auto">
         <div class="row animate__animated animate__fadeIn">
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Binsyar/Sihat/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-tools" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="alat_sihat">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Binsyar/Sihat/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-tools" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="alat_sihat">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Alat Hisab Rukyat</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Binsyar/Sihat/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Alat Hisab Rukyat</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="http://sihat.kemenag.go.id/" target="new">sihat</a>
+                        </div>
                         <input type="hidden" name="old_ahr" readonly=""/>
                     </div>
-                </a>
+                </div>
+
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Binsyar/Ahli/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="tenaga_ahli">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Binsyar/Ahli/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="tenaga_ahli">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Tenaga Ahli</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Binsyar/Ahli/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Tenaga Ahli</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="http://sihat.kemenag.go.id/" target="new">sihat</a>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Binsyar/Pengukuran/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-ruler-combined" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="hisab_pengukuran">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Binsyar/Pengukuran/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-ruler-combined" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="hisab_pengukuran">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Hisab Pengukuran</b>
-                            </div>
-                        </center>
+                            <a href="<?php echo base_url('Applications/Binsyar/Pengukuran/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Hisab Pengukuran</b>
+                                </div>
+                            </a>
+                        </center>                        
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="http://sihat.kemenag.go.id/" target="new">sihat</a>
+                        </div>
                     </div>
-                </a>
+                </div>
             </div>
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Binsyar/Simas/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-mosque" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_masjid">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Binsyar/Simas/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-mosque" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_masjid">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Data Masjid</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Binsyar/Simas/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Data Masjid</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://simas.kemenag.go.id/" target="new">simas</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
             </div>
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Binsyar/Mushalla/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-place-of-worship" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_mushalla">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Data Mushalla</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
+
         </div>
         <div class="row animate__animated animate__fadeIn">
-            
+
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Simpenghulu/KUA/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_kua">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Binsyar/Mushalla/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-place-of-worship" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_mushalla">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Jumlah KUA</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Binsyar/Mushalla/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Data Mushalla</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://simas.kemenag.go.id/" target="new">simas</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
             </div>
+
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Simpenghulu/Penghulu/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_penghulu">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Simpenghulu/KUA/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_kua">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Jumlah Penghulu</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Simpenghulu/KUA/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Jumlah KUA</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://simbi.kemenag.go.id/simpenghulu" target="new">simpenghulu</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
             </div>
-            
+            <div class="col-md">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <a href="<?php echo base_url('epa/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_kua">0</b>
+                                    </center>
+                                </span>
+                            </a>
+                        </center>
+                        <center>
+                            <a href="<?php echo base_url('epa/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Penyuluh Agama</b>
+                                </div>
+                            </a>
+                        </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://epa.kemenag.go.id/" target="new">e-pa</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <a href="<?php echo base_url('Applications/Simpenghulu/Penghulu/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-user-tie" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_penghulu">0</b>
+                                    </center>
+                                </span>
+                            </a>
+                        </center>
+                        <center>
+                            <a href="<?php echo base_url('Applications/Simpenghulu/Penghulu/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Jumlah Penghulu</b>
+                                </div>
+                            </a>
+                        </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://simbi.kemenag.go.id/simpenghulu" target="new">simpenghulu</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
         <div class="row animate__animated animate__fadeIn">
-            
+
             <div class="col-md">
-                <a href="javascript:void();" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-book-reader" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="pustaka_digital">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Siwak/Wakaf/index/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_wakaf">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Pustaka Digital</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Siwak/Wakaf/index/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Data Wakaf</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="http://siwak.kemenag.go.id/simpenghulu" target="new">siwak</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
             </div>
+
             <div class="col-md">
-                <a href="<?php echo base_url('Applications/Siwak/Wakaf/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
                     <div class="card-body rounded-circle dataangka">
                         <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_wakaf">0</b>
-                                </center>
-                            </span>
+                            <a href="<?php echo base_url('Applications/Simkah/index/?year=0'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="fas fa-ring fa-fw" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_simkah">0</b>
+                                    </center>
+                                </span>
+                            </a>
                         </center>
                         <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Total Data Wakaf</b>
-                            </div>
+                            <a href="<?php echo base_url('Applications/Simkah/index/?year=0'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Data SIMKAH</b>
+                                </div>
+                            </a>
                         </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://simkah.kemenag.go.id/simpenghulu" target="new">simkah</a>
+                        </div>
                     </div>
-                </a>
+                </div>
+
             </div>
-        </div>
-        <div class="row animate__animated animate__fadeIn">
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Simkah/index/?year=0'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_simkah">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">Data SIMKAH</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
-            
-            <div class="col-md">
-                <a href="<?php echo base_url('Applications/Binsyar/Pustaka/index/'); ?>" class="card card-custom bg-danger bg-hover-state-danger card-stretch gutter-b rounded-circle">
-                    <div class="card-body rounded-circle dataangka">
-                        <center>
-                            <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
-                                <center><i class="fas fa-hand-holding-heart" style="font-size: 48px; color: black;"></i></center>
-                                <center>
-                                    <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_puslim">0</b>
-                                </center>
-                            </span>
-                        </center>
-                        <center>
-                            <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
-                                <b style="color: black;">e-pustaka slims</b>
-                            </div>
-                        </center>
-                    </div>
-                </a>
-            </div>
-            
+
         </div>
     </div>
 </div>
@@ -243,7 +309,7 @@
 
         function data_dir() {
             $.ajax({
-                url: "<?php echo base_url('Dashboard_cron.json'); ?>",
+                url: "Dashboard_cron.json",
                 type: 'GET',
                 cache: false,
                 contentType: false,
@@ -262,18 +328,16 @@
                     $('#hisab_pengukuran').attr('data-value', data.sihat.hisab_pengukuran);
                     $('#data_masjid').attr('data-value', data.masjid.data_masjid);
                     $('#data_mushalla').attr('data-value', data.mushalla.data_mushalla);
-                    
+
                     $('#data_kua').attr('data-value', data.simpenghulu.data_kua);
                     $('#data_penghulu').attr('data-value', data.simpenghulu.data_penghulu);
-                    
+
                     $('#penyuluh').attr('data-value', data.penyuluh.penyuluh);
-                    
-                    $('#pustaka_digital').attr('data-value', data.pustakadigital.pustakadigital);
+
                     $('#data_wakaf').attr('data-value', data.siwak.tanah_wakaf);
                     $('#data_simkah').attr('data-value', tot);
-                    
-                    $('#data_puslim').attr('data-value', data.pustakaslim.jumlah_buku);
-                    
+
+
                     document.getElementById('file_date').innerText = moment(data.file_date).format('D MMMM YYYY, H:mm:ss');
                     animate_counter();
                 }
