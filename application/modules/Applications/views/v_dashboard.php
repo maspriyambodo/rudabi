@@ -332,8 +332,6 @@
                     $('#data_kua').attr('data-value', data.simpenghulu.data_kua);
                     $('#data_penghulu').attr('data-value', data.simpenghulu.data_penghulu);
 
-                    $('#penyuluh').attr('data-value', data.penyuluh.penyuluh);
-
                     $('#data_wakaf').attr('data-value', data.siwak.tanah_wakaf);
                     $('#data_simkah').attr('data-value', tot);
 
