@@ -1,4 +1,5 @@
 <input type="hidden" name="tokentxt" value="<?php echo Enkrip('admin:a'); ?>"/>
+<input type="hidden" name="prov_idtxt" value="<?php echo Post_get('id'); ?>"/>
 <div class="card card-custom" data-card="true">
     <div class="card-header">
         <div class="card-title">
@@ -67,8 +68,9 @@
     var dt_penyuluh = function () {
         var tmp = null;
         var tokentxt = $('input[name="tokentxt"]').val();
+        var prov_idtxt = $('input[name="prov_idtxt"]').val();
         $.ajax({
-            url: "api/e-pa/penyuluh/lists?token=" + tokentxt,
+            url: "api/e-pa/penyuluh/lists?token=" + tokentxt + '&prov_id=' + prov_idtxt,
             async: false,
             type: 'GET',
             cache: true,
@@ -99,7 +101,7 @@
             categoryAxis.renderer.labels.template.rotation = 270;
             categoryAxis.tooltip.disabled = true;
             categoryAxis.renderer.minHeight = 30;
-            categoryAxis.title.text = 'Daerah Tingkat Provinsi';
+            categoryAxis.title.text = 'Daerah Tingkat KABUPATEN/KOTA';
             categoryAxis.title.fontWeight = 800;
             let label = categoryAxis.renderer.labels.template;
             label.wrap = true;
@@ -129,6 +131,7 @@
         });
     }
     function dt_table(tokentxt) {
+        var prov_idtxt = $('input[name="prov_idtxt"]').val();
         $('#table').dataTable({
             "serverSide": true,
             "order": [[0, "asc"]],
@@ -153,7 +156,7 @@
                 ['10', '50', '100', '500', 'all']
             ],
             "ajax": {
-                "url": "api/e-pa/penyuluh/lists?token=" + tokentxt,
+                "url": "api/e-pa/penyuluh/lists?token=" + tokentxt + '&prov_id=' + prov_idtxt,
                 "type": "GET"
             },
             columns: [
@@ -163,10 +166,7 @@
                     "searchable": false
                 },
                 {
-                    "data": null,
-                    "render": function (data) {
-                        return '<a href="/epa/prov?token=' + tokentxt + '&id=' + data.id_wilayah + '&prov=' + data.nama_wilayah + '">' + data.nama_wilayah + '</a>';
-                    }
+                    "data": 'nama_wilayah'
                 },
                 {
                     data: 'jumlah_kua',
