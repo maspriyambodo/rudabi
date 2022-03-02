@@ -1,5 +1,6 @@
 <?php
 
+defined('STDIN') OR exit('doh');
 /*
  * Product:        System of kementerian agama Republik Indonesia
  * License Type:   Government
