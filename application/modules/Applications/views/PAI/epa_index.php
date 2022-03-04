@@ -1,4 +1,4 @@
-<input type="hidden" name="tokentxt" value="<?php echo Enkrip('admin:a'); ?>"/>
+<input type="hidden" name="tokentxt" value="<?php echo Enkrip(sys_parameter('epa_token')['param_value']); ?>"/>
 <div class="card card-custom" data-card="true">
     <div class="card-header">
         <div class="card-title">
