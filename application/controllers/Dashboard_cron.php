@@ -25,7 +25,7 @@ class Dashboard_cron extends CI_Controller {
         $this->load->helper('file');
         $this->load->library('user_agent');
         $this->curl = new Curl\Curl();
-        $this->curl->disableTimeout();
+        $this->curl->setTimeout(50);
         $this->curl->setHeader('Connection', 'keep-alive');
         $this->curl->setHeader('User-Agent', $this->agent->referrer());
         $this->curl->setFollowLocation(true);
@@ -60,6 +60,53 @@ class Dashboard_cron extends CI_Controller {
         $this->curl->get(base_url('Dashboard_cron.json'));
         return $this->curl->response;
 //        print_array($sihat->sihat->alat_hisab_rukyat);
+    }
+
+    private function penyuluh() {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => base_url('api/e-pa/penyuluh/lists?token=' . Enkrip(sys_parameter('epa_token')['param_value'])),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 50,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+            CURLOPT_HTTPHEADER => ['Cookie: bodo_cms=njg4f10968nfmd2kfr15hrpf9vhdns30; bodo_csrf_name=6395a314621c7eebf44f0b75f1ec8950'],
+        ));
+        $response = curl_exec($curl);
+        $penyuluh = json_decode($response);
+        $kua = 0;
+        $pns = 0;
+        $non_pns = 0;
+        $tot_penyuluh = 0;
+        foreach ($penyuluh->data as $value) {
+            $result = [
+                'kua' => $kua += $value->jumlah_kua,
+                'pns' => $pns += $value->jumlah_pns,
+                'non_pns' => $non_pns += $value->jumlah_nonpns,
+                'tot_penyuluh' => $tot_penyuluh += $value->jumlah_pns + $value->jumlah_nonpns
+            ];
+        }
+        if (curl_getinfo($curl)['http_code'] <> 200) {
+            log_message('error', 'error ketika mendapatkan data penyuluh');
+            $data = [
+                'kua' => $this->Data_json()->epa->kua,
+                'pns' => $this->Data_json()->epa->pns,
+                'non_pns' => $this->Data_json()->epa->non_pns,
+                'tot_penyuluh' => $this->Data_json()->epa->tot_penyuluh
+            ];
+        } else {
+            $data = [
+                'kua' => $result['kua'],
+                'pns' => $result['pns'],
+                'non_pns' => $result['non_pns'],
+                'tot_penyuluh' => $result['tot_penyuluh']
+            ];
+        }
+        curl_close($curl);
+        return $data;
     }
 
     private function sihat() {
