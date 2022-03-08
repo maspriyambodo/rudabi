@@ -190,7 +190,7 @@
                                 <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
                                     <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
                                     <center>
-                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_kua">0</b>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_penyuluh">0</b>
                                     </center>
                                 </span>
                             </a>
@@ -299,6 +299,64 @@
 
             </div>
 
+            <div class="col-md">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <a href="<?php echo base_url('epa/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_pns">0</b>
+                                    </center>
+                                </span>
+                            </a>
+                        </center>
+                        <center>
+                            <a href="<?php echo base_url('epa/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Penyuluh PNS</b>
+                                </div>
+                            </a>
+                        </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://epa.kemenag.go.id/" target="new">e-pa</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+            <div class="col-md">
+
+                <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
+                    <div class="card-body rounded-circle dataangka">
+                        <center>
+                            <a href="<?php echo base_url('epa/'); ?>">
+                                <span class="svg-icon svg-icon-white svg-icon-3x ml-n1">
+                                    <center><i class="far fa-chart-bar" style="font-size: 48px; color: black;"></i></center>
+                                    <center>
+                                        <b style="font-size: 30px; color: black; margin-left: 10px;" class="dataangka count" id="data_nonpns">0</b>
+                                    </center>
+                                </span>
+                            </a>
+                        </center>
+                        <center>
+                            <a href="<?php echo base_url('epa/'); ?>">
+                                <div class="font-weight-bold text-inverse-danger tulisan" style="margin: 5px 0px; font-size: 20px; color: black;">
+                                    <b style="color: black;">Penyuluh non-PNS</b>
+                                </div>
+                            </a>
+                        </center>
+                        <div class="clearfix">
+                            <small>sumber data: </small><a href="https://epa.kemenag.go.id/" target="new">e-pa</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
         </div>
     </div>
 </div>
@@ -331,6 +389,9 @@
 
                     $('#data_kua').attr('data-value', data.simpenghulu.data_kua);
                     $('#data_penghulu').attr('data-value', data.simpenghulu.data_penghulu);
+                    $('#data_penyuluh').attr('data-value', data.epa.tot_penyuluh);
+                    $('#data_pns').attr('data-value', data.epa.pns);
+                    $('#data_nonpns').attr('data-value', data.epa.non_pns);
 
                     $('#data_wakaf').attr('data-value', data.siwak.tanah_wakaf);
                     $('#data_simkah').attr('data-value', tot);
