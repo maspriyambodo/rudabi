@@ -24,11 +24,6 @@ class Dashboard_cron extends CI_Controller {
         $this->load->model('Applications/M_simkah', 'model');
         $this->load->helper('file');
         $this->load->library('user_agent');
-        $this->curl = new Curl\Curl();
-        $this->curl->setTimeout(50);
-        $this->curl->setHeader('Connection', 'keep-alive');
-        $this->curl->setHeader('User-Agent', $this->agent->referrer());
-        $this->curl->setFollowLocation(true);
         $this->pusher_option = [
             'cluster' => 'ap1',
             'useTLS' => true
@@ -49,6 +44,7 @@ class Dashboard_cron extends CI_Controller {
             'mushalla' => $this->mushalla(),
             'simpenghulu' => $this->simpenghulu(),
             'siwak' => $this->siwak(),
+            'epa' => $this->penyuluh(),
             'simkah' => $this->Simkah_get()
         ];
         write_file(FCPATH . '/Dashboard_cron.json', json_encode($data), 'r+');
@@ -57,6 +53,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function Data_json() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->get(base_url('Dashboard_cron.json'));
         return $this->curl->response;
 //        print_array($sihat->sihat->alat_hisab_rukyat);
@@ -65,7 +66,7 @@ class Dashboard_cron extends CI_Controller {
     private function penyuluh() {
         $curl = curl_init();
         curl_setopt_array($curl, array(
-            CURLOPT_URL => base_url('api/e-pa/penyuluh/lists?token=' . Enkrip(sys_parameter('epa_token')['param_value'])),
+            CURLOPT_URL => sys_parameter('BASE_URL')['param_value'] . 'api/e-pa/penyuluh/lists?token=' . Enkrip(sys_parameter('EPA_TOKEN')['param_value']),
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
             CURLOPT_MAXREDIRS => 10,
@@ -73,10 +74,14 @@ class Dashboard_cron extends CI_Controller {
             CURLOPT_FOLLOWLOCATION => true,
             CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
             CURLOPT_CUSTOMREQUEST => 'GET',
-            CURLOPT_HTTPHEADER => ['Cookie: bodo_cms=njg4f10968nfmd2kfr15hrpf9vhdns30; bodo_csrf_name=6395a314621c7eebf44f0b75f1ec8950'],
+            CURLOPT_HTTPHEADER => array(
+                'Cookie: bodo_cms=njg4f10968nfmd2kfr15hrpf9vhdns30; bodo_csrf_name=6395a314621c7eebf44f0b75f1ec8950'
+            )
         ));
         $response = curl_exec($curl);
         $penyuluh = json_decode($response);
+        $http_code = curl_getinfo($curl)['http_code'];
+        curl_close($curl);
         $kua = 0;
         $pns = 0;
         $non_pns = 0;
@@ -89,7 +94,7 @@ class Dashboard_cron extends CI_Controller {
                 'tot_penyuluh' => $tot_penyuluh += $value->jumlah_pns + $value->jumlah_nonpns
             ];
         }
-        if (curl_getinfo($curl)['http_code'] <> 200) {
+        if ($http_code <> 200) {
             log_message('error', 'error ketika mendapatkan data penyuluh');
             $data = [
                 'kua' => $this->Data_json()->epa->kua,
@@ -105,11 +110,15 @@ class Dashboard_cron extends CI_Controller {
                 'tot_penyuluh' => $result['tot_penyuluh']
             ];
         }
-        curl_close($curl);
         return $data;
     }
 
     private function sihat() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siihat/total?KEY=BOBA');
         $getInfo = $this->curl->getInfo();
         if ($getInfo['http_code'] <> 200) {
@@ -132,6 +141,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function masjid() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmasjid?KEY=BOBA');
         $getInfo = $this->curl->getInfo();
         $masjid = $this->curl->response;
@@ -150,6 +164,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function mushalla() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/eimas/dtmushalla?KEY=BOBA');
         $getInfo = $this->curl->getInfo();
         if ($getInfo['http_code'] <> 200) {
@@ -168,6 +187,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function simpenghulu() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/simpenghulu/total?KEY=BOBA');
         $getInfo = $this->curl->getInfo();
         if ($getInfo['http_code'] <> 200) {
@@ -190,6 +214,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function siwak() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->get('http://10.1.99.90/rudabi_api/datapi/siwaks/wakaf?KEY=BOBA');
         $getInfo = $this->curl->getInfo();
         if ($getInfo['http_code'] <> 200) {
@@ -208,6 +237,11 @@ class Dashboard_cron extends CI_Controller {
     }
 
     private function Simkah_get() {
+        $this->curl = new Curl\Curl();
+        $this->curl->setTimeout(50);
+        $this->curl->setHeader('Connection', 'keep-alive');
+        $this->curl->setHeader('User-Agent', $this->agent->referrer());
+        $this->curl->setFollowLocation(true);
         $this->curl->setBasicAuthentication('simkah_sim', 'simkahsim@!');
         $this->curl->setCookie('cookiesession1', '678B28A6WYZABCDEFHIJKLMNOPQR08DC');
         $this->curl->setHeader('Content-Type', 'application/json');
