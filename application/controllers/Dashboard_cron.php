@@ -127,6 +127,7 @@ class Dashboard_cron extends CI_Controller {
                 'hisab_pengukuran' => $sihat[2]->hisab_pengukuran
             ];
         }
+        $this->curl->close();
         return $data;
     }
 
@@ -144,6 +145,7 @@ class Dashboard_cron extends CI_Controller {
                 'data_masjid' => $masjid[0]->data_masjid
             ];
         }
+        $this->curl->close();
         return $data;
     }
 
@@ -161,6 +163,7 @@ class Dashboard_cron extends CI_Controller {
                 'data_mushalla' => $mushalla[0]->data_mushalla
             ];
         }
+        $this->curl->close();
         return $data;
     }
 
@@ -182,6 +185,7 @@ class Dashboard_cron extends CI_Controller {
                 'data_peristiwa_nikah' => $simpenghulu[2]->data_peristiwa_nikah
             ];
         }
+        $this->curl->close();
         return $data;
     }
 
@@ -199,6 +203,7 @@ class Dashboard_cron extends CI_Controller {
                 'tanah_wakaf' => $siwak[0]->tanah_wakaf
             ];
         }
+        $this->curl->close();
         return $data;
     }
 
@@ -221,6 +226,7 @@ class Dashboard_cron extends CI_Controller {
             $this->model->Update_simkah($update);
         }
         $data = $this->model->index();
+        $this->curl->close();
         return $data;
     }
 
