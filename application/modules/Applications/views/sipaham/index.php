@@ -54,6 +54,11 @@ $b = json_decode($data);
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://simbi.kemenag.go.id/sipaham/" target="new">sipaham</a>
+        </div>
+    </div>
 </div>
 
 <script>
