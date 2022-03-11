@@ -33,6 +33,11 @@ $y = 0; //dt_hibah
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://simas.kemenag.go.id" target="new">simas</a>
+        </div>
+    </div>
 </div>
 <div class="clearfix" style="margin:5% 0px;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
@@ -113,6 +118,11 @@ $y = 0; //dt_hibah
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://simas.kemenag.go.id" target="new">simas</a>
         </div>
     </div>
 </div>

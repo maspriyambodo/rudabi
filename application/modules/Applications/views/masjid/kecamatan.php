@@ -54,6 +54,11 @@
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://simas.kemenag.go.id" target="new">simas</a>
+        </div>
+    </div>
 </div>
 <script>
     window.onload = function () {
