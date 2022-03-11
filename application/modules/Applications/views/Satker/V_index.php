@@ -15,6 +15,11 @@
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
+        </div>
+    </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
@@ -30,6 +35,11 @@
     </div>
     <div class="card-body">
         <div id="chartdiv_b" class="chartdivs"></div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
+        </div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
@@ -124,6 +134,11 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
         </div>
     </div>
 </div>

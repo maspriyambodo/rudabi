@@ -64,6 +64,11 @@
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
+        </div>
+    </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
 <script>

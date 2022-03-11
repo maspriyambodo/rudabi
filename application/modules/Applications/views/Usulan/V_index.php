@@ -34,6 +34,11 @@
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
+        </div>
+    </div>
 </div>
 <div class="clearfix" style="margin:5%;"></div>
 <div class="card card-custom">
@@ -161,6 +166,11 @@
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
         </div>
     </div>
 </div>

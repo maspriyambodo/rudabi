@@ -24,6 +24,11 @@ if ($msg == false) {
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
+        </div>
+    </div>
 </div>
 <div class="clear" style="margin:5% 0px;" <?php echo $msgs; ?>></div>
 <div class="card card-custom" data-card="true" id="kt_card_1" <?php echo $msgs; ?>>
@@ -39,6 +44,11 @@ if ($msg == false) {
     </div>
     <div class="card-body">
         <div id="chartdiv_a" class="chartdivs"></div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
+        </div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;" <?php echo $msgs; ?>></div>
@@ -156,6 +166,11 @@ if ($msg == false) {
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://e-sbsn.kemenag.go.id/" target="new">e-sbsn</a>
         </div>
     </div>
 </div>
