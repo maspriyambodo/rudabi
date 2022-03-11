@@ -24,6 +24,11 @@ $tottanpa_agama = 0;
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://sicakep.kemenag.go.id/" target="new">sicakep</a>
+        </div>
+    </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
@@ -39,6 +44,11 @@ $tottanpa_agama = 0;
     </div>
     <div class="card-body">
         <div id="chartdiv_a" class="chartdivs"></div>  
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://sicakep.kemenag.go.id/" target="new">sicakep</a>
+        </div>
     </div>
 </div>
 <div class="clear" style="margin:5% 0px;"></div>
@@ -133,6 +143,11 @@ $tottanpa_agama = 0;
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://sicakep.kemenag.go.id/" target="new">sicakep</a>
         </div>
     </div>
 </div>

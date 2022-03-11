@@ -48,6 +48,11 @@ $golongan = json_decode($data);
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="http://sicakep.kemenag.go.id/" target="new">sicakep</a>
+        </div>
+    </div>
 </div>
 <script>
     window.onload = function () {
