@@ -49,6 +49,11 @@
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://sihat.kemenag.go.id/v2/index.php/login" target="new">sihat</a>
+        </div>
+    </div>
 </div>
 <script>
     window.onload = function () {

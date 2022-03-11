@@ -21,6 +21,11 @@ $c = 0;
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://sihat.kemenag.go.id/v2/index.php/login" target="new">sihat</a>
+        </div>
+    </div>
 </div>
 <div class="clearfix" style="margin:5% 0px;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
@@ -77,6 +82,11 @@ $c = 0;
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://sihat.kemenag.go.id/v2/index.php/login" target="new">sihat</a>
         </div>
     </div>
 </div>

@@ -33,6 +33,11 @@ $q = 0; //bln_zulhijjah
         </div>
         <div id="chartdiv" class="chartdivs"></div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://sihat.kemenag.go.id/v2/index.php/login" target="new">sihat</a>
+        </div>
+    </div>
 </div>
 <div class="clearfix" style="margin:5% 0px;"></div>
 <div class="card card-custom" data-card="true" id="kt_card_1">
@@ -51,6 +56,11 @@ $q = 0; //bln_zulhijjah
             <b><u id="title_chartdiv"></u></b>
         </div>
         <div id="chartdiv_a" class="chartdivs"></div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://sihat.kemenag.go.id/v2/index.php/login" target="new">sihat</a>
+        </div>
     </div>
 </div>
 <div class="clearfix" style="margin:5% 0px;"></div>
@@ -209,6 +219,11 @@ $q = 0; //bln_zulhijjah
                     </tr>
                 </tfoot>
             </table>
+        </div>
+    </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="https://sihat.kemenag.go.id/v2/index.php/login" target="new">sihat</a>
         </div>
     </div>
 </div>
