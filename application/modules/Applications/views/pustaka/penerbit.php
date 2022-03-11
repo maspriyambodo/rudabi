@@ -38,6 +38,11 @@
             </table>
         </div>
     </div>
+    <div class="card-footer">
+        <div class="text-right">
+            sumber data: <a href="simbi.kemenag.go.id/epustaka_slims/" target="new">pustaka slims</a>
+        </div>
+    </div>
 </div>
 <script>
     window.onload = function () {
