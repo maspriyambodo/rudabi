@@ -28,7 +28,7 @@ class Auth extends CI_Controller {
             'csrf' => $this->bodo->Csrf(),
             'siteTitle' => 'Signin System | ' . $this->bodo->Sys('app_name'),
         ];
-        $this->parser->parse('v_auth', $data);
+        return $this->parser->parse('v_auth', $data);
     }
 
     public function Signin() {
@@ -69,14 +69,15 @@ class Auth extends CI_Controller {
                 $this->M_auth->Penalty($data);
                 if ($attempt == 3) {
                     $this->session->set_tempdata('blocked_account', true, 300);
-                    blocked_account();
+                    $result = blocked_account();
                 }
             case 2:
                 if ($attempt == 5 or $attempt >= 5) {
                     $this->session->set_tempdata('auth_sekuriti', true, 360);
-                    auth_sekuriti();
+                    $result = auth_sekuriti();
                 }
         }
+        return $result;
     }
 
     public function Logout() {
