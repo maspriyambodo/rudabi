@@ -327,7 +327,7 @@
                 </div>
 
             </div>
-            
+
             <div class="col-md">
 
                 <div class="card card-custom bg-danger card-stretch gutter-b rounded-circle">
@@ -360,7 +360,7 @@
         </div>
     </div>
 </div>
-<script src="https://js.pusher.com/7.0/pusher.min.js"></script>
+<!--<script src="https://js.pusher.com/7.0/pusher.min.js"></script>-->
 <script>
     $(document).ready(function () {
         data_dir();
@@ -417,12 +417,12 @@
             });
         }
 
-        var pusher = new Pusher('4587e4cb86b14bb98e69', {
-            cluster: 'ap1'
-        });
-        var channel = pusher.subscribe('rudabi_dashboard-channel');
-        channel.bind('rudabi_dashboard-event', function () {
-            data_dir();
-        });
+        /*        var pusher = new Pusher('4587e4cb86b14bb98e69', {
+         cluster: 'ap1'
+         });
+         var channel = pusher.subscribe('rudabi_dashboard-channel');
+         channel.bind('rudabi_dashboard-event', function () {
+         data_dir();
+         });*/
     });
 </script>

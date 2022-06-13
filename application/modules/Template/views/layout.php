@@ -94,6 +94,13 @@ $group_menu = $this->M_default->Group_menu();
                                 <div id="kt_header_menu" class="header-menu header-menu-mobile header-menu-layout-default"><ul class="menu-nav"></ul></div>
                             </div>
                             <div class="topbar">
+                                <div class="topbar-item" data-toggle="dropdown" data-offset="10px,0px" aria-expanded="false">
+                                    <div class="btn btn-icon btn-clean btn-lg btn-dropdown mr-1">
+                                        <span class="svg-icon svg-icon-xl svg-icon-primary">
+                                            <i class="fas fa-search"></i>
+                                        </span>
+                                    </div>
+                                </div>
                                 <div class="topbar-item">
                                     <div class="btn btn-icon w-auto btn-clean d-flex align-items-center btn-lg px-2" id="kt_quick_user_toggle">
                                         <span class="text-muted font-weight-bold font-size-base d-none d-md-inline mr-1">
@@ -111,6 +118,23 @@ $group_menu = $this->M_default->Group_menu();
                                         <span class="symbol symbol-35 symbol-light-success">
                                             <i class="fas fa-user"></i>
                                         </span>
+                                    </div>
+                                </div>
+                                <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
+                                    <div class="quick-search quick-search-dropdown" id="kt_quick_search_dropdown">
+                                        <form class="quick-search-form" action="<?php echo base_url('Applications/Dashboard/Search/'); ?>" method="post">
+                                            <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <span class="svg-icon svg-icon-lg">
+                                                            <i class="fas fa-search"></i>
+                                                        </span>
+                                                    </span>
+                                                </div>
+                                                <input class="form-control" type="text" name="searchtxt" placeholder="Search..." autocomplete="off"/>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -144,9 +168,9 @@ $group_menu = $this->M_default->Group_menu();
                                 </div>
                             </div>
                         </div>
-                        <script src="<?php echo base_url('assets/plugins/global/plugins.bundle.js?v=7.0.6'); ?>"></script>
-                        <script src="<?php echo base_url('assets/plugins/custom/prismjs/prismjs.bundle.js?v=7.0.6'); ?>"></script>
-                        <script src="<?php echo base_url('assets/js/scripts.bundle.js?v=7.0.6'); ?>"></script>
+                        <script src="<?php echo base_url('assets/plugins/global/plugins.bundle.js'); ?>"></script>
+                        <script src="<?php echo base_url('assets/plugins/custom/prismjs/prismjs.bundle.js'); ?>"></script>
+                        <script src="<?php echo base_url('assets/js/scripts.bundle.js'); ?>"></script>
                         <script src="<?php echo base_url('assets/plugins/custom/fullcalendar/fullcalendar.bundle.js'); ?>"></script>
                         <script src="<?php echo base_url('assets/js/pages/widgets.js'); ?>"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.full.min.js" integrity="sha512-RtZU3AyMVArmHLiW0suEZ9McadTdegwbgtiQl5Qqo9kunkVg1ofwueXD8/8wv3Af8jkME3DDe3yLfR8HSJfT2g==" crossorigin="anonymous"></script>
@@ -232,7 +256,7 @@ $group_menu = $this->M_default->Group_menu();
                             </div>
                         </div>
                     </a>
-                    
+
                     <a href="<?php echo base_url('Setting%20Profile'); ?>" class="navi-item">
                         <div class="navi-link">
                             <div class="symbol symbol-40 bg-light mr-3">
@@ -253,10 +277,10 @@ $group_menu = $this->M_default->Group_menu();
                 <div class="separator separator-dashed my-7"></div>
             </div>
         </div>
-        <div id="kt_scrolltop" class="scrolltop"><span class="svg-icon"><i class="fas fa-arrow-up"></i></span></div>
-        <!--        <ul class="sticky-toolbar nav flex-column pl-2 pr-2 pt-3 pb-3 mt-4">
-                    
-                </ul>-->
+        <div id="kt_scrolltop" class="scrolltop">
+            <span class="svg-icon"><i class="fas fa-arrow-up"></i></span>
+        </div>
+        <ul id="sticky_toolbar"></ul>
         <script>
             var KTAppSettings = {};
             var menu = $('.menu-item .menu-item-active').parent('ul').parent().parent();
