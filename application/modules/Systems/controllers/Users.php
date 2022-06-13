@@ -131,7 +131,7 @@ class Users extends CI_Controller {
         }
         $data = [
             'uname' => Post_input('uname'),
-            'pwd' => password_hash("a", PASSWORD_DEFAULT),
+            'pwd' => password_hash(sys_parameter('DEFAULT_PASSWORD')['param_value'], PASSWORD_DEFAULT),
             'role_id' => $role_user,
             'pict' => $file_name,
             'stat' => 1,
@@ -174,6 +174,8 @@ class Users extends CI_Controller {
             'user_login' => $this->user
         ];
         if ($id_user == 1) {
+            $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('err_msg', 'error, users cannot be deleted!!!'));
+        } elseif ($id_user == $this->user) {
             $result = redirect(base_url('Systems/Users/index/'), $this->session->set_flashdata('err_msg', 'error, users cannot be deleted!!!'));
         } else {
             $exec = $this->M_users->Stat($data);
