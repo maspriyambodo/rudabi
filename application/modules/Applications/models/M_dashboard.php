@@ -27,4 +27,115 @@ class M_dashboard extends CI_Model {
         return $exec;
     }
 
+    public function m_kabupaten() {
+        $exec = $this->db->select('mt_wil_kabupaten.id_kabupaten,mt_wil_kabupaten.id_provinsi,mt_wil_kabupaten.nama AS nama_kabupaten,mt_wil_provinsi.nama AS nama_provinsi,mt_wil_kabupaten.latitude,mt_wil_kabupaten.longitude')
+                ->from('mt_wil_kabupaten')
+                ->join('mt_wil_provinsi', 'mt_wil_kabupaten.id_provinsi = mt_wil_provinsi.id_provinsi')
+                ->where([
+                    '`mt_wil_kabupaten`.`latitude`' => 0 + false,
+                    '`mt_wil_kabupaten`.`longitude`' => 0 + false
+                ])
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    public function m_kecamatan() {
+        $exec = $this->db->select('mt_wil_kecamatan.id_kecamatan,mt_wil_kecamatan.id_kabupaten,mt_wil_kecamatan.nama AS nama_kecamatan,mt_wil_kabupaten.nama AS nama_kabupaten,mt_wil_kecamatan.latitude,mt_wil_kecamatan.longitude')
+                ->from('mt_wil_kecamatan')
+                ->join('mt_wil_kabupaten', 'mt_wil_kecamatan.id_kabupaten = mt_wil_kabupaten.id_kabupaten')
+                ->where([
+                    '`mt_wil_kecamatan`.`latitude`' => 0 + false,
+                    '`mt_wil_kecamatan`.`longitude`' => 0 + false
+                ])
+                ->get()
+                ->result();
+        return $exec;
+    }
+    
+    public function m_kelurahan() {
+        $exec = $this->db->select('mt_wil_kelurahan.id_kelurahan,mt_wil_kelurahan.id_kecamatan,mt_wil_kelurahan.nama AS nama_kelurahan,mt_wil_kecamatan.nama AS nama_kecamatan,mt_wil_kelurahan.latitude,mt_wil_kelurahan.longitude')
+                ->from('mt_wil_kelurahan')
+                ->join('mt_wil_kecamatan', 'mt_wil_kelurahan.id_kecamatan = mt_wil_kecamatan.id_kecamatan')
+                ->where([
+                    '`mt_wil_kelurahan`.`latitude`' => 0 + false,
+                    '`mt_wil_kelurahan`.`longitude`' => 0 + false
+                ])
+                ->get()
+                ->result();
+        return $exec;
+    }
+
+    public function m_updateGeoloct($data) {
+        $tot_data = count($data);
+        $upd_succ = 0;
+        for ($index = 0; $index < $tot_data; $index++) {
+            $this->db->trans_begin();
+            $this->db->set([
+                        'mt_wil_kecamatan.latitude' => $data[$index]['latitude'],
+                        'mt_wil_kecamatan.longitude' => $data[$index]['longitude']
+                    ])
+                    ->where([
+                        '`mt_wil_kecamatan`.`id_kecamatan`' => $data[$index]['id_kecamatan'] + false,
+                        '`mt_wil_kecamatan`.`id_kabupaten`' => $data[$index]['id_kabupaten'] + false
+                    ])
+                    ->update('mt_wil_kecamatan');
+            if ($this->db->trans_status() === false) {
+                $this->db->trans_rollback();
+            } else {
+                $this->db->trans_commit();
+                $upd_succ += 1;
+            }
+        }
+        return $upd_succ;
+    }
+    
+    public function m_updateKab($data) {
+        $tot_data = count($data);
+        $upd_succ = 0;
+        for ($index = 0; $index < $tot_data; $index++) {
+            $this->db->trans_begin();
+            $this->db->set([
+                        'mt_wil_kabupaten.latitude' => $data[$index]['latitude'],
+                        'mt_wil_kabupaten.longitude' => $data[$index]['longitude']
+                    ])
+                    ->where([
+                        '`mt_wil_kabupaten`.`id_kabupaten`' => $data[$index]['id_kabupaten'] + false,
+                        '`mt_wil_kabupaten`.`id_provinsi`' => $data[$index]['id_provinsi'] + false
+                    ])
+                    ->update('mt_wil_kabupaten');
+            if ($this->db->trans_status() === false) {
+                $this->db->trans_rollback();
+            } else {
+                $this->db->trans_commit();
+                $upd_succ += 1;
+            }
+        }
+        return $upd_succ;
+    }
+    
+    public function m_updateKel($data) {
+        $tot_data = count($data);
+        $upd_succ = 0;
+        for ($index = 0; $index < $tot_data; $index++) {
+            $this->db->trans_begin();
+            $this->db->set([
+                        'mt_wil_kelurahan.latitude' => $data[$index]['latitude'],
+                        'mt_wil_kelurahan.longitude' => $data[$index]['longitude']
+                    ])
+                    ->where([
+                        '`mt_wil_kelurahan`.`id_kelurahan`' => $data[$index]['id_kelurahan'] + false,
+                        '`mt_wil_kelurahan`.`id_kecamatan`' => $data[$index]['id_kecamatan'] + false
+                    ])
+                    ->update('mt_wil_kelurahan');
+            if ($this->db->trans_status() === false) {
+                $this->db->trans_rollback();
+            } else {
+                $this->db->trans_commit();
+                $upd_succ += 1;
+            }
+        }
+        return $upd_succ;
+    }
+
 }

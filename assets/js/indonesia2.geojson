@@ -1,0 +1,481 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 11,
+        "Provinsi": "ACEH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            96.7284846828382,
+            4.73693066428111
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 12,
+        "Provinsi": "SUMATERA UTARA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            99.38122,
+            2.19235
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 13,
+        "Provinsi": "SUMATERA BARAT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            100.0761,
+            -1.34225
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 14,
+        "Provinsi": "RIAU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            101.54758,
+            0.50041
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 15,
+        "Provinsi": "JAMBI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            102.7797,
+            -1.61157
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 16,
+        "Provinsi": "SUMATERA SELATAN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            104.09306,
+            -3.12668
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 17,
+        "Provinsi": "BENGKULU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            102.53598,
+            -3.51868
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 18,
+        "Provinsi": "LAMPUNG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            105.0273,
+            -4.8555
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 19,
+        "Provinsi": "KEPULAUAN BANGKA BELITUNG"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            107.58394,
+            -2.75775
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 21,
+        "Provinsi": "KEPULAUAN RIAU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            104.58037,
+            -0.15478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 31,
+        "Provinsi": "DKI JAKARTA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            106.8411892310471,
+            -6.2140052270632715
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 32,
+        "Provinsi": "JAWA BARAT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            107.64047,
+            -6.88917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 33,
+        "Provinsi": "JAWA TENGAH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            110.00441,
+            -7.30324
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 34,
+        "Provinsi": "DAERAH ISTIMEWA YOGYAKARTA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            110.4119217758614,
+            -7.875590140032735
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 35,
+        "Provinsi": "JAWA TIMUR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            113.98005,
+            -6.96851
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 36,
+        "Provinsi": "BANTEN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            106.13756,
+            -6.44538
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 51,
+        "Provinsi": "BALI"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            115.12239,
+            -8.23566
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 52,
+        "Provinsi": "NUSA TENGGARA BARAT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            117.63696,
+            -8.12179
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 53,
+        "Provinsi": "NUSA TENGGARA TIMUR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            120.69786,
+            -8.56568
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 61,
+        "Provinsi": "KALIMANTAN BARAT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            111.09689,
+            -0.13224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 62,
+        "Provinsi": "KALIMANTAN TENGAH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            113.29033,
+            -1.49958
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 63,
+        "Provinsi": "KALIMANTAN SELATAN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            115.37565,
+            -2.94348
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 64,
+        "Provinsi": "KALIMANTAN TIMUR"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            116.242,
+            0.78844
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 65,
+        "Provinsi": "KALIMANTAN UTARA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            116.911,
+            2.72594
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 71,
+        "Provinsi": "SULAWESI UTARA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            124.09015,
+            0.65557
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 72,
+        "Provinsi": "SULAWESI TENGAH"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            120.80886,
+            -1.69378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 73,
+        "Provinsi": "SULAWESI SELATAN"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            119.94719,
+            -3.64467
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 74,
+        "Provinsi": "SULAWESI TENGGARA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            121.72796,
+            -3.54912
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 75,
+        "Provinsi": "GORONTALO"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            122.45559,
+            0.71862
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 76,
+        "Provinsi": "SULAWESI BARAT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            119.3919,
+            -2.49745
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 81,
+        "Provinsi": "MALUKU"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            129.42078,
+            -3.11884
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 82,
+        "Provinsi": "MALUKU UTARA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            127.97202,
+            0.63012
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 91,
+        "Provinsi": "PAPUA BARAT"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            132.90253,
+            -1.38424
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id_provinsi": 92,
+        "Provinsi": "PAPUA"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            138.34853,
+            -3.98857
+        ]
+      }
+    }
+  ]
+}
