@@ -123,7 +123,7 @@ $group_menu = $this->M_default->Group_menu();
                                 <div class="dropdown-menu p-0 m-0 dropdown-menu-right dropdown-menu-anim-up dropdown-menu-lg">
                                     <div class="quick-search quick-search-dropdown" id="kt_quick_search_dropdown">
                                         <form class="quick-search-form" action="<?php echo base_url('Applications/Dashboard/Search/'); ?>" method="post">
-                                            <input type="hidden" name="<?php echo $csrf['name'] ?>" value="<?php echo $csrf['hash'] ?>"/>
+                                            <input type="hidden" name="<?php echo $this->bodo->Csrf()['name']; ?>" value="<?php echo $this->bodo->Csrf()['hash']; ?>"/>
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text">
