@@ -108,7 +108,7 @@ $k = 0; //dt_remaja
             </table>
         </div>
     </div>
-    div class="card-footer">
+    <div class="card-footer">
         <div class="text-right">
             sumber data: <a href="https://simas.kemenag.go.id" target="new">simas</a>
         </div>
@@ -125,7 +125,7 @@ $k = 0; //dt_remaja
 <input type="hidden" name="dt_remaja" readonly="" value="<?php echo number_format($k); ?>"/>
 <script>
     window.onload = function () {
-        var a, b, c, d, e, f, g, h, i, j, k, l, m;
+        var a, b, c, d, e, f, g, h, i;
         a = $('input[name="dt_mushalla"]').val();
         b = $('input[name="dt_tanah"]').val();
         c = $('input[name="dt_bangunan"]').val();
@@ -175,37 +175,6 @@ $k = 0; //dt_remaja
                 return chart.colors.getIndex(target.dataItem.index);
             });
             chart.cursor = new am4charts.XYCursor();
-        });
-        am4core.ready(function () {
-            am4core.useTheme(am4themes_animated);
-            var chart = am4core.create("chartdiv_a", am4charts.PieChart3D);
-            chart.hiddenState.properties.opacity = 0;
-
-            chart.legend = new am4charts.Legend();
-
-            chart.data = [
-                {
-                    country: "Mushalla Perumahan",
-                    litres: j
-                },
-                {
-                    country: "Mushalla Publik",
-                    litres: k
-                },
-                {
-                    country: "Mushalla Perkantoran",
-                    litres: l
-                },
-                {
-                    country: "Mushalla Pendidikan",
-                    litres: m
-                }
-            ];
-
-            var series = chart.series.push(new am4charts.PieSeries3D());
-            series.dataFields.value = "litres";
-            series.dataFields.category = "country";
-
         });
         $('table').dataTable({
             "ServerSide": true,
