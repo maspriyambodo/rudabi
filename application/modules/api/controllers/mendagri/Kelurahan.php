@@ -16,6 +16,7 @@ class Kelurahan extends CI_Controller {
         $resultRecordCount = 1000;
         $curl = curl_init();
         curl_setopt_array($curl, [
+            // update 2025 https://gis.dukcapil.kemendagri.go.id/arcgis/rest/services/AGR_VISUAL_PROP_FIX/MapServer/1/query?f=json&resultOffset=0&resultRecordCount=50&where=1%3D1&orderByFields=&outFields=*&returnGeometry=false&spatialRel=esriSpatialRelIntersects
             CURLOPT_URL => "https://gis.dukcapil.kemendagri.go.id/arcgis/rest/services/Data_Baru_26092017/MapServer/3/query?f=json&where=1%3D1&returnGeometry=false&spatialRel=esriSpatialRelIntersects&outFields=*&orderByFields=giskemendagri.gisadmin.Desa_Spasial_22092017.kode201701%20ASC&resultOffset=" . $resultOffset . "&resultRecordCount=" . $resultRecordCount,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_ENCODING => '',
